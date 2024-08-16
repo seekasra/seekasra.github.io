@@ -6,7 +6,9 @@ title: 'An example conference paper'
 # and it will be replaced with their full name and linked to their profile.
 authors:
   - admin
-  - Robert Ford
+  - Tasos Dagiuklas
+  - Satwat Bashir
+  - Muddesar Iqbal
 
 # Author notes (optional)
 author_notes:
@@ -25,16 +27,16 @@ publishDate: '2017-01-01T00:00:00Z'
 publication_types: ['paper-conference']
 
 # Publication name and optional abbreviated publication name.
-publication: In *Hugo Blox Builder Conference*
-publication_short: In *ICW*
+publication: In *IET 6G and Future Networks Conference*
+publication_short: In *IET 6G 2024*
 
-abstract: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis posuere tellus ac convallis placerat. Proin tincidunt magna sed ex sollicitudin condimentum. Sed ac faucibus dolor, scelerisque sollicitudin nisi. Cras purus urna, suscipit quis sapien eu, pulvinar tempor diam. Quisque risus orci, mollis id ante sit amet, gravida egestas nisl. Sed ac tempus magna. Proin in dui enim. Donec condimentum, sem id dapibus fringilla, tellus enim condimentum arcu, nec volutpat est felis vel metus. Vestibulum sit amet erat at nulla eleifend gravida.
+abstract: This study investigates the application of advanced machine learning models, specifically Long Short-Term Memory (LSTM) networks and Gradient Booster models, for accurate energy consumption estimation within a Kubernetes cluster environment. It aims to enhance sustainable computing practices by providing precise predictions of energy usage across various computing nodes. Through meticulous analysis of model performance on both master and worker nodes, the research reveals the strengths and potential applications of these models in promoting energy efficiency. The LSTM model demonstrates remarkable predictive accuracy, particularly in capturing dynamic computing workloads over time, evidenced by low mean squared error (MSE) rates and the ability to closely track actual energy consumption trends. Conversely, the Gradient Booster model showcases robustness and adaptability across different computational environments, despite slightly higher MSE values. The study underscores the complementary nature of these models in advancing sustainable computing practices, suggesting their integration into energy management systems could significantly enhance environmental sustainability in technology operations.
 
 # Summary. An optional shortened abstract.
-summary: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis posuere tellus ac convallis placerat. Proin tincidunt magna sed ex sollicitudin condimentum.
+summary: This study evaluates LSTM networks and Gradient Booster models for predicting energy consumption in Kubernetes clusters. The LSTM model excels in accurately tracking dynamic workloads, while the Gradient Booster model offers robustness across diverse environments. Integrating these models into energy management optimisations systems could greatly enhance sustainability in edge-cloud environments.
 
 tags:
-  - Large Language Models
+  - Green AI
 
 # Display this page in the Featured widget?
 featured: true
