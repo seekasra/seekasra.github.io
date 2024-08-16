@@ -52,7 +52,7 @@ interests:
   - Edge Network Orchestration
 
 education:
-  - area: PhD in Computer Science
+  - area: PhD Computer Science
     institution: London South Bank University
     date_start: 2016-01-01
     date_end: 2020-12-31
@@ -61,7 +61,7 @@ education:
     button:
       text: 'Read Thesis'
       url: 'https://example.com'
-  - area: MSc in Software Engineering
+  - area: MSc Software Engineering
     institution: City, University of London
     date_start: 2016-01-01
     date_end: 2020-12-31
@@ -72,7 +72,7 @@ education:
       - lorem ipsum dolor sit amet, consectetur adipiscing elit
       - lorem ipsum dolor sit amet, consectetur adipiscing elit
       - lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - area: BSc Information Technology Engineering (Software Engineering)
+  - area: BSc IT (Software) Engineering
     institution: Azad University of Tehran 
     date_start: 2016-01-01
     date_end: 2020-12-31
@@ -183,4 +183,4 @@ awards:
 
 ## About Me
 
-Chien Shiung Wu is a professor of artificial intelligence at the Stanford AI Lab. Her research interests include distributed robotics, mobile computing and programmable matter. She leads the Robotic Neurobiology group, which develops self-reconfiguring robots, systems of self-organizing robots, and mobile sensor networks.
+I am an educator and researcher specialising in sustainable edge computing, with a particular focus on energy optimisation. In my role as Associate Head of Department and Lecturer in Digital Analytics, I actively contribute to the academic discourse on green computing and resource management, collaborating with the Smart Internet Technologies research group and the Cognitive Systems Research Centre. Additionally, I mentor students and emerging scholars in the field, supporting their development of innovative solutions in sustainable edge computing.
