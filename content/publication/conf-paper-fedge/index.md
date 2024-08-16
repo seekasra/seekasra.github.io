@@ -59,7 +59,7 @@ url_video: ''
 # Featured image
 # To use, add an image named `featured.jpg/png` to your page's folder.
 image:
-  caption: 'Image credit: [*Photo by Alessandro Oliverio*](https://www.pexels.com/photo/silver-and-green-circuit-board-1472443/)'
+  caption: 'Image credit: [*Photo by Google DeepMind*]( https://www.pexels.com/photo/digital-3d-model-of-a-mechanical-component-25630343/)'
   focal_point: ''
   preview_only: false
 
