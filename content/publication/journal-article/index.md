@@ -39,7 +39,7 @@ url_code: 'https://github.com/HugoBlox/hugo-blox-builder'
 url_dataset: ''
 url_poster: ''
 url_project: ''
-url_slides: ''
+url_slides: 'content/project/internal-project/index.md'
 url_source: 'https://www.jocm.us/show-233-1471-1.html'
 url_video: ''
 
