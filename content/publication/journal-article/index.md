@@ -39,14 +39,15 @@ url_code: 'https://github.com/HugoBlox/hugo-blox-builder'
 url_dataset: ''
 url_poster: ''
 url_project: ''
-url_slides: 'content/project/internal-project/index.md'
-url_source: 'https://www.jocm.us/show-233-1471-1.html'
+url_slides: ''
+url_source: 'https://openresearch.lsbu.ac.uk/item/866x7'
+url_publisher: 'https://www.jocm.us/show-233-1471-1.html'
 url_video: ''
 
 # Featured image
 # To use, add an image named `featured.jpg/png` to your page's folder. 
 image:
-  caption: 'Image credit: [**Unsplash**](https://unsplash.com/photos/a-cell-phone-tower-with-a-blue-sky-in-the-background-_-PY-2WQl10)'
+  caption: 'Image credit: [*Unsplash*](https://unsplash.com/photos/a-cell-phone-tower-with-a-blue-sky-in-the-background-_-PY-2WQl10)'
   focal_point: ""
   preview_only: false
 
