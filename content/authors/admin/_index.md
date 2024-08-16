@@ -52,8 +52,8 @@ interests:
   - Edge Network Orchestration
 
 education:
-  - area: PhD Artificial Intelligence
-    institution: Stanford University
+  - area: PhD in Computer Science
+    institution: London South Bank University
     date_start: 2016-01-01
     date_end: 2020-12-31
     summary: |
@@ -61,8 +61,8 @@ education:
     button:
       text: 'Read Thesis'
       url: 'https://example.com'
-  - area: MEng Artificial Intelligence
-    institution: Massachusetts Institute of Technology
+  - area: MSc in Software Engineering
+    institution: City, University of London
     date_start: 2016-01-01
     date_end: 2020-12-31
     summary: |
@@ -72,8 +72,8 @@ education:
       - lorem ipsum dolor sit amet, consectetur adipiscing elit
       - lorem ipsum dolor sit amet, consectetur adipiscing elit
       - lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - area: BSc Artificial Intelligence
-    institution: Massachusetts Institute of Technology
+  - area: BSc Information Technology Engineering (Software Engineering)
+    institution: Azad University of Tehran 
     date_start: 2016-01-01
     date_end: 2020-12-31
     summary: |
@@ -84,8 +84,8 @@ education:
       - lorem ipsum dolor sit amet, consectetur adipiscing elit
       - lorem ipsum dolor sit amet, consectetur adipiscing elit
 work:
-  - position: Director of Cloud Infrastructure
-    company_name: GenCoin
+  - position: Associate Head of Department
+    company_name: London South Bank University
     company_url: ''
     company_logo: ''
     date_start: 2021-01-01
