@@ -32,14 +32,10 @@ sections:
           parallax: false
   - block: markdown
     content:
-      title: '📚 My Research'
+      title: '📚 My Research Impact'
       subtitle: ''
       text: |-
-        Use this area to speak to your mission. I'm a research scientist in the Moonshot team at DeepMind. I blog about machine learning, deep learning, and moonshots.
-
-        I apply a range of qualitative and quantitative methods to comprehensively investigate the role of science and technology in the economy.
-        
-        Please reach out to collaborate 😃
+        I’m focused on sustainable edge computing and green technologies 🌍. My work bridges the gap between research and real-world applications in data-driven network orchestration and resource management 🌐. I'm exploring the commercialization of my energy estimation methods to reduce the carbon footprint in computing 🌱. Reach out if you'd like to collaborate! 🚀
     design:
       columns: '1'
   - block: collection
