@@ -32,7 +32,7 @@ sections:
           parallax: false
   - block: markdown
     content:
-      title: '📚 My Research Impact'
+      title: '📚 Sustainable Computing Research Impact'
       subtitle: ''
       text: |-
         I’m focused on sustainable edge computing and green technologies 🌍. My work bridges the gap between research and real-world applications in data-driven network orchestration and resource management 🌐. I'm exploring the commercialization of my energy estimation methods to reduce the carbon footprint in computing 🌱. Reach out if you'd like to collaborate! 🚀
