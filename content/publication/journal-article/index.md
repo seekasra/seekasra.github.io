@@ -19,7 +19,7 @@ publishDate: "2019-12-14T00:00:00Z"
 publication_types: ["article-journal"]
 
 # Publication name and optional abbreviated publication name.
-publication: "*Journal of Source Themes, 1*(1)"
+publication: "*Journal of Communications*"
 publication_short: "J. Commun. "
 
 abstract: Service orchestration is an essential activity in 5G networks. It performs optimal resource allocation and provisions services in an effective sequence based on demands across a collection of physical or virtual network functions (P/VNF). This paper summarizes several orchestration environments and components along with their evolution towards 5G. A brief operational comparison of platforms such as Open Source Management and Orchestration (OSM MANO), Open Platform for NFV (OPNFV) and Open Network Automation Platform (ONAP) have been presented, along with different deployment models and architectural alternatives.
@@ -46,7 +46,7 @@ url_video: ''
 # Featured image
 # To use, add an image named `featured.jpg/png` to your page's folder. 
 image:
-  caption: 'Image credit: [**Unsplash**](https://unsplash.com/photos/jdD8gXaTZsc)'
+  caption: 'Image credit: [**Unsplash**](https://unsplash.com/photos/a-cell-phone-tower-with-a-blue-sky-in-the-background-_-PY-2WQl10)'
   focal_point: ""
   preview_only: false
 
