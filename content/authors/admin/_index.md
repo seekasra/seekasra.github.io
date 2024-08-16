@@ -47,9 +47,9 @@ profiles:
     url: https://orcid.org/0000-0003-2869-9469
 
 interests:
-  - Artificial Intelligence
-  - Computational Linguistics
-  - Information Retrieval
+  - Green Artificial Intelligence
+  - Sustainable Computer Networks
+  - Edge Network Orchestration
 
 education:
   - area: PhD Artificial Intelligence
