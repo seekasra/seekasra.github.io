@@ -8,7 +8,7 @@ author_notes:
 - "Equal contribution"
 - "Equal contribution"
 date: "2019-12-14T00:00:00Z"
-doi: "Doi: 10.12720/jcm.14.12.1134-1140"
+doi: "10.12720/jcm.14.12.1134-1140"
 
 # Schedule page publish date (NOT publication's date).
 publishDate: "2019-12-14T00:00:00Z"
@@ -35,7 +35,7 @@ featured: false
 # - name: ""
 #   url: ""
 url_pdf: https://openresearch.lsbu.ac.uk/download/b79937eb382f37bf9e815258c3563fa1380cab999b9fe25e8b29605878ae8e62/458843/IE0015_pdf.pdf
-url_code: 'https://github.com/HugoBlox/hugo-blox-builder'
+url_code: ''
 url_dataset: ''
 url_poster: ''
 url_project: ''
