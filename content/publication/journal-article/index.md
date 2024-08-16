@@ -1,16 +1,17 @@
 ---
-title: "An example journal article"
+title: "Evolution of Orchestration towards 5G"
 authors:
 - admin
-- Robert Ford
+- Saptarshi Gosh
+- Tasos Dagiuklas
 author_notes:
 - "Equal contribution"
 - "Equal contribution"
-date: "2015-09-01T00:00:00Z"
-doi: ""
+date: "2019-12-14T00:00:00Z"
+doi: "Doi: 10.12720/jcm.14.12.1134-1140"
 
 # Schedule page publish date (NOT publication's date).
-publishDate: "2017-01-01T00:00:00Z"
+publishDate: "2019-12-14T00:00:00Z"
 
 # Publication type.
 # Accepts a single type but formatted as a YAML list (for Hugo requirements).
@@ -19,12 +20,12 @@ publication_types: ["article-journal"]
 
 # Publication name and optional abbreviated publication name.
 publication: "*Journal of Source Themes, 1*(1)"
-publication_short: ""
+publication_short: "J. Commun. "
 
-abstract: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis posuere tellus ac convallis placerat. Proin tincidunt magna sed ex sollicitudin condimentum. Sed ac faucibus dolor, scelerisque sollicitudin nisi. Cras purus urna, suscipit quis sapien eu, pulvinar tempor diam. Quisque risus orci, mollis id ante sit amet, gravida egestas nisl. Sed ac tempus magna. Proin in dui enim. Donec condimentum, sem id dapibus fringilla, tellus enim condimentum arcu, nec volutpat est felis vel metus. Vestibulum sit amet erat at nulla eleifend gravida.
+abstract: Service orchestration is an essential activity in 5G networks. It performs optimal resource allocation and provisions services in an effective sequence based on demands across a collection of physical or virtual network functions (P/VNF). This paper summarizes several orchestration environments and components along with their evolution towards 5G. A brief operational comparison of platforms such as Open Source Management and Orchestration (OSM MANO), Open Platform for NFV (OPNFV) and Open Network Automation Platform (ONAP) have been presented, along with different deployment models and architectural alternatives.
 
 # Summary. An optional shortened abstract.
-summary: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis posuere tellus ac convallis placerat. Proin tincidunt magna sed ex sollicitudin condimentum.
+summary: Service orchestration in 5G optimizes resource allocation and service delivery across network functions. This paper reviews the evolution of orchestration environments, comparing platforms like OSM MANO, OPNFV, and ONAP, along with different deployment models.
 
 tags:
 - Source Themes
@@ -33,13 +34,13 @@ featured: false
 # links:
 # - name: ""
 #   url: ""
-url_pdf: http://arxiv.org/pdf/1512.04133v1
+url_pdf: https://openresearch.lsbu.ac.uk/download/b79937eb382f37bf9e815258c3563fa1380cab999b9fe25e8b29605878ae8e62/458843/IE0015_pdf.pdf
 url_code: 'https://github.com/HugoBlox/hugo-blox-builder'
 url_dataset: ''
 url_poster: ''
 url_project: ''
 url_slides: ''
-url_source: ''
+url_source: 'https://www.jocm.us/show-233-1471-1.html'
 url_video: ''
 
 # Featured image
