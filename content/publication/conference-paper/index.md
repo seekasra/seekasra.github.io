@@ -16,7 +16,7 @@ author_notes:
   - 'Equal contribution'
 
 date: '2024-05-01T00:00:00Z'
-doi: ''
+doi: '10.1049/icp.2024.2237'
 
 # Schedule page publish date (NOT publication's date).
 publishDate: '2024-06-01T00:00:00Z'
@@ -27,8 +27,8 @@ publishDate: '2024-06-01T00:00:00Z'
 publication_types: ['paper-conference']
 
 # Publication name and optional abbreviated publication name.
-publication: In *IET 6G and Future Networks Conference*
-publication_short: In *IET 6G 2024*
+publication: '*IET 6G and Future Networks Conference*'
+publication_short: '*IET 6G 2024*'
 
 abstract: This study investigates the application of advanced machine learning models, specifically Long Short-Term Memory (LSTM) networks and Gradient Booster models, for accurate energy consumption estimation within a Kubernetes cluster environment. It aims to enhance sustainable computing practices by providing precise predictions of energy usage across various computing nodes. Through meticulous analysis of model performance on both master and worker nodes, the research reveals the strengths and potential applications of these models in promoting energy efficiency. The LSTM model demonstrates remarkable predictive accuracy, particularly in capturing dynamic computing workloads over time, evidenced by low mean squared error (MSE) rates and the ability to closely track actual energy consumption trends. Conversely, the Gradient Booster model showcases robustness and adaptability across different computational environments, despite slightly higher MSE values. The study underscores the complementary nature of these models in advancing sustainable computing practices, suggesting their integration into energy management systems could significantly enhance environmental sustainability in technology operations.
 
