@@ -1,13 +1,13 @@
 ---
-title: 'GreenBytes: intelligent energy estimation for edge-cloud'
+title: 'Architectural blueprint for heterogeneity-resilient federated learning'
 
 # Authors
 # If you created a profile for a user (e.g. the default `admin` user), write the username (folder name) here
 # and it will be replaced with their full name and linked to their profile.
 authors:
-  - admin
-  - Tasos Dagiuklas
   - Satwat Bashir
+  - Tasos Dagiuklas
+  - admin
   - Muddesar Iqbal
 
 # Author notes (optional)
@@ -15,11 +15,11 @@ author_notes:
   - 'Equal contribution'
   - 'Equal contribution'
 
-date: '2024-05-01T00:00:00Z'
-doi: '10.1049/icp.2024.2237'
+date: '2024-04-01T00:00:00Z'
+doi: '10.1049/icp.2024.2236'
 
 # Schedule page publish date (NOT publication's date).
-publishDate: '2024-06-01T00:00:00Z'
+publishDate: '2024-05-01T00:00:00Z'
 
 # Publication type.
 # Accepts a single type but formatted as a YAML list (for Hugo requirements).
@@ -30,13 +30,13 @@ publication_types: ['paper-conference']
 publication: '*IET 6G and Future Networks Conference*'
 publication_short: '*IET 6G 2024*'
 
-abstract: This study investigates the application of advanced machine learning models, specifically Long Short-Term Memory (LSTM) networks and Gradient Booster models, for accurate energy consumption estimation within a Kubernetes cluster environment. It aims to enhance sustainable computing practices by providing precise predictions of energy usage across various computing nodes. Through meticulous analysis of model performance on both master and worker nodes, the research reveals the strengths and potential applications of these models in promoting energy efficiency. The LSTM model demonstrates remarkable predictive accuracy, particularly in capturing dynamic computing workloads over time, evidenced by low mean squared error (MSE) rates and the ability to closely track actual energy consumption trends. Conversely, the Gradient Booster model showcases robustness and adaptability across different computational environments, despite slightly higher MSE values. The study underscores the complementary nature of these models in advancing sustainable computing practices, suggesting their integration into energy management systems could significantly enhance environmental sustainability in technology operations.
+abstract: This paper proposes a novel three-tier architecture for federated learning to optimize edge computing environments. The proposed architecture addresses the challenges associated with client data heterogeneity and computational constraints. It introduces a scalable, privacy-preserving framework that enhances the efficiency of distributed machine learning. Through experimentation, the paper demonstrates the architecture’s capability to manage non-IID data sets more effectively than traditional federated learning models. Additionally, the paper highlights the potential of this innovative approach to significantly improve model accuracy, reduce communication overhead, and facilitate broader adoption of federated learning technologies.
 
 # Summary. An optional shortened abstract.
-summary: This study evaluates LSTM networks and Gradient Booster models for predicting energy consumption in Kubernetes clusters. The LSTM model excels in accurately tracking dynamic workloads, while the Gradient Booster model offers robustness across diverse environments. Integrating these models into energy management optimisations systems could greatly enhance sustainability in edge-cloud environments.
+summary: This paper proposes a novel three-tier federated learning architecture that optimizes edge computing by addressing data heterogeneity and computational constraints, improving model accuracy, reducing communication overhead, and enhancing adoption of federated learning.
 
 tags:
-  - Green AI
+  - Federated Learning
 
 # Display this page in the Featured widget?
 featured: true
