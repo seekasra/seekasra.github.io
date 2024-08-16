@@ -35,14 +35,14 @@ profiles:
     label: E-mail Me
   - icon: brands/x
     url: https://x.com/kasrakassai
-  - icon: brands/instagram
-    url: https://www.instagram.com/
+  - icon: hero/building-library
+    url: https://peoplefinder.lsbu.ac.uk/researcher/83wyy
   - icon: brands/github
     url: https://github.com/seekasra
   - icon: brands/linkedin
-    url: https://www.linkedin.com/kasrakassai
+    url: https://www.linkedin.com/in/kasrakassai
   - icon: academicons/google-scholar
-    url: https://scholar.google.com/kasrakassai
+    url: https://scholar.google.com/citations?user=zABNP3sAAAAJ&hl=en&oi=ao
   - icon: academicons/orcid
     url: https://orcid.org/0000-0003-2869-9469
 
