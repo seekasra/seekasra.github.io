@@ -69,9 +69,9 @@ education:
       GPA: 3.8/4.0
 
       Courses included:
-      - lorem ipsum dolor sit amet, consectetur adipiscing elit
-      - lorem ipsum dolor sit amet, consectetur adipiscing elit
-      - lorem ipsum dolor sit amet, consectetur adipiscing elit
+      - Software System Design
+      - Parallel Programming
+      - Advance programming
   - area: BSc IT (Software) Engineering
     institution: Azad University of Tehran 
     date_start: 2016-01-01
@@ -80,9 +80,9 @@ education:
       GPA: 3.4/4.0
       
       Courses included:
-      - lorem ipsum dolor sit amet, consectetur adipiscing elit
-      - lorem ipsum dolor sit amet, consectetur adipiscing elit
-      - lorem ipsum dolor sit amet, consectetur adipiscing elit
+      - Operating Systems
+      - Algorithm Design
+      - Data Structures
 work:
   - position: Associate Head of Department
     company_name: London South Bank University
@@ -92,9 +92,9 @@ work:
     date_end: ''
     summary: |2-
       Responsibilities include:
-      - lorem ipsum dolor sit amet, consectetur adipiscing elit
-      - lorem ipsum dolor sit amet, consectetur adipiscing elit
-      - lorem ipsum dolor sit amet, consectetur adipiscing elit
+      - Provide academic leadership and direction for the department/school ensuring the department/school maintains the highest possible standards in research and teaching
+      - Translate strategic goals into operational plans and establish and lead a management team to implement these operational plans
+      - Work with all colleagues in the department/school to ensure all academic staff are well managed and motivated and have opportunities for career development
   - position: Backend Software Engineer
     company_name: X
     company_url: ''
@@ -103,10 +103,10 @@ work:
     date_end: 2020-12-31
     summary: |
       Responsibilities include:
-      - Migrated infrastructure to a new data center
-      - lorem ipsum dolor sit amet, consectetur adipiscing elit
-      - lorem ipsum dolor sit amet, consectetur adipiscing elit
-
+      - Develop automated test scripts with Selenium WebDriver using Python.
+      - Create and maintain testing procedures to assess software performance and functionality.
+      - Build and manage automated testing frameworks for efficient test execution. 
+      - Test mobile applications across platforms using Appium.
 # Skills
 # Add your own SVG icons to `assets/media/icons/`
 skills:
