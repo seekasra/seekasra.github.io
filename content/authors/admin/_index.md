@@ -59,9 +59,10 @@ education:
     summary: |
       Thesis on _PRECISE: Piece-wise Resource-Efficient Computing for Intelligent Sustainable Edge_. Supervised by Professor Tasos Dagiuklas. Presented papers at 5 conferences with the contributions being published in Journal of Communication.
     button:
-      text: 'Read Thesis (under embargo - check later)'
+      text: 'Read Thesis (under embargo)'
       url: 'https://example.com'
   - area: MSc Software Engineering
+    company_url: city.ac.uk
     institution: City, University of London
     date_start: 2016-01-01
     date_end: 2020-12-31
