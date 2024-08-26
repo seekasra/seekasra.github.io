@@ -54,8 +54,8 @@ interests:
 education:
   - area: PhD Computer Science
     institution: London South Bank University
-    date_start: 2024-10-01
-    date_end: 2019-10-15
+    date_start: 2016-01-01
+    date_end: 2020-12-31
     summary: |
       Thesis on _PRECISE: Piece-wise Resource-Efficient Computing for Intelligent Sustainable Edge_. Supervised by Professor Tasos Dagiuklas. Presented papers at 5 conferences with the contributions being published in Journal of Communication.
     button:
@@ -63,8 +63,8 @@ education:
       url: 'https://example.com'
   - area: MSc Software Engineering
     institution: City, University of London
-    date_start: 2018-03-01
-    date_end: 2016-09-31
+    date_start: 2016-01-01
+    date_end: 2020-12-31
     summary: |
       Thesis on _End-to-end workload scheduing for Map-Reduce like jobs_. Supervised by Professor George Spanoudakis and Dr Evangelia Kalyvianaki.
     button:
@@ -93,8 +93,8 @@ work:
     company_name: SuperCarers Ltd
     company_url: 'https://supercarers.co.uk'
     company_logo: ''
-    date_start: 2018-01-01
-    date_end: 2019-10-31
+    date_start: 2016-01-01
+    date_end: 2020-12-31
     summary: |
       Responsibilities include:
       - Develop automated test scripts with Selenium WebDriver using Python.
