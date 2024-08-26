@@ -96,7 +96,7 @@ work:
       - Translate strategic goals into operational plans and establish and lead a management team to implement these operational plans
       - Work with all colleagues in the department/school to ensure all academic staff are well managed and motivated and have opportunities for career development
   - position: Backend Software Engineer
-    company_name: X
+    company_name: SuperCarers Ltd
     company_url: ''
     company_logo: ''
     date_start: 2016-01-01
