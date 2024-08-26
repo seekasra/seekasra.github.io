@@ -1,12 +1,12 @@
 ---
 title: IET 6G and event Talk
 
-event: IET 6G and event Talk
+event:  IET’s 6G and Future Networks
 event_url: https://why6g.theiet.org/speakers
 
 location: London
 address:
-  street: 2 Savoy Pl,  
+  street: 2 Savoy Pl  
   city: London
   region: London
   postcode: 'WC2R 0BL'
@@ -17,12 +17,12 @@ abstract: 'The talk focuses on the application of advanced machine learning mode
 
 # Talk start and end times.
 #   End time can optionally be hidden by prefixing the line with `#`.
-date: '2024-03-01T13:00:00Z'
-date_end: '2024-03-02T15:00:00Z'
+date: '2024-06-24T13:00:00Z'
+date_end: '2024-06-25T15:00:00Z'
 all_day: false
 
 # Schedule page publish date (NOT talk date).
-publishDate: '2024-05-01T00:00:00Z'
+publishDate: '2024-07-02T00:00:00Z'
 
 authors:
   - admin
@@ -40,11 +40,11 @@ image:
 #  - icon: twitter
 #    icon_pack: fab
 #    name: Follow
-#    url: https://twitter.com/georgecushen
+#    url: https://twitter.com/kasrakassai
 url_code: 'https://github.com'
 url_pdf: ''
 url_slides: 'https://slideshare.net'
-url_video: 'https://youtube.com'
+url_video: 'https://www.youtube.com/@theiet'
 
 # Markdown Slides (optional).
 #   Associate this talk with Markdown slides.
