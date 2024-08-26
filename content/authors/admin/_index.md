@@ -51,7 +51,7 @@ education:
   - area: PhD Computer Science
     institution: London South Bank University
     date_start: 2016-01-01
-    date_end: 2020-12-31
+    date_end: 2023-12-31
     summary: |
       Thesis on _PRECISE: Piece-wise Resource-Efficient Computing for Intelligent Sustainable Edge_. Supervised by Professor Tasos Dagiuklas. Presented papers at 5 conferences with the contributions being published in Journal of Communication.
     button:
