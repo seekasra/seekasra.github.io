@@ -1,28 +1,28 @@
 ---
-title: Example Talk
+title: IET 6G and event Talk
 
-event: Hugo Blox Builder Conference
-event_url: https://example.org
+event: IET 6G and event Talk
+event_url: https://why6g.theiet.org/speakers
 
-location: Hugo Blox Builder HQ
+location: London
 address:
-  street: 450 Serra Mall
-  city: Stanford
-  region: CA
-  postcode: '94305'
-  country: United States
+  street: 2 Savoy Pl,  
+  city: London
+  region: London
+  postcode: 'WC2R 0BL'
+  country: United Kingdom
 
-summary: An example talk using Hugo Blox Builder's Markdown slides feature.
-abstract: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis posuere tellusac convallis placerat. Proin tincidunt magna sed ex sollicitudin condimentum. Sed ac faucibus dolor, scelerisque sollicitudin nisi. Cras purus urna, suscipit quis sapien eu, pulvinar tempor diam.'
+summary: The talk explores using LSTM and Gradient Booster models to enhance energy efficiency in Kubernetes clusters, highlighting their potential for improving sustainable computing practices.
+abstract: 'The talk focuses on the application of advanced machine learning models, specifically Long Short-Term Memory (LSTM) networks and Gradient Booster models, to estimate energy consumption accurately within Kubernetes cluster environments. The research aims to promote sustainable computing by providing precise predictions of energy usage across different computing nodes.'
 
 # Talk start and end times.
 #   End time can optionally be hidden by prefixing the line with `#`.
-date: '2030-06-01T13:00:00Z'
-date_end: '2030-06-01T15:00:00Z'
+date: '2024-03-01T13:00:00Z'
+date_end: '2024-03-02T15:00:00Z'
 all_day: false
 
 # Schedule page publish date (NOT talk date).
-publishDate: '2017-01-01T00:00:00Z'
+publishDate: '2024-05-01T00:00:00Z'
 
 authors:
   - admin
@@ -33,7 +33,7 @@ tags: []
 featured: false
 
 image:
-  caption: 'Image credit: [**Unsplash**](https://unsplash.com/photos/bzdhc5b3Bxs)'
+  caption: ''
   focal_point: Right
 
 #links:
@@ -61,15 +61,3 @@ slides: ""
 projects:
   - example
 ---
-
-{{% callout note %}}
-Click on the **Slides** button above to view the built-in slides feature.
-{{% /callout %}}
-
-Slides can be added in a few ways:
-
-- **Create** slides using Hugo Blox Builder's [_Slides_](https://docs.hugoblox.com/reference/content-types/) feature and link using `slides` parameter in the front matter of the talk file
-- **Upload** an existing slide deck to `static/` and link using `url_slides` parameter in the front matter of the talk file
-- **Embed** your slides (e.g. Google Slides) or presentation video on this page using [shortcodes](https://docs.hugoblox.com/reference/markdown/).
-
-Further event details, including [page elements](https://docs.hugoblox.com/reference/markdown/) such as image galleries, can be added to the body of this page.
