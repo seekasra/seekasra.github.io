@@ -57,9 +57,9 @@ education:
     date_start: 2016-01-01
     date_end: 2020-12-31
     summary: |
-      Thesis on _Why LLMs are awesome_. Supervised by [Prof Joe Smith](https://example.com). Presented papers at 5 IEEE conferences with the contributions being published in 2 Springer journals.
+      Thesis on _PRECISE: Piece-wise Resource-Efficient Computing for Intelligent Sustainable Edge_. Supervised by [Prof Tasos Dagiuklas](https://peoplefinder.lsbu.ac.uk/researcher/80580/professor-anastasios-dagiuklas). Presented papers at 5 conferences with the contributions being published in Journal of Communication.
     button:
-      text: 'Read Thesis'
+      text: 'Read Thesis (under embargo - check later)'
       url: 'https://example.com'
   - area: MSc Software Engineering
     institution: City, University of London
