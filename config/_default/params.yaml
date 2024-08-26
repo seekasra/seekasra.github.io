@@ -40,7 +40,7 @@ header:
 # Site footer
 footer:
   copyright:
-    notice: '© {year} Kasra Kassai. This website is licensed under {license}'
+    notice: '© {year} Kasra Kassai.'
     license:
       enable: true
       allow_derivatives: false
