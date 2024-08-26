@@ -2,8 +2,6 @@
 # Display name
 title: Kasra Kassai
 
-# Name pronunciation (optional)
-name_pronunciation: ''
 
 # Full name (for SEO)
 first_name: Kasra
