@@ -95,6 +95,7 @@ work:
       - Create and maintain testing procedures to assess software performance and functionality.
       - Build and manage automated testing frameworks for efficient test execution. 
       - Test mobile applications across platforms using Appium.
+
 # Skills
 # Add your own SVG icons to `assets/media/icons/`
 skills:
