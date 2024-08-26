@@ -75,16 +75,8 @@ education:
       - Software System Design
       - Parallel Programming
       - Advance programming
-  - area: BSc IT (Software) Engineering
-    institution: Azad University of Tehran 
-    date_start: 2016-01-01
-    date_end: 2020-12-31
-    summary: |
-      
-      Courses included:
-      - Operating Systems
-      - Algorithm Design
-      - Data Structures
+
+
 work:
   - position: Associate Head of Department
     company_name: London South Bank University
