@@ -183,4 +183,4 @@ awards:
 
 ## About Me
 
-I am an educator and researcher specialising in sustainable edge computing, with a particular focus on energy optimisation. In my role as Associate Head of Department and Lecturer in Digital Analytics, I actively contribute to the academic discourse on green computing and resource management, collaborating with the Smart Internet Technologies research group and the Cognitive Systems Research Centre. Additionally, I mentor students and emerging scholars in the field, supporting their development of innovative solutions in sustainable edge computing.
+I am an academic and researcher specialising in sustainable edge computing, with a particular focus on energy optimisation. In my role as Associate Head of Department and Lecturer in Digital Analytics, I actively contribute to the academic discourse on green computing and resource management, collaborating with the Smart Internet Technologies research group and the Cognitive Systems Research Centre. Additionally, I mentor students and emerging scholars in the field, supporting their development of innovative solutions in sustainable edge computing.
