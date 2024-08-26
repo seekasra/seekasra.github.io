@@ -67,7 +67,6 @@ education:
     date_end: 2020-12-31
     summary: |
       Thesis on _End-to-end workload scheduing for Map-Reduce like jobs_. Supervised by Professor George Spanoudakis and Dr Evangelia Kalyvianaki.
-      GPA: 3.8/4.0
     button:
       text: 'Read Thesis'
       url: 'https://example.com'
@@ -81,7 +80,6 @@ education:
     date_start: 2016-01-01
     date_end: 2020-12-31
     summary: |
-      GPA: 3.4/4.0
       
       Courses included:
       - Operating Systems
@@ -90,7 +88,7 @@ education:
 work:
   - position: Associate Head of Department
     company_name: London South Bank University
-    company_url: ''
+    company_url: 'https://lsbu.ac.uk'
     company_logo: ''
     date_start: 2021-01-01
     date_end: ''
@@ -100,8 +98,8 @@ work:
       - Translate strategic goals into operational plans and establish and lead a management team to implement these operational plans
       - Work with all colleagues in the department/school to ensure all academic staff are well managed and motivated and have opportunities for career development
   - position: Backend Software Engineer
-    company_name: X
-    company_url: ''
+    company_name: SuperCarers Ltd
+    company_url: 'https://supercarers.co.uk'
     company_logo: ''
     date_start: 2016-01-01
     date_end: 2020-12-31
@@ -145,13 +143,6 @@ skills:
         percent: 80
         icon: camera
 
-languages:
-  - name: English
-    percent: 100
-  - name: Chinese
-    percent: 75
-  - name: Portuguese
-    percent: 25
 
 # Awards.
 #   Add/remove as many awards below as you like.
