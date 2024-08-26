@@ -87,8 +87,8 @@ work:
     company_name: SuperCarers Ltd
     company_url: 'https://supercarers.co.uk'
     company_logo: ''
-    date_start: 2016-01-01
-    date_end: 2020-12-31
+    date_start: 2017-01-01
+    date_end: 2018-12-31
     summary: |
       Responsibilities include:
       - Develop automated test scripts with Selenium WebDriver using Python.
