@@ -66,7 +66,7 @@ education:
     date_start: 2016-01-01
     date_end: 2020-12-31
     summary: |
-      Thesis on _End-to-end workload scheduing for Map-Reduce like jobs_. Supervised by [Professor George Spanoudakis]() and [Dr Evangelia Kalyvianaki](https://www.cst.cam.ac.uk/people/ek264).
+      Thesis on _End-to-end workload scheduing for Map-Reduce like jobs_. Supervised by [Professor George Spanoudakis](https://www.city.ac.uk/about/people/academics/george-spanoudakis) and [Dr Evangelia Kalyvianaki](https://www.cst.cam.ac.uk/people/ek264).
       GPA: 3.8/4.0
       button:
       text: 'Read Thesis'
