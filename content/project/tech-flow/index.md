@@ -1,5 +1,5 @@
 ---
-title: tech-flow
+title: Tech-Flow
 date: 2024-08-27
 external_link: https://ec.europa.eu/info/funding-tenders/opportunities/portal/screen/opportunities/topic-details/horizon-eie-2024-connect-02-01
 tags:
