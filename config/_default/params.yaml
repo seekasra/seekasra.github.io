@@ -12,9 +12,8 @@ appearance:
 marketing:
   seo:
     site_type: Person
-    local_business_type: ''
-    org_name: ''
-    description: 'Personal academic website.'
+    org_name: 'LSBU'
+    description: 'Personal Academic Website.'
     twitter: 'kasrakassai'
   analytics:
     google_analytics: ''
