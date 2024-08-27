@@ -3,7 +3,7 @@ title: CiProVoT
 date: 2019-10-26
 external_link: https://ciprovot-project.eu
 tags:
-  - MOOC
+  - EU-Erasmus+
   - CiProVoT
   - EU
 ---
