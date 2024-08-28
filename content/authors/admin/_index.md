@@ -139,10 +139,9 @@ awards:
   - title: Honored to be "Best Personal Tutor" nominee and "Highly Commended" at LSBU Awards 2023 & 2024!
     url: 
     date: '2023-06-09'
-    awarder: LSBU
-    icon: https://pbs.twimg.com/media/FyLTlpIWYAEWIUo?format=jpg&name=medium
-    image: https://pbs.twimg.com/media/FyLTlpIWYAEWIUo?format=jpg&name=medium
+    awarder: LSB
     summary: |
+        ![award](https://pbs.twimg.com/media/FyLTlpIWYAEWIUo?format=jpg&name=medium)
       🏆 I am thrilled & honoured to announce that I have been nominated as the "Best Personal Tutor of the Year" & recognized as "Highly Commended" in the prestigious LSBU Education Awards 2023! Grateful for this recognition.
   - title: Blockchain Fundamentals
     url: https://www.edx.org/professional-certificate/uc-berkeleyx-blockchain-fundamentals
