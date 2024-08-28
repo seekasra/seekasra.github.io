@@ -141,7 +141,7 @@ awards:
     date: '2023-06-09'
     awarder: LSB
     summary: |
-        <img src="https://pbs.twimg.com/media/FyLTlpIWYAEWIUo?format=jpg&name=medium" alt="Sample Image" width="300" height="200"> h)
+        <img src="https://pbs.twimg.com/media/FyLTlpIWYAEWIUo?format=jpg&name=medium" alt="Sample Image" width="300" height="200">
       🏆 I am thrilled & honoured to announce that I have been nominated as the "Best Personal Tutor of the Year" & recognized as "Highly Commended" in the prestigious LSBU Education Awards 2023! Grateful for this recognition.
   - title: Blockchain Fundamentals
     url: https://www.edx.org/professional-certificate/uc-berkeleyx-blockchain-fundamentals
