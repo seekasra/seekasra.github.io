@@ -9,14 +9,14 @@ en:
   #contentDir: content/en
 
 # Uncomment the lines below to configure your website in a second language.
-fa:
-  languageCode: fa
-  contentDir: content/fa
-  title: سایت کسری کسایی...
-  params:
-    description: به درگاه اینترنتی کسری کسایی خوش آمدید!
-  menu:
-    main:
-      - name: خانه
-        url: '#about'
-        weight: 1
+#fa:
+#  languageCode: fa
+#  contentDir: content/fa
+#  title: سایت کسری کسایی...
+#  params:
+#    description: به درگاه اینترنتی کسری کسایی خوش آمدید!
+#  menu:
+#    main:
+#      - name: خانه
+#        url: '#about'
+#        weight: 1
