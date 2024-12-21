@@ -53,9 +53,7 @@ params:
     profileMode:
           enabled: true
           title: Dr. Kasra Kassai
-          subtitle: "```markdown
-I am an **Associate Head of Department and Lecturer in Digital Analytics** at [London South Bank University (LSBU)](https://www.lsbu.ac.uk/), UK. My research focuses on **machine learning**, **edge computing**, and **sustainable computing practices**. I completed a **BSc (Hons) in Computer Science** and an **MSc in Software Engineering** at [City, University of London](https://www.city.ac.uk/). My doctoral studies in **Computer Science**, under the supervision of Professor Tasos Dagiuklas, were also undertaken at [LSBU](https://www.lsbu.ac.uk/).
-```"
+          subtitle: "I am a Lecturer in Digital Analytics at London South Bank University. My research focuses on machine learning, edge computing, and sustainable computing practices. I completed a BSc (Hons) in Computer Science and an MSc in Software Engineering at City, University of London. My doctoral studies in Computer Science, under the supervision of Professor Tasos Dagiuklas, were also undertaken at LSBU."
           imageUrl: "picture.jpeg"
           imageWidth: 160
           imageHeight: 160
