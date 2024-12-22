@@ -74,11 +74,11 @@ params:
               url: https://en.wikipedia.org/wiki/Moritz-Maria_von_Igelfeld_(character)
 
     socialIcons:
-        - name: CV
-          url: cv.pdf
+        - name: Website
+          url: https://researchportal.lsbu.ac.uk/en/persons/kasra-kassai
         - name: Email
           url: mailto:kasra.kassai@lsbu.ac.uk
-        - name: Microsoft
+        - name: Phone
           url: https://outlook.office.com/bookwithme/user/c394f8da16644397b41d867b3f251d31@lsbu.ac.uk?anonymous&ep=plink
         - name: Location
           url: location/
@@ -88,11 +88,9 @@ params:
           url: https://scholar.google.com/citations?user=zABNP3sAAAAJ&hl=en
         - name: GitHub
           url: https://github.com/seekasra
-        - name: Pure
-          url: https://pmichaillat.substack.com
-        - name: Website
-          url: https://www.youtube.com/@alexandermccallsmithoffici9000
-        - name: Twitter
+        - name: LinkedIn
+          url: https://www.linkedin.com/in/kasrakassai/
+        - name: X
           url: https://twitter.com/kasrakassai
 
     assets:
