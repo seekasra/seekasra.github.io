@@ -77,9 +77,9 @@ params:
         - name: CV
           url: cv.pdf
         - name: Email
-          url: mailto:kasra.kassai@lsbu.ac.uk.com
-        - name: Zoom
-          url: https://www.zoom.us/my/igelfeld
+          url: mailto:kasra.kassai@lsbu.ac.uk
+        - name: Microsoft
+          url: https://outlook.office.com/bookwithme/user/c394f8da16644397b41d867b3f251d31@lsbu.ac.uk?anonymous&ep=plink
         - name: Location
           url: location/
         - name: Office Hours
