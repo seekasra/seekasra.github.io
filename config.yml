@@ -77,7 +77,7 @@ params:
         - name: CV
           url: cv.pdf
         - name: Email
-          url: mailto:moritz.maria.von.igelfeld@gmail.com
+          url: mailto:kasra.kassai@lsbu.ac.uk.com
         - name: Zoom
           url: https://www.zoom.us/my/igelfeld
         - name: Location
@@ -85,15 +85,15 @@ params:
         - name: Office Hours
           url: officehours/
         - name: Google Scholar
-          url: https://scholar.google.com/citations?user=cL23w-4AAAAJ
+          url: https://scholar.google.com/citations?user=zABNP3sAAAAJ&hl=en
         - name: GitHub
-          url: https://github.com/pmichaillat
-        - name: Substack
+          url: https://github.com/seekasra
+        - name: Pure
           url: https://pmichaillat.substack.com
-        - name: YouTube
+        - name: Website
           url: https://www.youtube.com/@alexandermccallsmithoffici9000
         - name: Twitter
-          url: https://twitter.com/McCallSmith
+          url: https://twitter.com/kasrakassai
 
     assets:
         disableScrollBarStyle: true
