@@ -4,12 +4,6 @@ theme: PaperMod
 
 enableInlineShortcodes: true
 enableRobotsTXT: true
-
-taxonomies:
-    tag: tags
-
-menu:
-    main:
         
 
 params:
