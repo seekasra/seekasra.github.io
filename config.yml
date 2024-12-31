@@ -10,21 +10,7 @@ taxonomies:
 
 menu:
     main:
-        - name: Books
-          url: books/
-          weight: 5 
-        - name: Papers
-          url: papers/
-          weight: 2
-        - name: Courses
-          url: courses/
-          weight: 3
-        - name: Data
-          url: data/
-          weight: 4 
-        - name: Blog
-          url: https://en.wikipedia.org/wiki/Moritz-Maria_von_Igelfeld_(character)
-          weight: 6
+        
 
 params:
     description: "I’m a Lecturer in Digital Analytics at London South Bank University, where I combine teaching and research to drive advancements in machine learning, edge computing, and sustainable computing practices. My work focuses on creating practical solutions for energy-efficient systems and carbon-aware applications. I hold a BSc (Hons) in Computer Science and an MSc in Software Engineering from City, University of London. At LSBU, I completed a PhD in Computer Science under Professor Tasos Dagiuklas, contributing to frameworks for sustainable computing in 6G."
@@ -53,7 +39,7 @@ params:
     profileMode:
           enabled: true
           title: Dr. Kasra Kassai
-          subtitle: "I am a Lecturer in Digital Analytics at London South Bank University. My research focuses on machine learning, edge computing, and sustainable computing practices. I completed a BSc (Hons) in Computer Science and an MSc in Software Engineering at City, University of London. My doctoral studies in Computer Science, under the supervision of Professor Tasos Dagiuklas, were also undertaken at LSBU."
+          subtitle: "I’m a Lecturer in Digital Analytics at London South Bank University, where I combine teaching and research to drive advancements in machine learning, edge computing, and sustainable computing practices. My work focuses on creating practical solutions for energy-efficient systems and carbon-aware applications. I hold a BSc (Hons) in Computer Science and an MSc in Software Engineering from City, University of London. At LSBU, I completed a PhD in Computer Science under Professor Tasos Dagiuklas, contributing to frameworks for sustainable computing in 6G."
           imageUrl: "picture.jpeg"
           imageWidth: 160
           imageHeight: 160
