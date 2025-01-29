@@ -7,8 +7,8 @@ enableRobotsTXT: true
         
 
 params:
-    description: "I'm a Lecturer in Digital Analytics at London South Bank University, where I combine teaching and research to drive advancements in machine learning, edge computing, and sustainable computing practices. My work focuses on creating practical solutions for energy-efficient systems and carbon-aware applications. I hold a BSc (Hons) in Computer Science and an MSc in Software Engineering from City, University of London. At LSBU, I completed a PhD in Computer Science under Professor Tasos Dagiuklas, contributing to frameworks for sustainable computing in 6G."
-    author: Dr. Kasra Kassai
+    description: "I'm a Lecturer in Digital Analytics at London South Bank University, where I deliver teaching and research in the area of machine learning, edge computing, and sustainable computing practices. My work focuses on creating practical solutions for energy-efficient systems and carbon-aware applications. I hold a PhD degree in Computer Sceince from London South Bank University, BSc (Hons) in Computer Science and an MSc in Software Engineering from City, University of London. My PhD was under supervision of Professor Tasos Dagiuklas, contributing to frameworks for sustainable computing in 6G."
+    author: Dr Kasra Kassai
     # googleAnalyticsID: "G-XXXXX"
     DateFormat: "January 2006"
     defaultTheme: dark
@@ -31,7 +31,7 @@ params:
     math: true
     profileMode:
           enabled: true
-          title: Dr. Kasra Kassai
+          title: Dr Kasra Kassai
           subtitle: "I'm a Lecturer in Digital Analytics at [London South Bank University](https://www.lsbu.ac.uk), where I combine teaching and research to drive advancements in machine learning, edge computing, and sustainable computing practices. My work focuses on creating practical solutions for energy-efficient systems and carbon-aware applications. I hold a BSc (Hons) in Computer Science and an MSc in Software Engineering from City, University of London. At LSBU, I completed a PhD in Computer Science under Professor Tasos Dagiuklas, contributing to frameworks for sustainable computing in 6G."
           imageUrl: "picture.jpeg"
           imageWidth: 160
@@ -66,7 +66,7 @@ params:
         hiddenInSingle: true
     label:
       text: ""
-      icon: favicon.ico
+      icon: 
       iconHeight: 18
 
 markup:
