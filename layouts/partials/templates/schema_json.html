@@ -5,10 +5,10 @@
   "name": "{{ .Site.Params.author }}",
   "url": "{{ .Site.BaseURL }}",
   "sameAs": [
-    {{ if .Site.Params.social.github }}"https://github.com/{{ .Site.Params.social.github }}"{{ end }},
-    {{ if .Site.Params.social.linkedin }}"https://www.linkedin.com/in/{{ .Site.Params.social.linkedin }}"{{ end }},
-    {{ if .Site.Params.social.twitter }}"https://twitter.com/{{ .Site.Params.social.twitter }}"{{ end }},
-    {{ if .Site.Params.social.email }}"mailto:{{ .Site.Params.social.email }}"{{ end }}
+    {{ if .Site.Params.social.github }}"https://github.com/{{ .Site.Params.social.github }}"{{ end }}
+    {{ if .Site.Params.social.linkedin }}{{ if .Site.Params.social.github }},{{ end }}"https://www.linkedin.com/in/{{ .Site.Params.social.linkedin }}"{{ end }}
+    {{ if .Site.Params.social.twitter }}{{ if or .Site.Params.social.github .Site.Params.social.linkedin }},{{ end }}"https://twitter.com/{{ .Site.Params.social.twitter }}"{{ end }}
+    {{ if .Site.Params.social.email }}{{ if or .Site.Params.social.github .Site.Params.social.linkedin .Site.Params.social.twitter }},{{ end }}"mailto:{{ .Site.Params.social.email }}"{{ end }}
   ]
 }
 </script>
