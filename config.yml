@@ -1,11 +1,9 @@
 baseURL: "https://drkassai.com/" 
 title: Dr Kasra Kassai
 theme: PaperMod
-
 enableInlineShortcodes: true
 enableRobotsTXT: true
         
-
 params:
     description: "Dr Kasra Kassai Webpage"
     author: Dr Kasra Kassai
@@ -32,12 +30,11 @@ params:
     profileMode:
           enabled: true
           title: Dr Kasra Kassai
-          subtitle: "I'm a Lecturer in Digital Analytics at London South Bank University, where I deliver teaching and research in the area of machine learning, edge computing, and sustainable computing practices. My work focuses on creating practical solutions for energy-efficient systems and carbon-aware applications. I hold a PhD degree in Computer Sceince from London South Bank University, BSc (Hons) in Computer Science and an MSc in Software Engineering from City, University of London. My PhD was under supervision of Professor Tasos Dagiuklas, contributing to frameworks for sustainable computing in 6G."
+          subtitle: "I'm a Lecturer in Digital Analytics at London South Bank University, where I deliver teaching and research in the area of machine learning, edge computing, and sustainable computing practices. My work focuses on creating practical solutions for energy-efficient systems and carbon-aware applications. I hold a PhD degree in Computer Science from London South Bank University, BSc (Hons) in Computer Science and an MSc in Software Engineering from City, University of London. My PhD was under supervision of Professor Tasos Dagiuklas, contributing to frameworks for sustainable computing in 6G."
           imageUrl: "picture.jpeg"
           imageWidth: 160
           imageHeight: 160
             
-
     socialIcons:
         - name: Google Scholar
           url: https://scholar.google.com/citations?user=zABNP3sAAAAJ&hl=en
@@ -58,7 +55,6 @@ params:
         - name: Phone
           url: https://outlook.office.com/bookwithme/user/c394f8da16644397b41d867b3f251d31@lsbu.ac.uk?anonymous&ep=plink
         
-
     assets:
         disableScrollBarStyle: true
     cover:
@@ -68,7 +64,6 @@ params:
       text: ""
       icon: 
       iconHeight: 18
-
 markup:
     goldmark:
         renderer:
