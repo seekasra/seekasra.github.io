@@ -3,7 +3,6 @@ title: Dr Kasra Kassai
 theme: PaperMod
 enableInlineShortcodes: true
 enableRobotsTXT: true
-
 menu:
     main:
         - name: Office Hours
@@ -51,7 +50,7 @@ params:
         - name: Google Scholar
           url: https://scholar.google.com/citations?user=zABNP3sAAAAJ&hl=en
         - name: LinkedIn
-          url: https://www.linkedin.com/in/kasrakassai/
+          url: https://www.linkedin.com/in/kasrakassai
         - name: GitHub
           url: https://github.com/seekasra
         - name: X
