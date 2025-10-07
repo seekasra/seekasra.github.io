@@ -3,6 +3,18 @@ title: Dr Kasra Kassai
 theme: PaperMod
 enableInlineShortcodes: true
 enableRobotsTXT: true
+
+menu:
+    main:
+        - name: Office Hours
+          url: /officehours/
+          weight: 10
+        - name: Publications
+          url: /publications/
+          weight: 20
+        - name: Location
+          url: /location/
+          weight: 30
         
 params:
     description: "Dr Kasra Kassai Webpage"
