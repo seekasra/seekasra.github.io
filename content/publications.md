@@ -7,6 +7,17 @@ description: Research publications and scholarly work.
 
 <div class="publications-list">
 
+<h2>2026</h2>
+
+<div class="publication-item">
+  <h3>From Feed To Behaviour: Investigating Gambling-Related TikTok Content Exposure Among UK Youth</h3>
+  <p><strong>Authors:</strong> M. Burghelea, K. Kassai</p>
+  <p><strong>Publication:</strong> Academy of Marketing Conference Proceedings 2026, Academy of Marketing (AM) 2026 Conference, Manchester (Accepted/In press)</p>
+  <p><strong>Links:</strong> 
+    <a href="https://researchportal.lsbu.ac.uk/en/publications/from-feed-to-behaviour-investigating-gambling-related-tiktok-cont/" target="_blank" rel="noopener noreferrer">LSBU Research Portal</a>
+  </p>
+</div>
+
 <h2>2024</h2>
 
 <div class="publication-item">
