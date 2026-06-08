@@ -49,6 +49,8 @@ params:
     socialIcons:
         - name: Google Scholar
           url: https://scholar.google.com/citations?user=zABNP3sAAAAJ&hl=en
+        - name: ORCID
+          url: https://orcid.org/0000-0003-2869-9469
         - name: LinkedIn
           url: https://www.linkedin.com/in/kasrakassai
         - name: GitHub
@@ -71,6 +73,7 @@ params:
         # Excludes non-profile socialIcons (Location, Office Hours, Email, Bookings).
         sameAs:
             - https://scholar.google.com/citations?user=zABNP3sAAAAJ&hl=en
+            - https://orcid.org/0000-0003-2869-9469
             - https://www.linkedin.com/in/kasrakassai
             - https://github.com/seekasra
             - https://x.com/kasrakassai
