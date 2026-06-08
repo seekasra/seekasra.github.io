@@ -18,6 +18,7 @@ menu:
 params:
     description: "Dr Kasra Kassai Webpage"
     author: Dr Kasra Kassai
+    images: ["picture.jpeg"]
     # googleAnalyticsID: "G-XXXXX"
     DateFormat: "January 2006"
     defaultTheme: dark
