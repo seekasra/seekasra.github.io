@@ -81,7 +81,7 @@ description: Research publications and scholarly work.
 .publication-item {
   margin-bottom: 2rem;
   padding-bottom: 1.5rem;
-  border-bottom: 1px solid #e0e0e0;
+  border-bottom: 1px solid var(--border);
 }
 
 .publication-item:last-child {
@@ -91,7 +91,7 @@ description: Research publications and scholarly work.
 .publication-item h3 {
   margin-top: 0;
   margin-bottom: 0.5rem;
-  color: #2c3e50;
+  color: var(--primary);
 }
 
 .publication-item p {
@@ -100,7 +100,7 @@ description: Research publications and scholarly work.
 }
 
 .publication-item a {
-  color: #3498db;
+  color: var(--secondary);
   text-decoration: none;
 }
 
