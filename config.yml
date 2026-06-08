@@ -67,6 +67,15 @@ params:
         - name: Phone
           url: https://outlook.office.com/bookwithme/user/c394f8da16644397b41d867b3f251d31@lsbu.ac.uk?anonymous&ep=plink
         
+    schema:
+        # Curated canonical identity profiles for JSON-LD sameAs.
+        # Excludes non-profile socialIcons (Location, Office Hours, Email, Bookings).
+        sameAs:
+            - https://scholar.google.com/citations?user=zABNP3sAAAAJ&hl=en
+            - https://www.linkedin.com/in/kasrakassai
+            - https://github.com/seekasra
+            - https://x.com/kasrakassai
+            - https://researchportal.lsbu.ac.uk/en/persons/kasra-kassai
     assets:
         disableScrollBarStyle: true
     cover:
