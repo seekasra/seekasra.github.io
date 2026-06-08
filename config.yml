@@ -38,7 +38,6 @@ params:
     ShowWordCount: false
     UseHugoToc: true
     comments: false
-    math: true
     profileMode:
           enabled: true
           title: Dr Kasra Kassai
