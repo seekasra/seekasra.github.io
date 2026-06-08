@@ -3,6 +3,8 @@ title: Dr Kasra Kassai
 theme: PaperMod
 enableInlineShortcodes: true
 enableRobotsTXT: true
+# No tags/categories are used; drop empty taxonomy pages from the build & sitemap
+disableKinds: ["taxonomy", "term"]
 menu:
     main:
         - name: Office Hours
@@ -16,7 +18,7 @@ menu:
           weight: 30
         
 params:
-    description: "Dr Kasra Kassai Webpage"
+    description: "Dr Kasra Kassai, Lecturer in Digital Analytics at London South Bank University, researching machine learning, edge computing, and sustainable, energy-efficient computing."
     author: Dr Kasra Kassai
     images: ["picture.jpeg"]
     # googleAnalyticsID: "G-XXXXX"
