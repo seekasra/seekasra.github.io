@@ -14,7 +14,8 @@ description: Research publications and scholarly work.
   <p><strong>Authors:</strong> M. Burghelea, K. Kassai</p>
   <p><strong>Publication:</strong> Academy of Marketing Conference Proceedings 2026, Academy of Marketing (AM) 2026 Conference, Manchester (Accepted/In press)</p>
   <p><strong>Links:</strong> 
-    <a href="https://researchportal.lsbu.ac.uk/en/publications/from-feed-to-behaviour-investigating-gambling-related-tiktok-cont/" target="_blank" rel="noopener noreferrer">LSBU Research Portal</a>
+    <a href="https://researchportal.lsbu.ac.uk/en/publications/from-feed-to-behaviour-investigating-gambling-related-tiktok-cont/" target="_blank" rel="noopener noreferrer">LSBU Research Portal</a> | 
+    <a href="https://scholar.google.com/citations?view_op=view_citation&hl=en&user=zABNP3sAAAAJ&citation_for_view=zABNP3sAAAAJ:0EnyYjriUFMC" target="_blank" rel="noopener noreferrer">Google Scholar</a>
   </p>
 </div>
 
