@@ -7,17 +7,17 @@ description: "Dr Kassai's mailing and office addresses at London South Bank Univ
 
 ## Mailing address
 
-Dr Kasra Kassai
-London South Bank University (LSBU)
-103 Borough Road, London, SE1 0AA
+Dr Kasra Kassai<br>
+London South Bank University (LSBU)<br>
+103 Borough Road, London, SE1 0AA<br>
 United Kingdom
 
 ---
 
 ## Office address
 
-D12, Academic Hub alpha,
-LSBU Business School  
+D12, Academic Hub Alpha,<br>
+LSBU Business School<br>
 London South Bank University
 
 ---

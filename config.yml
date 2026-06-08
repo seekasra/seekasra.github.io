@@ -59,14 +59,8 @@ params:
           url: https://github.com/seekasra
         - name: X
           url: https://x.com/kasrakassai
-        - name: Location
-          url: location/
-        - name: Office Hours
-          url: officehours/
-        - name: Website
-          url: https://researchportal.lsbu.ac.uk/en/persons/kasra-kassai
         - name: Email
-          url: mailto:kasra.kassai@lsbu.ac.uk  
+          url: mailto:kasra.kassai@lsbu.ac.uk
         - name: Phone
           url: https://outlook.office.com/bookwithme/user/c394f8da16644397b41d867b3f251d31@lsbu.ac.uk?anonymous&ep=plink
         
