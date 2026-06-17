@@ -29,15 +29,3 @@
     width: 100%;
     height: auto;
 }
-
-.credential-caption {
-    display: block;
-    padding: 8px 12px;
-    font-size: 13px;
-    color: var(--secondary);
-    text-align: center;
-}
-
-.credential:hover .credential-caption {
-    color: var(--darkcolor);
-}

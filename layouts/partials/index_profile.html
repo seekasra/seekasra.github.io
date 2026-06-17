@@ -38,7 +38,6 @@
             {{- range . }}
             <a class="credential" href="{{ trim .url " " }}" target="_blank" rel="noopener noreferrer" title="Verify credential: {{ .name }}">
                 <img src="{{ .image | relURL }}" alt="{{ .name }} (verified credential)" loading="lazy" />
-                {{- with .name }}<span class="credential-caption">{{ . }} &middot; Verify &nearr;</span>{{ end }}
             </a>
             {{- end }}
         </div>
