@@ -26,24 +26,4 @@ Please share, or tag someone who should see this.
 
 ## Announcement
 
-<div class="linkedin-embed">
-  <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7472955345406103552" frameborder="0" allowfullscreen="" title="Embedded post"></iframe>
-</div>
-
-<style>
-.linkedin-embed {
-  max-width: 504px;
-  margin: 1.5rem 0;
-}
-.linkedin-embed iframe {
-  width: 100%;
-  height: 999px;
-  max-height: 80vh;
-  border: 0;
-}
-@media (max-width: 540px) {
-  .linkedin-embed iframe {
-    height: 85vh;
-  }
-}
-</style>
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">🎓 Open PhD /w Scholarship<br>AI-powered, carbon-aware platforms @ London South Bank Uni<br><br>Smart orchestration to align cloud workloads with sustainability.<br><br>📍London <br>🎓Fees covered (no stipend) <br>🌍Intl welcome <br>🗓️Sep 2026<br><br>CS/AI/cloud + sustainability?<br><br>🔗 <a href="https://t.co/POzlbgFjTL">https://t.co/POzlbgFjTL</a></p>&mdash; Dr Kasra Kassai (@kasrakassai) <a href="https://x.com/kasrakassai/status/2067212394699309299?ref_src=twsrc%5Etfw">June 17, 2026</a></blockquote> <script async src="https://platform.x.com/widgets.js" charset="utf-8"></script>
