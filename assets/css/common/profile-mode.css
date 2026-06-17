@@ -43,4 +43,5 @@
 
 .button:hover {
     background: var(--darkcolor);
+    color: #fff;
 }
