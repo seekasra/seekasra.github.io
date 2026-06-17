@@ -26,4 +26,24 @@ Please share, or tag someone who should see this.
 
 ## Announcement
 
-<iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7472955345406103552" height="999" width="504" frameborder="0" allowfullscreen="" title="Embedded post"></iframe>
+<div class="linkedin-embed">
+  <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7472955345406103552" frameborder="0" allowfullscreen="" title="Embedded post"></iframe>
+</div>
+
+<style>
+.linkedin-embed {
+  max-width: 504px;
+  margin: 1.5rem 0;
+}
+.linkedin-embed iframe {
+  width: 100%;
+  height: 999px;
+  max-height: 80vh;
+  border: 0;
+}
+@media (max-width: 540px) {
+  .linkedin-embed iframe {
+    height: 85vh;
+  }
+}
+</style>

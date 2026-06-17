@@ -24,7 +24,7 @@ params:
     description: "Dr Kasra Kassai, Lecturer in Digital Analytics at London South Bank University, researching machine learning, edge computing, and sustainable, energy-efficient computing."
     author: Dr Kasra Kassai
     images: ["picture.jpeg"]
-    # googleAnalyticsID: "G-XXXXX"
+    googleAnalyticsID: "G-FG4G69K8BE"
     DateFormat: "January 2006"
     defaultTheme: dark
     hideFooter: false
@@ -50,7 +50,12 @@ params:
           imageUrl: "picture.jpeg"
           imageWidth: 160
           imageHeight: 160
-            
+          buttons:
+            - name: Open PhD Position
+              url: /phd/
+            - name: Publications
+              url: /publications/
+
     socialIcons:
         - name: Google Scholar
           url: https://scholar.google.com/citations?user=zABNP3sAAAAJ&hl=en
