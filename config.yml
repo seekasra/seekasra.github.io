@@ -53,7 +53,7 @@ params:
           credentials:
             - name: "Advance HE — Research Leadership Development Programme"
               url: "https://credentials.advance-he.ac.uk/2666639b-ffa9-41ca-97e3-d56750468b54"
-              image: "/advance-he-research-leadership.png"
+              image: "/advance-he-research-leadership-badge.png"
           buttons:
             - name: Open PhD Position
               url: /phd/
