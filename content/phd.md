@@ -15,7 +15,7 @@ You'll work on intelligent orchestration that combines real-time telemetry, carb
 + 🎓 Tuition fees fully covered under this scholarship (no stipend)
 + 🌍 Open to home and international candidates
 + 🗓️ Start: September 2026
-+ 🔗 Application information in the attached PDF (see the announcement below)
++ 🔗 [Application information (PDF)](/phd-application.pdf)
 + 📩 Informal chat: [kasra.kassai@lsbu.ac.uk](mailto:kasra.kassai@lsbu.ac.uk)
 
 You're a strong fit if your background is in computer science, AI, data analytics, or cloud infrastructure, and you care about sustainability and translating research into practice.
