@@ -13,6 +13,9 @@ menu:
         - name: Publications
           url: /publications/
           weight: 20
+        - name: PhD Position
+          url: /phd/
+          weight: 25
         - name: Location
           url: /location/
           weight: 30
