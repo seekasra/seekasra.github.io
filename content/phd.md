@@ -7,9 +7,20 @@ description: "Funded PhD position with Dr Kasra Kassai in machine learning, edge
 
 ## Open PhD position
 
-I am looking for a motivated PhD candidate to join my research in machine learning, edge computing, and sustainable, energy-efficient computing. Full details of the opportunity and how to apply are in the announcement below.
+I'm recruiting a PhD researcher to join a multidisciplinary project on AI-powered, carbon-aware cloud platforms at London South Bank University.
 
-If the role is a good fit, please get in touch via my [Office Hours](/officehours/) or by [email](mailto:kasra.kassai@lsbu.ac.uk).
+You'll work on intelligent orchestration that combines real-time telemetry, carbon monitoring, and optimisation algorithms to align cloud workloads with global sustainability goals. It's applied, impact-driven research with strong industry relevance.
+
++ 📍 London-based
++ 🎓 Tuition fees fully covered under this scholarship (no stipend)
++ 🌍 Open to home and international candidates
++ 🗓️ Start: September 2026
++ 🔗 Application information in the attached PDF (see the announcement below)
++ 📩 Informal chat: [kasra.kassai@lsbu.ac.uk](mailto:kasra.kassai@lsbu.ac.uk)
+
+You're a strong fit if your background is in computer science, AI, data analytics, or cloud infrastructure, and you care about sustainability and translating research into practice.
+
+Please share, or tag someone who should see this.
 
 ---
 
