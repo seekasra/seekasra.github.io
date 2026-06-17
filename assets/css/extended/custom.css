@@ -1,0 +1,43 @@
+/* Verified credentials on the homepage profile */
+.credentials {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px;
+    margin: 6px 0 4px;
+}
+
+.credential {
+    display: block;
+    max-width: 320px;
+    width: 100%;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    background: var(--entry);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.credential:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+    border-color: var(--darkcolor);
+}
+
+.credential img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.credential-caption {
+    display: block;
+    padding: 8px 12px;
+    font-size: 13px;
+    color: var(--secondary);
+    text-align: center;
+}
+
+.credential:hover .credential-caption {
+    color: var(--darkcolor);
+}
