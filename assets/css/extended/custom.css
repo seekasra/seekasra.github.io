@@ -25,3 +25,43 @@
     /* override the theme's .profile img circular clip, which cuts off the hexagon's points */
     border-radius: 0;
 }
+
+/* Publications page: card layout for each publication entry */
+.publications-list {
+    margin: 2rem 0;
+}
+
+.publication-item {
+    margin-bottom: 1.25rem;
+    padding: 1.25rem 1.5rem;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background: var(--entry);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.publication-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+    border-color: var(--primary);
+}
+
+.publication-item h3 {
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    color: var(--primary);
+}
+
+.publication-item p {
+    margin: 0.5rem 0;
+    line-height: 1.6;
+}
+
+.publication-item a {
+    color: var(--secondary);
+    text-decoration: none;
+}
+
+.publication-item a:hover {
+    text-decoration: underline;
+}

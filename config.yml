@@ -19,9 +19,20 @@ menu:
         - name: Location
           url: /location/
           weight: 30
-        
+
 params:
     description: "Dr Kasra Kassai, Lecturer in Digital Analytics at London South Bank University, researching machine learning, edge computing, and sustainable, energy-efficient computing."
+    keywords:
+        - Kasra Kassai
+        - machine learning
+        - edge computing
+        - sustainable computing
+        - energy-efficient computing
+        - carbon-aware computing
+        - federated learning
+        - 6G
+        - digital analytics
+        - London South Bank University
     author: Dr Kasra Kassai
     images: ["picture.jpeg"]
     googleAnalyticsID: "G-FG4G69K8BE"
@@ -94,7 +105,7 @@ params:
         hiddenInSingle: true
     label:
       text: ""
-      icon: 
+      icon:
       iconHeight: 18
 markup:
     goldmark:
@@ -102,7 +113,7 @@ markup:
             unsafe: true
     highlight:
         guessSyntax: true
-        style: autumn 
+        style: autumn
     tableOfContents:
         endLevel: 2
         ordered: false
