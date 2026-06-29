@@ -22,4 +22,6 @@
     display: block;
     width: 100%;
     height: auto;
+    /* override the theme's .profile img circular clip, which cuts off the hexagon's points */
+    border-radius: 0;
 }
