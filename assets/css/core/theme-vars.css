@@ -9,9 +9,9 @@
     --theme: rgb(255, 255, 255);
     --entry: rgb(255, 255, 255);
     --primary: rgb(30, 30, 30);
-    --secondary: rgb(108, 108, 108);
+    --secondary: rgb(90, 90, 90); /* WCAG AA on white (~6.4:1) for muted/meta text */
     --tertiary: rgb(214, 214, 214);
-    --gray: rgb(165, 165, 165);
+    --gray: rgb(112, 112, 112); /* WCAG AA on white (~5:1) for uppercase sub-headings */
     --content: rgb(30, 30, 30);
     --code-block-bg: rgb(28, 29, 33);
     --code-bg: rgb(245, 245, 245);

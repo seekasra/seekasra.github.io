@@ -48,6 +48,7 @@ params:
           title: Dr Kasra Kassai
           subtitle: "I'm a Lecturer in Digital Analytics at London South Bank University, where I deliver teaching and research in the area of machine learning, edge computing, and sustainable computing practices. My work focuses on creating practical solutions for energy-efficient systems and carbon-aware applications. I hold a PhD degree in Computer Science from London South Bank University, BSc (Hons) in Computer Science and an MSc in Software Engineering from City, University of London. My PhD was under supervision of Professor Tasos Dagiuklas, contributing to frameworks for sustainable computing in 6G."
           imageUrl: "picture.jpeg"
+          imageTitle: "Dr Kasra Kassai"
           imageWidth: 160
           imageHeight: 160
           credentials:
