@@ -75,6 +75,8 @@ params:
           url: mailto:kasra.kassai@lsbu.ac.uk
 
     schema:
+        # Personal academic site: identify the home entity as a Person, not an Organization.
+        publisherType: Person
         # Curated canonical identity profiles for JSON-LD sameAs.
         # Excludes non-profile socialIcons (Location, Office Hours, Email, Bookings).
         sameAs:

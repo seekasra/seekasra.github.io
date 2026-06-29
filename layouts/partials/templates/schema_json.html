@@ -1,0 +1,97 @@
+{{ if .IsHome }}
+{{/* Personal academic site: model the home entity as a Person (ProfilePage),
+     not the theme default Organization. Adds jobTitle + LSBU affiliation. */}}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfilePage",
+  "mainEntity": {
+    "@type": "Person",
+    "name": {{ site.Title }},
+    "url": {{ site.Home.Permalink }},
+    "image": {{ "picture.jpeg" | absURL }},
+    "description": {{ site.Params.description | plainify | truncate 180 | safeHTML }},
+    "jobTitle": "Lecturer in Digital Analytics",
+    "worksFor": {
+      "@type": "CollegeOrUniversity",
+      "name": "London South Bank University",
+      "url": "https://www.lsbu.ac.uk/"
+    },
+    "alumniOf": {
+      "@type": "CollegeOrUniversity",
+      "name": "London South Bank University"
+    },
+    "sameAs": [
+      {{- if site.Params.schema.sameAs }}
+        {{ range $i, $e := site.Params.schema.sameAs }}{{ if $i }}, {{ end }}{{ trim $e " " }}{{ end }}
+      {{- else}}
+        {{ range $i, $e := site.Params.SocialIcons }}{{ if $i }}, {{ end }}{{ trim $e.url " " | safeURL }}{{ end }}
+      {{- end}}
+    ]
+  }
+}
+</script>
+{{- else if (or .IsPage .IsSection) }}
+{{/* BreadcrumbList */}}
+{{- $url := replace .Parent.Permalink ( printf "%s" site.Home.Permalink) "" }}
+{{- $lang_url := strings.TrimPrefix ( printf "%s/" .Lang) $url }}
+{{- $bc_list := (split $lang_url "/")}}
+
+{{- $scratch := newScratch }}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+  {{- range $index, $element := $bc_list }}
+
+    {{- $scratch.Add "path" (printf "%s/" $element ) | safeJS }}
+    {{- $bc_pg := site.GetPage ($scratch.Get "path") -}}
+
+    {{- if (and ($bc_pg) (gt (len . ) 0))}}
+    {{- if (and $index)}}, {{end }}
+    {
+      "@type": "ListItem",
+      "position": {{ add 1 $index  }},
+      "name": {{ $bc_pg.Name }},
+      "item": {{ $bc_pg.Permalink | safeHTML }}
+    }
+    {{- end }}
+
+  {{- end }}
+  {{- /*  self-page addition  */ -}}
+  {{- if (ge (len $bc_list) 2) }}, {{end }}
+    {
+      "@type": "ListItem",
+      "position": {{len $bc_list}},
+      "name": {{ .Name }},
+      "item": {{ .Permalink | safeHTML }}
+    }
+  ]
+}
+</script>
+{{- if .IsPage }}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "headline": {{ .Title | plainify}},
+  "name": "{{ .Title | plainify }}",
+  "description": {{ with .Description | plainify }}{{ . }}{{ else }}{{ .Summary | plainify  }}{{ end -}},
+  "inLanguage": {{ .Language.Lang | default "en-us" }},
+  "datePublished": {{ .PublishDate }},
+  "dateModified": {{ .Lastmod }},
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": {{ .Permalink | safeHTML }}
+  },
+  "publisher": {
+    "@type": "Person",
+    "name": {{ site.Title }},
+    "url": {{ site.Home.Permalink }}
+  }
+}
+</script>
+{{- end }}{{/* .IsPage end */}}
+
+{{- end -}}
