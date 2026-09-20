@@ -8,7 +8,15 @@
 {{- end }}
 
 {{- /* Title */}}
-<title>{{ if .IsHome }}{{ else }}{{ if .Title }}{{ .Title }} | {{ end }}{{ end }}{{ site.Title }}</title>
+<title>{{- if .IsHome -}}{{ site.Title }}{{ with site.Params.titleSuffix }} — {{ . }}{{ end }}{{- else -}}{{ if .Title }}{{ .Title }} | {{ end }}{{ site.Title }}{{- end -}}</title>
+
+{{- /* Search engine ownership verification (paste codes into config params) */}}
+{{- with site.Params.googleSiteVerification }}
+<meta name="google-site-verification" content="{{ . }}">
+{{- end }}
+{{- with site.Params.bingSiteVerification }}
+<meta name="msvalidate.01" content="{{ . }}">
+{{- end }}
 
 {{- /* Meta */}}
 {{- if .IsHome }}

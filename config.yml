@@ -22,6 +22,12 @@ menu:
 
 params:
     description: "Dr Kasra Kassai, Lecturer in Digital Analytics at London South Bank University, researching machine learning, edge computing, and sustainable, energy-efficient computing."
+    # Appended to the homepage <title> only (role + institution for SEO keyword coverage).
+    titleSuffix: "Lecturer in Digital Analytics, LSBU"
+    # Search engine ownership verification — paste the codes from Google Search
+    # Console and Bing Webmaster Tools here to emit the verification meta tags.
+    googleSiteVerification: ""
+    bingSiteVerification: ""
     keywords:
         - Kasra Kassai
         - machine learning

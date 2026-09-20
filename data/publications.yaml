@@ -1,0 +1,73 @@
+# Single source of truth for the Publications page.
+# Rendered as visible cards AND ScholarlyArticle JSON-LD by
+# layouts/shortcodes/publications.html. Keep entries ordered newest-first;
+# the shortcode groups them under year headings in this order.
+
+- year: 2026
+  title: "From Feed To Behaviour: Investigating Gambling-Related TikTok Content Exposure Among UK Youth"
+  authors: "M. Burghelea, K. Kassai"
+  venue: "Academy of Marketing Conference Proceedings 2026, Academy of Marketing (AM) 2026 Conference, Manchester (Accepted/In press)"
+  links:
+    - name: "LSBU Research Portal"
+      url: "https://researchportal.lsbu.ac.uk/en/publications/from-feed-to-behaviour-investigating-gambling-related-tiktok-cont/"
+    - name: "Google Scholar"
+      url: "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=zABNP3sAAAAJ&citation_for_view=zABNP3sAAAAJ:0EnyYjriUFMC"
+
+- year: 2024
+  title: "Federated Learning for Energy Efficiency in 6G"
+  authors: "S. Bashir, T. Dagiuklas, K. Kassai, M. Iqbal"
+  venue: "Wireless World Research and Trends Magazine"
+  links:
+    - name: "LSBU Research Portal"
+      url: "https://researchportal.lsbu.ac.uk/en/publications/federated-learning-for-energy-efficiency-in-6g"
+    - name: "Google Scholar"
+      url: "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=zABNP3sAAAAJ&citation_for_view=zABNP3sAAAAJ:YsMSGLbcyi4C"
+
+- year: 2024
+  title: "Architectural Blueprint for Heterogeneity-Resilient Federated Learning"
+  authors: "S. Bashir, T. Dagiuklas, K. Kassai, M. Iqbal"
+  venue: "IET 6G and Future Networks Conference (IET 6G 2024), pp. 62-68"
+  links:
+    - name: "LSBU Research Portal"
+      url: "https://researchportal.lsbu.ac.uk/en/publications/architectural-blueprint-for-heterogeneity-resilient-federated-lea-3"
+    - name: "Google Scholar"
+      url: "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=zABNP3sAAAAJ&citation_for_view=zABNP3sAAAAJ:9yKSN-GCB0IC"
+
+- year: 2024
+  title: "GreenBytes: Intelligent Energy Estimation for Edge-Cloud"
+  authors: "K. Kassai, T. Dagiuklas, S. Bashir, M. Iqbal"
+  venue: "IET 6G and Future Networks Conference (IET 6G 2024), pp. 57-61"
+  links:
+    - name: "LSBU Research Portal"
+      url: "https://researchportal.lsbu.ac.uk/en/publications/greenbytes-intelligent-energy-estimation-for-edge-cloud-intellige"
+    - name: "Google Scholar"
+      url: "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=zABNP3sAAAAJ&citation_for_view=zABNP3sAAAAJ:UeHWp8X0CEIC"
+
+- year: 2024
+  title: "Enhancing Sustainability in Edge Computing Environments"
+  authors: "K. Kassai, T. Dagiuklas, S. Bashir, M. Iqbal"
+  venue: "The Alan Turing Institute, UK-AI ECR Connect 2024 (Poster)"
+  links:
+    - name: "LSBU Research Portal"
+      url: "https://researchportal.lsbu.ac.uk/en/publications/enhancing-sustainability-in-edge-computing-environments-3"
+    - name: "Google Scholar"
+      url: "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=zABNP3sAAAAJ&citation_for_view=zABNP3sAAAAJ:2osOgNQ5qMEC"
+
+- year: 2024
+  title: "Multi-Global Models for Edge Computing Environment"
+  authors: "S. Bashir, T. Dagiuklas, K. Kassai, M. Iqbal"
+  venue: "The Alan Turing Institute, UK-AI ECR Connect 2024 (Poster)"
+  links:
+    - name: "LSBU Research Portal"
+      url: "https://researchportal.lsbu.ac.uk/en/publications/multi-global-models-for-edge-computing-environment-3"
+    - name: "Google Scholar"
+      url: "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=zABNP3sAAAAJ&citation_for_view=zABNP3sAAAAJ:d1gkVwhDpl0C"
+
+- year: 2019
+  title: "Evolution of Orchestration towards 5G"
+  authors: "K. Kassai, S. Ghosh, A. Dagiuklas"
+  venue: "Journal of Communication 14(12), pp. 1134-1140"
+  doi: "10.12720/jcm.14.12.1134-1140"
+  links:
+    - name: "Google Scholar"
+      url: "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=zABNP3sAAAAJ&citation_for_view=zABNP3sAAAAJ:u5HHmVD_uO8C"

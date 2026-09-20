@@ -1,0 +1,59 @@
+{{- /*
+  Renders the publications list from data/publications.yaml as:
+   1. Visible cards (grouped under year headings), and
+   2. ScholarlyArticle JSON-LD (one node per publication) for search
+      engines and AI answer engines to extract as structured entities.
+  Single source of truth: edit data/publications.yaml, never this file's markup.
+*/ -}}
+{{- $pubs := site.Data.publications -}}
+<div class="publications-list">
+{{- $lastYear := "" -}}
+{{- range $pubs }}
+  {{- $year := printf "%v" .year -}}
+  {{- if ne $year $lastYear }}
+<h2>{{ $year }}</h2>
+  {{- $lastYear = $year -}}
+  {{- end }}
+<div class="publication-item">
+  <h3>{{ .title }}</h3>
+  <p><strong>Authors:</strong> {{ .authors }}</p>
+  <p><strong>Publication:</strong> {{ .venue }}</p>
+  {{- with .doi }}
+  <p><strong>DOI:</strong> <a href="https://doi.org/{{ . }}" target="_blank" rel="noopener noreferrer">{{ . }}</a></p>
+  {{- end }}
+  {{- with .links }}
+  <p><strong>Links:</strong>
+    {{ range $i, $l := . }}{{ if $i }} | {{ end }}<a href="{{ $l.url }}" target="_blank" rel="noopener noreferrer">{{ $l.name }}</a>{{ end }}
+  </p>
+  {{- end }}
+</div>
+{{- end }}
+</div>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {{- range $pi, $p := $pubs }}{{ if $pi }},{{ end }}
+    {
+      "@type": "ScholarlyArticle",
+      "headline": {{ $p.title }},
+      "name": {{ $p.title }},
+      "author": [
+        {{- range $ai, $a := split $p.authors ", " }}{{ if $ai }},{{ end }}
+        { "@type": "Person", "name": {{ trim $a " " }} }
+        {{- end }}
+      ],
+      "datePublished": {{ printf "%v" $p.year }},
+      "isPartOf": { "@type": "CreativeWork", "name": {{ $p.venue }} }
+      {{- with $p.doi }},
+      "identifier": { "@type": "PropertyValue", "propertyID": "DOI", "value": {{ . }} },
+      "sameAs": {{ printf "https://doi.org/%v" . }}
+      {{- end }}
+      {{- with $p.links }},
+      "url": {{ (index . 0).url }}
+      {{- end }}
+    }
+    {{- end }}
+  ]
+}
+</script>
