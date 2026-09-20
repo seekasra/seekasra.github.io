@@ -10,6 +10,9 @@ menu:
         - name: Office Hours
           url: /officehours/
           weight: 10
+        - name: Research
+          url: /research/
+          weight: 15
         - name: Publications
           url: /publications/
           weight: 20
@@ -40,6 +43,18 @@ params:
         - digital analytics
         - London South Bank University
     author: Dr Kasra Kassai
+    # Research topics emitted as schema.org Person.knowsAbout (entity signal for
+    # Google's Knowledge Graph and AI answer engines).
+    knowsAbout:
+        - Machine learning
+        - Edge computing
+        - Cloud computing
+        - Sustainable computing
+        - Carbon-aware computing
+        - Energy-efficient computing
+        - Federated learning
+        - 6G networks
+        - Digital analytics
     images: ["picture.jpeg"]
     googleAnalyticsID: "G-FG4G69K8BE"
     DateFormat: "January 2006"

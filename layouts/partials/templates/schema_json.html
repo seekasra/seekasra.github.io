@@ -21,6 +21,11 @@
       "@type": "CollegeOrUniversity",
       "name": "London South Bank University"
     },
+    {{- with site.Params.knowsAbout }}
+    "knowsAbout": [
+      {{ range $i, $e := . }}{{ if $i }}, {{ end }}{{ $e }}{{ end }}
+    ],
+    {{- end }}
     "sameAs": [
       {{- if site.Params.schema.sameAs }}
         {{ range $i, $e := site.Params.schema.sameAs }}{{ if $i }}, {{ end }}{{ trim $e " " }}{{ end }}
