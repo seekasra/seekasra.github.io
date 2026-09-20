@@ -65,3 +65,67 @@
 .publication-item a:hover {
     text-decoration: underline;
 }
+
+/* PhD position status chips with a small LED indicator */
+.status {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45em;
+    margin-left: 0.55em;
+    padding: 0.2em 0.6em;
+    font-size: 0.62em;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    vertical-align: middle;
+    white-space: nowrap;
+}
+
+.status .led {
+    width: 0.65em;
+    height: 0.65em;
+    border-radius: 50%;
+    flex: none;
+}
+
+/* Open — receiving applications: green, gently blinking */
+.status--open {
+    color: #1a9d4b;
+}
+
+.status--open .led {
+    background: #22c55e;
+    animation: led-blink 1.4s ease-in-out infinite;
+}
+
+/* Closed — position filled: steady, dimmed red */
+.status--closed {
+    color: #9aa0a6;
+}
+
+.status--closed .led {
+    background: #ef4444;
+    box-shadow: 0 0 4px 0 rgba(239, 68, 68, 0.5);
+    opacity: 0.85;
+}
+
+@keyframes led-blink {
+    0%, 100% {
+        opacity: 1;
+        box-shadow: 0 0 7px 2px rgba(34, 197, 94, 0.95);
+    }
+    50% {
+        opacity: 0.35;
+        box-shadow: 0 0 2px 0 rgba(34, 197, 94, 0.35);
+    }
+}
+
+/* Respect users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    .status--open .led {
+        animation: none;
+        box-shadow: 0 0 6px 1px rgba(34, 197, 94, 0.9);
+    }
+}

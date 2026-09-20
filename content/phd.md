@@ -19,11 +19,11 @@ Both positions are:
 + 🔗 [Application information (PDF)](/phd-application.pdf)
 + 📩 Informal chat: [kasra.kassai@lsbu.ac.uk](mailto:kasra.kassai@lsbu.ac.uk)
 
-### Position 1
+### Position 1 <span class="status status--closed"><span class="led"></span>Closed — filled</span>
 
 + 🗓️ Start: September 2026
 
-### Position 2
+### Position 2 <span class="status status--open"><span class="led"></span>Receiving applications</span>
 
 + 🗓️ Start: January 2027
 + 📅 Application deadline: 2 November 2026
