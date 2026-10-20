@@ -1,6 +1,20 @@
-<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
-<title>Profit, entry and long-run equilibrium</title>
-<meta name="claude:viewport-fit-sides" content="cover">
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Nominal and real GDP · Dr Kasra Kassai</title>
+<meta name="description" content="Nominal GDP values output at current prices; real GDP values it at base-year (2018) prices. Change what happens in 2020 and see which measure moves. Only real GDP tells you whether more was actually produced.">
+<meta name="author" content="Dr Kasra Kassai">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Teaching tools · Dr Kasra Kassai">
+<meta property="og:title" content="Nominal and real GDP">
+<meta property="og:description" content="Nominal GDP values output at current prices; real GDP values it at base-year (2018) prices. Change what happens in 2020 and see which measure moves. Only real GDP tells you whether more was actually produced.">
+<meta property="og:url" content="https://drkassai.com/teaching-tools/finance-and-the-economy/nominal-and-real-gdp/">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Nominal and real GDP">
+<meta name="twitter:description" content="Nominal GDP values output at current prices; real GDP values it at base-year (2018) prices. Change what happens in 2020 and see which measure moves. Only real GDP tells you whether more was actually produced.">
+<link rel="canonical" href="https://drkassai.com/teaching-tools/finance-and-the-economy/nominal-and-real-gdp/">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,500;6..72,600&family=Public+Sans:wght@400;500;600&display=swap">
 <style>
 /* Layout: single-column scholarly page — chart as centrepiece, controls beside it, scenarios as a worked-answer rail */
@@ -143,14 +157,28 @@ input[type=range]{width:100%; accent-color:var(--eq); margin:2px 0 0}
 .bar-e{fill:var(--eq);opacity:.8}
 .mk{fill:var(--card);stroke-width:2}
 
+
+/* Site chrome: back link and attribution footer */
+.pagefoot{border-top:1px solid var(--line); margin-top:26px; padding-top:16px; display:flex; flex-direction:column; gap:6px; font-size:13px; color:var(--ink-3)}
+.pagefoot p{margin:0}
+.pagefoot a{color:var(--eq); text-decoration:none; border-bottom:1px solid transparent}
+.pagefoot a:hover{border-bottom-color:var(--eq)}
+.pagefoot a:focus-visible{outline:2px solid var(--eq); outline-offset:2px}
 </style>
+</head>
+<body>
 <div class="wrap">
 <header>
-  <p class="kicker">Finance and the Economy · Seminar 5 · Market structures</p>
-  <h1>Supernormal profit and what happens to it</h1>
-  <p class="lede">A firm produces where <em>MR = MC</em> and earns <em>(P − ATC) × Q</em>, the shaded rectangle. Under perfect competition the demand curve is horizontal; under monopolistic competition and monopoly it slopes down. Watch what free entry does to the rectangle, and why barriers to entry let a monopolist keep it. Questions 3 and 4.</p>
+  <p class="kicker">Finance and the Economy · Seminar 8 · Macroeconomic factors</p>
+  <h1>The land of milk and honey</h1>
+  <p class="lede">Nominal GDP values output at current prices; real GDP values it at base-year (2018) prices. Change what happens in 2020 and see which measure moves. Only real GDP tells you whether more was actually produced. Questions 2 and 3, from <em>Business Economics</em> (Mankiw, Taylor &amp; Ashwin, ch. 20).</p>
 </header>
-<div class="scenarios" role="group" aria-label="Scenarios"><button data-m="pc" data-v="12" data-x="<strong>Q3(a)(i) Perfect competition, short run.</strong> The firm is a price taker: P = AR = MR, a horizontal line. It produces where MC = P and earns the shaded rectangle, width (P − ATC), length Q. Supernormal profit attracts new entrants.">Perfect competition: short run</button><button data-m="pc" data-lr="1" data-x="<strong>Q3(a)(ii) Perfect competition, long run.</strong> Entry raises market supply and pushes price down until P = minimum ATC. The rectangle has vanished: zero economic profit, which still covers the opportunity cost of being in business. Output sits at the efficient scale.">Perfect competition: long run</button><button data-m="mc" data-v="16" data-x="<strong>Q3(b)(i) Monopolistic competition, short run.</strong> Product differentiation gives the firm a downward-sloping demand curve, so MR lies below it. At MR = MC the price read off the demand curve is above MC, and above ATC: supernormal profit.">Monopolistic competition: short run</button><button data-m="mc" data-lr="1" data-x="<strong>Q3(b)(ii) Monopolistic competition, long run.</strong> Entry shifts each firm’s demand curve left until it is just tangent to ATC: P = ATC and profit is normal. But the tangency is on the falling part of ATC, so the firm has <strong>excess capacity</strong>, and P is still above MC, which is why it keeps advertising for more customers at the posted price.">Monopolistic competition: long run</button><button data-m="mono" data-v="16" data-x="<strong>Q4 Monopoly.</strong> Same diagram as monopolistic competition in the short run, but barriers to entry mean no new firms arrive to compete the profit away. The monopolist faces the whole market demand curve and keeps the rectangle indefinitely.">Monopoly</button></div><div class="explain" id="explain" aria-live="polite">Pick a market structure. The slider moves the price (perfect competition) or the demand curve (monopolistic competition and monopoly); the long-run buttons jump to where profit is exactly zero.</div><div class="stage"><div class="chartcard"><svg id="svg" viewBox="0 0 560 430" role="img" aria-label="Firm cost and revenue curves with profit rectangle"></svg></div><div class="panel"><div class="ctl"><div class="row"><label for="pp"><span class="swatch" style="background:var(--demand)"></span>Market price (perfect competition)</label><output id="ppOut"></output></div><input type="range" id="pp" min="6" max="14" value="12" step="0.01" aria-label="Market price (perfect competition)"><div class="ends"><span>low</span><span>high</span></div></div><div class="ctl"><div class="row"><label for="aa"><span class="swatch" style="background:var(--demand)"></span>Demand curve position (entry shifts it left)</label><output id="aaOut"></output></div><input type="range" id="aa" min="8" max="20" value="16" step="0.01" aria-label="Demand curve position (entry shifts it left)"><div class="ends"><span>after entry</span><span>before entry</span></div></div><button class="reset" id="reset">Reset</button></div></div><div class="results"><div class="stat "><p class="k">Output (MR = MC)</p><p class="v" id="q"></p><p class="d" id="qD"></p></div><div class="stat "><p class="k">Price</p><p class="v" id="p"></p><p class="d" id="pD"></p></div><div class="stat "><p class="k">ATC at that output</p><p class="v" id="atc"></p><p class="d" id="atcD"></p></div><div class="stat verdict"><p class="k">Profit</p><p class="v" id="pi"></p><p class="d" id="piD"></p></div></div><p class="note"><strong>What the structures share and where they differ.</strong> All three firms choose output where MR = MC. Free entry (perfect and monopolistic competition) drives profit to zero in the long run; barriers (monopoly) do not. A horizontal demand curve means P = MC and no scope to price above cost; a downward-sloping one means P > MC, excess capacity and a reason to advertise.</p>
+<div class="scenarios" role="group" aria-label="Scenarios"><button data-pm="2" data-ph="4" data-qm="200" data-qh="100" data-x="<strong>Question data.</strong> 2018: nominal = real = €200 (base year). 2019: both rise to €400, a 100% increase, because output doubled at unchanged prices. 2020: prices double, so nominal GDP rises another 100% to €800, but real GDP stays at €400 (0%). Well-being rose in 2019, not 2020.">Question data</button><button data-pm="1" data-ph="2" data-qm="300" data-qh="150" data-x="<strong>Only output rises in 2020.</strong> With prices unchanged, nominal and real GDP both rise by 50%. Every euro of extra nominal GDP is extra goods.">2020: output up 50%, prices flat</button><button data-pm="3" data-ph="6" data-qm="200" data-qh="100" data-x="<strong>Only prices rise in 2020.</strong> Nominal GDP triples while real GDP is flat. Nothing more was produced; the economy is no better off.">2020: prices triple, output flat</button></div><div class="explain" id="explain" aria-live="polite">Pick a scenario or set 2020 prices and quantities. 2018 and 2019 are fixed from the question.</div><div class="stage"><div class="chartcard"><svg id="svg" viewBox="0 0 560 430" role="img" aria-label="Nominal and real GDP by year"></svg></div><div class="panel"><div class="ctl"><div class="row"><label for="pm"><span class="swatch" style="background:var(--demand)"></span>2020 price of milk (€ per litre)</label><output id="pmOut"></output></div><input type="range" id="pm" min="0.5" max="4" value="2" step="0.5" aria-label="2020 price of milk (€ per litre)"><div class="ends"><span>€0.50</span><span>€4</span></div></div><div class="ctl"><div class="row"><label for="ph"><span class="swatch" style="background:var(--demand)"></span>2020 price of honey (€ per litre)</label><output id="phOut"></output></div><input type="range" id="ph" min="1" max="8" value="4" step="0.5" aria-label="2020 price of honey (€ per litre)"><div class="ends"><span>€1</span><span>€8</span></div></div><div class="ctl"><div class="row"><label for="qm"><span class="swatch" style="background:var(--supply)"></span>2020 quantity of milk (litres)</label><output id="qmOut"></output></div><input type="range" id="qm" min="100" max="300" value="200" step="10" aria-label="2020 quantity of milk (litres)"><div class="ends"><span>100</span><span>300</span></div></div><div class="ctl"><div class="row"><label for="qh"><span class="swatch" style="background:var(--supply)"></span>2020 quantity of honey (litres)</label><output id="qhOut"></output></div><input type="range" id="qh" min="50" max="150" value="100" step="5" aria-label="2020 quantity of honey (litres)"><div class="ends"><span>50</span><span>150</span></div></div><button class="reset" id="reset">Reset</button></div></div><div class="results"><div class="stat "><p class="k">Nominal GDP 2020</p><p class="v" id="n20"></p><p class="d" id="n20D"></p></div><div class="stat "><p class="k">Real GDP 2020</p><p class="v" id="r20"></p><p class="d" id="r20D"></p></div><div class="stat "><p class="k">Nominal growth 2019–20</p><p class="v" id="gn"></p><p class="d" id="gnD"></p></div><div class="stat "><p class="k">Real growth 2019–20</p><p class="v" id="gr"></p><p class="d" id="grD"></p></div></div><div class="tblwrap"><table class="tbl"><thead><tr><th>Year</th><th>Milk price</th><th>Milk litres</th><th>Honey price</th><th>Honey litres</th><th>Nominal GDP</th><th>Real GDP (2018 prices)</th></tr></thead><tbody id="tbody"></tbody></table></div><p class="note"><strong>Why economists prefer real GDP.</strong> It strips out price changes, so a rise means more goods and services were produced. A rise in nominal GDP could be either more output or higher prices, and you cannot tell which.</p>
+
+<div class="pagefoot">
+  <p><a href="/teaching-tools/finance-and-the-economy/">← Back to module</a></p>
+  <p>Built by Dr Kasra Kassai, LSBU Business School · <a href="https://drkassai.com">drkassai.com</a></p>
+</div>
 </div>
 <script>
 var $=function(id){ return document.getElementById(id); };
@@ -202,41 +230,27 @@ function ticks(max,n){ n=n||6; var raw=max/n, mag=Math.pow(10,Math.floor(Math.lo
 function kfmt(v){ return Math.abs(v)>=1e6? fmt(v/1e6,v%1e6?1:0)+'m' : Math.abs(v)>=1000? fmt(v/1000,v%1000?1:0)+'k' : fmt(v,0); }
 
 
-var F=200, a=2, b=0.05, k=0.1, mode='pc';
-var ATC=function(q){ return F/q+a+b*q; }, MC=function(q){ return a+2*b*q; };
-var qEff=Math.sqrt(F/b), atcMin=ATC(qEff);
-function solve(){
-  if(mode==='pc'){ var P=+$('pp').value, Q=(P-a)/(2*b); return {Q:Q,P:P}; }
-  var A=+$('aa').value, Q=(A-a)/(2*k+2*b); return {Q:Q,P:A-k*Q,A:A};
-}
-function profitAt(A){ var Q=(A-a)/(2*k+2*b), P=A-k*Q; return (P-ATC(Q))*Q; }
-var Along=(function(){ var lo=4, hi=20; for(var i=0;i<60;i++){ var mid=(lo+hi)/2; if(profitAt(mid)>0) hi=mid; else lo=mid; } return (lo+hi)/2; })();
-var c=chart($('svg'),{xmin:0,xmax:120,ymin:0,ymax:20,xticks:[0,20,40,60,80,100,120],yticks:[0,5,10,15,20],fy:function(v){return '£'+v;},xlab:'Quantity (Q)',ylab:'Costs and revenue (£)'});
+var Y=[{y:2018,pm:1,qm:100,ph:2,qh:50},{y:2019,pm:1,qm:200,ph:2,qh:100},{y:2020}];
 function render(){
-  $('pp').closest('.ctl').hidden=(mode!=='pc'); $('aa').closest('.ctl').hidden=(mode==='pc');
-  $('ppOut').textContent='£'+fmt(+$('pp').value,2); $('aaOut').textContent='intercept £'+fmt(+$('aa').value,1);
-  var s=solve(), Q=s.Q, P=s.P, atc=ATC(Q), pi=(P-atc)*Q, h='';
-  if(Math.abs(pi)>0.5) h+=rect(c,0,Q,atc,P,pi>0?'area-e':'area-d');
-  h+=curve(c,ATC,8,120,'curve-d')+lineY(c,2*b,a,'curve-s');
-  if(mode==='pc'){ h+=hline(c,P,'curve-a')+txt(c,4,P,'P = AR = MR',{dy:-6}); }
-  else { h+=lineY(c,-k,s.A,'curve-a')+lineY(c,-2*k,s.A,'curve-d2'); h+=txt(c,Math.min(118,s.A/k),Math.max(0.5,s.A-k*Math.min(118,s.A/k)),'Demand',{anchor:'end',dy:-6})+txt(c,Math.min(118,s.A/(2*k)),Math.max(0.5,s.A-2*k*Math.min(118,s.A/(2*k))),'MR',{anchor:'end',dy:-6,fill:'var(--demand)'}); }
-  h+=txt(c,118,Math.min(19,MC(118)),'MC',{anchor:'end',dy:-6,fill:'var(--supply)'})+txt(c,118,Math.min(19,ATC(118)),'ATC',{anchor:'end',dy:16,fill:'var(--demand)'});
-  h+=ring(c,qEff,atcMin)+guide(c,Q,P)+'<line class="guide" x1="'+c.X0+'" y1="'+c.Y(atc)+'" x2="'+c.X(Q)+'" y2="'+c.Y(atc)+'"/>';
-  h+=dot(c,Q,P)+dot(c,Q,atc,'var(--demand)',3.5)+dot(c,Q,MC(Q),'var(--supply)',3.5);
-  if(Math.abs(P-atc)<0.3) h+=txt(c,0,P,'P = ATC',{anchor:'end',dx:-8,dy:4,cls:'tnum',bg:true}); else h+=txt(c,0,P,'P',{anchor:'end',dx:-8,dy:4,cls:'tnum',bg:true})+txt(c,0,atc,'ATC',{anchor:'end',dx:-8,dy:4,cls:'tnum',bg:true});
-  h+=txt(c,Q,0,'Q*',{anchor:'middle',dy:18,cls:'tnum',bg:true});
-  if(Math.abs(pi)>5) h+=txt(c,Q/2,(P+atc)/2,pi>0?'profit':'loss',{anchor:'middle',dy:4,cls:'tl'});
+  Y[2].pm=+$('pm').value; Y[2].ph=+$('ph').value; Y[2].qm=+$('qm').value; Y[2].qh=+$('qh').value;
+  $('pmOut').textContent='€'+fmt(Y[2].pm,2); $('phOut').textContent='€'+fmt(Y[2].ph,2); $('qmOut').textContent=Y[2].qm+' L'; $('qhOut').textContent=Y[2].qh+' L';
+  var nom=Y.map(function(d){ return d.pm*d.qm+d.ph*d.qh; }), real=Y.map(function(d){ return 1*d.qm+2*d.qh; });
+  var ymax=Math.max.apply(null,nom.concat(real))*1.15; var yt=ticks(ymax,5); ymax=yt[yt.length-1];
+  var c=chart($('svg'),{xmin:0,xmax:6,ymin:0,ymax:ymax,xticks:[1,3,5],yticks:yt,fx:function(v){return Y[(v-1)/2].y;},fy:function(v){return '€'+kfmt(v);},xlab:'Year',ylab:'GDP (€)'});
+  var h='';
+  Y.forEach(function(d,i){ var x=1+2*i; h+=rect(c,x-0.75,x-0.05,0,nom[i],'bar-d')+rect(c,x+0.05,x+0.75,0,real[i],'bar-s'); h+=txt(c,x-0.4,nom[i],'€'+fmt(nom[i],0),{anchor:'middle',dy:-5,cls:'tnum1'})+txt(c,x+0.4,real[i],'€'+fmt(real[i],0),{anchor:'middle',dy:-5,cls:'tnum1'}); });
+  h+=rect(c,0.2,0.5,ymax*0.93,ymax*0.97,'bar-d')+txt(c,0.6,ymax*0.95,'Nominal',{dy:4,cls:'tl'})+rect(c,1.5,1.8,ymax*0.93,ymax*0.97,'bar-s')+txt(c,1.9,ymax*0.95,'Real',{dy:4,cls:'tl'});
   c.art.innerHTML=h;
-  $('q').textContent=fmt(Q,1); $('qD').textContent=mode==='pc'?'where MC = P':'where MR = MC; efficient scale is '+fmt(qEff,1);
-  $('p').textContent='£'+fmt(P,2); $('pD').textContent=mode==='pc'?'market price, = MC':'read off the demand curve; MC is £'+fmt(MC(Q),2);
-  $('atc').textContent='£'+fmt(atc,2); $('atcD').textContent='minimum ATC is £'+fmt(atcMin,2);
-  var zero=Math.abs(pi)<0.5;
-  $('pi').textContent=zero?'Normal profit only (P = ATC).':(pi>0?'Supernormal profit £'+fmt(pi,0)+' = (£'+fmt(P,2)+' − £'+fmt(atc,2)+') × '+fmt(Q,1):'Loss £'+fmt(-pi,0)+': firms will exit.');
-  $('piD').textContent=mode==='mono'?'kept: barriers block entry':(zero?'long-run equilibrium':(pi>0?'entry will compete this away':'exit will restore normal profit'));
+  var gn=(nom[2]-nom[1])/nom[1]*100, gr=(real[2]-real[1])/real[1]*100;
+  $('n20').textContent='€'+fmt(nom[2],0); $('n20D').textContent='('+Y[2].qm+' × €'+fmt(Y[2].pm,2)+') + ('+Y[2].qh+' × €'+fmt(Y[2].ph,2)+')';
+  $('r20').textContent='€'+fmt(real[2],0); $('r20D').textContent='('+Y[2].qm+' × €1) + ('+Y[2].qh+' × €2)';
+  $('gn').innerHTML=(gn>=0?'<span class="up">+':'<span class="down">')+fmt(gn,0)+'%</span>'; $('gnD').textContent='from €'+fmt(nom[1],0);
+  $('gr').innerHTML=(gr>0?'<span class="up">+':gr<0?'<span class="down">':'<span>')+fmt(gr,0)+'%</span>'; $('grD').textContent=gr===0?'no more goods were produced':gr>0?'more goods were produced':'fewer goods were produced';
+  var rows=''; Y.forEach(function(d,i){ rows+='<tr><td>'+d.y+'</td><td>€'+fmt(d.pm,2)+'</td><td>'+d.qm+'</td><td>€'+fmt(d.ph,2)+'</td><td>'+d.qh+'</td><td>€'+fmt(nom[i],0)+'</td><td>€'+fmt(real[i],0)+'</td></tr>'; }); $('tbody').innerHTML=rows;
 }
 var btns=[].slice.call(document.querySelectorAll('.scenarios button'));
-var clear=wire(btns,[$('pp'),$('aa')],function(b){ mode=b.dataset.m; if(b.dataset.lr){ if(mode==='pc') $('pp').value=atcMin.toFixed(2); else $('aa').value=Along.toFixed(2); } else { if(mode==='pc') $('pp').value=b.dataset.v; else $('aa').value=b.dataset.v; } },render,'Free exploration: find the price or demand position at which the rectangle just disappears.');
-$('reset').addEventListener('click',function(){ mode='pc'; $('pp').value=12; $('aa').value=16; clear(); $('explain').textContent='Pick a market structure. The slider moves the price (perfect competition) or the demand curve (monopolistic competition and monopoly); the long-run buttons jump to where profit is exactly zero.'; render(); });
+var clear=wire(btns,[$('pm'),$('ph'),$('qm'),$('qh')],function(b){ $('pm').value=b.dataset.pm; $('ph').value=b.dataset.ph; $('qm').value=b.dataset.qm; $('qh').value=b.dataset.qh; },render,'Free exploration: price sliders move only the nominal bar; quantity sliders move both.');
+$('reset').addEventListener('click',function(){ $('pm').value=2; $('ph').value=4; $('qm').value=200; $('qh').value=100; clear(); $('explain').textContent='Pick a scenario or set 2020 prices and quantities. 2018 and 2019 are fixed from the question.'; render(); });
 render();
 
 </script>

@@ -1,6 +1,20 @@
-<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
-<title>Aggregate demand and supply: short run to long run</title>
-<meta name="claude:viewport-fit-sides" content="cover">
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Profit, entry and long-run equilibrium · Dr Kasra Kassai</title>
+<meta name="description" content="A firm produces where MR = MC and earns (P − ATC) × Q, the shaded rectangle. Under perfect competition the demand curve is horizontal; under monopolistic competition and monopoly it slopes down. Watch what free entry does to the rectangle, and why barriers to entry let a monopolist keep it.">
+<meta name="author" content="Dr Kasra Kassai">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Teaching tools · Dr Kasra Kassai">
+<meta property="og:title" content="Profit, entry and long-run equilibrium">
+<meta property="og:description" content="A firm produces where MR = MC and earns (P − ATC) × Q, the shaded rectangle. Under perfect competition the demand curve is horizontal; under monopolistic competition and monopoly it slopes down. Watch what free entry does to the rectangle, and why barriers to entry let a monopolist keep it.">
+<meta property="og:url" content="https://drkassai.com/teaching-tools/finance-and-the-economy/market-structures/">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Profit, entry and long-run equilibrium">
+<meta name="twitter:description" content="A firm produces where MR = MC and earns (P − ATC) × Q, the shaded rectangle. Under perfect competition the demand curve is horizontal; under monopolistic competition and monopoly it slopes down. Watch what free entry does to the rectangle, and why barriers to entry let a monopolist keep it.">
+<link rel="canonical" href="https://drkassai.com/teaching-tools/finance-and-the-economy/market-structures/">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,500;6..72,600&family=Public+Sans:wght@400;500;600&display=swap">
 <style>
 /* Layout: single-column scholarly page — chart as centrepiece, controls beside it, scenarios as a worked-answer rail */
@@ -143,14 +157,28 @@ input[type=range]{width:100%; accent-color:var(--eq); margin:2px 0 0}
 .bar-e{fill:var(--eq);opacity:.8}
 .mk{fill:var(--card);stroke-width:2}
 
+
+/* Site chrome: back link and attribution footer */
+.pagefoot{border-top:1px solid var(--line); margin-top:26px; padding-top:16px; display:flex; flex-direction:column; gap:6px; font-size:13px; color:var(--ink-3)}
+.pagefoot p{margin:0}
+.pagefoot a{color:var(--eq); text-decoration:none; border-bottom:1px solid transparent}
+.pagefoot a:hover{border-bottom-color:var(--eq)}
+.pagefoot a:focus-visible{outline:2px solid var(--eq); outline-offset:2px}
 </style>
+</head>
+<body>
 <div class="wrap">
 <header>
-  <p class="kicker">Finance and the Economy · Seminar 8 · Macroeconomic factors</p>
-  <h1>A demand shock, then sticky wages catch up</h1>
-  <p class="lede">The economy starts at <em>A</em>, where AD₁, SRAS₁ and the vertical LRAS all meet. Shift aggregate demand and the economy moves along SRAS₁ to <em>B</em>. Then let wages and input prices adjust: SRAS shifts until output is back at its natural level at <em>C</em>. Questions 4 and 5, from <em>Business Economics</em> (Mankiw, Taylor &amp; Ashwin, ch. 21).</p>
+  <p class="kicker">Finance and the Economy · Seminar 5 · Market structures</p>
+  <h1>Supernormal profit and what happens to it</h1>
+  <p class="lede">A firm produces where <em>MR = MC</em> and earns <em>(P − ATC) × Q</em>, the shaded rectangle. Under perfect competition the demand curve is horizontal; under monopolistic competition and monopoly it slopes down. Watch what free entry does to the rectangle, and why barriers to entry let a monopolist keep it. Questions 3 and 4.</p>
 </header>
-<div class="scenarios" role="group" aria-label="Scenarios"><button data-d="20" data-t="0" data-x="<strong>(a) A popular prime minister, short run.</strong> Confidence rises and spending with it: AD shifts right to AD₂. Because wages and input prices are sticky, firms meet the extra demand with overtime, casual labour, inventory and sweated assets. Output rises from Y₁ to Y₂ and the price level from P₁ to P₂ at point B, beyond the natural rate.">(a) Confidence rises: short run</button><button data-d="20" data-t="100" data-x="<strong>(a) Long run.</strong> The higher price level has cut real wages, so workers win pay rises and suppliers lift their price lists. The temporary incentive to over-use resources disappears: SRAS shifts left to SRAS₂ and output falls back to Y₁ at point C, with a higher price level P₃. All three curves meet at C.">(a) Long run</button><button data-d="-20" data-t="0" data-x="<strong>(b) Financial crisis, short run.</strong> AD shifts left to AD₂ and the economy slides down SRAS₁ to B: lower output Y₂, lower price level P₂. This is a recession. Nominal wages are stuck on long-term contracts, so real wages rise, costs rise and firms cut production and jobs.">(b) Financial crisis: short run</button><button data-d="-20" data-t="100" data-x="<strong>(b) Long run.</strong> Slowly, lower prices feed through to lower wages and input prices: SRAS shifts right to SRAS₂. Output recovers to the natural rate Y₁ at point C, at a lower price level P₃. The business cycle has run its course.">(b) Long run</button></div><div class="explain" id="explain" aria-live="polite">Pick a scenario. The first slider moves AD; the second slider lets wages and prices catch up, which moves SRAS. Watch the economy go A → B → C.</div><div class="stage"><div class="chartcard"><svg id="svg" viewBox="0 0 560 430" role="img" aria-label="Aggregate demand, short-run and long-run aggregate supply"></svg></div><div class="panel"><div class="ctl"><div class="row"><label for="d"><span class="swatch" style="background:var(--demand)"></span>Aggregate demand shift</label><output id="dOut"></output></div><input type="range" id="d" min="-30" max="30" value="20" step="1" aria-label="Aggregate demand shift"><div class="ends"><span>fall (AD left)</span><span>rise (AD right)</span></div></div><div class="ctl"><div class="row"><label for="t"><span class="swatch" style="background:var(--supply)"></span>Wages and input prices have adjusted (%)</label><output id="tOut"></output></div><input type="range" id="t" min="0" max="100" value="0" step="5" aria-label="Wages and input prices have adjusted (%)"><div class="ends"><span>short run</span><span>long run</span></div></div><button class="reset" id="reset">Reset</button></div></div><div class="results"><div class="stat "><p class="k">Output (real GDP)</p><p class="v" id="y"></p><p class="d" id="yD"></p></div><div class="stat "><p class="k">Price level</p><p class="v" id="p"></p><p class="d" id="pD"></p></div><div class="stat verdict"><p class="k">Where we are</p><p class="v" id="ph"></p><p class="d" id="phD"></p></div></div><p class="note"><strong>Why SRAS slopes up but LRAS is vertical.</strong> With spare capacity firms can raise output without much price pressure; near full employment bottlenecks push prices up sharply. In the long run only the economy’s productive capacity (labour, capital, resources, technology) sets output, so LRAS is vertical at the natural rate, and it shifts right as the economy grows.</p>
+<div class="scenarios" role="group" aria-label="Scenarios"><button data-m="pc" data-v="12" data-x="<strong>Q3(a)(i) Perfect competition, short run.</strong> The firm is a price taker: P = AR = MR, a horizontal line. It produces where MC = P and earns the shaded rectangle, width (P − ATC), length Q. Supernormal profit attracts new entrants.">Perfect competition: short run</button><button data-m="pc" data-lr="1" data-x="<strong>Q3(a)(ii) Perfect competition, long run.</strong> Entry raises market supply and pushes price down until P = minimum ATC. The rectangle has vanished: zero economic profit, which still covers the opportunity cost of being in business. Output sits at the efficient scale.">Perfect competition: long run</button><button data-m="mc" data-v="16" data-x="<strong>Q3(b)(i) Monopolistic competition, short run.</strong> Product differentiation gives the firm a downward-sloping demand curve, so MR lies below it. At MR = MC the price read off the demand curve is above MC, and above ATC: supernormal profit.">Monopolistic competition: short run</button><button data-m="mc" data-lr="1" data-x="<strong>Q3(b)(ii) Monopolistic competition, long run.</strong> Entry shifts each firm’s demand curve left until it is just tangent to ATC: P = ATC and profit is normal. But the tangency is on the falling part of ATC, so the firm has <strong>excess capacity</strong>, and P is still above MC, which is why it keeps advertising for more customers at the posted price.">Monopolistic competition: long run</button><button data-m="mono" data-v="16" data-x="<strong>Q4 Monopoly.</strong> Same diagram as monopolistic competition in the short run, but barriers to entry mean no new firms arrive to compete the profit away. The monopolist faces the whole market demand curve and keeps the rectangle indefinitely.">Monopoly</button></div><div class="explain" id="explain" aria-live="polite">Pick a market structure. The slider moves the price (perfect competition) or the demand curve (monopolistic competition and monopoly); the long-run buttons jump to where profit is exactly zero.</div><div class="stage"><div class="chartcard"><svg id="svg" viewBox="0 0 560 430" role="img" aria-label="Firm cost and revenue curves with profit rectangle"></svg></div><div class="panel"><div class="ctl"><div class="row"><label for="pp"><span class="swatch" style="background:var(--demand)"></span>Market price (perfect competition)</label><output id="ppOut"></output></div><input type="range" id="pp" min="6" max="14" value="12" step="0.01" aria-label="Market price (perfect competition)"><div class="ends"><span>low</span><span>high</span></div></div><div class="ctl"><div class="row"><label for="aa"><span class="swatch" style="background:var(--demand)"></span>Demand curve position (entry shifts it left)</label><output id="aaOut"></output></div><input type="range" id="aa" min="8" max="20" value="16" step="0.01" aria-label="Demand curve position (entry shifts it left)"><div class="ends"><span>after entry</span><span>before entry</span></div></div><button class="reset" id="reset">Reset</button></div></div><div class="results"><div class="stat "><p class="k">Output (MR = MC)</p><p class="v" id="q"></p><p class="d" id="qD"></p></div><div class="stat "><p class="k">Price</p><p class="v" id="p"></p><p class="d" id="pD"></p></div><div class="stat "><p class="k">ATC at that output</p><p class="v" id="atc"></p><p class="d" id="atcD"></p></div><div class="stat verdict"><p class="k">Profit</p><p class="v" id="pi"></p><p class="d" id="piD"></p></div></div><p class="note"><strong>What the structures share and where they differ.</strong> All three firms choose output where MR = MC. Free entry (perfect and monopolistic competition) drives profit to zero in the long run; barriers (monopoly) do not. A horizontal demand curve means P = MC and no scope to price above cost; a downward-sloping one means P > MC, excess capacity and a reason to advertise.</p>
+
+<div class="pagefoot">
+  <p><a href="/teaching-tools/finance-and-the-economy/">← Back to module</a></p>
+  <p>Built by Dr Kasra Kassai, LSBU Business School · <a href="https://drkassai.com">drkassai.com</a></p>
+</div>
 </div>
 <script>
 var $=function(id){ return document.getElementById(id); };
@@ -202,33 +230,41 @@ function ticks(max,n){ n=n||6; var raw=max/n, mag=Math.pow(10,Math.floor(Math.lo
 function kfmt(v){ return Math.abs(v)>=1e6? fmt(v/1e6,v%1e6?1:0)+'m' : Math.abs(v)>=1000? fmt(v/1000,v%1000?1:0)+'k' : fmt(v,0); }
 
 
-var c=chart($('svg'),{xmin:0,xmax:100,ymin:0,ymax:100,xticks:[0,25,50,75,100],yticks:[0,25,50,75,100],xlab:'Real GDP (output)',ylab:'Price level'});
+var F=200, a=2, b=0.05, k=0.1, mode='pc';
+var ATC=function(q){ return F/q+a+b*q; }, MC=function(q){ return a+2*b*q; };
+var qEff=Math.sqrt(F/b), atcMin=ATC(qEff);
+function solve(){
+  if(mode==='pc'){ var P=+$('pp').value, Q=(P-a)/(2*b); return {Q:Q,P:P}; }
+  var A=+$('aa').value, Q=(A-a)/(2*k+2*b); return {Q:Q,P:A-k*Q,A:A};
+}
+function profitAt(A){ var Q=(A-a)/(2*k+2*b), P=A-k*Q; return (P-ATC(Q))*Q; }
+var Along=(function(){ var lo=4, hi=20; for(var i=0;i<60;i++){ var mid=(lo+hi)/2; if(profitAt(mid)>0) hi=mid; else lo=mid; } return (lo+hi)/2; })();
+var c=chart($('svg'),{xmin:0,xmax:120,ymin:0,ymax:20,xticks:[0,20,40,60,80,100,120],yticks:[0,5,10,15,20],fy:function(v){return '£'+v;},xlab:'Quantity (Q)',ylab:'Costs and revenue (£)'});
 function render(){
-  var d=+$('d').value, t=+$('t').value/100;
-  $('dOut').textContent=d===0?'no shift':(d<0?'← AD₂ left':'→ AD₂ right'); $('tOut').textContent=(t*100)+'%';
-  var A=[50,50], B=[50+d/2,50+d/2], C=[50,50+d], cur=[50+d*(1-t)/2,50+d*(1+t)/2];
-  var h=vline(c,50,'curve-a')+txt(c,50,98,'LRAS',{dx:6,fill:'var(--ink-2)'});
-  h+=lineY(c,1,0,d&&t>0?'ghost':'curve-s'); if(d&&t>0) h+=lineY(c,1,t*d,'curve-s');
-  h+=lineY(c,-1,100,d?'ghost':'curve-d'); if(d) h+=lineY(c,-1,100+d,'curve-d');
-  var ys=Math.min(90,98+t*d); h+=txt(c,ys-t*d,ys,'SRAS'+(d&&t>0?'₂':'₁'),{dx:8,dy:4,fill:'var(--supply)'});
-  if(d&&t>0) h+=txt(c,90,90,'SRAS₁',{anchor:'end',dx:-8,dy:4,cls:'tl'});
-  h+=txt(c,Math.min(98,100+d),Math.max(2,d+2),'AD'+(d?'₂':'₁'),{anchor:'end',dx:-4,dy:16,fill:'var(--demand)'});
-  if(d) h+=txt(c,98,2,'AD₁',{anchor:'end',dx:-4,dy:-6,cls:'tl'});
-  h+=guide(c,cur[0],cur[1]);
-  h+=ring(c,A[0],A[1])+txt(c,A[0],A[1],'A',{dx:7,dy:-7,cls:'tnum',bg:true});
-  if(d){ if(t<1){ h+=(t>0?ring(c,B[0],B[1]):'')+txt(c,B[0],B[1],'B',{dx:7,dy:-7,cls:'tnum',bg:true}); } if(t>0){ h+=txt(c,C[0],C[1],'C',{dx:7,dy:-7,cls:'tnum',bg:true}); } h+=dot(c,cur[0],cur[1]); }
-  h+=txt(c,0,50,'P₁',{anchor:'end',dx:-8,dy:4,cls:'tnum',bg:true})+txt(c,50,0,'Y₁',{anchor:'middle',dy:18,cls:'tnum',bg:true});
-  if(d&&t<1) h+=txt(c,0,B[1],'P₂',{anchor:'end',dx:-8,dy:4,cls:'tnum',bg:true})+txt(c,B[0],0,'Y₂',{anchor:'middle',dy:18,cls:'tnum',bg:true});
-  if(d&&t>0) h+=txt(c,0,cur[1],'P'+(t<1?'':'₃'),{anchor:'end',dx:-8,dy:4,cls:'tnum',bg:true});
+  $('pp').closest('.ctl').hidden=(mode!=='pc'); $('aa').closest('.ctl').hidden=(mode==='pc');
+  $('ppOut').textContent='£'+fmt(+$('pp').value,2); $('aaOut').textContent='intercept £'+fmt(+$('aa').value,1);
+  var s=solve(), Q=s.Q, P=s.P, atc=ATC(Q), pi=(P-atc)*Q, h='';
+  if(Math.abs(pi)>0.5) h+=rect(c,0,Q,atc,P,pi>0?'area-e':'area-d');
+  h+=curve(c,ATC,8,120,'curve-d')+lineY(c,2*b,a,'curve-s');
+  if(mode==='pc'){ h+=hline(c,P,'curve-a')+txt(c,4,P,'P = AR = MR',{dy:-6}); }
+  else { h+=lineY(c,-k,s.A,'curve-a')+lineY(c,-2*k,s.A,'curve-d2'); h+=txt(c,Math.min(118,s.A/k),Math.max(0.5,s.A-k*Math.min(118,s.A/k)),'Demand',{anchor:'end',dy:-6})+txt(c,Math.min(118,s.A/(2*k)),Math.max(0.5,s.A-2*k*Math.min(118,s.A/(2*k))),'MR',{anchor:'end',dy:-6,fill:'var(--demand)'}); }
+  h+=txt(c,118,Math.min(19,MC(118)),'MC',{anchor:'end',dy:-6,fill:'var(--supply)'})+txt(c,118,Math.min(19,ATC(118)),'ATC',{anchor:'end',dy:16,fill:'var(--demand)'});
+  h+=ring(c,qEff,atcMin)+guide(c,Q,P)+'<line class="guide" x1="'+c.X0+'" y1="'+c.Y(atc)+'" x2="'+c.X(Q)+'" y2="'+c.Y(atc)+'"/>';
+  h+=dot(c,Q,P)+dot(c,Q,atc,'var(--demand)',3.5)+dot(c,Q,MC(Q),'var(--supply)',3.5);
+  if(Math.abs(P-atc)<0.3) h+=txt(c,0,P,'P = ATC',{anchor:'end',dx:-8,dy:4,cls:'tnum',bg:true}); else h+=txt(c,0,P,'P',{anchor:'end',dx:-8,dy:4,cls:'tnum',bg:true})+txt(c,0,atc,'ATC',{anchor:'end',dx:-8,dy:4,cls:'tnum',bg:true});
+  h+=txt(c,Q,0,'Q*',{anchor:'middle',dy:18,cls:'tnum',bg:true});
+  if(Math.abs(pi)>5) h+=txt(c,Q/2,(P+atc)/2,pi>0?'profit':'loss',{anchor:'middle',dy:4,cls:'tl'});
   c.art.innerHTML=h;
-  $('y').textContent=fmt(cur[0],1); $('yD').textContent=Math.abs(cur[0]-50)<0.05?'at the natural rate Y₁':(cur[0]>50?'▲ above the natural rate of 50':'▼ below the natural rate of 50');
-  $('p').textContent=fmt(cur[1],1); $('pD').textContent=d?(cur[1]>50?'▲ up from 50':'▼ down from 50'):'P₁';
-  $('ph').textContent=!d?'Point A: long-run equilibrium.':t===0?'Point B: short-run equilibrium. Output has '+(d>0?'risen above':'fallen below')+' its natural rate because wages and prices have not yet adjusted.':t<1?'Between B and C: SRAS is shifting as wages and prices catch up.':'Point C: new long-run equilibrium. Output is back at its natural rate; only the price level has changed.';
-  $('phD').textContent='';
+  $('q').textContent=fmt(Q,1); $('qD').textContent=mode==='pc'?'where MC = P':'where MR = MC; efficient scale is '+fmt(qEff,1);
+  $('p').textContent='£'+fmt(P,2); $('pD').textContent=mode==='pc'?'market price, = MC':'read off the demand curve; MC is £'+fmt(MC(Q),2);
+  $('atc').textContent='£'+fmt(atc,2); $('atcD').textContent='minimum ATC is £'+fmt(atcMin,2);
+  var zero=Math.abs(pi)<0.5;
+  $('pi').textContent=zero?'Normal profit only (P = ATC).':(pi>0?'Supernormal profit £'+fmt(pi,0)+' = (£'+fmt(P,2)+' − £'+fmt(atc,2)+') × '+fmt(Q,1):'Loss £'+fmt(-pi,0)+': firms will exit.');
+  $('piD').textContent=mode==='mono'?'kept: barriers block entry':(zero?'long-run equilibrium':(pi>0?'entry will compete this away':'exit will restore normal profit'));
 }
 var btns=[].slice.call(document.querySelectorAll('.scenarios button'));
-var clear=wire(btns,[$('d'),$('t')],function(b){ $('d').value=b.dataset.d; $('t').value=b.dataset.t; },render,'Free exploration: however big the demand shift, output always returns to the natural rate once wages and prices have fully adjusted.');
-$('reset').addEventListener('click',function(){ $('d').value=20; $('t').value=0; clear(); $('explain').textContent='Pick a scenario. The first slider moves AD; the second slider lets wages and prices catch up, which moves SRAS. Watch the economy go A → B → C.'; render(); });
+var clear=wire(btns,[$('pp'),$('aa')],function(b){ mode=b.dataset.m; if(b.dataset.lr){ if(mode==='pc') $('pp').value=atcMin.toFixed(2); else $('aa').value=Along.toFixed(2); } else { if(mode==='pc') $('pp').value=b.dataset.v; else $('aa').value=b.dataset.v; } },render,'Free exploration: find the price or demand position at which the rectangle just disappears.');
+$('reset').addEventListener('click',function(){ mode='pc'; $('pp').value=12; $('aa').value=16; clear(); $('explain').textContent='Pick a market structure. The slider moves the price (perfect competition) or the demand curve (monopolistic competition and monopoly); the long-run buttons jump to where profit is exactly zero.'; render(); });
 render();
 
 </script>

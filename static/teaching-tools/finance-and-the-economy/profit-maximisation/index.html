@@ -1,6 +1,20 @@
-<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
-<title>Nominal and real GDP</title>
-<meta name="claude:viewport-fit-sides" content="cover">
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Profit maximisation: MR = MC · Dr Kasra Kassai</title>
+<meta name="description" content="The firm sells every unit at the same price, so total revenue is a straight line and marginal revenue equals price. Total cost rises faster and faster. Profit is the vertical gap between the two; it peaks where marginal revenue equals marginal cost.">
+<meta name="author" content="Dr Kasra Kassai">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Teaching tools · Dr Kasra Kassai">
+<meta property="og:title" content="Profit maximisation: MR = MC">
+<meta property="og:description" content="The firm sells every unit at the same price, so total revenue is a straight line and marginal revenue equals price. Total cost rises faster and faster. Profit is the vertical gap between the two; it peaks where marginal revenue equals marginal cost.">
+<meta property="og:url" content="https://drkassai.com/teaching-tools/finance-and-the-economy/profit-maximisation/">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Profit maximisation: MR = MC">
+<meta name="twitter:description" content="The firm sells every unit at the same price, so total revenue is a straight line and marginal revenue equals price. Total cost rises faster and faster. Profit is the vertical gap between the two; it peaks where marginal revenue equals marginal cost.">
+<link rel="canonical" href="https://drkassai.com/teaching-tools/finance-and-the-economy/profit-maximisation/">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,500;6..72,600&family=Public+Sans:wght@400;500;600&display=swap">
 <style>
 /* Layout: single-column scholarly page — chart as centrepiece, controls beside it, scenarios as a worked-answer rail */
@@ -143,14 +157,28 @@ input[type=range]{width:100%; accent-color:var(--eq); margin:2px 0 0}
 .bar-e{fill:var(--eq);opacity:.8}
 .mk{fill:var(--card);stroke-width:2}
 
+
+/* Site chrome: back link and attribution footer */
+.pagefoot{border-top:1px solid var(--line); margin-top:26px; padding-top:16px; display:flex; flex-direction:column; gap:6px; font-size:13px; color:var(--ink-3)}
+.pagefoot p{margin:0}
+.pagefoot a{color:var(--eq); text-decoration:none; border-bottom:1px solid transparent}
+.pagefoot a:hover{border-bottom-color:var(--eq)}
+.pagefoot a:focus-visible{outline:2px solid var(--eq); outline-offset:2px}
 </style>
+</head>
+<body>
 <div class="wrap">
 <header>
-  <p class="kicker">Finance and the Economy · Seminar 8 · Macroeconomic factors</p>
-  <h1>The land of milk and honey</h1>
-  <p class="lede">Nominal GDP values output at current prices; real GDP values it at base-year (2018) prices. Change what happens in 2020 and see which measure moves. Only real GDP tells you whether more was actually produced. Questions 2 and 3, from <em>Business Economics</em> (Mankiw, Taylor &amp; Ashwin, ch. 20).</p>
+  <p class="kicker">Finance and the Economy · Seminar 4 · Cost-volume-profit analysis</p>
+  <h1>Finding the profit-maximising output</h1>
+  <p class="lede">The firm sells every unit at the same price, so total revenue is a straight line and marginal revenue equals price. Total cost rises faster and faster. Profit is the vertical gap between the two; it peaks where <em>marginal revenue equals marginal cost</em>. Question 2, from <em>Business Economics</em> (Mankiw, Taylor &amp; Ashwin, ch. 10).</p>
 </header>
-<div class="scenarios" role="group" aria-label="Scenarios"><button data-pm="2" data-ph="4" data-qm="200" data-qh="100" data-x="<strong>Question data.</strong> 2018: nominal = real = €200 (base year). 2019: both rise to €400, a 100% increase, because output doubled at unchanged prices. 2020: prices double, so nominal GDP rises another 100% to €800, but real GDP stays at €400 (0%). Well-being rose in 2019, not 2020.">Question data</button><button data-pm="1" data-ph="2" data-qm="300" data-qh="150" data-x="<strong>Only output rises in 2020.</strong> With prices unchanged, nominal and real GDP both rise by 50%. Every euro of extra nominal GDP is extra goods.">2020: output up 50%, prices flat</button><button data-pm="3" data-ph="6" data-qm="200" data-qh="100" data-x="<strong>Only prices rise in 2020.</strong> Nominal GDP triples while real GDP is flat. Nothing more was produced; the economy is no better off.">2020: prices triple, output flat</button></div><div class="explain" id="explain" aria-live="polite">Pick a scenario or set 2020 prices and quantities. 2018 and 2019 are fixed from the question.</div><div class="stage"><div class="chartcard"><svg id="svg" viewBox="0 0 560 430" role="img" aria-label="Nominal and real GDP by year"></svg></div><div class="panel"><div class="ctl"><div class="row"><label for="pm"><span class="swatch" style="background:var(--demand)"></span>2020 price of milk (€ per litre)</label><output id="pmOut"></output></div><input type="range" id="pm" min="0.5" max="4" value="2" step="0.5" aria-label="2020 price of milk (€ per litre)"><div class="ends"><span>€0.50</span><span>€4</span></div></div><div class="ctl"><div class="row"><label for="ph"><span class="swatch" style="background:var(--demand)"></span>2020 price of honey (€ per litre)</label><output id="phOut"></output></div><input type="range" id="ph" min="1" max="8" value="4" step="0.5" aria-label="2020 price of honey (€ per litre)"><div class="ends"><span>€1</span><span>€8</span></div></div><div class="ctl"><div class="row"><label for="qm"><span class="swatch" style="background:var(--supply)"></span>2020 quantity of milk (litres)</label><output id="qmOut"></output></div><input type="range" id="qm" min="100" max="300" value="200" step="10" aria-label="2020 quantity of milk (litres)"><div class="ends"><span>100</span><span>300</span></div></div><div class="ctl"><div class="row"><label for="qh"><span class="swatch" style="background:var(--supply)"></span>2020 quantity of honey (litres)</label><output id="qhOut"></output></div><input type="range" id="qh" min="50" max="150" value="100" step="5" aria-label="2020 quantity of honey (litres)"><div class="ends"><span>50</span><span>150</span></div></div><button class="reset" id="reset">Reset</button></div></div><div class="results"><div class="stat "><p class="k">Nominal GDP 2020</p><p class="v" id="n20"></p><p class="d" id="n20D"></p></div><div class="stat "><p class="k">Real GDP 2020</p><p class="v" id="r20"></p><p class="d" id="r20D"></p></div><div class="stat "><p class="k">Nominal growth 2019–20</p><p class="v" id="gn"></p><p class="d" id="gnD"></p></div><div class="stat "><p class="k">Real growth 2019–20</p><p class="v" id="gr"></p><p class="d" id="grD"></p></div></div><div class="tblwrap"><table class="tbl"><thead><tr><th>Year</th><th>Milk price</th><th>Milk litres</th><th>Honey price</th><th>Honey litres</th><th>Nominal GDP</th><th>Real GDP (2018 prices)</th></tr></thead><tbody id="tbody"></tbody></table></div><p class="note"><strong>Why economists prefer real GDP.</strong> It strips out price changes, so a rise means more goods and services were produced. A rise in nominal GDP could be either more output or higher prices, and you cannot tell which.</p>
+<div class="scenarios" role="group" aria-label="Scenarios"><button data-p="6" data-x="<strong>Question values: price £6.</strong> MR is £6 at every unit. MC climbs £2, £3, £4, £5, £6, £7 … Profit rises until the fifth unit, where MC = MR = £6, and falls after it. Profit-maximising output is <strong>5</strong>, with profit of <strong>£7</strong>.">Question: price £6</button><button data-p="8" data-x="<strong>Price £8.</strong> With a higher MR the firm keeps producing while MC is £8 or less, so output rises to 7 and profit to £18.">Price £8</button><button data-p="4" data-x="<strong>Price £4.</strong> Now only three units have MC at or below MR. Profit peaks at Q = 3, and it is thin: £0.">Price £4</button></div><div class="explain" id="explain" aria-live="polite">Pick a price, or slide it. The dashed gap at the best output is the profit; the table recomputes MR, MC and profit for every unit.</div><div class="stage"><div class="chartcard"><svg id="svg" viewBox="0 0 560 430" role="img" aria-label="Total revenue and total cost"></svg></div><div class="panel"><div class="ctl"><div class="row"><label for="p"><span class="swatch" style="background:var(--supply)"></span>Price per unit (£)</label><output id="pOut"></output></div><input type="range" id="p" min="3" max="9" value="6" step="0.5" aria-label="Price per unit (£)"><div class="ends"><span>low</span><span>high</span></div></div><button class="reset" id="reset">Reset</button></div></div><div class="results"><div class="stat "><p class="k">Profit-maximising output</p><p class="v" id="q"></p><p class="d" id="qD"></p></div><div class="stat "><p class="k">Profit at that output</p><p class="v" id="pi"></p><p class="d" id="piD"></p></div><div class="stat "><p class="k">MR and MC there</p><p class="v" id="mrmc"></p><p class="d" id="mrmcD"></p></div><div class="stat verdict"><p class="k">Rule</p><p class="v" id="verdict"></p><p class="d" id="verdictD"></p></div></div><div class="tblwrap"><table class="tbl"><thead><tr><th>Q</th><th>TR</th><th>TC</th><th>Profit</th><th>MR</th><th>MC</th></tr></thead><tbody id="tbody"></tbody></table></div><p class="note"><strong>Reading the table.</strong> MR is the change in total revenue from one more unit; MC is the change in total cost. Keep producing while MR ≥ MC. The unit where they are equal is the last one worth making; the next one adds more to cost than to revenue.</p>
+
+<div class="pagefoot">
+  <p><a href="/teaching-tools/finance-and-the-economy/">← Back to module</a></p>
+  <p>Built by Dr Kasra Kassai, LSBU Business School · <a href="https://drkassai.com">drkassai.com</a></p>
+</div>
 </div>
 <script>
 var $=function(id){ return document.getElementById(id); };
@@ -202,27 +230,32 @@ function ticks(max,n){ n=n||6; var raw=max/n, mag=Math.pow(10,Math.floor(Math.lo
 function kfmt(v){ return Math.abs(v)>=1e6? fmt(v/1e6,v%1e6?1:0)+'m' : Math.abs(v)>=1000? fmt(v/1000,v%1000?1:0)+'k' : fmt(v,0); }
 
 
-var Y=[{y:2018,pm:1,qm:100,ph:2,qh:50},{y:2019,pm:1,qm:200,ph:2,qh:100},{y:2020}];
+var TC=[3,5,8,12,17,23,30,38,47];
+var c=chart($('svg'),{xmin:0,xmax:8,ymin:0,ymax:75,xticks:[0,1,2,3,4,5,6,7,8],yticks:[0,15,30,45,60,75],fy:function(v){return '£'+v;},xlab:'Output (Q)',ylab:'Total revenue and total cost (£)'});
 function render(){
-  Y[2].pm=+$('pm').value; Y[2].ph=+$('ph').value; Y[2].qm=+$('qm').value; Y[2].qh=+$('qh').value;
-  $('pmOut').textContent='€'+fmt(Y[2].pm,2); $('phOut').textContent='€'+fmt(Y[2].ph,2); $('qmOut').textContent=Y[2].qm+' L'; $('qhOut').textContent=Y[2].qh+' L';
-  var nom=Y.map(function(d){ return d.pm*d.qm+d.ph*d.qh; }), real=Y.map(function(d){ return 1*d.qm+2*d.qh; });
-  var ymax=Math.max.apply(null,nom.concat(real))*1.15; var yt=ticks(ymax,5); ymax=yt[yt.length-1];
-  var c=chart($('svg'),{xmin:0,xmax:6,ymin:0,ymax:ymax,xticks:[1,3,5],yticks:yt,fx:function(v){return Y[(v-1)/2].y;},fy:function(v){return '€'+kfmt(v);},xlab:'Year',ylab:'GDP (€)'});
-  var h='';
-  Y.forEach(function(d,i){ var x=1+2*i; h+=rect(c,x-0.75,x-0.05,0,nom[i],'bar-d')+rect(c,x+0.05,x+0.75,0,real[i],'bar-s'); h+=txt(c,x-0.4,nom[i],'€'+fmt(nom[i],0),{anchor:'middle',dy:-5,cls:'tnum1'})+txt(c,x+0.4,real[i],'€'+fmt(real[i],0),{anchor:'middle',dy:-5,cls:'tnum1'}); });
-  h+=rect(c,0.2,0.5,ymax*0.93,ymax*0.97,'bar-d')+txt(c,0.6,ymax*0.95,'Nominal',{dy:4,cls:'tl'})+rect(c,1.5,1.8,ymax*0.93,ymax*0.97,'bar-s')+txt(c,1.9,ymax*0.95,'Real',{dy:4,cls:'tl'});
+  var P=+$('p').value; $('pOut').textContent='£'+fmt(P,2);
+  var best=0, bestPi=-TC[0];
+  for(var q=1;q<=8;q++){ var mc=TC[q]-TC[q-1]; if(mc<=P+1e-9) best=q; }
+  bestPi=P*best-TC[best];
+  var tr=[],tc=[]; for(var q=0;q<=8;q++){ tr.push([q,P*q]); tc.push([q,TC[q]]); }
+  var h=path(c,tr.filter(function(p){return p[1]<=75;}),'curve-s')+path(c,tc,'curve-d')+marks(c,tc,'var(--demand)');
+  h+='<line class="curve-e" stroke-dasharray="5 4" x1="'+c.X(best)+'" y1="'+c.Y(TC[best])+'" x2="'+c.X(best)+'" y2="'+c.Y(P*best)+'"/>';
+  h+=dot(c,best,P*best)+dot(c,best,TC[best],'var(--demand)');
+  h+=txt(c,8,Math.min(75,P*8),'TR = £'+fmt(P,0)+' × Q',{anchor:'end',dx:-6,dy:-8,fill:'var(--supply)'})+txt(c,8,47,'TC',{anchor:'end',dx:-6,dy:16,fill:'var(--demand)'});
+  h+=txt(c,best,(P*best+TC[best])/2,'profit £'+fmt(bestPi,0),{dx:8,dy:4,cls:'tnum'});
   c.art.innerHTML=h;
-  var gn=(nom[2]-nom[1])/nom[1]*100, gr=(real[2]-real[1])/real[1]*100;
-  $('n20').textContent='€'+fmt(nom[2],0); $('n20D').textContent='('+Y[2].qm+' × €'+fmt(Y[2].pm,2)+') + ('+Y[2].qh+' × €'+fmt(Y[2].ph,2)+')';
-  $('r20').textContent='€'+fmt(real[2],0); $('r20D').textContent='('+Y[2].qm+' × €1) + ('+Y[2].qh+' × €2)';
-  $('gn').innerHTML=(gn>=0?'<span class="up">+':'<span class="down">')+fmt(gn,0)+'%</span>'; $('gnD').textContent='from €'+fmt(nom[1],0);
-  $('gr').innerHTML=(gr>0?'<span class="up">+':gr<0?'<span class="down">':'<span>')+fmt(gr,0)+'%</span>'; $('grD').textContent=gr===0?'no more goods were produced':gr>0?'more goods were produced':'fewer goods were produced';
-  var rows=''; Y.forEach(function(d,i){ rows+='<tr><td>'+d.y+'</td><td>€'+fmt(d.pm,2)+'</td><td>'+d.qm+'</td><td>€'+fmt(d.ph,2)+'</td><td>'+d.qh+'</td><td>€'+fmt(nom[i],0)+'</td><td>€'+fmt(real[i],0)+'</td></tr>'; }); $('tbody').innerHTML=rows;
+  $('q').textContent=best+' units'; $('qD').textContent='last unit with MC ≤ MR';
+  $('pi').textContent='£'+fmt(bestPi,0); $('piD').textContent='TR '+fmt(P*best,0)+' − TC '+fmt(TC[best],0);
+  $('mrmc').textContent='£'+fmt(P,0)+' · £'+fmt(best?TC[best]-TC[best-1]:0,0); $('mrmcD').textContent='MR · MC at Q = '+best;
+  $('verdict').textContent='Produce while MR ≥ MC. Beyond Q = '+best+' the next unit costs more than it earns.'; $('verdictD').textContent='';
+  var rows='';
+  for(var q=0;q<=8;q++){ var pi=P*q-TC[q], mr=q?P:null, mc=q?TC[q]-TC[q-1]:null;
+    rows+='<tr'+(q===best?' class="hi"':'')+'><td>'+q+'</td><td>'+fmt(P*q,0)+'</td><td>'+TC[q]+'</td><td'+(pi<0?' class="neg"':'')+'>'+(pi<0?'−':'')+fmt(Math.abs(pi),0)+'</td><td>'+(mr===null?'–':fmt(mr,0))+'</td><td>'+(mc===null?'–':mc)+'</td></tr>'; }
+  $('tbody').innerHTML=rows;
 }
 var btns=[].slice.call(document.querySelectorAll('.scenarios button'));
-var clear=wire(btns,[$('pm'),$('ph'),$('qm'),$('qh')],function(b){ $('pm').value=b.dataset.pm; $('ph').value=b.dataset.ph; $('qm').value=b.dataset.qm; $('qh').value=b.dataset.qh; },render,'Free exploration: price sliders move only the nominal bar; quantity sliders move both.');
-$('reset').addEventListener('click',function(){ $('pm').value=2; $('ph').value=4; $('qm').value=200; $('qh').value=100; clear(); $('explain').textContent='Pick a scenario or set 2020 prices and quantities. 2018 and 2019 are fixed from the question.'; render(); });
+var clear=wire(btns,[$('p')],function(b){ $('p').value=b.dataset.p; },render,'Free exploration: a higher price lifts MR, so more units satisfy MR ≥ MC and the best output rises.');
+$('reset').addEventListener('click',function(){ $('p').value=6; clear(); $('explain').textContent='Pick a price, or slide it. The dashed gap at the best output is the profit; the table recomputes MR, MC and profit for every unit.'; render(); });
 render();
 
 </script>

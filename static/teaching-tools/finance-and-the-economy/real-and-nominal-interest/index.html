@@ -1,6 +1,20 @@
-<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
-<title>Jon and Marie: comparative advantage</title>
-<meta name="claude:viewport-fit-sides" content="cover">
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Real and nominal interest rates · Dr Kasra Kassai</title>
+<meta name="description" content="The nominal rate is what the market quotes; the real rate is what the money buys. Subtracting inflation is a quick approximation; dividing (1 + nominal) by (1 + inflation) is exact.">
+<meta name="author" content="Dr Kasra Kassai">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Teaching tools · Dr Kasra Kassai">
+<meta property="og:title" content="Real and nominal interest rates">
+<meta property="og:description" content="The nominal rate is what the market quotes; the real rate is what the money buys. Subtracting inflation is a quick approximation; dividing (1 + nominal) by (1 + inflation) is exact.">
+<meta property="og:url" content="https://drkassai.com/teaching-tools/finance-and-the-economy/real-and-nominal-interest/">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Real and nominal interest rates">
+<meta name="twitter:description" content="The nominal rate is what the market quotes; the real rate is what the money buys. Subtracting inflation is a quick approximation; dividing (1 + nominal) by (1 + inflation) is exact.">
+<link rel="canonical" href="https://drkassai.com/teaching-tools/finance-and-the-economy/real-and-nominal-interest/">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,500;6..72,600&family=Public+Sans:wght@400;500;600&display=swap">
 <style>
 /* Layout: single-column scholarly page — chart as centrepiece, controls beside it, scenarios as a worked-answer rail */
@@ -143,14 +157,28 @@ input[type=range]{width:100%; accent-color:var(--eq); margin:2px 0 0}
 .bar-e{fill:var(--eq);opacity:.8}
 .mk{fill:var(--card);stroke-width:2}
 
+
+/* Site chrome: back link and attribution footer */
+.pagefoot{border-top:1px solid var(--line); margin-top:26px; padding-top:16px; display:flex; flex-direction:column; gap:6px; font-size:13px; color:var(--ink-3)}
+.pagefoot p{margin:0}
+.pagefoot a{color:var(--eq); text-decoration:none; border-bottom:1px solid transparent}
+.pagefoot a:hover{border-bottom-color:var(--eq)}
+.pagefoot a:focus-visible{outline:2px solid var(--eq); outline-offset:2px}
 </style>
+</head>
+<body>
 <div class="wrap">
 <header>
-  <p class="kicker">Finance and the Economy · Seminar 10 · Global business and economics</p>
-  <h1>Production possibilities and the gains from trade</h1>
-  <p class="lede">Jon can catch 10 fish or gather 40 coconuts in a day; Marie can catch 20 fish or gather 200 coconuts. Marie has the absolute advantage in both, yet both gain by specialising and trading, because their <em>opportunity costs</em> differ. Set how each spends the day and what they swap, and watch consumption move beyond the frontier. Question 2, from <em>Business Economics</em> (Mankiw, Taylor &amp; Ashwin, ch. 23).</p>
+  <p class="kicker">Finance and the Economy · Seminar 7 · Finance for business</p>
+  <h1>Correcting an interest rate for inflation</h1>
+  <p class="lede">The nominal rate is what the market quotes; the real rate is what the money buys. Subtracting inflation is a quick approximation; dividing (1 + nominal) by (1 + inflation) is exact. Questions 5(c) and 6(b).</p>
 </header>
-<div class="scenarios" role="group" aria-label="Scenarios"><button data-fj="50" data-fm="50" data-fish="0" data-coco="0" data-x="<strong>(e) No trade, half a day on each.</strong> Jon produces and eats 5 fish and 20 coconuts (point A); Marie 10 fish and 100 coconuts (point B). Each is stuck on their own frontier.">(e) No trade: half and half</button><button data-fj="80" data-fm="40" data-fish="2.5" data-coco="14" data-x="<strong>(f) Specialise and trade.</strong> Jon spends 80% of his day fishing (8 fish, 8 coconuts); Marie 40% (8 fish, 120 coconuts). Jon gives 2½ fish for 14 coconuts. Jon ends with 5.5 fish and 22 coconuts (A*), Marie with 10.5 fish and 106 coconuts (B*): <strong>both</strong> beyond their frontiers, gaining 0.5 fish each and 2 and 6 coconuts.">(f) Specialise and trade</button></div><div class="explain" id="explain" aria-live="polite">Pick a scenario or move the sliders. Hollow markers are what each person produces; filled markers are what they consume after trading. Grey rings show the no-trade points A and B.</div><div class="stage"><div class="charts"><div class="chartcard"><svg id="svgJ" viewBox="0 0 560 430" role="img" aria-label="Jon’s production possibilities frontier"></svg></div><div class="chartcard"><svg id="svgM" viewBox="0 0 560 430" role="img" aria-label="Marie’s production possibilities frontier"></svg></div></div><div class="panel"><div class="ctl"><div class="row"><label for="fj"><span class="swatch" style="background:var(--demand)"></span>Jon: share of the day spent fishing (%)</label><output id="fjOut"></output></div><input type="range" id="fj" min="0" max="100" value="50" step="5" aria-label="Jon: share of the day spent fishing (%)"><div class="ends"><span>all coconuts</span><span>all fish</span></div></div><div class="ctl"><div class="row"><label for="fm"><span class="swatch" style="background:var(--supply)"></span>Marie: share of the day spent fishing (%)</label><output id="fmOut"></output></div><input type="range" id="fm" min="0" max="100" value="50" step="5" aria-label="Marie: share of the day spent fishing (%)"><div class="ends"><span>all coconuts</span><span>all fish</span></div></div><div class="ctl"><div class="row"><label for="x"><span class="swatch" style="background:var(--eq)"></span>Fish Jon gives Marie</label><output id="xOut"></output></div><input type="range" id="x" min="0" max="5" value="0" step="0.5" aria-label="Fish Jon gives Marie"><div class="ends"><span>0</span><span>5</span></div></div><div class="ctl"><div class="row"><label for="y"><span class="swatch" style="background:var(--eq)"></span>Coconuts Marie gives Jon</label><output id="yOut"></output></div><input type="range" id="y" min="0" max="40" value="0" step="1" aria-label="Coconuts Marie gives Jon"><div class="ends"><span>0</span><span>40</span></div></div><button class="reset" id="reset">Reset</button></div></div><div class="results"><div class="stat "><p class="k">Jon consumes</p><p class="v" id="jc"></p><p class="d" id="jcD"></p></div><div class="stat "><p class="k">Marie consumes</p><p class="v" id="mc"></p><p class="d" id="mcD"></p></div><div class="stat "><p class="k">Jon’s gain vs no trade</p><p class="v" id="jg"></p><p class="d" id="jgD"></p></div><div class="stat "><p class="k">Marie’s gain vs no trade</p><p class="v" id="mg"></p><p class="d" id="mgD"></p></div></div><div class="tblwrap"><table class="tbl"><thead><tr><th>Opportunity cost</th><th>Jon</th><th>Marie</th><th>Comparative advantage</th></tr></thead><tbody><tr><td>of one fish</td><td>40 ÷ 10 = 4 coconuts</td><td>200 ÷ 20 = 10 coconuts</td><td>Jon (gives up fewer coconuts)</td></tr><tr><td>of one coconut</td><td>10 ÷ 40 = 0.25 fish</td><td>20 ÷ 200 = 0.1 fish</td><td>Marie (gives up less fish)</td></tr></tbody></table></div><p class="note"><strong>Why nobody can have a comparative advantage in both.</strong> The opportunity cost of coconuts is the reciprocal of the opportunity cost of fish. If Marie’s cost of a fish (10 coconuts) is higher than Jon’s (4), her cost of a coconut (1/10 fish) must be lower than his (1/4). Opportunity costs move in opposite directions, which is Ricardo’s law of comparative advantage. Trade at any rate between 4 and 10 coconuts per fish makes both better off.</p>
+<div class="scenarios" role="group" aria-label="Scenarios"><button data-n="26" data-i="5" data-x="<strong>Q5(c) The grain merchant.</strong> 100 kilos borrowed, 120 kilos repaid: the real rate is 20%. With 5% inflation wheat costs £1.05 next year, so 120 kilos cost £126 and the nominal rate is 126/100 − 1 = <strong>26%</strong>. Approximate real rate 26 − 5 = 21%; exact 1.26/1.05 − 1 = <strong>20%</strong>, which recovers the 20% we started with.">Q5(c): 26% nominal, 5% inflation</button><button data-n="5" data-i="6.5" data-x="<strong>Q6(b) George’s deposit.</strong> 5% nominal with 6.5% inflation: exact real rate = 1.05/1.065 − 1 = <strong>−1.4%</strong>. The deposit loses purchasing power, though it still beats cash under the mattress (−6.1%). Borrowers gain when inflation runs above expectations.">Q6(b): 5% nominal, 6.5% inflation</button></div><div class="explain" id="explain" aria-live="polite">Pick a question, or set the nominal rate and inflation. The chart shows the real rate at every inflation rate for your nominal rate, both ways.</div><div class="stage"><div class="chartcard"><svg id="svg" viewBox="0 0 560 430" role="img" aria-label="Real interest rate against inflation"></svg></div><div class="panel"><div class="ctl"><div class="row"><label for="n"><span class="swatch" style="background:var(--eq)"></span>Nominal (money) interest rate (%)</label><output id="nOut"></output></div><input type="range" id="n" min="0" max="30" value="26" step="0.5" aria-label="Nominal (money) interest rate (%)"><div class="ends"><span>0%</span><span>30%</span></div></div><div class="ctl"><div class="row"><label for="i"><span class="swatch" style="background:var(--demand)"></span>Inflation rate (%)</label><output id="iOut"></output></div><input type="range" id="i" min="0" max="15" value="5" step="0.5" aria-label="Inflation rate (%)"><div class="ends"><span>0%</span><span>15%</span></div></div><button class="reset" id="reset">Reset</button></div></div><div class="results"><div class="stat "><p class="k">Approximate real rate</p><p class="v" id="ap"></p><p class="d" id="apD"></p></div><div class="stat "><p class="k">Exact real rate</p><p class="v" id="ex"></p><p class="d" id="exD"></p></div><div class="stat "><p class="k">Difference</p><p class="v" id="gap"></p><p class="d" id="gapD"></p></div><div class="stat verdict"><p class="k">Reading</p><p class="v" id="verdict"></p><p class="d" id="verdictD"></p></div></div><p class="note"><strong>The Fisher relationship.</strong> (1 + real) × (1 + inflation) = 1 + nominal. Lenders add an inflation premium to the real return they require; borrowers repay in money that buys less. The approximation is good when both rates are small, and drifts as they grow.</p>
+
+<div class="pagefoot">
+  <p><a href="/teaching-tools/finance-and-the-economy/">← Back to module</a></p>
+  <p>Built by Dr Kasra Kassai, LSBU Business School · <a href="https://drkassai.com">drkassai.com</a></p>
+</div>
 </div>
 <script>
 var $=function(id){ return document.getElementById(id); };
@@ -202,33 +230,23 @@ function ticks(max,n){ n=n||6; var raw=max/n, mag=Math.pow(10,Math.floor(Math.lo
 function kfmt(v){ return Math.abs(v)>=1e6? fmt(v/1e6,v%1e6?1:0)+'m' : Math.abs(v)>=1000? fmt(v/1000,v%1000?1:0)+'k' : fmt(v,0); }
 
 
-var cJ=chart($('svgJ'),{xmin:0,xmax:12,ymin:0,ymax:50,xticks:[0,2,4,6,8,10,12],yticks:[0,10,20,30,40,50],xlab:'Fish caught (Jon)',ylab:'Coconuts gathered'});
-var cM=chart($('svgM'),{xmin:0,xmax:24,ymin:0,ymax:240,xticks:[0,4,8,12,16,20,24],yticks:[0,40,80,120,160,200,240],xlab:'Fish caught (Marie)',ylab:'Coconuts gathered'});
-function draw(c,F,C,prod,cons,base,name,lab){
-  var h=path(c,[[0,C],[F,0]],'curve-a')+txt(c,F,0,name+'’s PPF',{anchor:'end',dx:-6,dy:-8,cls:'tl'});
-  h+=ring(c,base[0],base[1])+txt(c,base[0],base[1],lab,{dx:7,dy:-7,cls:'tnum1'});
-  var moved=Math.abs(cons[0]-prod[0])>1e-9||Math.abs(cons[1]-prod[1])>1e-9;
-  if(Math.abs(prod[0]-base[0])>1e-9||Math.abs(prod[1]-base[1])>1e-9||moved){ h+=ring(c,prod[0],prod[1]); if(moved) h+='<line class="curve-e" stroke-dasharray="4 3" x1="'+c.X(prod[0])+'" y1="'+c.Y(prod[1])+'" x2="'+c.X(cons[0])+'" y2="'+c.Y(cons[1])+'"/>'; }
-  var beyond=cons[0]/F+cons[1]/C>1+1e-9;
-  h+=guide(c,cons[0],cons[1])+dot(c,cons[0],cons[1],beyond?'var(--supply)':'var(--eq)')+txt(c,cons[0],cons[1],moved?lab+'*':'',{dx:8,dy:-8,cls:'tnum'});
-  c.art.innerHTML=h;
-  return beyond;
-}
+var c=chart($('svg'),{xmin:0,xmax:15,ymin:-10,ymax:30,xticks:[0,3,6,9,12,15],yticks:[-10,0,10,20,30],fx:function(v){return v+'%';},fy:function(v){return (v<0?'−':'')+Math.abs(v)+'%';},xlab:'Inflation rate',ylab:'Real interest rate'});
 function render(){
-  var fj=+$('fj').value/100, fm=+$('fm').value/100, x=+$('x').value, y=+$('y').value;
-  $('fjOut').textContent=(fj*100)+'% fishing'; $('fmOut').textContent=(fm*100)+'% fishing'; $('xOut').textContent=x+' fish'; $('yOut').textContent=y+' coconuts';
-  var pj=[10*fj,40*(1-fj)], pm=[20*fm,200*(1-fm)], cj=[pj[0]-x,pj[1]+y], cm=[pm[0]+x,pm[1]-y];
-  var okj=cj[0]>=-1e-9&&cj[1]>=-1e-9, okm=cm[0]>=-1e-9&&cm[1]>=-1e-9;
-  var bj=draw(cJ,10,40,pj,cj,[5,20],'Jon','A'), bm=draw(cM,20,200,pm,cm,[10,100],'Marie','B');
-  $('jc').textContent=fmt(cj[0],1)+' fish · '+fmt(cj[1],0)+' coconuts'; $('jcD').textContent=okj?('produces '+fmt(pj[0],1)+' · '+fmt(pj[1],0)+(x||y?', gives '+x+' fish, gets '+y+' coconuts':'')):'cannot give more fish than he catches';
-  $('mc').textContent=fmt(cm[0],1)+' fish · '+fmt(cm[1],0)+' coconuts'; $('mcD').textContent=okm?('produces '+fmt(pm[0],1)+' · '+fmt(pm[1],0)+(x||y?', gets '+x+' fish, gives '+y+' coconuts':'')):'cannot give more coconuts than she gathers';
-  function gain(v,b){ var d=v-b; return (d>0?'<span class="up">+':d<0?'<span class="down">':'<span>')+fmt(d,1)+'</span>'; }
-  $('jg').innerHTML=gain(cj[0],5)+' fish · '+gain(cj[1],20)+' coconuts'; $('jgD').textContent=bj?'beyond his frontier':'on or inside his frontier';
-  $('mg').innerHTML=gain(cm[0],10)+' fish · '+gain(cm[1],100)+' coconuts'; $('mgD').textContent=bm?'beyond her frontier':'on or inside her frontier';
+  var N=+$('n').value, I=+$('i').value; $('nOut').textContent=fmt(N,1)+'%'; $('iOut').textContent=fmt(I,1)+'%';
+  var ap=N-I, ex=((1+N/100)/(1+I/100)-1)*100;
+  var h=hline(c,0,'ghost')+lineY(c,-1,N,'curve-d2')+curve(c,function(x){ return ((1+N/100)/(1+x/100)-1)*100; },0,15,'curve-d');
+  h+=txt(c,12.5,Math.max(-9,N-12.5),'approximate',{anchor:'middle',dy:16,cls:'tl',fill:'var(--demand)'})+txt(c,12.5,Math.min(29,((1+N/100)/1.125-1)*100),'exact',{anchor:'middle',dy:-8,cls:'tl',fill:'var(--demand)'});
+  if(ex>=-10&&ex<=30){ h+=guide(c,I,ex)+dot(c,I,ex)+txt(c,I,ex,'exact '+fmt(ex,1)+'%',{dx:10,dy:-8,cls:'tnum'}); }
+  if(ap>=-10&&ap<=30){ h+=ring(c,I,ap); }
+  c.art.innerHTML=h;
+  $('ap').textContent=(ap<0?'−':'')+fmt(Math.abs(ap),1)+'%'; $('apD').textContent=fmt(N,1)+'% − '+fmt(I,1)+'%';
+  $('ex').innerHTML=(ex<0?'<span class="down">−'+fmt(-ex,1)+'%</span>':fmt(ex,1)+'%'); $('exD').textContent=fmt(1+N/100,3)+' ÷ '+fmt(1+I/100,3)+' − 1';
+  $('gap').textContent=fmt(Math.abs(ap-ex),2)+' points'; $('gapD').textContent='the approximation overstates the real rate';
+  $('verdict').textContent=ex<0?'The real return is negative: the money loses purchasing power.':ex===0?'The money just keeps its purchasing power.':'The real return is positive: the money gains purchasing power.'; $('verdictD').textContent='';
 }
 var btns=[].slice.call(document.querySelectorAll('.scenarios button'));
-var clear=wire(btns,[$('fj'),$('fm'),$('x'),$('y')],function(b){ $('fj').value=b.dataset.fj; $('fm').value=b.dataset.fm; $('x').value=b.dataset.fish; $('y').value=b.dataset.coco; },render,'Free exploration: try a different swap. Any rate between 4 and 10 coconuts per fish can leave both better off.');
-$('reset').addEventListener('click',function(){ $('fj').value=50; $('fm').value=50; $('x').value=0; $('y').value=0; clear(); $('explain').textContent='Pick a scenario or move the sliders. Hollow markers are what each person produces; filled markers are what they consume after trading. Grey rings show the no-trade points A and B.'; render(); });
+var clear=wire(btns,[$('n'),$('i')],function(b){ $('n').value=b.dataset.n; $('i').value=b.dataset.i; },render,'Free exploration: the approximation and the exact answer part company as inflation rises.');
+$('reset').addEventListener('click',function(){ $('n').value=26; $('i').value=5; clear(); $('explain').textContent='Pick a question, or set the nominal rate and inflation. The chart shows the real rate at every inflation rate for your nominal rate, both ways.'; render(); });
 render();
 
 </script>

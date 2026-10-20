@@ -1,6 +1,20 @@
-<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
-<title>Compound interest and yield</title>
-<meta name="claude:viewport-fit-sides" content="cover">
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Jon and Marie: comparative advantage · Dr Kasra Kassai</title>
+<meta name="description" content="Jon can catch 10 fish or gather 40 coconuts in a day; Marie can catch 20 fish or gather 200 coconuts. Marie has the absolute advantage in both, yet both gain by specialising and trading, because their opportunity costs differ.">
+<meta name="author" content="Dr Kasra Kassai">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Teaching tools · Dr Kasra Kassai">
+<meta property="og:title" content="Jon and Marie: comparative advantage">
+<meta property="og:description" content="Jon can catch 10 fish or gather 40 coconuts in a day; Marie can catch 20 fish or gather 200 coconuts. Marie has the absolute advantage in both, yet both gain by specialising and trading, because their opportunity costs differ.">
+<meta property="og:url" content="https://drkassai.com/teaching-tools/finance-and-the-economy/comparative-advantage/">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Jon and Marie: comparative advantage">
+<meta name="twitter:description" content="Jon can catch 10 fish or gather 40 coconuts in a day; Marie can catch 20 fish or gather 200 coconuts. Marie has the absolute advantage in both, yet both gain by specialising and trading, because their opportunity costs differ.">
+<link rel="canonical" href="https://drkassai.com/teaching-tools/finance-and-the-economy/comparative-advantage/">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,500;6..72,600&family=Public+Sans:wght@400;500;600&display=swap">
 <style>
 /* Layout: single-column scholarly page — chart as centrepiece, controls beside it, scenarios as a worked-answer rail */
@@ -143,14 +157,28 @@ input[type=range]{width:100%; accent-color:var(--eq); margin:2px 0 0}
 .bar-e{fill:var(--eq);opacity:.8}
 .mk{fill:var(--card);stroke-width:2}
 
+
+/* Site chrome: back link and attribution footer */
+.pagefoot{border-top:1px solid var(--line); margin-top:26px; padding-top:16px; display:flex; flex-direction:column; gap:6px; font-size:13px; color:var(--ink-3)}
+.pagefoot p{margin:0}
+.pagefoot a{color:var(--eq); text-decoration:none; border-bottom:1px solid transparent}
+.pagefoot a:hover{border-bottom-color:var(--eq)}
+.pagefoot a:focus-visible{outline:2px solid var(--eq); outline-offset:2px}
 </style>
+</head>
+<body>
 <div class="wrap">
 <header>
-  <p class="kicker">Finance and the Economy · Seminar 7 · Finance for business</p>
-  <h1>Amjad’s deposit: compounding forwards, yield backwards</h1>
-  <p class="lede">A deposit grows by the same percentage every year, so the growth is compound, not straight-line. Going the other way, knowing only what went in and what came out, the average annual return is the <em>n</em>th root of the growth factor. Question 2.</p>
+  <p class="kicker">Finance and the Economy · Seminar 10 · Global business and economics</p>
+  <h1>Production possibilities and the gains from trade</h1>
+  <p class="lede">Jon can catch 10 fish or gather 40 coconuts in a day; Marie can catch 20 fish or gather 200 coconuts. Marie has the absolute advantage in both, yet both gain by specialising and trading, because their <em>opportunity costs</em> differ. Set how each spends the day and what they swap, and watch consumption move beyond the frontier. Question 2, from <em>Business Economics</em> (Mankiw, Taylor &amp; Ashwin, ch. 23).</p>
 </header>
-<div class="scenarios" role="group" aria-label="Scenarios"><button data-pv="500" data-r="3.6" data-n="4" data-x="<strong>(i) and (ii).</strong> £18 interest on £500 is 3.6%. Left for four years at that rate: £500 × 1.036⁴ = <strong>£575.98</strong>. Each year’s interest is earned on the previous balance, so the fourth year adds more than the first.">(ii) £500 at 3.6% for 4 years</button><button data-pv="500" data-r="3.6" data-n="4" data-yield="1" data-x="<strong>(iii) Yield from PV and FV.</strong> £500 × (1 + r)⁴ = £575.98, so (1 + r)⁴ = 1.152 and r = 1.152^¼ − 1 = <strong>3.6%</strong>. The internal rate of return reverses the compounding.">(iii) Yield from £575.98</button><button data-pv="500" data-r="4.2" data-n="10" data-yield="1" data-x="<strong>(iv) Ten years, rates changed several times.</strong> £500 became £754.48, a growth factor of 1.509. The average annual return is 1.509^(1/10) − 1 = <strong>4.2%</strong>, whatever the individual yearly rates were.">(iv) £754.48 after 10 years</button></div><div class="explain" id="explain" aria-live="polite">Pick a part of the question, or set your own deposit, rate and term. Bars are the compound balance; the dashed line is what simple interest would give.</div><div class="stage"><div class="chartcard"><svg id="svg" viewBox="0 0 560 430" role="img" aria-label="Balance over time with compound interest"></svg></div><div class="panel"><div class="ctl"><div class="row"><label for="pv"><span class="swatch" style="background:var(--demand)"></span>Deposit (£)</label><output id="pvOut"></output></div><input type="range" id="pv" min="100" max="2000" value="500" step="10" aria-label="Deposit (£)"><div class="ends"><span>£100</span><span>£2,000</span></div></div><div class="ctl"><div class="row"><label for="r"><span class="swatch" style="background:var(--eq)"></span>Annual interest rate (%)</label><output id="rOut"></output></div><input type="range" id="r" min="0" max="10" value="3.6" step="0.1" aria-label="Annual interest rate (%)"><div class="ends"><span>0%</span><span>10%</span></div></div><div class="ctl"><div class="row"><label for="n"><span class="swatch" style="background:var(--supply)"></span>Years</label><output id="nOut"></output></div><input type="range" id="n" min="1" max="20" value="4" step="1" aria-label="Years"><div class="ends"><span>1</span><span>20</span></div></div><button class="reset" id="reset">Reset</button></div></div><div class="results"><div class="stat "><p class="k">Balance at the end</p><p class="v" id="fv"></p><p class="d" id="fvD"></p></div><div class="stat "><p class="k">Total interest</p><p class="v" id="int"></p><p class="d" id="intD"></p></div><div class="stat "><p class="k">Simple interest would give</p><p class="v" id="simple"></p><p class="d" id="simpleD"></p></div><div class="stat "><p class="k">Yield recovered from PV and FV</p><p class="v" id="y"></p><p class="d" id="yD"></p></div></div><p class="note"><strong>The formulas.</strong> FV = PV × (1 + r)ⁿ. Rearranged, r = (FV ÷ PV)^(1/n) − 1. The second one is the internal rate of return, which banks quote as AER on deposits and APR on loans.</p>
+<div class="scenarios" role="group" aria-label="Scenarios"><button data-fj="50" data-fm="50" data-fish="0" data-coco="0" data-x="<strong>(e) No trade, half a day on each.</strong> Jon produces and eats 5 fish and 20 coconuts (point A); Marie 10 fish and 100 coconuts (point B). Each is stuck on their own frontier.">(e) No trade: half and half</button><button data-fj="80" data-fm="40" data-fish="2.5" data-coco="14" data-x="<strong>(f) Specialise and trade.</strong> Jon spends 80% of his day fishing (8 fish, 8 coconuts); Marie 40% (8 fish, 120 coconuts). Jon gives 2½ fish for 14 coconuts. Jon ends with 5.5 fish and 22 coconuts (A*), Marie with 10.5 fish and 106 coconuts (B*): <strong>both</strong> beyond their frontiers, gaining 0.5 fish each and 2 and 6 coconuts.">(f) Specialise and trade</button></div><div class="explain" id="explain" aria-live="polite">Pick a scenario or move the sliders. Hollow markers are what each person produces; filled markers are what they consume after trading. Grey rings show the no-trade points A and B.</div><div class="stage"><div class="charts"><div class="chartcard"><svg id="svgJ" viewBox="0 0 560 430" role="img" aria-label="Jon’s production possibilities frontier"></svg></div><div class="chartcard"><svg id="svgM" viewBox="0 0 560 430" role="img" aria-label="Marie’s production possibilities frontier"></svg></div></div><div class="panel"><div class="ctl"><div class="row"><label for="fj"><span class="swatch" style="background:var(--demand)"></span>Jon: share of the day spent fishing (%)</label><output id="fjOut"></output></div><input type="range" id="fj" min="0" max="100" value="50" step="5" aria-label="Jon: share of the day spent fishing (%)"><div class="ends"><span>all coconuts</span><span>all fish</span></div></div><div class="ctl"><div class="row"><label for="fm"><span class="swatch" style="background:var(--supply)"></span>Marie: share of the day spent fishing (%)</label><output id="fmOut"></output></div><input type="range" id="fm" min="0" max="100" value="50" step="5" aria-label="Marie: share of the day spent fishing (%)"><div class="ends"><span>all coconuts</span><span>all fish</span></div></div><div class="ctl"><div class="row"><label for="x"><span class="swatch" style="background:var(--eq)"></span>Fish Jon gives Marie</label><output id="xOut"></output></div><input type="range" id="x" min="0" max="5" value="0" step="0.5" aria-label="Fish Jon gives Marie"><div class="ends"><span>0</span><span>5</span></div></div><div class="ctl"><div class="row"><label for="y"><span class="swatch" style="background:var(--eq)"></span>Coconuts Marie gives Jon</label><output id="yOut"></output></div><input type="range" id="y" min="0" max="40" value="0" step="1" aria-label="Coconuts Marie gives Jon"><div class="ends"><span>0</span><span>40</span></div></div><button class="reset" id="reset">Reset</button></div></div><div class="results"><div class="stat "><p class="k">Jon consumes</p><p class="v" id="jc"></p><p class="d" id="jcD"></p></div><div class="stat "><p class="k">Marie consumes</p><p class="v" id="mc"></p><p class="d" id="mcD"></p></div><div class="stat "><p class="k">Jon’s gain vs no trade</p><p class="v" id="jg"></p><p class="d" id="jgD"></p></div><div class="stat "><p class="k">Marie’s gain vs no trade</p><p class="v" id="mg"></p><p class="d" id="mgD"></p></div></div><div class="tblwrap"><table class="tbl"><thead><tr><th>Opportunity cost</th><th>Jon</th><th>Marie</th><th>Comparative advantage</th></tr></thead><tbody><tr><td>of one fish</td><td>40 ÷ 10 = 4 coconuts</td><td>200 ÷ 20 = 10 coconuts</td><td>Jon (gives up fewer coconuts)</td></tr><tr><td>of one coconut</td><td>10 ÷ 40 = 0.25 fish</td><td>20 ÷ 200 = 0.1 fish</td><td>Marie (gives up less fish)</td></tr></tbody></table></div><p class="note"><strong>Why nobody can have a comparative advantage in both.</strong> The opportunity cost of coconuts is the reciprocal of the opportunity cost of fish. If Marie’s cost of a fish (10 coconuts) is higher than Jon’s (4), her cost of a coconut (1/10 fish) must be lower than his (1/4). Opportunity costs move in opposite directions, which is Ricardo’s law of comparative advantage. Trade at any rate between 4 and 10 coconuts per fish makes both better off.</p>
+
+<div class="pagefoot">
+  <p><a href="/teaching-tools/finance-and-the-economy/">← Back to module</a></p>
+  <p>Built by Dr Kasra Kassai, LSBU Business School · <a href="https://drkassai.com">drkassai.com</a></p>
+</div>
 </div>
 <script>
 var $=function(id){ return document.getElementById(id); };
@@ -202,25 +230,33 @@ function ticks(max,n){ n=n||6; var raw=max/n, mag=Math.pow(10,Math.floor(Math.lo
 function kfmt(v){ return Math.abs(v)>=1e6? fmt(v/1e6,v%1e6?1:0)+'m' : Math.abs(v)>=1000? fmt(v/1000,v%1000?1:0)+'k' : fmt(v,0); }
 
 
-function render(){
-  var PV=+$('pv').value, r=+$('r').value, n=+$('n').value;
-  $('pvOut').textContent='£'+fmt(PV,0); $('rOut').textContent=fmt(r,1)+'%'; $('nOut').textContent=n+(n>1?' years':' year');
-  var FV=PV*Math.pow(1+r/100,n), simple=PV*(1+r/100*n), y=(Math.pow(FV/PV,1/n)-1)*100;
-  var ymax=Math.max(FV,simple)*1.1; var yt=ticks(ymax,5); ymax=yt[yt.length-1];
-  var xt=[]; for(var i=0;i<=n;i++) xt.push(i);
-  var c=chart($('svg'),{xmin:-0.6,xmax:n+0.6,ymin:0,ymax:ymax,xticks:n>12?xt.filter(function(v){return v%2===0;}):xt,yticks:yt,fy:function(v){return '£'+kfmt(v);},xlab:'Year',ylab:'Balance (£)'});
-  var h='';
-  for(var t=0;t<=n;t++){ var bal=PV*Math.pow(1+r/100,t); h+=rect(c,t-0.35,t+0.35,0,bal,'bar-d'); if(n<=6) h+=txt(c,t,bal,'£'+fmt(bal,0),{anchor:'middle',dy:-5,cls:'tnum1'}); }
-  h+=lineY(c,PV*r/100,PV,'curve-d2');
+var cJ=chart($('svgJ'),{xmin:0,xmax:12,ymin:0,ymax:50,xticks:[0,2,4,6,8,10,12],yticks:[0,10,20,30,40,50],xlab:'Fish caught (Jon)',ylab:'Coconuts gathered'});
+var cM=chart($('svgM'),{xmin:0,xmax:24,ymin:0,ymax:240,xticks:[0,4,8,12,16,20,24],yticks:[0,40,80,120,160,200,240],xlab:'Fish caught (Marie)',ylab:'Coconuts gathered'});
+function draw(c,F,C,prod,cons,base,name,lab){
+  var h=path(c,[[0,C],[F,0]],'curve-a')+txt(c,F,0,name+'’s PPF',{anchor:'end',dx:-6,dy:-8,cls:'tl'});
+  h+=ring(c,base[0],base[1])+txt(c,base[0],base[1],lab,{dx:7,dy:-7,cls:'tnum1'});
+  var moved=Math.abs(cons[0]-prod[0])>1e-9||Math.abs(cons[1]-prod[1])>1e-9;
+  if(Math.abs(prod[0]-base[0])>1e-9||Math.abs(prod[1]-base[1])>1e-9||moved){ h+=ring(c,prod[0],prod[1]); if(moved) h+='<line class="curve-e" stroke-dasharray="4 3" x1="'+c.X(prod[0])+'" y1="'+c.Y(prod[1])+'" x2="'+c.X(cons[0])+'" y2="'+c.Y(cons[1])+'"/>'; }
+  var beyond=cons[0]/F+cons[1]/C>1+1e-9;
+  h+=guide(c,cons[0],cons[1])+dot(c,cons[0],cons[1],beyond?'var(--supply)':'var(--eq)')+txt(c,cons[0],cons[1],moved?lab+'*':'',{dx:8,dy:-8,cls:'tnum'});
   c.art.innerHTML=h;
-  $('fv').textContent='£'+fmt(FV,2); $('fvD').textContent='£'+fmt(PV,0)+' × '+fmt(1+r/100,3)+'^'+n;
-  $('int').textContent='£'+fmt(FV-PV,2); $('intD').textContent='of which £'+fmt(FV-simple,2)+' is interest on interest';
-  $('simple').textContent='£'+fmt(simple,2); $('simpleD').textContent='£'+fmt(PV,0)+' × (1 + '+fmt(r/100*n,3)+')';
-  $('y').textContent=fmt(y,2)+'%'; $('yD').textContent='('+fmt(FV,2)+' ÷ '+fmt(PV,0)+')^(1/'+n+') − 1';
+  return beyond;
+}
+function render(){
+  var fj=+$('fj').value/100, fm=+$('fm').value/100, x=+$('x').value, y=+$('y').value;
+  $('fjOut').textContent=(fj*100)+'% fishing'; $('fmOut').textContent=(fm*100)+'% fishing'; $('xOut').textContent=x+' fish'; $('yOut').textContent=y+' coconuts';
+  var pj=[10*fj,40*(1-fj)], pm=[20*fm,200*(1-fm)], cj=[pj[0]-x,pj[1]+y], cm=[pm[0]+x,pm[1]-y];
+  var okj=cj[0]>=-1e-9&&cj[1]>=-1e-9, okm=cm[0]>=-1e-9&&cm[1]>=-1e-9;
+  var bj=draw(cJ,10,40,pj,cj,[5,20],'Jon','A'), bm=draw(cM,20,200,pm,cm,[10,100],'Marie','B');
+  $('jc').textContent=fmt(cj[0],1)+' fish · '+fmt(cj[1],0)+' coconuts'; $('jcD').textContent=okj?('produces '+fmt(pj[0],1)+' · '+fmt(pj[1],0)+(x||y?', gives '+x+' fish, gets '+y+' coconuts':'')):'cannot give more fish than he catches';
+  $('mc').textContent=fmt(cm[0],1)+' fish · '+fmt(cm[1],0)+' coconuts'; $('mcD').textContent=okm?('produces '+fmt(pm[0],1)+' · '+fmt(pm[1],0)+(x||y?', gets '+x+' fish, gives '+y+' coconuts':'')):'cannot give more coconuts than she gathers';
+  function gain(v,b){ var d=v-b; return (d>0?'<span class="up">+':d<0?'<span class="down">':'<span>')+fmt(d,1)+'</span>'; }
+  $('jg').innerHTML=gain(cj[0],5)+' fish · '+gain(cj[1],20)+' coconuts'; $('jgD').textContent=bj?'beyond his frontier':'on or inside his frontier';
+  $('mg').innerHTML=gain(cm[0],10)+' fish · '+gain(cm[1],100)+' coconuts'; $('mgD').textContent=bm?'beyond her frontier':'on or inside her frontier';
 }
 var btns=[].slice.call(document.querySelectorAll('.scenarios button'));
-var clear=wire(btns,[$('pv'),$('r'),$('n')],function(b){ $('pv').value=b.dataset.pv; $('r').value=b.dataset.r; $('n').value=b.dataset.n; },render,'Free exploration: the gap between the bars and the dashed line is interest earned on earlier interest.');
-$('reset').addEventListener('click',function(){ $('pv').value=500; $('r').value=3.6; $('n').value=4; clear(); $('explain').textContent='Pick a part of the question, or set your own deposit, rate and term. Bars are the compound balance; the dashed line is what simple interest would give.'; render(); });
+var clear=wire(btns,[$('fj'),$('fm'),$('x'),$('y')],function(b){ $('fj').value=b.dataset.fj; $('fm').value=b.dataset.fm; $('x').value=b.dataset.fish; $('y').value=b.dataset.coco; },render,'Free exploration: try a different swap. Any rate between 4 and 10 coconuts per fish can leave both better off.');
+$('reset').addEventListener('click',function(){ $('fj').value=50; $('fm').value=50; $('x').value=0; $('y').value=0; clear(); $('explain').textContent='Pick a scenario or move the sliders. Hollow markers are what each person produces; filled markers are what they consume after trading. Grey rings show the no-trade points A and B.'; render(); });
 render();
 
 </script>

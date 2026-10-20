@@ -1,6 +1,20 @@
-<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
-<title>The multiplier effect</title>
-<meta name="claude:viewport-fit-sides" content="cover">
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Hawksmetics: demand, MR and MC · Dr Kasra Kassai</title>
+<meta name="description" content="Seven price–quantity observations give a linear demand curve, P = 20 − 0.002Q. Marginal revenue has twice the slope, MR = 20 − 0.004Q. Profit is maximised where MR meets marginal cost. Compare that with the cost-plus price of £14, and see what a rising MC curve does.">
+<meta name="author" content="Dr Kasra Kassai">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Teaching tools · Dr Kasra Kassai">
+<meta property="og:title" content="Hawksmetics: demand, MR and MC">
+<meta property="og:description" content="Seven price–quantity observations give a linear demand curve, P = 20 − 0.002Q. Marginal revenue has twice the slope, MR = 20 − 0.004Q. Profit is maximised where MR meets marginal cost. Compare that with the cost-plus price of £14, and see what a rising MC curve does.">
+<meta property="og:url" content="https://drkassai.com/teaching-tools/finance-and-the-economy/hawksmetics/">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hawksmetics: demand, MR and MC">
+<meta name="twitter:description" content="Seven price–quantity observations give a linear demand curve, P = 20 − 0.002Q. Marginal revenue has twice the slope, MR = 20 − 0.004Q. Profit is maximised where MR meets marginal cost. Compare that with the cost-plus price of £14, and see what a rising MC curve does.">
+<link rel="canonical" href="https://drkassai.com/teaching-tools/finance-and-the-economy/hawksmetics/">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,500;6..72,600&family=Public+Sans:wght@400;500;600&display=swap">
 <style>
 /* Layout: single-column scholarly page — chart as centrepiece, controls beside it, scenarios as a worked-answer rail */
@@ -143,14 +157,28 @@ input[type=range]{width:100%; accent-color:var(--eq); margin:2px 0 0}
 .bar-e{fill:var(--eq);opacity:.8}
 .mk{fill:var(--card);stroke-width:2}
 
+
+/* Site chrome: back link and attribution footer */
+.pagefoot{border-top:1px solid var(--line); margin-top:26px; padding-top:16px; display:flex; flex-direction:column; gap:6px; font-size:13px; color:var(--ink-3)}
+.pagefoot p{margin:0}
+.pagefoot a{color:var(--eq); text-decoration:none; border-bottom:1px solid transparent}
+.pagefoot a:hover{border-bottom-color:var(--eq)}
+.pagefoot a:focus-visible{outline:2px solid var(--eq); outline-offset:2px}
 </style>
+</head>
+<body>
 <div class="wrap">
 <header>
-  <p class="kicker">Finance and the Economy · Seminar 9 · Government economic policy</p>
-  <h1>Why €50m of police cars adds more than €50m to demand</h1>
-  <p class="lede">The government’s spending becomes someone’s income. With a marginal propensity to consume of 0.75 they spend three quarters of it, which becomes someone else’s income, and so on. The rounds shrink but they add up to the initial spend times <em>1 ÷ (1 − MPC)</em>. Question 3, from <em>Business Economics</em> (Mankiw, Taylor &amp; Ashwin, ch. 22).</p>
+  <p class="kicker">Finance and the Economy · Seminar 6 · Pricing decisions and profit maximisation</p>
+  <h1>From market research to the profit-maximising price</h1>
+  <p class="lede">Seven price–quantity observations give a linear demand curve, <em>P = 20 − 0.002Q</em>. Marginal revenue has twice the slope, <em>MR = 20 − 0.004Q</em>. Profit is maximised where MR meets marginal cost. Compare that with the cost-plus price of £14, and see what a rising MC curve does. Question 4 (Hawksmetics).</p>
 </header>
-<div class="scenarios" role="group" aria-label="Scenarios"><button data-m="0.75" data-g="50" data-x="<strong>Q3: MPC 0.75.</strong> €50m + €37.5m + €28.1m + €21.1m … The series sums to €50m × 1/(1 − 0.75) = €50m × <strong>4</strong> = <strong>€200m</strong> of extra aggregate demand.">Q3: MPC 0.75, €50m</button><button data-m="0.5" data-g="50" data-x="<strong>MPC 0.5.</strong> Half of each round leaks into saving (or taxes and imports), so the multiplier is only 2 and the rounds die away quickly: €100m in total.">MPC 0.5</button><button data-m="0.9" data-g="50" data-x="<strong>MPC 0.9.</strong> Very little leaks out each round, so the multiplier is 10 and €50m becomes €500m. In practice taxes, saving and imports keep real-world multipliers well below this.">MPC 0.9</button></div><div class="explain" id="explain" aria-live="polite">Pick an MPC, or set your own. Bars are the spending in each round; the line is the running total, which approaches the multiplier times the initial spend.</div><div class="stage"><div class="chartcard"><svg id="svg" viewBox="0 0 560 430" role="img" aria-label="Spending rounds and cumulative increase in aggregate demand"></svg></div><div class="panel"><div class="ctl"><div class="row"><label for="m"><span class="swatch" style="background:var(--demand)"></span>Marginal propensity to consume (MPC)</label><output id="mOut"></output></div><input type="range" id="m" min="0.1" max="0.95" value="0.75" step="0.05" aria-label="Marginal propensity to consume (MPC)"><div class="ends"><span>save most</span><span>spend most</span></div></div><div class="ctl"><div class="row"><label for="g"><span class="swatch" style="background:var(--supply)"></span>Initial government spending (€m)</label><output id="gOut"></output></div><input type="range" id="g" min="10" max="100" value="50" step="5" aria-label="Initial government spending (€m)"><div class="ends"><span>€10m</span><span>€100m</span></div></div><button class="reset" id="reset">Reset</button></div></div><div class="results"><div class="stat "><p class="k">Multiplier</p><p class="v" id="k"></p><p class="d" id="kD"></p></div><div class="stat "><p class="k">Total rise in demand</p><p class="v" id="tot"></p><p class="d" id="totD"></p></div><div class="stat "><p class="k">After five rounds</p><p class="v" id="r5"></p><p class="d" id="r5D"></p></div><div class="stat verdict"><p class="k">Reading</p><p class="v" id="verdict"></p><p class="d" id="verdictD"></p></div></div><p class="note"><strong>The algebra.</strong> G + G·MPC + G·MPC² + … is a geometric series with sum G ÷ (1 − MPC). The closer MPC is to 1, the larger the multiplier, which is why expansionary fiscal policy can move aggregate demand by more than the government spends.</p>
+<div class="scenarios" role="group" aria-label="Scenarios"><button data-mode="cp" data-m="4" data-s="0" data-f="18000" data-x="<strong>(a) Cost-plus pricing.</strong> Fixed cost per unit at 3,000 units = £18,000 ÷ 3,000 = £6; total cost per unit £10; mark-up 40% gives <strong>£14</strong>. Profit = 3,000 × (£14 − £10) = <strong>£12,000</strong>. The demand curve happens to pass through (3,000, £14), so the plan is feasible, but it ignores demand.">(a) Cost-plus: £14 at 3,000</button><button data-mode="mx" data-m="4" data-s="0" data-f="18000" data-x="<strong>(c)–(e) Profit maximisation with constant MC.</strong> TR = 20Q − 0.002Q², so MR = 20 − 0.004Q. Set MR = MC: 20 − 0.004Q = 4 gives <strong>Q = 4,000</strong> and P = 20 − 8 = <strong>£12</strong>. Profit = 48,000 − 16,000 − 18,000 = <strong>£14,000</strong>, more than £12,000 at a lower price, because spreading fixed cost over 4,000 units cuts average cost to £8.50 (a 41.2% mark-up).">(d) Profit max, MC = £4</button><button data-mode="mx" data-m="4" data-s="0.001" data-f="18000" data-x="<strong>(g)–(h) Rising marginal cost, MC = 4 + 0.001Q.</strong> Set 20 − 0.004Q = 4 + 0.001Q, so 0.005Q = 16 and <strong>Q = 3,200</strong>; P = 20 − 6.4 = <strong>£13.60</strong>. A steeper MC curve means less output and a higher price.">(g) Rising MC = 4 + 0.001Q</button></div><div class="explain" id="explain" aria-live="polite">Pick a part of the question, or move the cost sliders. Dots are the market research observations; the solid purple line is the fitted demand curve.</div><div class="stage"><div class="chartcard"><svg id="svg" viewBox="0 0 560 430" role="img" aria-label="Demand, marginal revenue and marginal cost for Freckles"></svg></div><div class="panel"><div class="ctl"><div class="row"><label for="m"><span class="swatch" style="background:var(--supply)"></span>Marginal cost intercept (£)</label><output id="mOut"></output></div><input type="range" id="m" min="1" max="10" value="4" step="0.5" aria-label="Marginal cost intercept (£)"><div class="ends"><span>low</span><span>high</span></div></div><div class="ctl"><div class="row"><label for="s"><span class="swatch" style="background:var(--supply)"></span>MC slope (£ per extra unit)</label><output id="sOut"></output></div><input type="range" id="s" min="0" max="0.002" value="0" step="0.0001" aria-label="MC slope (£ per extra unit)"><div class="ends"><span>constant</span><span>steep</span></div></div><div class="ctl"><div class="row"><label for="f"><span class="swatch" style="background:var(--demand)"></span>Weekly fixed costs (£)</label><output id="fOut"></output></div><input type="range" id="f" min="0" max="40000" value="18000" step="1000" aria-label="Weekly fixed costs (£)"><div class="ends"><span>0</span><span>40k</span></div></div><button class="reset" id="reset">Reset</button></div></div><div class="results"><div class="stat "><p class="k">Fitted demand curve</p><p class="v" id="reg"></p><p class="d" id="regD"></p></div><div class="stat "><p class="k">Output</p><p class="v" id="q"></p><p class="d" id="qD"></p></div><div class="stat "><p class="k">Price</p><p class="v" id="p"></p><p class="d" id="pD"></p></div><div class="stat "><p class="k">Weekly profit</p><p class="v" id="pi"></p><p class="d" id="piD"></p></div></div><p class="note"><strong>The learning point.</strong> Cost-plus pricing cannot see demand. With market research and marginal analysis the firm finds that a lower price sells more, spreads fixed cost thinner and earns more. Excel’s R² of 0.94 says the straight line explains 94% of the variation in price, so the demand estimate is a sound basis for the decision.</p>
+
+<div class="pagefoot">
+  <p><a href="/teaching-tools/finance-and-the-economy/">← Back to module</a></p>
+  <p>Built by Dr Kasra Kassai, LSBU Business School · <a href="https://drkassai.com">drkassai.com</a></p>
+</div>
 </div>
 <script>
 var $=function(id){ return document.getElementById(id); };
@@ -202,25 +230,34 @@ function ticks(max,n){ n=n||6; var raw=max/n, mag=Math.pow(10,Math.floor(Math.lo
 function kfmt(v){ return Math.abs(v)>=1e6? fmt(v/1e6,v%1e6?1:0)+'m' : Math.abs(v)>=1000? fmt(v/1000,v%1000?1:0)+'k' : fmt(v,0); }
 
 
-var N=12;
+var D=[[560,20],[1520,17],[2640,15],[3410,12],[4360,10],[6390,9],[6650,7]], mode='mx';
+var n=D.length, mq=0, mp=0; D.forEach(function(d){ mq+=d[0]/n; mp+=d[1]/n; });
+var sxy=0,sxx=0,sst=0; D.forEach(function(d){ sxy+=(d[0]-mq)*(d[1]-mp); sxx+=(d[0]-mq)*(d[0]-mq); sst+=(d[1]-mp)*(d[1]-mp); });
+var bOLS=sxy/sxx, aOLS=mp-bOLS*mq, sse=0; D.forEach(function(d){ var e=d[1]-(aOLS+bOLS*d[0]); sse+=e*e; }); var r2=1-sse/sst;
+var A=20, B=0.002;
+var c=chart($('svg'),{xmin:0,xmax:8000,ymin:0,ymax:22,xticks:[0,2000,4000,6000,8000],yticks:[0,5,10,15,20,22],fx:kfmt,fy:function(v){return '£'+v;},xlab:'Quantity (boxes per week)',ylab:'Price, MR and MC (£)'});
 function render(){
-  var m=+$('m').value, G=+$('g').value; $('mOut').textContent=fmt(m,2); $('gOut').textContent='€'+fmt(G,0)+'m';
-  var k=1/(1-m), tot=G*k, rounds=[], cum=[], run=0;
-  for(var i=0;i<N;i++){ var v=G*Math.pow(m,i); rounds.push(v); run+=v; cum.push([i+1,run]); }
-  var ymax=tot*1.12; var yt=ticks(ymax,5); ymax=yt[yt.length-1];
-  var c=chart($('svg'),{xmin:0.3,xmax:N+0.7,ymin:0,ymax:ymax,xticks:[1,2,3,4,5,6,7,8,9,10,11,12],yticks:yt,fy:function(v){return '€'+kfmt(v)+'m';},xlab:'Spending round',ylab:'€m'});
-  var h=hline(c,tot,'ghost')+txt(c,N+0.6,tot,'limit €'+fmt(tot,0)+'m',{anchor:'end',dy:-6,cls:'tl'});
-  rounds.forEach(function(v,i){ h+=rect(c,i+0.65,i+1.35,0,v,'bar-d'); if(i<6) h+=txt(c,i+1,v,fmt(v,1),{anchor:'middle',dy:-5,cls:'tnum1'}); });
-  h+=path(c,cum,'curve-s')+marks(c,cum,'var(--supply)')+txt(c,N,cum[N-1][1],'running total',{anchor:'end',dx:-8,dy:16,cls:'tl',fill:'var(--supply)'});
+  var m0=+$('m').value, s=+$('s').value, F=+$('f').value;
+  $('mOut').textContent='£'+fmt(m0,2); $('sOut').textContent=s===0?'constant MC':'MC = '+fmt(m0,0)+' + '+s+'Q'; $('fOut').textContent='£'+fmt(F,0);
+  var Q, P;
+  if(mode==='cp'){ Q=3000; P=14; } else { Q=(A-m0)/(2*B+s); P=A-B*Q; }
+  var pi=P*Q-m0*Q-s*Q*Q/2-F;
+  var h=lineY(c,-B,A,'curve-d')+lineY(c,-2*B,A,'curve-d2')+lineY(c,s,m0,'curve-s');
+  D.forEach(function(d){ h+=dot(c,d[0],d[1],'var(--demand)',4); });
+  h+=txt(c,7000,A-B*7000,'Demand',{dx:8,dy:-8,fill:'var(--demand)'})+txt(c,Math.min(7900,A/(2*B)),Math.max(0.6,A-2*B*Math.min(7900,A/(2*B))),'MR',{anchor:'end',dy:-6,fill:'var(--demand)'})+txt(c,200,m0+s*200,'MC',{dy:-6,fill:'var(--supply)'});
+  if(mode==='cp'){ h+=guide(c,Q,P)+dot(c,Q,P)+txt(c,Q,P,'cost-plus: 3,000 at £14',{dx:10,dy:-8,cls:'tnum'}); }
+  else { h+=guide(c,Q,P)+'<line class="guide" x1="'+c.X(Q)+'" y1="'+c.Y(P)+'" x2="'+c.X(Q)+'" y2="'+c.Y(m0+s*Q)+'"/>'+dot(c,Q,m0+s*Q,'var(--supply)',4)+dot(c,Q,P)+txt(c,Q,P,'MR = MC at '+fmt(Q,0)+'; price £'+fmt(P,2),{dx:10,dy:-8,cls:'tnum'}); }
+  h+=txt(c,0,P,'£'+fmt(P,2),{anchor:'end',dx:-8,dy:4,cls:'tnum',bg:true})+txt(c,Q,0,fmt(Q,0),{anchor:'middle',dy:18,cls:'tnum',bg:true});
   c.art.innerHTML=h;
-  $('k').textContent=fmt(k,2); $('kD').textContent='1 ÷ (1 − '+fmt(m,2)+')';
-  $('tot').textContent='€'+fmt(tot,0)+'m'; $('totD').textContent='€'+fmt(G,0)+'m × '+fmt(k,2);
-  $('r5').textContent='€'+fmt(cum[4][1],1)+'m'; $('r5D').textContent=fmt(cum[4][1]/tot*100,0)+'% of the eventual total';
-  $('verdict').textContent='Each round is '+fmt(m*100,0)+'% of the one before; '+fmt((1-m)*100,0)+'% leaks into saving, taxes and imports.'; $('verdictD').textContent='';
+  $('reg').textContent='P = '+fmt(aOLS,2)+' − '+fmt(-bOLS,5)+'Q'; $('regD').textContent='R² = '+fmt(r2,2)+'; rounded to P = 20 − 0.002Q';
+  $('q').textContent=fmt(Q,0)+' boxes'; $('qD').textContent=mode==='cp'?'planned sales':'where 20 − 0.004Q = '+fmt(m0,0)+(s?' + '+s+'Q':'');
+  $('p').textContent='£'+fmt(P,2); $('pD').textContent=mode==='cp'?'cost £10 × 1.40':'20 − 0.002 × '+fmt(Q,0);
+  $('pi').textContent=(pi<0?'−':'')+'£'+fmt(Math.abs(pi),0); $('piD').textContent='TR '+fmt(P*Q,0)+' − VC '+fmt(m0*Q+s*Q*Q/2,0)+' − FC '+fmt(F,0);
 }
 var btns=[].slice.call(document.querySelectorAll('.scenarios button'));
-var clear=wire(btns,[$('m'),$('g')],function(b){ $('m').value=b.dataset.m; $('g').value=b.dataset.g; },render,'Free exploration: the multiplier depends only on MPC; the initial spend only scales the bars.');
-$('reset').addEventListener('click',function(){ $('m').value=0.75; $('g').value=50; clear(); $('explain').textContent='Pick an MPC, or set your own. Bars are the spending in each round; the line is the running total, which approaches the multiplier times the initial spend.'; render(); });
+var clear=wire(btns,[$('m'),$('s'),$('f')],function(b){ mode=b.dataset.mode; $('m').value=b.dataset.m; $('s').value=b.dataset.s; $('f').value=b.dataset.f; },render,'Free exploration: fixed costs change profit but not the profit-maximising output, because they do not enter MC.');
+[$('m'),$('s'),$('f')].forEach(function(el){ el.addEventListener('input',function(){ mode='mx'; render(); }); });
+$('reset').addEventListener('click',function(){ mode='mx'; $('m').value=4; $('s').value=0; $('f').value=18000; clear(); $('explain').textContent='Pick a part of the question, or move the cost sliders. Dots are the market research observations; the solid purple line is the fitted demand curve.'; render(); });
 render();
 
 </script>

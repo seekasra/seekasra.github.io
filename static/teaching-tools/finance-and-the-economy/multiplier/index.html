@@ -1,6 +1,20 @@
-<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
-<title>The market for loanable funds</title>
-<meta name="claude:viewport-fit-sides" content="cover">
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>The multiplier effect · Dr Kasra Kassai</title>
+<meta name="description" content="The government’s spending becomes someone’s income. With a marginal propensity to consume of 0.75 they spend three quarters of it, which becomes someone else’s income, and so on. The rounds shrink but they add up to the initial spend times 1 ÷ (1 − MPC).">
+<meta name="author" content="Dr Kasra Kassai">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Teaching tools · Dr Kasra Kassai">
+<meta property="og:title" content="The multiplier effect">
+<meta property="og:description" content="The government’s spending becomes someone’s income. With a marginal propensity to consume of 0.75 they spend three quarters of it, which becomes someone else’s income, and so on. The rounds shrink but they add up to the initial spend times 1 ÷ (1 − MPC).">
+<meta property="og:url" content="https://drkassai.com/teaching-tools/finance-and-the-economy/multiplier/">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="The multiplier effect">
+<meta name="twitter:description" content="The government’s spending becomes someone’s income. With a marginal propensity to consume of 0.75 they spend three quarters of it, which becomes someone else’s income, and so on. The rounds shrink but they add up to the initial spend times 1 ÷ (1 − MPC).">
+<link rel="canonical" href="https://drkassai.com/teaching-tools/finance-and-the-economy/multiplier/">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,500;6..72,600&family=Public+Sans:wght@400;500;600&display=swap">
 <style>
 /* Layout: single-column scholarly page — chart as centrepiece, controls beside it, scenarios as a worked-answer rail */
@@ -143,14 +157,28 @@ input[type=range]{width:100%; accent-color:var(--eq); margin:2px 0 0}
 .bar-e{fill:var(--eq);opacity:.8}
 .mk{fill:var(--card);stroke-width:2}
 
+
+/* Site chrome: back link and attribution footer */
+.pagefoot{border-top:1px solid var(--line); margin-top:26px; padding-top:16px; display:flex; flex-direction:column; gap:6px; font-size:13px; color:var(--ink-3)}
+.pagefoot p{margin:0}
+.pagefoot a{color:var(--eq); text-decoration:none; border-bottom:1px solid transparent}
+.pagefoot a:hover{border-bottom-color:var(--eq)}
+.pagefoot a:focus-visible{outline:2px solid var(--eq); outline-offset:2px}
 </style>
+</head>
+<body>
 <div class="wrap">
 <header>
-  <p class="kicker">Finance and the Economy · Seminar 8 · Macroeconomic factors</p>
-  <h1>Less inventory, less borrowing, a lower interest rate</h1>
-  <p class="lede">The interest rate is the price of borrowing. Firms that no longer need to finance large inventories demand fewer loanable funds, so the demand curve shifts left and the rate falls, which encourages other borrowers, such as firms investing in factories and equipment. Question 1, from <em>Business Economics</em> (Mankiw, Taylor &amp; Ashwin, ch. 19).</p>
+  <p class="kicker">Finance and the Economy · Seminar 9 · Government economic policy</p>
+  <h1>Why €50m of police cars adds more than €50m to demand</h1>
+  <p class="lede">The government’s spending becomes someone’s income. With a marginal propensity to consume of 0.75 they spend three quarters of it, which becomes someone else’s income, and so on. The rounds shrink but they add up to the initial spend times <em>1 ÷ (1 − MPC)</em>. Question 3, from <em>Business Economics</em> (Mankiw, Taylor &amp; Ashwin, ch. 22).</p>
 </header>
-<div class="scenarios" role="group" aria-label="Scenarios"><button data-d="-20" data-x="<strong>Q1: computer technology cuts inventories.</strong> Demand shifts left from D₁ to D₂. At the old rate r₁ the quantity demanded falls from L₁ to L₂. The rate then falls to r₂, drawing in other borrowers, until the new equilibrium at L₃. Cheaper finance means investment in factories and equipment is likely to rise.">Q1: firms hold less inventory</button><button data-d="20" data-x="<strong>The opposite case.</strong> An investment boom shifts demand right: at r₁ borrowers want more than savers supply, so the rate rises and the quantity of funds lent increases.">Investment boom</button></div><div class="explain" id="explain" aria-live="polite">Pick a scenario or slide the demand curve. The dashed grey line is the original demand curve; L₂ is what would be demanded at the old rate before the rate adjusts.</div><div class="stage"><div class="chartcard"><svg id="svg" viewBox="0 0 560 430" role="img" aria-label="Supply and demand for loanable funds"></svg></div><div class="panel"><div class="ctl"><div class="row"><label for="d"><span class="swatch" style="background:var(--demand)"></span>Demand for loanable funds</label><output id="dOut"></output></div><input type="range" id="d" min="-40" max="40" value="-20" step="1" aria-label="Demand for loanable funds"><div class="ends"><span>shift left</span><span>shift right</span></div></div><button class="reset" id="reset">Reset</button></div></div><div class="results"><div class="stat "><p class="k">Interest rate</p><p class="v" id="r"></p><p class="d" id="rD"></p></div><div class="stat "><p class="k">Funds lent</p><p class="v" id="l"></p><p class="d" id="lD"></p></div><div class="stat "><p class="k">Demanded at the old rate</p><p class="v" id="l2"></p><p class="d" id="l2D"></p></div></div><p class="note"><strong>Why it matters for interest rates.</strong> Anything that changes how much firms, households or governments want to borrow, or how much savers want to lend, moves these curves and so moves the interest rate, even before the central bank does anything.</p>
+<div class="scenarios" role="group" aria-label="Scenarios"><button data-m="0.75" data-g="50" data-x="<strong>Q3: MPC 0.75.</strong> €50m + €37.5m + €28.1m + €21.1m … The series sums to €50m × 1/(1 − 0.75) = €50m × <strong>4</strong> = <strong>€200m</strong> of extra aggregate demand.">Q3: MPC 0.75, €50m</button><button data-m="0.5" data-g="50" data-x="<strong>MPC 0.5.</strong> Half of each round leaks into saving (or taxes and imports), so the multiplier is only 2 and the rounds die away quickly: €100m in total.">MPC 0.5</button><button data-m="0.9" data-g="50" data-x="<strong>MPC 0.9.</strong> Very little leaks out each round, so the multiplier is 10 and €50m becomes €500m. In practice taxes, saving and imports keep real-world multipliers well below this.">MPC 0.9</button></div><div class="explain" id="explain" aria-live="polite">Pick an MPC, or set your own. Bars are the spending in each round; the line is the running total, which approaches the multiplier times the initial spend.</div><div class="stage"><div class="chartcard"><svg id="svg" viewBox="0 0 560 430" role="img" aria-label="Spending rounds and cumulative increase in aggregate demand"></svg></div><div class="panel"><div class="ctl"><div class="row"><label for="m"><span class="swatch" style="background:var(--demand)"></span>Marginal propensity to consume (MPC)</label><output id="mOut"></output></div><input type="range" id="m" min="0.1" max="0.95" value="0.75" step="0.05" aria-label="Marginal propensity to consume (MPC)"><div class="ends"><span>save most</span><span>spend most</span></div></div><div class="ctl"><div class="row"><label for="g"><span class="swatch" style="background:var(--supply)"></span>Initial government spending (€m)</label><output id="gOut"></output></div><input type="range" id="g" min="10" max="100" value="50" step="5" aria-label="Initial government spending (€m)"><div class="ends"><span>€10m</span><span>€100m</span></div></div><button class="reset" id="reset">Reset</button></div></div><div class="results"><div class="stat "><p class="k">Multiplier</p><p class="v" id="k"></p><p class="d" id="kD"></p></div><div class="stat "><p class="k">Total rise in demand</p><p class="v" id="tot"></p><p class="d" id="totD"></p></div><div class="stat "><p class="k">After five rounds</p><p class="v" id="r5"></p><p class="d" id="r5D"></p></div><div class="stat verdict"><p class="k">Reading</p><p class="v" id="verdict"></p><p class="d" id="verdictD"></p></div></div><p class="note"><strong>The algebra.</strong> G + G·MPC + G·MPC² + … is a geometric series with sum G ÷ (1 − MPC). The closer MPC is to 1, the larger the multiplier, which is why expansionary fiscal policy can move aggregate demand by more than the government spends.</p>
+
+<div class="pagefoot">
+  <p><a href="/teaching-tools/finance-and-the-economy/">← Back to module</a></p>
+  <p>Built by Dr Kasra Kassai, LSBU Business School · <a href="https://drkassai.com">drkassai.com</a></p>
+</div>
 </div>
 <script>
 var $=function(id){ return document.getElementById(id); };
@@ -202,26 +230,25 @@ function ticks(max,n){ n=n||6; var raw=max/n, mag=Math.pow(10,Math.floor(Math.lo
 function kfmt(v){ return Math.abs(v)>=1e6? fmt(v/1e6,v%1e6?1:0)+'m' : Math.abs(v)>=1000? fmt(v/1000,v%1000?1:0)+'k' : fmt(v,0); }
 
 
-var c=chart($('svg'),{xmin:0,xmax:100,ymin:0,ymax:10,xticks:[0,25,50,75,100],yticks:[0,2.5,5,7.5,10],fy:function(v){return v+'%';},xlab:'Quantity of loanable funds',ylab:'Interest rate'});
+var N=12;
 function render(){
-  var d=+$('d').value; $('dOut').textContent=d===0?'no shift':(d<0?'← shifted left':'→ shifted right');
-  var L1=50,r1=5, L2=50+d, L3=50+d/2, r2=5+0.03*d, h='';
-  h+=lineY(c,0.06,2,'curve-s')+lineY(c,-0.06,8,d?'ghost':'curve-d');
-  if(d) h+=lineY(c,-0.06,8+0.06*d,'curve-d');
-  h+=guide(c,L1,r1)+ring(c,L1,r1);
-  if(d){ h+=guide(c,L3,r2)+dot(c,L3,r2)+'<line class="guide" x1="'+c.X(L2)+'" y1="'+c.Y(r1)+'" x2="'+c.X(L2)+'" y2="'+c.Y0+'"/>'+ring(c,L2,r1); }
-  h+=txt(c,98,Math.min(9.6,2+0.06*98),'S',{anchor:'end',dy:-6,fill:'var(--supply)'})+txt(c,1.5,8,'D₁',{dy:-6,fill:'var(--demand)'});
-  if(d) h+=txt(c,1.5,8+0.06*d,'D₂',{dy:-6,fill:'var(--demand)'});
-  h+=txt(c,0,r1,'r₁',{anchor:'end',dx:-8,dy:4,cls:'tnum',bg:true})+txt(c,L1,0,'L₁',{anchor:'middle',dy:18,cls:'tnum',bg:true});
-  if(d){ h+=txt(c,0,r2,'r₂',{anchor:'end',dx:-8,dy:4,cls:'tnum',bg:true})+txt(c,L2,0,'L₂',{anchor:'middle',dy:18,cls:'tnum',bg:true})+txt(c,L3,0,'L₃',{anchor:'middle',dy:32,cls:'tnum',bg:true}); }
+  var m=+$('m').value, G=+$('g').value; $('mOut').textContent=fmt(m,2); $('gOut').textContent='€'+fmt(G,0)+'m';
+  var k=1/(1-m), tot=G*k, rounds=[], cum=[], run=0;
+  for(var i=0;i<N;i++){ var v=G*Math.pow(m,i); rounds.push(v); run+=v; cum.push([i+1,run]); }
+  var ymax=tot*1.12; var yt=ticks(ymax,5); ymax=yt[yt.length-1];
+  var c=chart($('svg'),{xmin:0.3,xmax:N+0.7,ymin:0,ymax:ymax,xticks:[1,2,3,4,5,6,7,8,9,10,11,12],yticks:yt,fy:function(v){return '€'+kfmt(v)+'m';},xlab:'Spending round',ylab:'€m'});
+  var h=hline(c,tot,'ghost')+txt(c,N+0.6,tot,'limit €'+fmt(tot,0)+'m',{anchor:'end',dy:-6,cls:'tl'});
+  rounds.forEach(function(v,i){ h+=rect(c,i+0.65,i+1.35,0,v,'bar-d'); if(i<6) h+=txt(c,i+1,v,fmt(v,1),{anchor:'middle',dy:-5,cls:'tnum1'}); });
+  h+=path(c,cum,'curve-s')+marks(c,cum,'var(--supply)')+txt(c,N,cum[N-1][1],'running total',{anchor:'end',dx:-8,dy:16,cls:'tl',fill:'var(--supply)'});
   c.art.innerHTML=h;
-  $('r').textContent=fmt(r2,2)+'%'; $('rD').textContent=d?(d<0?'▼ down from 5%':'▲ up from 5%'):'r₁';
-  $('l').textContent=fmt(L3,1); $('lD').textContent=d?'L₃, from L₁ = 50':'L₁';
-  $('l2').textContent=fmt(L2,1); $('l2D').textContent=d?'L₂ on the new curve at r₁':'no shift yet';
+  $('k').textContent=fmt(k,2); $('kD').textContent='1 ÷ (1 − '+fmt(m,2)+')';
+  $('tot').textContent='€'+fmt(tot,0)+'m'; $('totD').textContent='€'+fmt(G,0)+'m × '+fmt(k,2);
+  $('r5').textContent='€'+fmt(cum[4][1],1)+'m'; $('r5D').textContent=fmt(cum[4][1]/tot*100,0)+'% of the eventual total';
+  $('verdict').textContent='Each round is '+fmt(m*100,0)+'% of the one before; '+fmt((1-m)*100,0)+'% leaks into saving, taxes and imports.'; $('verdictD').textContent='';
 }
 var btns=[].slice.call(document.querySelectorAll('.scenarios button'));
-var clear=wire(btns,[$('d')],function(b){ $('d').value=b.dataset.d; },render,'Free exploration: the fall in the rate is smaller than the fall in borrowing at the old rate, because the lower rate brings in other borrowers.');
-$('reset').addEventListener('click',function(){ $('d').value=-20; clear(); $('explain').textContent='Pick a scenario or slide the demand curve. The dashed grey line is the original demand curve; L₂ is what would be demanded at the old rate before the rate adjusts.'; render(); });
+var clear=wire(btns,[$('m'),$('g')],function(b){ $('m').value=b.dataset.m; $('g').value=b.dataset.g; },render,'Free exploration: the multiplier depends only on MPC; the initial spend only scales the bars.');
+$('reset').addEventListener('click',function(){ $('m').value=0.75; $('g').value=50; clear(); $('explain').textContent='Pick an MPC, or set your own. Bars are the spending in each round; the line is the running total, which approaches the multiplier times the initial spend.'; render(); });
 render();
 
 </script>

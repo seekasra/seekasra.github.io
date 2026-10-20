@@ -1,6 +1,20 @@
-<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
-<title>NPV and IRR of an investment</title>
-<meta name="claude:viewport-fit-sides" content="cover">
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>NPV and IRR of an investment · Dr Kasra Kassai</title>
+<meta name="description" content="Discount the future payoff at the rate the money could earn elsewhere. If the present value beats the €10m outlay the net present value is positive and the project is worthwhile. The rate at which NPV is exactly zero is the internal rate of return.">
+<meta name="author" content="Dr Kasra Kassai">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Teaching tools · Dr Kasra Kassai">
+<meta property="og:title" content="NPV and IRR of an investment">
+<meta property="og:description" content="Discount the future payoff at the rate the money could earn elsewhere. If the present value beats the €10m outlay the net present value is positive and the project is worthwhile. The rate at which NPV is exactly zero is the internal rate of return.">
+<meta property="og:url" content="https://drkassai.com/teaching-tools/finance-and-the-economy/npv-and-irr/">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="NPV and IRR of an investment">
+<meta name="twitter:description" content="Discount the future payoff at the rate the money could earn elsewhere. If the present value beats the €10m outlay the net present value is positive and the project is worthwhile. The rate at which NPV is exactly zero is the internal rate of return.">
+<link rel="canonical" href="https://drkassai.com/teaching-tools/finance-and-the-economy/npv-and-irr/">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,500;6..72,600&family=Public+Sans:wght@400;500;600&display=swap">
 <style>
 /* Layout: single-column scholarly page — chart as centrepiece, controls beside it, scenarios as a worked-answer rail */
@@ -143,7 +157,16 @@ input[type=range]{width:100%; accent-color:var(--eq); margin:2px 0 0}
 .bar-e{fill:var(--eq);opacity:.8}
 .mk{fill:var(--card);stroke-width:2}
 
+
+/* Site chrome: back link and attribution footer */
+.pagefoot{border-top:1px solid var(--line); margin-top:26px; padding-top:16px; display:flex; flex-direction:column; gap:6px; font-size:13px; color:var(--ink-3)}
+.pagefoot p{margin:0}
+.pagefoot a{color:var(--eq); text-decoration:none; border-bottom:1px solid transparent}
+.pagefoot a:hover{border-bottom-color:var(--eq)}
+.pagefoot a:focus-visible{outline:2px solid var(--eq); outline-offset:2px}
 </style>
+</head>
+<body>
 <div class="wrap">
 <header>
   <p class="kicker">Finance and the Economy · Seminar 7 · Finance for business</p>
@@ -151,6 +174,11 @@ input[type=range]{width:100%; accent-color:var(--eq); margin:2px 0 0}
   <p class="lede">Discount the future payoff at the rate the money could earn elsewhere. If the present value beats the €10m outlay the net present value is positive and the project is worthwhile. The rate at which NPV is exactly zero is the <em>internal rate of return</em>. Question 1, from <em>Business Economics</em> (Mankiw, Taylor &amp; Ashwin, ch. 19).</p>
 </header>
 <div class="scenarios" role="group" aria-label="Scenarios"><button data-r="16" data-x="<strong>(a) Opportunity cost 16%.</strong> Investing €10m elsewhere would grow to €10m × 1.16⁴ = €18.11m, more than the project’s €18m. Equivalently, PV = €18m ÷ 1.16⁴ = €9.94m, so NPV = −€0.06m. The project would reduce the firm’s wealth by about €60,000: <strong>not worthwhile</strong>.">(a) 16% elsewhere</button><button data-r="15" data-x="<strong>(b) Opportunity cost 15%.</strong> €10m × 1.15⁴ = €17.49m, less than €18m. PV = €18m ÷ 1.15⁴ = €10.29m, NPV = +€0.29m. The project adds about €290,000 of present wealth: <strong>worthwhile</strong>.">(b) 15% elsewhere</button><button data-r="irr" data-x="<strong>(c) The cut-off rate.</strong> Set €18m ÷ (1 + r)⁴ = €10m, so (1 + r)⁴ = 1.8 and r = 1.8^¼ − 1 = <strong>15.83%</strong>. This is the internal rate of return. Below it the project is profitable, above it not. Banks call the same idea AER on deposits and APR on loans.">(c) Find the IRR</button></div><div class="explain" id="explain" aria-live="polite">Pick a part of the question, or move the sliders. The curve shows NPV at every discount rate; it crosses zero at the IRR.</div><div class="stage"><div class="chartcard"><svg id="svg" viewBox="0 0 560 430" role="img" aria-label="Net present value against discount rate"></svg></div><div class="panel"><div class="ctl"><div class="row"><label for="r"><span class="swatch" style="background:var(--eq)"></span>Discount rate (what the money could earn elsewhere)</label><output id="rOut"></output></div><input type="range" id="r" min="0" max="30" value="16" step="0.01" aria-label="Discount rate (what the money could earn elsewhere)"><div class="ends"><span>0%</span><span>30%</span></div></div><div class="ctl"><div class="row"><label for="fv"><span class="swatch" style="background:var(--supply)"></span>Payoff in the final year (€m)</label><output id="fvOut"></output></div><input type="range" id="fv" min="10" max="30" value="18" step="0.5" aria-label="Payoff in the final year (€m)"><div class="ends"><span>small</span><span>large</span></div></div><div class="ctl"><div class="row"><label for="n"><span class="swatch" style="background:var(--demand)"></span>Years until the payoff</label><output id="nOut"></output></div><input type="range" id="n" min="1" max="10" value="4" step="1" aria-label="Years until the payoff"><div class="ends"><span>1</span><span>10</span></div></div><div class="ctl"><div class="row"><label for="inv"><span class="swatch" style="background:var(--demand)"></span>Investment today (€m)</label><output id="invOut"></output></div><input type="range" id="inv" min="5" max="20" value="10" step="0.5" aria-label="Investment today (€m)"><div class="ends"><span>small</span><span>large</span></div></div><button class="reset" id="reset">Reset</button></div></div><div class="results"><div class="stat "><p class="k">Investing elsewhere grows to</p><p class="v" id="alt"></p><p class="d" id="altD"></p></div><div class="stat "><p class="k">Present value of payoff</p><p class="v" id="pv"></p><p class="d" id="pvD"></p></div><div class="stat "><p class="k">Net present value</p><p class="v" id="npv"></p><p class="d" id="npvD"></p></div><div class="stat verdict"><p class="k">Internal rate of return</p><p class="v" id="irr"></p><p class="d" id="irrD"></p></div></div><p class="note"><strong>Two views of the same decision.</strong> Compounding the outlay forward (PV × (1 + r)ⁿ) and discounting the payoff back (FV ÷ (1 + r)ⁿ) always agree. NPV falls as the discount rate rises because a higher rate makes future money worth less today.</p>
+
+<div class="pagefoot">
+  <p><a href="/teaching-tools/finance-and-the-economy/">← Back to module</a></p>
+  <p>Built by Dr Kasra Kassai, LSBU Business School · <a href="https://drkassai.com">drkassai.com</a></p>
+</div>
 </div>
 <script>
 var $=function(id){ return document.getElementById(id); };

@@ -1,6 +1,20 @@
-<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
-<title>Real and nominal interest rates</title>
-<meta name="claude:viewport-fit-sides" content="cover">
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Output gaps and policy · Dr Kasra Kassai</title>
+<meta name="description" content="Potential output is where LRAS stands. When aggregate demand leaves the economy below it there is a recessionary gap; above it, an inflationary gap. Demand-side policy moves AD to close the gap; supply-side policy moves LRAS itself.">
+<meta name="author" content="Dr Kasra Kassai">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Teaching tools · Dr Kasra Kassai">
+<meta property="og:title" content="Output gaps and policy">
+<meta property="og:description" content="Potential output is where LRAS stands. When aggregate demand leaves the economy below it there is a recessionary gap; above it, an inflationary gap. Demand-side policy moves AD to close the gap; supply-side policy moves LRAS itself.">
+<meta property="og:url" content="https://drkassai.com/teaching-tools/finance-and-the-economy/output-gaps/">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Output gaps and policy">
+<meta name="twitter:description" content="Potential output is where LRAS stands. When aggregate demand leaves the economy below it there is a recessionary gap; above it, an inflationary gap. Demand-side policy moves AD to close the gap; supply-side policy moves LRAS itself.">
+<link rel="canonical" href="https://drkassai.com/teaching-tools/finance-and-the-economy/output-gaps/">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,500;6..72,600&family=Public+Sans:wght@400;500;600&display=swap">
 <style>
 /* Layout: single-column scholarly page — chart as centrepiece, controls beside it, scenarios as a worked-answer rail */
@@ -143,14 +157,28 @@ input[type=range]{width:100%; accent-color:var(--eq); margin:2px 0 0}
 .bar-e{fill:var(--eq);opacity:.8}
 .mk{fill:var(--card);stroke-width:2}
 
+
+/* Site chrome: back link and attribution footer */
+.pagefoot{border-top:1px solid var(--line); margin-top:26px; padding-top:16px; display:flex; flex-direction:column; gap:6px; font-size:13px; color:var(--ink-3)}
+.pagefoot p{margin:0}
+.pagefoot a{color:var(--eq); text-decoration:none; border-bottom:1px solid transparent}
+.pagefoot a:hover{border-bottom-color:var(--eq)}
+.pagefoot a:focus-visible{outline:2px solid var(--eq); outline-offset:2px}
 </style>
+</head>
+<body>
 <div class="wrap">
 <header>
-  <p class="kicker">Finance and the Economy · Seminar 7 · Finance for business</p>
-  <h1>Correcting an interest rate for inflation</h1>
-  <p class="lede">The nominal rate is what the market quotes; the real rate is what the money buys. Subtracting inflation is a quick approximation; dividing (1 + nominal) by (1 + inflation) is exact. Questions 5(c) and 6(b).</p>
+  <p class="kicker">Finance and the Economy · Seminar 9 · Government economic policy</p>
+  <h1>Closing a recessionary or inflationary gap</h1>
+  <p class="lede">Potential output is where LRAS stands. When aggregate demand leaves the economy below it there is a <em>recessionary gap</em>; above it, an <em>inflationary gap</em>. Demand-side policy moves AD to close the gap; supply-side policy moves LRAS itself. Questions 4 and 7.</p>
 </header>
-<div class="scenarios" role="group" aria-label="Scenarios"><button data-n="26" data-i="5" data-x="<strong>Q5(c) The grain merchant.</strong> 100 kilos borrowed, 120 kilos repaid: the real rate is 20%. With 5% inflation wheat costs £1.05 next year, so 120 kilos cost £126 and the nominal rate is 126/100 − 1 = <strong>26%</strong>. Approximate real rate 26 − 5 = 21%; exact 1.26/1.05 − 1 = <strong>20%</strong>, which recovers the 20% we started with.">Q5(c): 26% nominal, 5% inflation</button><button data-n="5" data-i="6.5" data-x="<strong>Q6(b) George’s deposit.</strong> 5% nominal with 6.5% inflation: exact real rate = 1.05/1.065 − 1 = <strong>−1.4%</strong>. The deposit loses purchasing power, though it still beats cash under the mattress (−6.1%). Borrowers gain when inflation runs above expectations.">Q6(b): 5% nominal, 6.5% inflation</button></div><div class="explain" id="explain" aria-live="polite">Pick a question, or set the nominal rate and inflation. The chart shows the real rate at every inflation rate for your nominal rate, both ways.</div><div class="stage"><div class="chartcard"><svg id="svg" viewBox="0 0 560 430" role="img" aria-label="Real interest rate against inflation"></svg></div><div class="panel"><div class="ctl"><div class="row"><label for="n"><span class="swatch" style="background:var(--eq)"></span>Nominal (money) interest rate (%)</label><output id="nOut"></output></div><input type="range" id="n" min="0" max="30" value="26" step="0.5" aria-label="Nominal (money) interest rate (%)"><div class="ends"><span>0%</span><span>30%</span></div></div><div class="ctl"><div class="row"><label for="i"><span class="swatch" style="background:var(--demand)"></span>Inflation rate (%)</label><output id="iOut"></output></div><input type="range" id="i" min="0" max="15" value="5" step="0.5" aria-label="Inflation rate (%)"><div class="ends"><span>0%</span><span>15%</span></div></div><button class="reset" id="reset">Reset</button></div></div><div class="results"><div class="stat "><p class="k">Approximate real rate</p><p class="v" id="ap"></p><p class="d" id="apD"></p></div><div class="stat "><p class="k">Exact real rate</p><p class="v" id="ex"></p><p class="d" id="exD"></p></div><div class="stat "><p class="k">Difference</p><p class="v" id="gap"></p><p class="d" id="gapD"></p></div><div class="stat verdict"><p class="k">Reading</p><p class="v" id="verdict"></p><p class="d" id="verdictD"></p></div></div><p class="note"><strong>The Fisher relationship.</strong> (1 + real) × (1 + inflation) = 1 + nominal. Lenders add an inflation premium to the real return they require; borrowers repay in money that buys less. The approximation is good when both rates are small, and drifts as they grow.</p>
+<div class="scenarios" role="group" aria-label="Scenarios"><button data-a="80" data-a0="" data-g="0" data-x="<strong>Q4(i) 2008–09: a recessionary gap.</strong> The financial crisis cut spending: AD₁ meets SRAS at Y₁, below full-employment output Y<sub>FE</sub>. Idle resources, business failures and unemployment.">(i) 2008: recessionary gap</button><button data-a="100" data-a0="80" data-g="0" data-x="<strong>Q4(i) The VAT cut: expansionary fiscal policy.</strong> Cutting VAT from 17.5% to 15% encouraged household spending, shifting AD right to AD₂ where it meets both SRAS and LRAS. The gap closes and output returns to Y<sub>FE</sub>.">(i) VAT cut closes it</button><button data-a="120" data-a0="" data-g="0" data-x="<strong>Q4(ii) 2022: an inflationary gap.</strong> The post-pandemic boom pushed AD₁ to meet SRAS at Y₁, above potential. The economy overheated and CPI inflation reached 11.1%.">(ii) 2022: inflationary gap</button><button data-a="100" data-a0="120" data-g="0" data-x="<strong>Q4(ii) Raising Bank Rate: contractionary monetary policy.</strong> Rates rose from 0.25% to 5.25%, discouraging borrowing and encouraging saving. AD shifts left to AD₂, the gap closes and output returns to Y<sub>FE</sub> at a lower price level.">(ii) Bank Rate rise closes it</button><button data-a="100" data-a0="" data-g="10" data-x="<strong>Q7 Supply-side policy.</strong> Deregulation, training, labour-market flexibility and investment raise the economy’s productive capacity: LRAS and SRAS shift right. Output rises and the price level falls at the same time, which no demand-side policy can do.">Q7: supply-side policy</button></div><div class="explain" id="explain" aria-live="polite">Pick a scenario. The AD slider is demand-side policy; the LRAS slider is supply-side policy. The shaded band is the output gap.</div><div class="stage"><div class="chartcard"><svg id="svg" viewBox="0 0 560 430" role="img" aria-label="Aggregate demand, SRAS and LRAS with the output gap shaded"></svg></div><div class="panel"><div class="ctl"><div class="row"><label for="a"><span class="swatch" style="background:var(--demand)"></span>Aggregate demand (fiscal and monetary policy)</label><output id="aOut"></output></div><input type="range" id="a" min="60" max="140" value="80" step="1" aria-label="Aggregate demand (fiscal and monetary policy)"><div class="ends"><span>contract</span><span>expand</span></div></div><div class="ctl"><div class="row"><label for="g"><span class="swatch" style="background:var(--supply)"></span>Productive capacity (supply-side policy)</label><output id="gOut"></output></div><input type="range" id="g" min="0" max="20" value="0" step="1" aria-label="Productive capacity (supply-side policy)"><div class="ends"><span>unchanged</span><span>LRAS right</span></div></div><button class="reset" id="reset">Reset</button></div></div><div class="results"><div class="stat "><p class="k">Output</p><p class="v" id="y"></p><p class="d" id="yD"></p></div><div class="stat "><p class="k">Output gap</p><p class="v" id="gap"></p><p class="d" id="gapD"></p></div><div class="stat "><p class="k">Price level</p><p class="v" id="p"></p><p class="d" id="pD"></p></div><div class="stat verdict"><p class="k">Policy reading</p><p class="v" id="verdict"></p><p class="d" id="verdictD"></p></div></div><p class="note"><strong>Twin objectives.</strong> Governments aim for short-term stability, damping the swings of real GDP around LRAS, and long-term growth, moving LRAS itself to the right. Monetary and fiscal policy work on the first; supply-side policy on the second.</p>
+
+<div class="pagefoot">
+  <p><a href="/teaching-tools/finance-and-the-economy/">← Back to module</a></p>
+  <p>Built by Dr Kasra Kassai, LSBU Business School · <a href="https://drkassai.com">drkassai.com</a></p>
+</div>
 </div>
 <script>
 var $=function(id){ return document.getElementById(id); };
@@ -202,23 +230,32 @@ function ticks(max,n){ n=n||6; var raw=max/n, mag=Math.pow(10,Math.floor(Math.lo
 function kfmt(v){ return Math.abs(v)>=1e6? fmt(v/1e6,v%1e6?1:0)+'m' : Math.abs(v)>=1000? fmt(v/1000,v%1000?1:0)+'k' : fmt(v,0); }
 
 
-var c=chart($('svg'),{xmin:0,xmax:15,ymin:-10,ymax:30,xticks:[0,3,6,9,12,15],yticks:[-10,0,10,20,30],fx:function(v){return v+'%';},fy:function(v){return (v<0?'−':'')+Math.abs(v)+'%';},xlab:'Inflation rate',ylab:'Real interest rate'});
+var a0=null;
+var c=chart($('svg'),{xmin:0,xmax:100,ymin:0,ymax:100,xticks:[0,25,50,75,100],yticks:[0,25,50,75,100],xlab:'Real GDP (output)',ylab:'Price level'});
 function render(){
-  var N=+$('n').value, I=+$('i').value; $('nOut').textContent=fmt(N,1)+'%'; $('iOut').textContent=fmt(I,1)+'%';
-  var ap=N-I, ex=((1+N/100)/(1+I/100)-1)*100;
-  var h=hline(c,0,'ghost')+lineY(c,-1,N,'curve-d2')+curve(c,function(x){ return ((1+N/100)/(1+x/100)-1)*100; },0,15,'curve-d');
-  h+=txt(c,12.5,Math.max(-9,N-12.5),'approximate',{anchor:'middle',dy:16,cls:'tl',fill:'var(--demand)'})+txt(c,12.5,Math.min(29,((1+N/100)/1.125-1)*100),'exact',{anchor:'middle',dy:-8,cls:'tl',fill:'var(--demand)'});
-  if(ex>=-10&&ex<=30){ h+=guide(c,I,ex)+dot(c,I,ex)+txt(c,I,ex,'exact '+fmt(ex,1)+'%',{dx:10,dy:-8,cls:'tnum'}); }
-  if(ap>=-10&&ap<=30){ h+=ring(c,I,ap); }
+  var A=+$('a').value, g=+$('g').value; $('aOut').textContent=A===100?'at potential':(A<100?'← AD left':'→ AD right'); $('gOut').textContent=g?'+'+g:'none';
+  var YFE=50+g, Y=(A+g)/2, P=A-Y, gap=Y-YFE, h='';
+  if(Math.abs(gap)>0.2) h+=rect(c,YFE,Y,0,P,gap<0?'area-d':'area-e');
+  h+=vline(c,YFE,'curve-a')+txt(c,YFE,98,'LRAS',{dx:6,fill:'var(--ink-2)'});
+  if(g){ h+=vline(c,50,'ghost')+lineY(c,1,0,'ghost'); }
+  h+=lineY(c,1,-g,'curve-s');
+  if(a0!==null) h+=lineY(c,-1,a0,'ghost')+txt(c,Math.min(98,a0),Math.max(2,a0-98),'AD₁',{anchor:'end',dx:-4,dy:-6,cls:'tl'});
+  h+=lineY(c,-1,A,'curve-d')+txt(c,Math.min(98,A),Math.max(2,A-98),'AD'+(a0!==null?'₂':'₁'),{anchor:'end',dx:-4,dy:16,fill:'var(--demand)'});
+  var ys=Math.min(90,98-g); h+=txt(c,ys+g,ys,'SRAS',{dx:8,dy:4,fill:'var(--supply)'});
+  h+=guide(c,Y,P)+dot(c,Y,P);
+  h+=txt(c,Y,0,'Y₁',{anchor:'middle',dy:18,cls:'tnum',bg:true})+txt(c,YFE,0,'Y<tspan dy="3" font-size="9">FE</tspan>',{anchor:'middle',dy:(Math.abs(gap)<6?32:18),cls:'tnum',bg:true})+txt(c,0,P,'P₁',{anchor:'end',dx:-8,dy:4,cls:'tnum',bg:true});
+  if(Math.abs(gap)>4) h+=txt(c,(Y+YFE)/2,P/2,gap<0?'recessionary gap':'inflationary gap',{anchor:'middle',dy:4,cls:'tl'});
   c.art.innerHTML=h;
-  $('ap').textContent=(ap<0?'−':'')+fmt(Math.abs(ap),1)+'%'; $('apD').textContent=fmt(N,1)+'% − '+fmt(I,1)+'%';
-  $('ex').innerHTML=(ex<0?'<span class="down">−'+fmt(-ex,1)+'%</span>':fmt(ex,1)+'%'); $('exD').textContent=fmt(1+N/100,3)+' ÷ '+fmt(1+I/100,3)+' − 1';
-  $('gap').textContent=fmt(Math.abs(ap-ex),2)+' points'; $('gapD').textContent='the approximation overstates the real rate';
-  $('verdict').textContent=ex<0?'The real return is negative: the money loses purchasing power.':ex===0?'The money just keeps its purchasing power.':'The real return is positive: the money gains purchasing power.'; $('verdictD').textContent='';
+  $('y').textContent=fmt(Y,1); $('yD').textContent='potential output is '+fmt(YFE,0);
+  $('gap').innerHTML=Math.abs(gap)<0.2?'none':(gap<0?'<span class="down">−'+fmt(-gap,1)+'</span>':'<span class="up">+'+fmt(gap,1)+'</span>'); $('gapD').textContent=Math.abs(gap)<0.2?'output at potential':(gap<0?'recessionary: below potential':'inflationary: above potential');
+  $('p').textContent=fmt(P,1); $('pD').textContent=P<50?'▼ below 50':P>50?'▲ above 50':'at 50';
+  $('verdict').textContent=Math.abs(gap)<0.2?(g?'Supply-side policy has raised potential output and lowered the price level.':'No gap: demand matches potential output.'):(gap<0?'Expansionary policy needed: a tax cut, more spending, or lower interest rates to shift AD right.':'Contractionary policy needed: higher interest rates, higher taxes or less spending to shift AD left.');
+  $('verdictD').textContent='';
 }
 var btns=[].slice.call(document.querySelectorAll('.scenarios button'));
-var clear=wire(btns,[$('n'),$('i')],function(b){ $('n').value=b.dataset.n; $('i').value=b.dataset.i; },render,'Free exploration: the approximation and the exact answer part company as inflation rises.');
-$('reset').addEventListener('click',function(){ $('n').value=26; $('i').value=5; clear(); $('explain').textContent='Pick a question, or set the nominal rate and inflation. The chart shows the real rate at every inflation rate for your nominal rate, both ways.'; render(); });
+var clear=wire(btns,[$('a'),$('g')],function(b){ $('a').value=b.dataset.a; $('g').value=b.dataset.g; a0=b.dataset.a0===''?null:+b.dataset.a0; },render,'Free exploration: only the supply-side slider can raise output and lower the price level at the same time.');
+[$('a'),$('g')].forEach(function(s){ s.addEventListener('input',function(){ a0=null; render(); }); });
+$('reset').addEventListener('click',function(){ $('a').value=80; $('g').value=0; a0=null; clear(); $('explain').textContent='Pick a scenario. The AD slider is demand-side policy; the LRAS slider is supply-side policy. The shaded band is the output gap.'; render(); });
 render();
 
 </script>

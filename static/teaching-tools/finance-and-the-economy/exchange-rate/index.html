@@ -1,6 +1,20 @@
-<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
-<title>Airline pricing game</title>
-<meta name="claude:viewport-fit-sides" content="cover">
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Exchange rates: importers and exporters · Dr Kasra Kassai</title>
+<meta name="description" content="At £1 = €1.15 a €1,150 input costs a UK importer £1,000, and a £1,000 export sells in Europe for €1,150. Move the rate and see who gains: a stronger pound makes imports cheaper and exports dearer.">
+<meta name="author" content="Dr Kasra Kassai">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Teaching tools · Dr Kasra Kassai">
+<meta property="og:title" content="Exchange rates: importers and exporters">
+<meta property="og:description" content="At £1 = €1.15 a €1,150 input costs a UK importer £1,000, and a £1,000 export sells in Europe for €1,150. Move the rate and see who gains: a stronger pound makes imports cheaper and exports dearer.">
+<meta property="og:url" content="https://drkassai.com/teaching-tools/finance-and-the-economy/exchange-rate/">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Exchange rates: importers and exporters">
+<meta name="twitter:description" content="At £1 = €1.15 a €1,150 input costs a UK importer £1,000, and a £1,000 export sells in Europe for €1,150. Move the rate and see who gains: a stronger pound makes imports cheaper and exports dearer.">
+<link rel="canonical" href="https://drkassai.com/teaching-tools/finance-and-the-economy/exchange-rate/">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,500;6..72,600&family=Public+Sans:wght@400;500;600&display=swap">
 <style>
 /* Layout: single-column scholarly page — chart as centrepiece, controls beside it, scenarios as a worked-answer rail */
@@ -143,14 +157,28 @@ input[type=range]{width:100%; accent-color:var(--eq); margin:2px 0 0}
 .bar-e{fill:var(--eq);opacity:.8}
 .mk{fill:var(--card);stroke-width:2}
 
+
+/* Site chrome: back link and attribution footer */
+.pagefoot{border-top:1px solid var(--line); margin-top:26px; padding-top:16px; display:flex; flex-direction:column; gap:6px; font-size:13px; color:var(--ink-3)}
+.pagefoot p{margin:0}
+.pagefoot a{color:var(--eq); text-decoration:none; border-bottom:1px solid transparent}
+.pagefoot a:hover{border-bottom-color:var(--eq)}
+.pagefoot a:focus-visible{outline:2px solid var(--eq); outline-offset:2px}
 </style>
+</head>
+<body>
 <div class="wrap">
 <header>
-  <p class="kicker">Finance and the Economy · Seminar 5 · Market structures</p>
-  <h1>Two airlines, one decision box</h1>
-  <p class="lede">Each airline chooses a low fare of <em>€100</em> or a high fare of <em>€200</em> without knowing what the other will do. Click a cell, or set each airline’s choice, and see whether either would want to switch. When neither would, you have found the Nash equilibrium. Question 6, from <em>Business Economics</em> (Mankiw, Taylor &amp; Ashwin, ch. 15).</p>
+  <p class="kicker">Finance and the Economy · Seminar 10 · Global business and economics</p>
+  <h1>When the pound strengthens against the euro</h1>
+  <p class="lede">At <em>£1 = €1.15</em> a €1,150 input costs a UK importer £1,000, and a £1,000 export sells in Europe for €1,150. Move the rate and see who gains: a stronger pound makes imports cheaper and exports dearer. Questions 4, 5 and 6, from <em>Business Economics</em> (Mankiw, Taylor &amp; Ashwin, ch. 20 and 23).</p>
 </header>
-<div class="scenarios" role="group" aria-label="Scenarios"><button data-a="L" data-b="L" data-x="<strong>(b) Both low: the Nash equilibrium.</strong> Whatever the rival does, charging €100 is better for each airline (low beats very low; high beats medium). Low is a dominant strategy for both, so they end up with low profits each. Neither can do better by switching alone. Good news for passengers.">Both low: Nash equilibrium</button><button data-a="H" data-b="H" data-x="<strong>(c) Both high: the collusive outcome.</strong> Medium profits each, better than the Nash outcome for both airlines and worse for passengers. But each airline is tempted to undercut: cutting to €100 while the rival holds €200 brings high profits. It only holds if each trusts the other, and competition law tries to stop it (BA was fined £270m in 2007 for colluding with Virgin Atlantic).">Both high: collusion</button><button data-a="H" data-b="L" data-x="<strong>Airline 1 high, Airline 2 low.</strong> Airline 2 takes the passengers and earns high profits; Airline 1 is left with very low profits and would switch to €100 at once. Not stable.">Airline 1 high, 2 low</button><button data-a="L" data-b="H" data-x="<strong>Airline 1 low, Airline 2 high.</strong> The mirror image: Airline 1 earns high profits and Airline 2 very low, so Airline 2 would cut its fare. Not stable either.">Airline 1 low, 2 high</button></div><div class="explain" id="explain" aria-live="polite">Columns are Airline 1’s choice, rows are Airline 2’s. Green figures show the better choice for that airline given what the other is doing.</div><div class="game" id="game"></div><div style="margin-top:14px"><button class="reset" id="reset">Reset</button></div><div class="results"><div class="stat "><p class="k">Airline 1 earns</p><p class="v" id="p1"></p><p class="d" id="p1D"></p></div><div class="stat "><p class="k">Airline 2 earns</p><p class="v" id="p2"></p><p class="d" id="p2D"></p></div><div class="stat verdict"><p class="k">Stable?</p><p class="v" id="nash"></p><p class="d" id="nashD"></p></div></div><p class="note"><strong>Interdependence.</strong> In an oligopoly each firm’s result depends on the rival’s choice as well as its own, which is why game theory is the right tool. The Nash equilibrium is the position where every player is doing the best they can given the others’ choices, so nobody has an incentive to move. Here it is worse for the airlines than cooperation, and better for consumers.</p>
+<div class="scenarios" role="group" aria-label="Scenarios"><button data-r="1.15" data-x="<strong>Starting point: £1 = €1.15.</strong> The €1,150 import costs £1,000 and the £1,000 export sells for €1,150. Nothing has changed yet.">£1 = €1.15</button><button data-r="1.20" data-x="<strong>Q5: the pound appreciates to €1.20.</strong> Importers get more euros per pound: the €1,150 input now costs £958, so input costs fall. Exporters suffer: the £1,000 product now costs European buyers €1,200, or, if they hold the euro price at €1,150, they receive only £958. UK imports rise, exports fall, net exports and the balance of payments worsen; Germany’s improve.">Q5: pound rises to €1.20</button><button data-r="1.10" data-x="<strong>The pound depreciates to €1.10.</strong> The mirror image: the import now costs £1,045, while the export sells for €1,100 and becomes more competitive. Net exports improve.">Pound falls to €1.10</button></div><div class="explain" id="explain" aria-live="polite">Pick a rate or slide it. The chart shows the percentage change in the import’s sterling cost and the export’s euro price, relative to £1 = €1.15.</div><div class="stage"><div class="chartcard"><svg id="svg" viewBox="0 0 560 430" role="img" aria-label="Effect of the exchange rate on import costs and export prices"></svg></div><div class="panel"><div class="ctl"><div class="row"><label for="r"><span class="swatch" style="background:var(--eq)"></span>Exchange rate: £1 buys</label><output id="rOut"></output></div><input type="range" id="r" min="1.0" max="1.4" value="1.15" step="0.01" aria-label="Exchange rate: £1 buys"><div class="ends"><span>€1.00 (weak pound)</span><span>€1.40 (strong pound)</span></div></div><div class="ctl"><div class="row"><label for="imp"><span class="swatch" style="background:var(--demand)"></span>Euro price of the imported input</label><output id="impOut"></output></div><input type="range" id="imp" min="500" max="2000" value="1150" step="50" aria-label="Euro price of the imported input"><div class="ends"><span>€500</span><span>€2,000</span></div></div><div class="ctl"><div class="row"><label for="exp"><span class="swatch" style="background:var(--supply)"></span>Sterling price of the exported product</label><output id="expOut"></output></div><input type="range" id="exp" min="500" max="2000" value="1000" step="50" aria-label="Sterling price of the exported product"><div class="ends"><span>£500</span><span>£2,000</span></div></div><button class="reset" id="reset">Reset</button></div></div><div class="results"><div class="stat "><p class="k">Import costs the UK firm</p><p class="v" id="ic"></p><p class="d" id="icD"></p></div><div class="stat "><p class="k">Export costs the European buyer</p><p class="v" id="ep"></p><p class="d" id="epD"></p></div><div class="stat "><p class="k">If the euro price is held, exporter receives</p><p class="v" id="er"></p><p class="d" id="erD"></p></div><div class="stat verdict"><p class="k">Who gains</p><p class="v" id="verdict"></p><p class="d" id="verdictD"></p></div></div><p class="note"><strong>Q6 in the same logic.</strong> If the euro appreciates, a US pension fund earning euros is happy (more dollars per euro); German exporters are not (dearer abroad), though German firms importing inputs from outside the eurozone benefit; Australian tourists get fewer euros for their dollars; a British firm buying property in Europe pays more in pounds, but would not care if the property were elsewhere.</p>
+
+<div class="pagefoot">
+  <p><a href="/teaching-tools/finance-and-the-economy/">← Back to module</a></p>
+  <p>Built by Dr Kasra Kassai, LSBU Business School · <a href="https://drkassai.com">drkassai.com</a></p>
+</div>
 </div>
 <script>
 var $=function(id){ return document.getElementById(id); };
@@ -202,31 +230,27 @@ function ticks(max,n){ n=n||6; var raw=max/n, mag=Math.pow(10,Math.floor(Math.lo
 function kfmt(v){ return Math.abs(v)>=1e6? fmt(v/1e6,v%1e6?1:0)+'m' : Math.abs(v)>=1000? fmt(v/1000,v%1000?1:0)+'k' : fmt(v,0); }
 
 
-var a1='L', a2='L';
-var PAY={LL:[2,2],HL:[1,4],LH:[4,1],HH:[3,3]}, W={1:'Very low',2:'Low',3:'Medium',4:'High'};
-function pay(x,y){ return PAY[x+y]; }
+var R0=1.15;
+var c=chart($('svg'),{xmin:1.0,xmax:1.4,ymin:-20,ymax:25,xticks:[1.0,1.1,1.2,1.3,1.4],yticks:[-20,-10,0,10,20,25],fx:function(v){return '€'+fmt(v,2);},fy:function(v){return (v<0?'−':v>0?'+':'')+Math.abs(v)+'%';},xlab:'Euros per pound',ylab:'Change vs £1 = €1.15'});
 function render(){
-  var g='<div></div><div class="hd">Airline 1: low €100</div><div class="hd">Airline 1: high €200</div>';
-  ['L','H'].forEach(function(y){
-    g+='<div class="hd rw">Airline 2: '+(y==='L'?'low €100':'high €200')+'</div>';
-    ['L','H'].forEach(function(x){
-      var p=pay(x,y), on=(x===a1&&y===a2);
-      var b1=pay(x,y)[0]>=pay(x==='L'?'H':'L',y)[0], b2=pay(x,y)[1]>=pay(x,y==='L'?'H':'L')[1];
-      g+='<button class="cell'+(on?' on':'')+'" data-x="'+x+'" data-y="'+y+'"><div class="p'+(b1?' best':'')+'"><span>Airline 1</span><b>'+W[p[0]]+' profits</b></div><div class="p'+(b2?' best':'')+'"><span>Airline 2</span><b>'+W[p[1]]+' profits</b></div></button>';
-    });
-  });
-  $('game').innerHTML=g;
-  [].forEach.call(document.querySelectorAll('.game .cell'),function(el){ el.addEventListener('click',function(){ a1=el.dataset.x; a2=el.dataset.y; clear(); $('explain').innerHTML='Free exploration: would either airline rather be in a different cell of this row or column?'; render(); }); });
-  var p=pay(a1,a2), alt1=pay(a1==='L'?'H':'L',a2)[0], alt2=pay(a1,a2==='L'?'H':'L')[1];
-  var t1=alt1>p[0], t2=alt2>p[1];
-  $('p1').textContent=W[p[0]]+' profits'; $('p1D').textContent=t1?'would switch to '+(a1==='L'?'€200':'€100'):'no better move available';
-  $('p2').textContent=W[p[1]]+' profits'; $('p2D').textContent=t2?'would switch to '+(a2==='L'?'€200':'€100'):'no better move available';
-  $('nash').textContent=(!t1&&!t2)?'Yes: Nash equilibrium. Neither airline gains by changing its fare alone.':'No: '+(t1&&t2?'both airlines':t1?'Airline 1':'Airline 2')+' would change fare.';
-  $('nashD').textContent='';
+  var r=+$('r').value, imp=+$('imp').value, ex=+$('exp').value;
+  $('rOut').textContent='£1 = €'+fmt(r,2); $('impOut').textContent='€'+fmt(imp,0); $('expOut').textContent='£'+fmt(ex,0);
+  var ic=imp/r, ic0=imp/R0, ep=ex*r, ep0=ex*R0, er=ep0/r;
+  var di=(R0/r-1)*100, de=(r/R0-1)*100;
+  var h=hline(c,0,'ghost')+vline(c,R0,'ghost')+curve(c,function(x){ return (R0/x-1)*100; },1.0,1.4,'curve-d')+lineY(c,100/R0,-100,'curve-s');
+  h+=txt(c,1.39,(R0/1.39-1)*100,'import cost in £',{anchor:'end',dy:16,cls:'tl',fill:'var(--demand)'})+txt(c,1.39,(1.39/R0-1)*100,'export price in €',{anchor:'end',dy:-8,cls:'tl',fill:'var(--supply)'});
+  h+=dot(c,r,di,'var(--demand)')+dot(c,r,de,'var(--supply)')+'<line class="guide" x1="'+c.X(r)+'" y1="'+c.Y(di)+'" x2="'+c.X(r)+'" y2="'+c.Y(de)+'"/>';
+  h+=txt(c,r,de,(de>=0?'+':'−')+fmt(Math.abs(de),1)+'%',{dx:8,dy:-6,cls:'tnum'})+txt(c,r,di,(di>=0?'+':'−')+fmt(Math.abs(di),1)+'%',{dx:8,dy:14,cls:'tnum'});
+  c.art.innerHTML=h;
+  $('ic').textContent='£'+fmt(ic,0); $('icD').innerHTML='€'+fmt(imp,0)+' ÷ '+fmt(r,2)+(r!==R0?' ('+(ic<ic0?'<span class="up">cheaper</span>':'<span class="down">dearer</span>')+' than £'+fmt(ic0,0)+')':'');
+  $('ep').textContent='€'+fmt(ep,0); $('epD').innerHTML='£'+fmt(ex,0)+' × '+fmt(r,2)+(r!==R0?' ('+(ep>ep0?'<span class="down">dearer</span>':'<span class="up">cheaper</span>')+' than €'+fmt(ep0,0)+')':'');
+  $('er').textContent='£'+fmt(er,0); $('erD').textContent='€'+fmt(ep0,0)+' ÷ '+fmt(r,2)+(r!==R0?(er<ex?', a smaller margin':', a bigger margin'):'');
+  $('verdict').textContent=r>R0?'Stronger pound: importers gain, exporters lose. UK net exports fall and the balance of payments worsens; the eurozone’s improves.':r<R0?'Weaker pound: exporters gain, importers lose. UK net exports rise and the balance of payments improves.':'No change from the starting rate.';
+  $('verdictD').textContent='';
 }
 var btns=[].slice.call(document.querySelectorAll('.scenarios button'));
-var clear=wire(btns,[],function(b){ a1=b.dataset.a; a2=b.dataset.b; },render,'');
-$('reset').addEventListener('click',function(){ a1='L'; a2='L'; clear(); $('explain').innerHTML='Columns are Airline 1’s choice, rows are Airline 2’s. Green figures show the better choice for that airline given what the other is doing.'; render(); });
+var clear=wire(btns,[$('r'),$('imp'),$('exp')],function(b){ $('r').value=b.dataset.r; },render,'Free exploration: the two effects always pull in opposite directions, which is why a currency move creates winners and losers at once.');
+$('reset').addEventListener('click',function(){ $('r').value=1.15; $('imp').value=1150; $('exp').value=1000; clear(); $('explain').textContent='Pick a rate or slide it. The chart shows the percentage change in the import’s sterling cost and the export’s euro price, relative to £1 = €1.15.'; render(); });
 render();
 
 </script>

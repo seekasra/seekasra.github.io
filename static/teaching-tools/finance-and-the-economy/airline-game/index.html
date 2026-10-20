@@ -1,6 +1,20 @@
-<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
-<title>Breakeven chart: Lee’s Leathers</title>
-<meta name="claude:viewport-fit-sides" content="cover">
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Airline pricing game · Dr Kasra Kassai</title>
+<meta name="description" content="Each airline chooses a low fare of €100 or a high fare of €200 without knowing what the other will do. Click a cell, or set each airline’s choice, and see whether either would want to switch. When neither would, you have found the Nash equilibrium.">
+<meta name="author" content="Dr Kasra Kassai">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Teaching tools · Dr Kasra Kassai">
+<meta property="og:title" content="Airline pricing game">
+<meta property="og:description" content="Each airline chooses a low fare of €100 or a high fare of €200 without knowing what the other will do. Click a cell, or set each airline’s choice, and see whether either would want to switch. When neither would, you have found the Nash equilibrium.">
+<meta property="og:url" content="https://drkassai.com/teaching-tools/finance-and-the-economy/airline-game/">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Airline pricing game">
+<meta name="twitter:description" content="Each airline chooses a low fare of €100 or a high fare of €200 without knowing what the other will do. Click a cell, or set each airline’s choice, and see whether either would want to switch. When neither would, you have found the Nash equilibrium.">
+<link rel="canonical" href="https://drkassai.com/teaching-tools/finance-and-the-economy/airline-game/">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,500;6..72,600&family=Public+Sans:wght@400;500;600&display=swap">
 <style>
 /* Layout: single-column scholarly page — chart as centrepiece, controls beside it, scenarios as a worked-answer rail */
@@ -143,14 +157,28 @@ input[type=range]{width:100%; accent-color:var(--eq); margin:2px 0 0}
 .bar-e{fill:var(--eq);opacity:.8}
 .mk{fill:var(--card);stroke-width:2}
 
+
+/* Site chrome: back link and attribution footer */
+.pagefoot{border-top:1px solid var(--line); margin-top:26px; padding-top:16px; display:flex; flex-direction:column; gap:6px; font-size:13px; color:var(--ink-3)}
+.pagefoot p{margin:0}
+.pagefoot a{color:var(--eq); text-decoration:none; border-bottom:1px solid transparent}
+.pagefoot a:hover{border-bottom-color:var(--eq)}
+.pagefoot a:focus-visible{outline:2px solid var(--eq); outline-offset:2px}
 </style>
+</head>
+<body>
 <div class="wrap">
 <header>
-  <p class="kicker">Finance and the Economy · Seminar 4 · Cost-volume-profit analysis</p>
-  <h1>Breakeven point and margin of safety</h1>
-  <p class="lede">Each jacket contributes its selling price minus its variable cost (production cost plus sales commission) towards fixed costs. Breakeven is where total contribution just covers fixed costs. Move the inputs and watch the breakeven point, the margin of safety and operating income change. Questions 3 and 4 (Lee’s Leathers, part 1).</p>
+  <p class="kicker">Finance and the Economy · Seminar 5 · Market structures</p>
+  <h1>Two airlines, one decision box</h1>
+  <p class="lede">Each airline chooses a low fare of <em>€100</em> or a high fare of <em>€200</em> without knowing what the other will do. Click a cell, or set each airline’s choice, and see whether either would want to switch. When neither would, you have found the Nash equilibrium. Question 6, from <em>Business Economics</em> (Mankiw, Taylor &amp; Ashwin, ch. 15).</p>
 </header>
-<div class="scenarios" role="group" aria-label="Scenarios"><button data-cur="£" data-p="96" data-v="32" data-c="7.5" data-f="1136" data-e="32" data-x="<strong>Q4(a) Lee’s Leathers.</strong> Variable cost per jacket = £32 + 7.5% × £96 = £39.20, so unit contribution = £56.80. Fixed costs = £720,000 + £416,000 = £1,136,000. Breakeven = 1,136,000 ÷ 56.80 = <strong>20,000 jackets</strong>. Margin of safety = 32,000 − 20,000 = 12,000 jackets, or <strong>37.5%</strong>.">Q4(a): £96, 7½% commission</button><button data-cur="£" data-p="106" data-v="32" data-c="10" data-f="1136" data-e="32" data-x="<strong>Q4(c) and (d): £106 with 10% commission.</strong> Variable cost = £32 + £10.60 = £42.60; contribution = £63.40. Breakeven falls to 17,918 jackets and the margin of safety rises to 14,082 jackets (<strong>44%</strong>), so risk is lower. Operating income rises from £681,600 to £892,800, a gain of £211,200.">Q4(c): £106, 10% commission</button><button data-cur="€" data-p="8" data-v="0.5" data-c="0" data-f="1.5" data-e="0.5" data-x="<strong>Q3.</strong> Unit contribution = €8 − €0.50 = €7.50. Fixed costs €1,500 ÷ €7.50 = <strong>200 units</strong> to break even. (No expected sales figure is given; 500 units is assumed here so the chart has a margin of safety to show.)">Q3: €8 price, €0.50 cost</button></div><div class="explain" id="explain" aria-live="polite">Pick a question, or set your own inputs. Revenue is green, total cost purple; they cross at the breakeven point.</div><div class="stage"><div class="chartcard"><svg id="svg" viewBox="0 0 560 430" role="img" aria-label="Breakeven chart"></svg></div><div class="panel"><div class="ctl"><div class="row"><label for="p"><span class="swatch" style="background:var(--supply)"></span>Selling price per unit</label><output id="pOut"></output></div><input type="range" id="p" min="4" max="140" value="96" step="0.5" aria-label="Selling price per unit"><div class="ends"><span>low</span><span>high</span></div></div><div class="ctl"><div class="row"><label for="v"><span class="swatch" style="background:var(--demand)"></span>Variable cost per unit</label><output id="vOut"></output></div><input type="range" id="v" min="0.25" max="80" value="32" step="0.25" aria-label="Variable cost per unit"><div class="ends"><span>low</span><span>high</span></div></div><div class="ctl"><div class="row"><label for="c"><span class="swatch" style="background:var(--demand)"></span>Sales commission (% of price)</label><output id="cOut"></output></div><input type="range" id="c" min="0" max="15" value="7.5" step="0.5" aria-label="Sales commission (% of price)"><div class="ends"><span>0%</span><span>15%</span></div></div><div class="ctl"><div class="row"><label for="f"><span class="swatch" style="background:var(--demand)"></span>Fixed costs (thousands)</label><output id="fOut"></output></div><input type="range" id="f" min="1" max="2000" value="1136" step="1" aria-label="Fixed costs (thousands)"><div class="ends"><span>low</span><span>high</span></div></div><div class="ctl"><div class="row"><label for="e"><span class="swatch" style="background:var(--eq)"></span>Expected sales (thousand units)</label><output id="eOut"></output></div><input type="range" id="e" min="0.2" max="50" value="32" step="0.1" aria-label="Expected sales (thousand units)"><div class="ends"><span>few</span><span>many</span></div></div><button class="reset" id="reset">Reset</button></div></div><div class="results"><div class="stat "><p class="k">Unit contribution</p><p class="v" id="u"></p><p class="d" id="uD"></p></div><div class="stat "><p class="k">Breakeven point</p><p class="v" id="be"></p><p class="d" id="beD"></p></div><div class="stat "><p class="k">Margin of safety</p><p class="v" id="mos"></p><p class="d" id="mosD"></p></div><div class="stat "><p class="k">Operating income</p><p class="v" id="oi"></p><p class="d" id="oiD"></p></div></div><p class="note"><strong>Two ways to read the margin of safety.</strong> In units it is expected sales minus breakeven sales; in money it is the same gap valued at the selling price. Both give the same percentage of expected sales. The bigger the margin, the further sales can fall before the firm makes a loss.</p>
+<div class="scenarios" role="group" aria-label="Scenarios"><button data-a="L" data-b="L" data-x="<strong>(b) Both low: the Nash equilibrium.</strong> Whatever the rival does, charging €100 is better for each airline (low beats very low; high beats medium). Low is a dominant strategy for both, so they end up with low profits each. Neither can do better by switching alone. Good news for passengers.">Both low: Nash equilibrium</button><button data-a="H" data-b="H" data-x="<strong>(c) Both high: the collusive outcome.</strong> Medium profits each, better than the Nash outcome for both airlines and worse for passengers. But each airline is tempted to undercut: cutting to €100 while the rival holds €200 brings high profits. It only holds if each trusts the other, and competition law tries to stop it (BA was fined £270m in 2007 for colluding with Virgin Atlantic).">Both high: collusion</button><button data-a="H" data-b="L" data-x="<strong>Airline 1 high, Airline 2 low.</strong> Airline 2 takes the passengers and earns high profits; Airline 1 is left with very low profits and would switch to €100 at once. Not stable.">Airline 1 high, 2 low</button><button data-a="L" data-b="H" data-x="<strong>Airline 1 low, Airline 2 high.</strong> The mirror image: Airline 1 earns high profits and Airline 2 very low, so Airline 2 would cut its fare. Not stable either.">Airline 1 low, 2 high</button></div><div class="explain" id="explain" aria-live="polite">Columns are Airline 1’s choice, rows are Airline 2’s. Green figures show the better choice for that airline given what the other is doing.</div><div class="game" id="game"></div><div style="margin-top:14px"><button class="reset" id="reset">Reset</button></div><div class="results"><div class="stat "><p class="k">Airline 1 earns</p><p class="v" id="p1"></p><p class="d" id="p1D"></p></div><div class="stat "><p class="k">Airline 2 earns</p><p class="v" id="p2"></p><p class="d" id="p2D"></p></div><div class="stat verdict"><p class="k">Stable?</p><p class="v" id="nash"></p><p class="d" id="nashD"></p></div></div><p class="note"><strong>Interdependence.</strong> In an oligopoly each firm’s result depends on the rival’s choice as well as its own, which is why game theory is the right tool. The Nash equilibrium is the position where every player is doing the best they can given the others’ choices, so nobody has an incentive to move. Here it is worse for the airlines than cooperation, and better for consumers.</p>
+
+<div class="pagefoot">
+  <p><a href="/teaching-tools/finance-and-the-economy/">← Back to module</a></p>
+  <p>Built by Dr Kasra Kassai, LSBU Business School · <a href="https://drkassai.com">drkassai.com</a></p>
+</div>
 </div>
 <script>
 var $=function(id){ return document.getElementById(id); };
@@ -202,31 +230,31 @@ function ticks(max,n){ n=n||6; var raw=max/n, mag=Math.pow(10,Math.floor(Math.lo
 function kfmt(v){ return Math.abs(v)>=1e6? fmt(v/1e6,v%1e6?1:0)+'m' : Math.abs(v)>=1000? fmt(v/1000,v%1000?1:0)+'k' : fmt(v,0); }
 
 
-var cur='£';
+var a1='L', a2='L';
+var PAY={LL:[2,2],HL:[1,4],LH:[4,1],HH:[3,3]}, W={1:'Very low',2:'Low',3:'Medium',4:'High'};
+function pay(x,y){ return PAY[x+y]; }
 function render(){
-  var p=+$('p').value, vc=+$('v').value, com=+$('c').value, F=+$('f').value*1000, E=+$('e').value*1000;
-  $('pOut').textContent=cur+fmt(p,2); $('vOut').textContent=cur+fmt(vc,2); $('cOut').textContent=pct(com,1); $('fOut').textContent=cur+fmt(F,0); $('eOut').textContent=kfmt(E)+' units';
-  var v=vc+com/100*p, u=p-v, be=u>0?F/u:Infinity, mos=E-be, pctm=mos/E*100, oi=E*u-F;
-  var xmax=Math.max(E,isFinite(be)?be:E)*1.25; var xt=ticks(xmax,5); xmax=xt[xt.length-1];
-  var ymax=Math.max(p*xmax,F+v*xmax)*1.05; var yt=ticks(ymax,5); ymax=yt[yt.length-1];
-  var c=chart($('svg'),{xmin:0,xmax:xmax,ymin:0,ymax:ymax,xticks:xt,yticks:yt,fx:kfmt,fy:function(x){return cur+kfmt(x);},xlab:'Sales volume (units)',ylab:'Revenue and cost'});
-  var h=lineY(c,p,0,'curve-s')+lineY(c,v,F,'curve-d')+lineY(c,v,0,'curve-d2')+hline(c,F,'ghost');
-  h+=txt(c,xmax,Math.min(ymax,p*xmax),'Sales revenue',{anchor:'end',dx:-6,dy:-8,fill:'var(--supply)'});
-  h+=txt(c,xmax,Math.min(ymax,F+v*xmax),'Total cost',{anchor:'end',dx:-6,dy:16,fill:'var(--demand)'});
-  h+=txt(c,xmax*0.02,F,'Fixed costs',{dy:-6,cls:'tl'})+txt(c,xmax,Math.min(ymax,v*xmax),'Variable cost',{anchor:'end',dx:-6,dy:16,cls:'tl',fill:'var(--demand)'});
-  if(isFinite(be)&&be<=xmax){ h+=guide(c,be,p*be)+dot(c,be,p*be)+txt(c,be,p*be,'breakeven '+kfmt(be),{dx:-8,dy:-10,anchor:'end',cls:'tnum'}); }
-  if(E<=xmax){ h+='<line class="guide" x1="'+c.X(E)+'" y1="'+c.Y0+'" x2="'+c.X(E)+'" y2="'+c.Y(Math.min(ymax,p*E))+'"/>';
-    h+='<line class="curve-e" stroke-dasharray="5 4" x1="'+c.X(E)+'" y1="'+c.Y(F+v*E)+'" x2="'+c.X(E)+'" y2="'+c.Y(Math.min(ymax,p*E))+'"/>';
-    h+=txt(c,E,0,'expected',{anchor:'middle',dy:-6,cls:'tl'}); }
-  c.art.innerHTML=h;
-  $('u').textContent=cur+fmt(u,2); $('uD').textContent=cur+fmt(p,2)+' − ('+cur+fmt(vc,2)+' + '+pct(com,1)+' × '+cur+fmt(p,0)+')';
-  $('be').textContent=isFinite(be)?fmt(be,0)+' units':'never'; $('beD').textContent=isFinite(be)?cur+fmt(F,0)+' ÷ '+cur+fmt(u,2)+'; sales of '+cur+fmt(be*p,0):'contribution is not positive';
-  $('mos').textContent=isFinite(be)?fmt(mos,0)+' units':'–'; $('mosD').innerHTML=isFinite(be)?(mos>=0?'<span class="up">'+pct(pctm,1)+'</span>':'<span class="down">'+pct(pctm,1)+'</span>')+' of expected sales':'';
-  $('oi').textContent=(oi<0?'−':'')+cur+fmt(Math.abs(oi),0); $('oiD').textContent=fmt(E,0)+' × '+cur+fmt(u,2)+' − '+cur+fmt(F,0);
+  var g='<div></div><div class="hd">Airline 1: low €100</div><div class="hd">Airline 1: high €200</div>';
+  ['L','H'].forEach(function(y){
+    g+='<div class="hd rw">Airline 2: '+(y==='L'?'low €100':'high €200')+'</div>';
+    ['L','H'].forEach(function(x){
+      var p=pay(x,y), on=(x===a1&&y===a2);
+      var b1=pay(x,y)[0]>=pay(x==='L'?'H':'L',y)[0], b2=pay(x,y)[1]>=pay(x,y==='L'?'H':'L')[1];
+      g+='<button class="cell'+(on?' on':'')+'" data-x="'+x+'" data-y="'+y+'"><div class="p'+(b1?' best':'')+'"><span>Airline 1</span><b>'+W[p[0]]+' profits</b></div><div class="p'+(b2?' best':'')+'"><span>Airline 2</span><b>'+W[p[1]]+' profits</b></div></button>';
+    });
+  });
+  $('game').innerHTML=g;
+  [].forEach.call(document.querySelectorAll('.game .cell'),function(el){ el.addEventListener('click',function(){ a1=el.dataset.x; a2=el.dataset.y; clear(); $('explain').innerHTML='Free exploration: would either airline rather be in a different cell of this row or column?'; render(); }); });
+  var p=pay(a1,a2), alt1=pay(a1==='L'?'H':'L',a2)[0], alt2=pay(a1,a2==='L'?'H':'L')[1];
+  var t1=alt1>p[0], t2=alt2>p[1];
+  $('p1').textContent=W[p[0]]+' profits'; $('p1D').textContent=t1?'would switch to '+(a1==='L'?'€200':'€100'):'no better move available';
+  $('p2').textContent=W[p[1]]+' profits'; $('p2D').textContent=t2?'would switch to '+(a2==='L'?'€200':'€100'):'no better move available';
+  $('nash').textContent=(!t1&&!t2)?'Yes: Nash equilibrium. Neither airline gains by changing its fare alone.':'No: '+(t1&&t2?'both airlines':t1?'Airline 1':'Airline 2')+' would change fare.';
+  $('nashD').textContent='';
 }
 var btns=[].slice.call(document.querySelectorAll('.scenarios button'));
-var clear=wire(btns,[$('p'),$('v'),$('c'),$('f'),$('e')],function(b){ cur=b.dataset.cur; $('p').value=b.dataset.p; $('v').value=b.dataset.v; $('c').value=b.dataset.c; $('f').value=b.dataset.f; $('e').value=b.dataset.e; },render,'Free exploration: anything that raises unit contribution or lowers fixed costs brings the breakeven point to the left and widens the margin of safety.');
-$('reset').addEventListener('click',function(){ cur='£'; $('p').value=96; $('v').value=32; $('c').value=7.5; $('f').value=1136; $('e').value=32; clear(); $('explain').textContent='Pick a question, or set your own inputs. Revenue is green, total cost purple; they cross at the breakeven point.'; render(); });
+var clear=wire(btns,[],function(b){ a1=b.dataset.a; a2=b.dataset.b; },render,'');
+$('reset').addEventListener('click',function(){ a1='L'; a2='L'; clear(); $('explain').innerHTML='Columns are Airline 1’s choice, rows are Airline 2’s. Green figures show the better choice for that airline given what the other is doing.'; render(); });
 render();
 
 </script>

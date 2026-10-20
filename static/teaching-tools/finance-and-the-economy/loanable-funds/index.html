@@ -1,6 +1,20 @@
-<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
-<title>Profit maximisation: MR = MC</title>
-<meta name="claude:viewport-fit-sides" content="cover">
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>The market for loanable funds · Dr Kasra Kassai</title>
+<meta name="description" content="The interest rate is the price of borrowing. Firms that no longer need to finance large inventories demand fewer loanable funds, so the demand curve shifts left and the rate falls, which encourages other borrowers, such as firms investing in factories and equipment.">
+<meta name="author" content="Dr Kasra Kassai">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Teaching tools · Dr Kasra Kassai">
+<meta property="og:title" content="The market for loanable funds">
+<meta property="og:description" content="The interest rate is the price of borrowing. Firms that no longer need to finance large inventories demand fewer loanable funds, so the demand curve shifts left and the rate falls, which encourages other borrowers, such as firms investing in factories and equipment.">
+<meta property="og:url" content="https://drkassai.com/teaching-tools/finance-and-the-economy/loanable-funds/">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="The market for loanable funds">
+<meta name="twitter:description" content="The interest rate is the price of borrowing. Firms that no longer need to finance large inventories demand fewer loanable funds, so the demand curve shifts left and the rate falls, which encourages other borrowers, such as firms investing in factories and equipment.">
+<link rel="canonical" href="https://drkassai.com/teaching-tools/finance-and-the-economy/loanable-funds/">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,500;6..72,600&family=Public+Sans:wght@400;500;600&display=swap">
 <style>
 /* Layout: single-column scholarly page — chart as centrepiece, controls beside it, scenarios as a worked-answer rail */
@@ -143,14 +157,28 @@ input[type=range]{width:100%; accent-color:var(--eq); margin:2px 0 0}
 .bar-e{fill:var(--eq);opacity:.8}
 .mk{fill:var(--card);stroke-width:2}
 
+
+/* Site chrome: back link and attribution footer */
+.pagefoot{border-top:1px solid var(--line); margin-top:26px; padding-top:16px; display:flex; flex-direction:column; gap:6px; font-size:13px; color:var(--ink-3)}
+.pagefoot p{margin:0}
+.pagefoot a{color:var(--eq); text-decoration:none; border-bottom:1px solid transparent}
+.pagefoot a:hover{border-bottom-color:var(--eq)}
+.pagefoot a:focus-visible{outline:2px solid var(--eq); outline-offset:2px}
 </style>
+</head>
+<body>
 <div class="wrap">
 <header>
-  <p class="kicker">Finance and the Economy · Seminar 4 · Cost-volume-profit analysis</p>
-  <h1>Finding the profit-maximising output</h1>
-  <p class="lede">The firm sells every unit at the same price, so total revenue is a straight line and marginal revenue equals price. Total cost rises faster and faster. Profit is the vertical gap between the two; it peaks where <em>marginal revenue equals marginal cost</em>. Question 2, from <em>Business Economics</em> (Mankiw, Taylor &amp; Ashwin, ch. 10).</p>
+  <p class="kicker">Finance and the Economy · Seminar 8 · Macroeconomic factors</p>
+  <h1>Less inventory, less borrowing, a lower interest rate</h1>
+  <p class="lede">The interest rate is the price of borrowing. Firms that no longer need to finance large inventories demand fewer loanable funds, so the demand curve shifts left and the rate falls, which encourages other borrowers, such as firms investing in factories and equipment. Question 1, from <em>Business Economics</em> (Mankiw, Taylor &amp; Ashwin, ch. 19).</p>
 </header>
-<div class="scenarios" role="group" aria-label="Scenarios"><button data-p="6" data-x="<strong>Question values: price £6.</strong> MR is £6 at every unit. MC climbs £2, £3, £4, £5, £6, £7 … Profit rises until the fifth unit, where MC = MR = £6, and falls after it. Profit-maximising output is <strong>5</strong>, with profit of <strong>£7</strong>.">Question: price £6</button><button data-p="8" data-x="<strong>Price £8.</strong> With a higher MR the firm keeps producing while MC is £8 or less, so output rises to 7 and profit to £18.">Price £8</button><button data-p="4" data-x="<strong>Price £4.</strong> Now only three units have MC at or below MR. Profit peaks at Q = 3, and it is thin: £0.">Price £4</button></div><div class="explain" id="explain" aria-live="polite">Pick a price, or slide it. The dashed gap at the best output is the profit; the table recomputes MR, MC and profit for every unit.</div><div class="stage"><div class="chartcard"><svg id="svg" viewBox="0 0 560 430" role="img" aria-label="Total revenue and total cost"></svg></div><div class="panel"><div class="ctl"><div class="row"><label for="p"><span class="swatch" style="background:var(--supply)"></span>Price per unit (£)</label><output id="pOut"></output></div><input type="range" id="p" min="3" max="9" value="6" step="0.5" aria-label="Price per unit (£)"><div class="ends"><span>low</span><span>high</span></div></div><button class="reset" id="reset">Reset</button></div></div><div class="results"><div class="stat "><p class="k">Profit-maximising output</p><p class="v" id="q"></p><p class="d" id="qD"></p></div><div class="stat "><p class="k">Profit at that output</p><p class="v" id="pi"></p><p class="d" id="piD"></p></div><div class="stat "><p class="k">MR and MC there</p><p class="v" id="mrmc"></p><p class="d" id="mrmcD"></p></div><div class="stat verdict"><p class="k">Rule</p><p class="v" id="verdict"></p><p class="d" id="verdictD"></p></div></div><div class="tblwrap"><table class="tbl"><thead><tr><th>Q</th><th>TR</th><th>TC</th><th>Profit</th><th>MR</th><th>MC</th></tr></thead><tbody id="tbody"></tbody></table></div><p class="note"><strong>Reading the table.</strong> MR is the change in total revenue from one more unit; MC is the change in total cost. Keep producing while MR ≥ MC. The unit where they are equal is the last one worth making; the next one adds more to cost than to revenue.</p>
+<div class="scenarios" role="group" aria-label="Scenarios"><button data-d="-20" data-x="<strong>Q1: computer technology cuts inventories.</strong> Demand shifts left from D₁ to D₂. At the old rate r₁ the quantity demanded falls from L₁ to L₂. The rate then falls to r₂, drawing in other borrowers, until the new equilibrium at L₃. Cheaper finance means investment in factories and equipment is likely to rise.">Q1: firms hold less inventory</button><button data-d="20" data-x="<strong>The opposite case.</strong> An investment boom shifts demand right: at r₁ borrowers want more than savers supply, so the rate rises and the quantity of funds lent increases.">Investment boom</button></div><div class="explain" id="explain" aria-live="polite">Pick a scenario or slide the demand curve. The dashed grey line is the original demand curve; L₂ is what would be demanded at the old rate before the rate adjusts.</div><div class="stage"><div class="chartcard"><svg id="svg" viewBox="0 0 560 430" role="img" aria-label="Supply and demand for loanable funds"></svg></div><div class="panel"><div class="ctl"><div class="row"><label for="d"><span class="swatch" style="background:var(--demand)"></span>Demand for loanable funds</label><output id="dOut"></output></div><input type="range" id="d" min="-40" max="40" value="-20" step="1" aria-label="Demand for loanable funds"><div class="ends"><span>shift left</span><span>shift right</span></div></div><button class="reset" id="reset">Reset</button></div></div><div class="results"><div class="stat "><p class="k">Interest rate</p><p class="v" id="r"></p><p class="d" id="rD"></p></div><div class="stat "><p class="k">Funds lent</p><p class="v" id="l"></p><p class="d" id="lD"></p></div><div class="stat "><p class="k">Demanded at the old rate</p><p class="v" id="l2"></p><p class="d" id="l2D"></p></div></div><p class="note"><strong>Why it matters for interest rates.</strong> Anything that changes how much firms, households or governments want to borrow, or how much savers want to lend, moves these curves and so moves the interest rate, even before the central bank does anything.</p>
+
+<div class="pagefoot">
+  <p><a href="/teaching-tools/finance-and-the-economy/">← Back to module</a></p>
+  <p>Built by Dr Kasra Kassai, LSBU Business School · <a href="https://drkassai.com">drkassai.com</a></p>
+</div>
 </div>
 <script>
 var $=function(id){ return document.getElementById(id); };
@@ -202,32 +230,26 @@ function ticks(max,n){ n=n||6; var raw=max/n, mag=Math.pow(10,Math.floor(Math.lo
 function kfmt(v){ return Math.abs(v)>=1e6? fmt(v/1e6,v%1e6?1:0)+'m' : Math.abs(v)>=1000? fmt(v/1000,v%1000?1:0)+'k' : fmt(v,0); }
 
 
-var TC=[3,5,8,12,17,23,30,38,47];
-var c=chart($('svg'),{xmin:0,xmax:8,ymin:0,ymax:75,xticks:[0,1,2,3,4,5,6,7,8],yticks:[0,15,30,45,60,75],fy:function(v){return '£'+v;},xlab:'Output (Q)',ylab:'Total revenue and total cost (£)'});
+var c=chart($('svg'),{xmin:0,xmax:100,ymin:0,ymax:10,xticks:[0,25,50,75,100],yticks:[0,2.5,5,7.5,10],fy:function(v){return v+'%';},xlab:'Quantity of loanable funds',ylab:'Interest rate'});
 function render(){
-  var P=+$('p').value; $('pOut').textContent='£'+fmt(P,2);
-  var best=0, bestPi=-TC[0];
-  for(var q=1;q<=8;q++){ var mc=TC[q]-TC[q-1]; if(mc<=P+1e-9) best=q; }
-  bestPi=P*best-TC[best];
-  var tr=[],tc=[]; for(var q=0;q<=8;q++){ tr.push([q,P*q]); tc.push([q,TC[q]]); }
-  var h=path(c,tr.filter(function(p){return p[1]<=75;}),'curve-s')+path(c,tc,'curve-d')+marks(c,tc,'var(--demand)');
-  h+='<line class="curve-e" stroke-dasharray="5 4" x1="'+c.X(best)+'" y1="'+c.Y(TC[best])+'" x2="'+c.X(best)+'" y2="'+c.Y(P*best)+'"/>';
-  h+=dot(c,best,P*best)+dot(c,best,TC[best],'var(--demand)');
-  h+=txt(c,8,Math.min(75,P*8),'TR = £'+fmt(P,0)+' × Q',{anchor:'end',dx:-6,dy:-8,fill:'var(--supply)'})+txt(c,8,47,'TC',{anchor:'end',dx:-6,dy:16,fill:'var(--demand)'});
-  h+=txt(c,best,(P*best+TC[best])/2,'profit £'+fmt(bestPi,0),{dx:8,dy:4,cls:'tnum'});
+  var d=+$('d').value; $('dOut').textContent=d===0?'no shift':(d<0?'← shifted left':'→ shifted right');
+  var L1=50,r1=5, L2=50+d, L3=50+d/2, r2=5+0.03*d, h='';
+  h+=lineY(c,0.06,2,'curve-s')+lineY(c,-0.06,8,d?'ghost':'curve-d');
+  if(d) h+=lineY(c,-0.06,8+0.06*d,'curve-d');
+  h+=guide(c,L1,r1)+ring(c,L1,r1);
+  if(d){ h+=guide(c,L3,r2)+dot(c,L3,r2)+'<line class="guide" x1="'+c.X(L2)+'" y1="'+c.Y(r1)+'" x2="'+c.X(L2)+'" y2="'+c.Y0+'"/>'+ring(c,L2,r1); }
+  h+=txt(c,98,Math.min(9.6,2+0.06*98),'S',{anchor:'end',dy:-6,fill:'var(--supply)'})+txt(c,1.5,8,'D₁',{dy:-6,fill:'var(--demand)'});
+  if(d) h+=txt(c,1.5,8+0.06*d,'D₂',{dy:-6,fill:'var(--demand)'});
+  h+=txt(c,0,r1,'r₁',{anchor:'end',dx:-8,dy:4,cls:'tnum',bg:true})+txt(c,L1,0,'L₁',{anchor:'middle',dy:18,cls:'tnum',bg:true});
+  if(d){ h+=txt(c,0,r2,'r₂',{anchor:'end',dx:-8,dy:4,cls:'tnum',bg:true})+txt(c,L2,0,'L₂',{anchor:'middle',dy:18,cls:'tnum',bg:true})+txt(c,L3,0,'L₃',{anchor:'middle',dy:32,cls:'tnum',bg:true}); }
   c.art.innerHTML=h;
-  $('q').textContent=best+' units'; $('qD').textContent='last unit with MC ≤ MR';
-  $('pi').textContent='£'+fmt(bestPi,0); $('piD').textContent='TR '+fmt(P*best,0)+' − TC '+fmt(TC[best],0);
-  $('mrmc').textContent='£'+fmt(P,0)+' · £'+fmt(best?TC[best]-TC[best-1]:0,0); $('mrmcD').textContent='MR · MC at Q = '+best;
-  $('verdict').textContent='Produce while MR ≥ MC. Beyond Q = '+best+' the next unit costs more than it earns.'; $('verdictD').textContent='';
-  var rows='';
-  for(var q=0;q<=8;q++){ var pi=P*q-TC[q], mr=q?P:null, mc=q?TC[q]-TC[q-1]:null;
-    rows+='<tr'+(q===best?' class="hi"':'')+'><td>'+q+'</td><td>'+fmt(P*q,0)+'</td><td>'+TC[q]+'</td><td'+(pi<0?' class="neg"':'')+'>'+(pi<0?'−':'')+fmt(Math.abs(pi),0)+'</td><td>'+(mr===null?'–':fmt(mr,0))+'</td><td>'+(mc===null?'–':mc)+'</td></tr>'; }
-  $('tbody').innerHTML=rows;
+  $('r').textContent=fmt(r2,2)+'%'; $('rD').textContent=d?(d<0?'▼ down from 5%':'▲ up from 5%'):'r₁';
+  $('l').textContent=fmt(L3,1); $('lD').textContent=d?'L₃, from L₁ = 50':'L₁';
+  $('l2').textContent=fmt(L2,1); $('l2D').textContent=d?'L₂ on the new curve at r₁':'no shift yet';
 }
 var btns=[].slice.call(document.querySelectorAll('.scenarios button'));
-var clear=wire(btns,[$('p')],function(b){ $('p').value=b.dataset.p; },render,'Free exploration: a higher price lifts MR, so more units satisfy MR ≥ MC and the best output rises.');
-$('reset').addEventListener('click',function(){ $('p').value=6; clear(); $('explain').textContent='Pick a price, or slide it. The dashed gap at the best output is the profit; the table recomputes MR, MC and profit for every unit.'; render(); });
+var clear=wire(btns,[$('d')],function(b){ $('d').value=b.dataset.d; },render,'Free exploration: the fall in the rate is smaller than the fall in borrowing at the old rate, because the lower rate brings in other borrowers.');
+$('reset').addEventListener('click',function(){ $('d').value=-20; clear(); $('explain').textContent='Pick a scenario or slide the demand curve. The dashed grey line is the original demand curve; L₂ is what would be demanded at the old rate before the rate adjusts.'; render(); });
 render();
 
 </script>

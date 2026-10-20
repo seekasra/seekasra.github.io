@@ -1,6 +1,20 @@
-<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
-<title>Lia's Coffee Bar: cost curves</title>
-<meta name="claude:viewport-fit-sides" content="cover">
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Aggregate demand and supply: short run to long run · Dr Kasra Kassai</title>
+<meta name="description" content="The economy starts at A, where AD₁, SRAS₁ and the vertical LRAS all meet. Shift aggregate demand and the economy moves along SRAS₁ to B. Then let wages and input prices adjust: SRAS shifts until output is back at its natural level at C.">
+<meta name="author" content="Dr Kasra Kassai">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Teaching tools · Dr Kasra Kassai">
+<meta property="og:title" content="Aggregate demand and supply: short run to long run">
+<meta property="og:description" content="The economy starts at A, where AD₁, SRAS₁ and the vertical LRAS all meet. Shift aggregate demand and the economy moves along SRAS₁ to B. Then let wages and input prices adjust: SRAS shifts until output is back at its natural level at C.">
+<meta property="og:url" content="https://drkassai.com/teaching-tools/finance-and-the-economy/ad-as-adjustment/">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Aggregate demand and supply: short run to long run">
+<meta name="twitter:description" content="The economy starts at A, where AD₁, SRAS₁ and the vertical LRAS all meet. Shift aggregate demand and the economy moves along SRAS₁ to B. Then let wages and input prices adjust: SRAS shifts until output is back at its natural level at C.">
+<link rel="canonical" href="https://drkassai.com/teaching-tools/finance-and-the-economy/ad-as-adjustment/">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,500;6..72,600&family=Public+Sans:wght@400;500;600&display=swap">
 <style>
 /* Layout: single-column scholarly page — chart as centrepiece, controls beside it, scenarios as a worked-answer rail */
@@ -143,14 +157,28 @@ input[type=range]{width:100%; accent-color:var(--eq); margin:2px 0 0}
 .bar-e{fill:var(--eq);opacity:.8}
 .mk{fill:var(--card);stroke-width:2}
 
+
+/* Site chrome: back link and attribution footer */
+.pagefoot{border-top:1px solid var(--line); margin-top:26px; padding-top:16px; display:flex; flex-direction:column; gap:6px; font-size:13px; color:var(--ink-3)}
+.pagefoot p{margin:0}
+.pagefoot a{color:var(--eq); text-decoration:none; border-bottom:1px solid transparent}
+.pagefoot a:hover{border-bottom-color:var(--eq)}
+.pagefoot a:focus-visible{outline:2px solid var(--eq); outline-offset:2px}
 </style>
+</head>
+<body>
 <div class="wrap">
 <header>
-  <p class="kicker">Finance and the Economy · Seminar 4 · Cost-volume-profit analysis</p>
-  <h1>Average and marginal cost at Lia’s Coffee Bar</h1>
-  <p class="lede">Fixed cost is <em>£3.00</em> and variable cost rises with every extra cup. Change the fixed cost and watch AFC, AVC, ATC and MC move; the marginal cost curve always cuts average total cost at its lowest point, the <em>efficient scale</em>. Question 1, from <em>Business Economics</em> (Mankiw, Taylor &amp; Ashwin, ch. 9).</p>
+  <p class="kicker">Finance and the Economy · Seminar 8 · Macroeconomic factors</p>
+  <h1>A demand shock, then sticky wages catch up</h1>
+  <p class="lede">The economy starts at <em>A</em>, where AD₁, SRAS₁ and the vertical LRAS all meet. Shift aggregate demand and the economy moves along SRAS₁ to <em>B</em>. Then let wages and input prices adjust: SRAS shifts until output is back at its natural level at <em>C</em>. Questions 4 and 5, from <em>Business Economics</em> (Mankiw, Taylor &amp; Ashwin, ch. 21).</p>
 </header>
-<div class="scenarios" role="group" aria-label="Scenarios"><button data-s="all" data-x="<strong>All four curves.</strong> AFC falls throughout as the same £3.00 is spread over more cups. AVC and MC rise because of diminishing marginal product. ATC falls at first (AFC dominates) then rises once rising variable cost outweighs the shrinking AFC. MC crosses ATC at its minimum: <strong>5 to 6 cups</strong>, the efficient scale.">Show all</button><button data-s="afc" data-x="<strong>Average fixed cost.</strong> Initially high because the fixed cost is spread over very few units; it always declines as output increases, but the decline tapers off, like butter spread ever thinner.">AFC only</button><button data-s="avc" data-x="<strong>AVC and MC.</strong> Both typically rise because of diminishing marginal product: each extra cup needs more labour cost than the last. (In practice both can fall first, while capacity is being used better, and MC may be flat over some ranges.)">AVC and MC</button><button data-s="atc" data-x="<strong>ATC and MC.</strong> While MC is below ATC it pulls the average down; once MC is above ATC it pulls the average up. So MC must cross ATC at the bottom of the ATC curve, the efficient scale of output.">ATC and MC</button></div><div class="explain" id="explain" aria-live="polite">Pick a view, or change the fixed cost. The dot marks the lowest average total cost; the table below is part (a) completed.</div><div class="stage"><div class="chartcard"><svg id="svg" viewBox="0 0 560 430" role="img" aria-label="Cost curves for Lia’s Coffee Bar"></svg></div><div class="panel"><div class="ctl"><div class="row"><label for="fc"><span class="swatch" style="background:var(--demand)"></span>Fixed cost (£)</label><output id="fcOut"></output></div><input type="range" id="fc" min="1" max="5" value="3" step="0.1" aria-label="Fixed cost (£)"><div class="ends"><span>low</span><span>high</span></div></div><button class="reset" id="reset">Reset</button></div></div><div class="results"><div class="stat "><p class="k">Lowest ATC</p><p class="v" id="minatc"></p><p class="d" id="minatcD"></p></div><div class="stat "><p class="k">Efficient scale</p><p class="v" id="eff"></p><p class="d" id="effD"></p></div><div class="stat "><p class="k">MC crosses ATC at</p><p class="v" id="cross"></p><p class="d" id="crossD"></p></div><div class="stat verdict"><p class="k">Reading</p><p class="v" id="verdict"></p><p class="d" id="verdictD"></p></div></div><div class="tblwrap"><table class="tbl"><thead><tr><th>Q</th><th>FC</th><th>VC</th><th>TC</th><th>AFC</th><th>AVC</th><th>ATC</th><th>MC</th></tr></thead><tbody id="tbody"></tbody></table></div><p class="note"><strong>Why it matters.</strong> The efficient scale is where resources are used most efficiently and cost per cup is lowest. A higher fixed cost (a dearer lease, say) pushes the whole ATC curve up and the efficient scale to the right, because more cups are needed to spread the fixed cost.</p>
+<div class="scenarios" role="group" aria-label="Scenarios"><button data-d="20" data-t="0" data-x="<strong>(a) A popular prime minister, short run.</strong> Confidence rises and spending with it: AD shifts right to AD₂. Because wages and input prices are sticky, firms meet the extra demand with overtime, casual labour, inventory and sweated assets. Output rises from Y₁ to Y₂ and the price level from P₁ to P₂ at point B, beyond the natural rate.">(a) Confidence rises: short run</button><button data-d="20" data-t="100" data-x="<strong>(a) Long run.</strong> The higher price level has cut real wages, so workers win pay rises and suppliers lift their price lists. The temporary incentive to over-use resources disappears: SRAS shifts left to SRAS₂ and output falls back to Y₁ at point C, with a higher price level P₃. All three curves meet at C.">(a) Long run</button><button data-d="-20" data-t="0" data-x="<strong>(b) Financial crisis, short run.</strong> AD shifts left to AD₂ and the economy slides down SRAS₁ to B: lower output Y₂, lower price level P₂. This is a recession. Nominal wages are stuck on long-term contracts, so real wages rise, costs rise and firms cut production and jobs.">(b) Financial crisis: short run</button><button data-d="-20" data-t="100" data-x="<strong>(b) Long run.</strong> Slowly, lower prices feed through to lower wages and input prices: SRAS shifts right to SRAS₂. Output recovers to the natural rate Y₁ at point C, at a lower price level P₃. The business cycle has run its course.">(b) Long run</button></div><div class="explain" id="explain" aria-live="polite">Pick a scenario. The first slider moves AD; the second slider lets wages and prices catch up, which moves SRAS. Watch the economy go A → B → C.</div><div class="stage"><div class="chartcard"><svg id="svg" viewBox="0 0 560 430" role="img" aria-label="Aggregate demand, short-run and long-run aggregate supply"></svg></div><div class="panel"><div class="ctl"><div class="row"><label for="d"><span class="swatch" style="background:var(--demand)"></span>Aggregate demand shift</label><output id="dOut"></output></div><input type="range" id="d" min="-30" max="30" value="20" step="1" aria-label="Aggregate demand shift"><div class="ends"><span>fall (AD left)</span><span>rise (AD right)</span></div></div><div class="ctl"><div class="row"><label for="t"><span class="swatch" style="background:var(--supply)"></span>Wages and input prices have adjusted (%)</label><output id="tOut"></output></div><input type="range" id="t" min="0" max="100" value="0" step="5" aria-label="Wages and input prices have adjusted (%)"><div class="ends"><span>short run</span><span>long run</span></div></div><button class="reset" id="reset">Reset</button></div></div><div class="results"><div class="stat "><p class="k">Output (real GDP)</p><p class="v" id="y"></p><p class="d" id="yD"></p></div><div class="stat "><p class="k">Price level</p><p class="v" id="p"></p><p class="d" id="pD"></p></div><div class="stat verdict"><p class="k">Where we are</p><p class="v" id="ph"></p><p class="d" id="phD"></p></div></div><p class="note"><strong>Why SRAS slopes up but LRAS is vertical.</strong> With spare capacity firms can raise output without much price pressure; near full employment bottlenecks push prices up sharply. In the long run only the economy’s productive capacity (labour, capital, resources, technology) sets output, so LRAS is vertical at the natural rate, and it shifts right as the economy grows.</p>
+
+<div class="pagefoot">
+  <p><a href="/teaching-tools/finance-and-the-economy/">← Back to module</a></p>
+  <p>Built by Dr Kasra Kassai, LSBU Business School · <a href="https://drkassai.com">drkassai.com</a></p>
+</div>
 </div>
 <script>
 var $=function(id){ return document.getElementById(id); };
@@ -202,35 +230,33 @@ function ticks(max,n){ n=n||6; var raw=max/n, mag=Math.pow(10,Math.floor(Math.lo
 function kfmt(v){ return Math.abs(v)>=1e6? fmt(v/1e6,v%1e6?1:0)+'m' : Math.abs(v)>=1000? fmt(v/1000,v%1000?1:0)+'k' : fmt(v,0); }
 
 
-var VC=[0,0.30,0.80,1.50,2.40,3.50,4.80,6.30,8.00,9.90,12.00], show='all';
-var c=chart($('svg'),{xmin:0,xmax:11,ymin:0,ymax:5.5,xticks:[0,1,2,3,4,5,6,7,8,9,10,11],yticks:[0,1,2,3,4,5,5.5],fy:function(v){return '£'+fmt(v,2);},xlab:'Cups of coffee (Q)',ylab:'Cost per cup (£)'});
+var c=chart($('svg'),{xmin:0,xmax:100,ymin:0,ymax:100,xticks:[0,25,50,75,100],yticks:[0,25,50,75,100],xlab:'Real GDP (output)',ylab:'Price level'});
 function render(){
-  var F=+$('fc').value; $('fcOut').textContent='£'+fmt(F,2);
-  var afc=[],avc=[],atc=[],mc=[],rows='';
-  for(var q=1;q<=10;q++){ afc.push([q,F/q]); avc.push([q,VC[q]/q]); atc.push([q,(F+VC[q])/q]); mc.push([q,VC[q]-VC[q-1]]); }
-  var minv=Math.min.apply(null,atc.map(function(p){return p[1];}));
-  var effs=atc.filter(function(p){return Math.abs(p[1]-minv)<1e-9;}).map(function(p){return p[0];});
-  var cross=mc.filter(function(p,i){return p[1]>=atc[i][1]-1e-9;}).map(function(p){return p[0];})[0];
-  var h='';
-  function series(pts,cls,stroke,label){ var vis=pts.filter(function(p){return p[1]<=5.5;}); h+=path(c,vis,cls)+marks(c,vis,stroke)+txt(c,10,pts[9][1],label,{dx:10,dy:4,fill:stroke}); }
-  if(show==='all'||show==='afc') series(afc,'curve-d2','var(--demand)','AFC');
-  if(show==='all'||show==='avc') series(avc,'curve-a','var(--ink-2)','AVC');
-  if(show==='all'||show==='atc') series(atc,'curve-d','var(--demand)','ATC');
-  if(show!=='afc') series(mc,'curve-s','var(--supply)','MC');
-  if(show==='all'||show==='atc'){ effs.forEach(function(q){ h+='<line class="guide" x1="'+c.X(q)+'" y1="'+c.Y(minv)+'" x2="'+c.X(q)+'" y2="'+c.Y0+'"/>'+dot(c,q,minv); }); }
+  var d=+$('d').value, t=+$('t').value/100;
+  $('dOut').textContent=d===0?'no shift':(d<0?'← AD₂ left':'→ AD₂ right'); $('tOut').textContent=(t*100)+'%';
+  var A=[50,50], B=[50+d/2,50+d/2], C=[50,50+d], cur=[50+d*(1-t)/2,50+d*(1+t)/2];
+  var h=vline(c,50,'curve-a')+txt(c,50,98,'LRAS',{dx:6,fill:'var(--ink-2)'});
+  h+=lineY(c,1,0,d&&t>0?'ghost':'curve-s'); if(d&&t>0) h+=lineY(c,1,t*d,'curve-s');
+  h+=lineY(c,-1,100,d?'ghost':'curve-d'); if(d) h+=lineY(c,-1,100+d,'curve-d');
+  var ys=Math.min(90,98+t*d); h+=txt(c,ys-t*d,ys,'SRAS'+(d&&t>0?'₂':'₁'),{dx:8,dy:4,fill:'var(--supply)'});
+  if(d&&t>0) h+=txt(c,90,90,'SRAS₁',{anchor:'end',dx:-8,dy:4,cls:'tl'});
+  h+=txt(c,Math.min(98,100+d),Math.max(2,d+2),'AD'+(d?'₂':'₁'),{anchor:'end',dx:-4,dy:16,fill:'var(--demand)'});
+  if(d) h+=txt(c,98,2,'AD₁',{anchor:'end',dx:-4,dy:-6,cls:'tl'});
+  h+=guide(c,cur[0],cur[1]);
+  h+=ring(c,A[0],A[1])+txt(c,A[0],A[1],'A',{dx:7,dy:-7,cls:'tnum',bg:true});
+  if(d){ if(t<1){ h+=(t>0?ring(c,B[0],B[1]):'')+txt(c,B[0],B[1],'B',{dx:7,dy:-7,cls:'tnum',bg:true}); } if(t>0){ h+=txt(c,C[0],C[1],'C',{dx:7,dy:-7,cls:'tnum',bg:true}); } h+=dot(c,cur[0],cur[1]); }
+  h+=txt(c,0,50,'P₁',{anchor:'end',dx:-8,dy:4,cls:'tnum',bg:true})+txt(c,50,0,'Y₁',{anchor:'middle',dy:18,cls:'tnum',bg:true});
+  if(d&&t<1) h+=txt(c,0,B[1],'P₂',{anchor:'end',dx:-8,dy:4,cls:'tnum',bg:true})+txt(c,B[0],0,'Y₂',{anchor:'middle',dy:18,cls:'tnum',bg:true});
+  if(d&&t>0) h+=txt(c,0,cur[1],'P'+(t<1?'':'₃'),{anchor:'end',dx:-8,dy:4,cls:'tnum',bg:true});
   c.art.innerHTML=h;
-  $('minatc').textContent='£'+fmt(minv,2); $('minatcD').textContent='per cup';
-  $('eff').textContent=effs.length>1?effs[0]+'–'+effs[effs.length-1]+' cups':effs[0]+' cups'; $('effD').textContent='output where ATC is lowest';
-  $('cross').textContent=cross?cross+' cups':'beyond 10'; $('crossD').textContent='first Q with MC ≥ ATC';
-  $('verdict').textContent='Below the efficient scale, MC < ATC and the average is still falling; above it, MC > ATC and the average rises.';
-  $('verdictD').textContent='';
-  rows+='<tr><td>0</td><td>'+fmt(F,2)+'</td><td>0.00</td><td>'+fmt(F,2)+'</td><td>–</td><td>–</td><td>–</td><td>–</td></tr>';
-  for(var q=1;q<=10;q++){ var hi=effs.indexOf(q)>=0; rows+='<tr'+(hi?' class="hi"':'')+'><td>'+q+'</td><td>'+fmt(F,2)+'</td><td>'+fmt(VC[q],2)+'</td><td>'+fmt(F+VC[q],2)+'</td><td>'+fmt(F/q,2)+'</td><td>'+fmt(VC[q]/q,2)+'</td><td>'+fmt((F+VC[q])/q,2)+'</td><td>'+fmt(VC[q]-VC[q-1],2)+'</td></tr>'; }
-  $('tbody').innerHTML=rows;
+  $('y').textContent=fmt(cur[0],1); $('yD').textContent=Math.abs(cur[0]-50)<0.05?'at the natural rate Y₁':(cur[0]>50?'▲ above the natural rate of 50':'▼ below the natural rate of 50');
+  $('p').textContent=fmt(cur[1],1); $('pD').textContent=d?(cur[1]>50?'▲ up from 50':'▼ down from 50'):'P₁';
+  $('ph').textContent=!d?'Point A: long-run equilibrium.':t===0?'Point B: short-run equilibrium. Output has '+(d>0?'risen above':'fallen below')+' its natural rate because wages and prices have not yet adjusted.':t<1?'Between B and C: SRAS is shifting as wages and prices catch up.':'Point C: new long-run equilibrium. Output is back at its natural rate; only the price level has changed.';
+  $('phD').textContent='';
 }
 var btns=[].slice.call(document.querySelectorAll('.scenarios button'));
-var clear=wire(btns,[$('fc')],function(b){ show=b.dataset.s; },render,'Free exploration: a higher fixed cost lifts AFC and ATC and moves the efficient scale to the right; AVC and MC do not change.');
-$('reset').addEventListener('click',function(){ $('fc').value=3; show='all'; clear(); $('explain').textContent='Pick a view, or change the fixed cost. The dot marks the lowest average total cost; the table below is part (a) completed.'; render(); });
+var clear=wire(btns,[$('d'),$('t')],function(b){ $('d').value=b.dataset.d; $('t').value=b.dataset.t; },render,'Free exploration: however big the demand shift, output always returns to the natural rate once wages and prices have fully adjusted.');
+$('reset').addEventListener('click',function(){ $('d').value=20; $('t').value=0; clear(); $('explain').textContent='Pick a scenario. The first slider moves AD; the second slider lets wages and prices catch up, which moves SRAS. Watch the economy go A → B → C.'; render(); });
 render();
 
 </script>
