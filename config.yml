@@ -13,6 +13,9 @@ menu:
         - name: Research
           url: /research/
           weight: 15
+        - name: Teaching tools
+          url: /teaching-tools/
+          weight: 18
         - name: Publications
           url: /publications/
           weight: 20
