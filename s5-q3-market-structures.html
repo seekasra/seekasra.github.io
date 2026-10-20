@@ -1,0 +1,243 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Profit, entry and long-run equilibrium</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,500;6..72,600&family=Public+Sans:wght@400;500;600&display=swap">
+<style>
+/* Layout: single-column scholarly page — chart as centrepiece, controls beside it, scenarios as a worked-answer rail */
+:root{
+  --paper:#f7f6f1; --card:#ffffff; --ink:#20231f; --ink-2:#5c6157; --ink-3:#8a8f83;
+  --line:#dcdcd2; --line-soft:#e9e8df;
+  --demand:#5b54c7; --demand-soft:#eceafb;
+  --supply:#1d8a66; --supply-soft:#e2f3ec;
+  --eq:#b07c1a; --eq-soft:#f6ecd6;
+  --grid:#e8e7dc;
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
+  --paper:#191b18; --card:#22251f; --ink:#ece9df; --ink-2:#aab0a2; --ink-3:#7d8375;
+  --line:#3a3e35; --line-soft:#2e3129;
+  --demand:#9d97ec; --demand-soft:#312e52;
+  --supply:#4cc39a; --supply-soft:#173b2e;
+  --eq:#dcae4c; --eq-soft:#3d3320;
+  --grid:#2c2f28;
+  color-scheme: dark;
+}}
+:root[data-theme="dark"]{
+  --paper:#191b18; --card:#22251f; --ink:#ece9df; --ink-2:#aab0a2; --ink-3:#7d8375;
+  --line:#3a3e35; --line-soft:#2e3129;
+  --demand:#9d97ec; --demand-soft:#312e52;
+  --supply:#4cc39a; --supply-soft:#173b2e;
+  --eq:#dcae4c; --eq-soft:#3d3320;
+  --grid:#2c2f28;
+  color-scheme: dark;
+}
+*{box-sizing:border-box}
+body{
+  margin:0; background:var(--paper); color:var(--ink);
+  font-family:"Public Sans",system-ui,-apple-system,sans-serif; font-size:15px; line-height:1.55;
+  padding-left:max(16px, env(safe-area-inset-left, 0px));
+  padding-right:max(16px, env(safe-area-inset-right, 0px));
+  padding-block:0 48px;
+}
+.wrap{max-width:960px; margin:0 auto}
+header{padding:36px 0 20px; border-bottom:1px solid var(--line)}
+.kicker{font-size:12px; letter-spacing:0.14em; text-transform:uppercase; color:var(--ink-3); font-weight:600; margin:0 0 8px}
+h1{font-family:"Newsreader",Georgia,serif; font-weight:600; font-size:clamp(28px,5vw,40px); line-height:1.1; margin:0 0 10px; text-wrap:balance}
+.lede{color:var(--ink-2); max-width:62ch; margin:0}
+.lede em{font-style:italic}
+h2{font-family:"Newsreader",Georgia,serif; font-weight:600; font-size:21px; margin:0 0 4px}
+.sub{color:var(--ink-3); font-size:13px; margin:0 0 14px}
+
+.scenarios{display:flex; flex-wrap:wrap; gap:8px; margin:22px 0 6px}
+.scenarios button{
+  font:inherit; font-size:13.5px; font-weight:500; color:var(--ink);
+  background:var(--card); border:1px solid var(--line); border-radius:999px;
+  padding:7px 14px; cursor:pointer;
+}
+.scenarios button:hover{border-color:var(--ink-3)}
+.scenarios button.on{background:var(--eq-soft); border-color:var(--eq); color:var(--ink)}
+.scenarios button:focus-visible, input:focus-visible, .reset:focus-visible{outline:2px solid var(--eq); outline-offset:2px}
+
+.explain{
+  background:var(--card); border:1px solid var(--line); border-left:3px solid var(--eq); border-radius:0 8px 8px 0;
+  padding:12px 16px; margin:12px 0 22px; color:var(--ink-2); font-size:14px; max-width:72ch;
+}
+.explain strong{color:var(--ink)}
+.explain code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:.92em; color:var(--ink)}
+
+.stage{display:grid; grid-template-columns:minmax(0,1.6fr) minmax(240px,1fr); gap:24px; align-items:start}
+@media (max-width:720px){ .stage{grid-template-columns:1fr} }
+
+.chartcard{background:var(--card); border:1px solid var(--line); border-radius:10px; padding:14px 12px 8px; min-width:0}
+svg{display:block; width:100%; height:auto}
+.ax{stroke:var(--ink-2); stroke-width:1.4}
+.gridline{stroke:var(--grid); stroke-width:1}
+.guide{stroke:var(--ink-3); stroke-width:1; stroke-dasharray:3 4}
+.ghost{stroke:var(--ink-3); stroke-width:1.6; stroke-dasharray:6 5; opacity:.55}
+.curve-d{stroke:var(--demand); stroke-width:2.6; fill:none}
+.curve-s{stroke:var(--supply); stroke-width:2.6; fill:none}
+.curve-e{stroke:var(--eq); stroke-width:2.2; fill:none}
+.area-d{fill:var(--demand); opacity:.22}
+.area-s{fill:var(--supply); opacity:.22}
+.area-e{fill:var(--eq); opacity:.3}
+text{font-family:"Public Sans",system-ui,sans-serif}
+.tl{font-size:12px; fill:var(--ink-2)}
+.tlab{font-size:13px; font-weight:600; fill:var(--ink)}
+.tax{font-size:12.5px; fill:var(--ink-2)}
+.tnum{font-size:12px; font-weight:600; fill:var(--ink); font-variant-numeric:tabular-nums}
+.tnum1{font-size:12px; fill:var(--ink-3); font-variant-numeric:tabular-nums}
+
+.panel{display:flex; flex-direction:column; gap:14px; min-width:0}
+.ctl{background:var(--card); border:1px solid var(--line); border-radius:10px; padding:14px 16px}
+.ctl .row{display:flex; justify-content:space-between; align-items:baseline; gap:8px; margin-bottom:6px}
+.ctl label{font-weight:600; font-size:13.5px}
+.ctl label .swatch{display:inline-block; width:9px; height:9px; border-radius:2px; margin-right:7px; vertical-align:1px}
+.ctl output{font-size:12.5px; color:var(--ink-2); font-variant-numeric:tabular-nums}
+input[type=range]{width:100%; accent-color:var(--eq); margin:2px 0 0}
+.ends{display:flex; justify-content:space-between; font-size:11px; color:var(--ink-3); margin-top:2px}
+
+.reset{
+  font:inherit; font-size:13.5px; font-weight:600; color:var(--ink);
+  background:none; border:1px solid var(--line); border-radius:8px; padding:9px 14px; cursor:pointer;
+}
+.reset:hover{border-color:var(--ink-3)}
+
+.results{display:grid; grid-template-columns:repeat(auto-fit,minmax(170px,1fr)); gap:12px; margin:24px 0 8px}
+.stat{background:var(--card); border:1px solid var(--line); border-radius:10px; padding:12px 16px}
+.stat .k{font-size:12px; letter-spacing:0.06em; text-transform:uppercase; color:var(--ink-3); font-weight:600; margin:0 0 4px}
+.stat .v{font-family:"Newsreader",Georgia,serif; font-size:24px; font-weight:600; margin:0; font-variant-numeric:tabular-nums}
+.stat .d{font-size:12.5px; margin:2px 0 0; color:var(--ink-2); font-variant-numeric:tabular-nums}
+.up{color:var(--supply)} .down{color:var(--demand)}
+.stat.verdict .v{font-size:16px; font-family:"Public Sans",system-ui,sans-serif; line-height:1.45; font-weight:600}
+
+.note{
+  border-top:1px solid var(--line); margin-top:26px; padding-top:16px;
+  color:var(--ink-2); font-size:14px; max-width:72ch;
+}
+.note strong{color:var(--ink)}
+@media (prefers-reduced-motion:no-preference){
+  .curve-d,.curve-s,.ghost,.guide,circle{transition:all .18s ease-out}
+}
+
+.tblwrap{overflow-x:auto;margin-top:18px}
+.tbl{width:100%;border-collapse:collapse;font-size:13.5px;font-variant-numeric:tabular-nums;background:var(--card);border:1px solid var(--line)}
+.tbl th,.tbl td{padding:7px 10px;text-align:right;border-bottom:1px solid var(--line-soft);white-space:nowrap}
+.tbl th{font-size:11.5px;letter-spacing:.05em;text-transform:uppercase;color:var(--ink-3);font-weight:600}
+.tbl th:first-child,.tbl td:first-child{text-align:left}
+.tbl tr.hi td{background:var(--eq-soft);font-weight:600}
+.tbl td.neg{color:var(--demand)}
+.game{display:grid;grid-template-columns:auto 1fr 1fr;gap:8px;margin-top:10px}
+.game .hd{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3);font-weight:600;align-self:center;padding:6px;text-align:center}
+.game .hd.rw{text-align:right}
+.game .cell{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 14px;cursor:pointer;font:inherit;text-align:left;color:var(--ink)}
+.game .cell:hover{border-color:var(--ink-3)}
+.game .cell.on{border-color:var(--eq);box-shadow:0 0 0 1px var(--eq);background:var(--eq-soft)}
+.game .cell .p{display:flex;justify-content:space-between;gap:8px;font-size:13.5px;margin:2px 0}
+.game .cell .p span{color:var(--ink-2)}
+.game .cell .p b{font-variant-numeric:tabular-nums}
+.game .cell .p.best b{color:var(--supply)}
+.charts{display:flex;flex-direction:column;gap:14px;min-width:0}
+.curve-a{stroke:var(--ink-2);stroke-width:2.2;fill:none}
+.curve-d2{stroke:var(--demand);stroke-width:2.2;fill:none;stroke-dasharray:6 4}
+.bar-d{fill:var(--demand);opacity:.75}
+.bar-s{fill:var(--supply);opacity:.75}
+.bar-e{fill:var(--eq);opacity:.8}
+.mk{fill:var(--card);stroke-width:2}
+
+</style>
+<div class="wrap">
+<header>
+  <p class="kicker">Finance and the Economy · Seminar 5 · Market structures</p>
+  <h1>Supernormal profit and what happens to it</h1>
+  <p class="lede">A firm produces where <em>MR = MC</em> and earns <em>(P − ATC) × Q</em>, the shaded rectangle. Under perfect competition the demand curve is horizontal; under monopolistic competition and monopoly it slopes down. Watch what free entry does to the rectangle, and why barriers to entry let a monopolist keep it. Questions 3 and 4.</p>
+</header>
+<div class="scenarios" role="group" aria-label="Scenarios"><button data-m="pc" data-v="12" data-x="<strong>Q3(a)(i) Perfect competition, short run.</strong> The firm is a price taker: P = AR = MR, a horizontal line. It produces where MC = P and earns the shaded rectangle, width (P − ATC), length Q. Supernormal profit attracts new entrants.">Perfect competition: short run</button><button data-m="pc" data-lr="1" data-x="<strong>Q3(a)(ii) Perfect competition, long run.</strong> Entry raises market supply and pushes price down until P = minimum ATC. The rectangle has vanished: zero economic profit, which still covers the opportunity cost of being in business. Output sits at the efficient scale.">Perfect competition: long run</button><button data-m="mc" data-v="16" data-x="<strong>Q3(b)(i) Monopolistic competition, short run.</strong> Product differentiation gives the firm a downward-sloping demand curve, so MR lies below it. At MR = MC the price read off the demand curve is above MC, and above ATC: supernormal profit.">Monopolistic competition: short run</button><button data-m="mc" data-lr="1" data-x="<strong>Q3(b)(ii) Monopolistic competition, long run.</strong> Entry shifts each firm’s demand curve left until it is just tangent to ATC: P = ATC and profit is normal. But the tangency is on the falling part of ATC, so the firm has <strong>excess capacity</strong>, and P is still above MC, which is why it keeps advertising for more customers at the posted price.">Monopolistic competition: long run</button><button data-m="mono" data-v="16" data-x="<strong>Q4 Monopoly.</strong> Same diagram as monopolistic competition in the short run, but barriers to entry mean no new firms arrive to compete the profit away. The monopolist faces the whole market demand curve and keeps the rectangle indefinitely.">Monopoly</button></div><div class="explain" id="explain" aria-live="polite">Pick a market structure. The slider moves the price (perfect competition) or the demand curve (monopolistic competition and monopoly); the long-run buttons jump to where profit is exactly zero.</div><div class="stage"><div class="chartcard"><svg id="svg" viewBox="0 0 560 430" role="img" aria-label="Firm cost and revenue curves with profit rectangle"></svg></div><div class="panel"><div class="ctl"><div class="row"><label for="pp"><span class="swatch" style="background:var(--demand)"></span>Market price (perfect competition)</label><output id="ppOut"></output></div><input type="range" id="pp" min="6" max="14" value="12" step="0.01" aria-label="Market price (perfect competition)"><div class="ends"><span>low</span><span>high</span></div></div><div class="ctl"><div class="row"><label for="aa"><span class="swatch" style="background:var(--demand)"></span>Demand curve position (entry shifts it left)</label><output id="aaOut"></output></div><input type="range" id="aa" min="8" max="20" value="16" step="0.01" aria-label="Demand curve position (entry shifts it left)"><div class="ends"><span>after entry</span><span>before entry</span></div></div><button class="reset" id="reset">Reset</button></div></div><div class="results"><div class="stat "><p class="k">Output (MR = MC)</p><p class="v" id="q"></p><p class="d" id="qD"></p></div><div class="stat "><p class="k">Price</p><p class="v" id="p"></p><p class="d" id="pD"></p></div><div class="stat "><p class="k">ATC at that output</p><p class="v" id="atc"></p><p class="d" id="atcD"></p></div><div class="stat verdict"><p class="k">Profit</p><p class="v" id="pi"></p><p class="d" id="piD"></p></div></div><p class="note"><strong>What the structures share and where they differ.</strong> All three firms choose output where MR = MC. Free entry (perfect and monopolistic competition) drives profit to zero in the long run; barriers (monopoly) do not. A horizontal demand curve means P = MC and no scope to price above cost; a downward-sloping one means P > MC, excess capacity and a reason to advertise.</p>
+</div>
+<script>
+var $=function(id){ return document.getElementById(id); };
+function chart(svg,o){
+  var X0=58,X1=546,Y0=384,Y1=14;
+  function X(x){ return X0+(X1-X0)*(x-o.xmin)/(o.xmax-o.xmin); }
+  function Y(y){ return Y0-(Y0-Y1)*(y-o.ymin)/(o.ymax-o.ymin); }
+  var h='';
+  o.xticks.forEach(function(v){ h+='<line class="gridline" x1="'+X(v)+'" y1="'+Y0+'" x2="'+X(v)+'" y2="'+Y1+'"/><text class="tax" x="'+X(v)+'" y="406" text-anchor="middle">'+(o.fx?o.fx(v):v)+'</text>'; });
+  o.yticks.forEach(function(v){ h+='<line class="gridline" x1="'+X0+'" y1="'+Y(v)+'" x2="'+X1+'" y2="'+Y(v)+'"/>'; if(v!==o.ymax) h+='<text class="tax" x="'+(X0-8)+'" y="'+(Y(v)+4)+'" text-anchor="end">'+(o.fy?o.fy(v):v)+'</text>'; });
+  h+='<line class="ax" x1="58" y1="14" x2="58" y2="384"/><line class="ax" x1="58" y1="384" x2="546" y2="384"/>';
+  h+='<text class="tax" x="14" y="24">'+o.ylab+'</text><text class="tax" x="546" y="424" text-anchor="end">'+o.xlab+'</text>';
+  svg.innerHTML='<g>'+h+'</g><g id="art"></g>';
+  return {X:X,Y:Y,X0:X0,X1:X1,Y0:Y0,Y1:Y1,o:o,art:svg.querySelector('#art')};
+}
+function lineY(c,m,k,cls){
+  var o=c.o, lo=o.xmin, hi=o.xmax;
+  if(m!==0){ var xa=(o.ymin-k)/m, xb=(o.ymax-k)/m; lo=Math.max(lo,Math.min(xa,xb)); hi=Math.min(hi,Math.max(xa,xb)); }
+  if(lo>=hi) return '';
+  return '<line class="'+cls+'" x1="'+c.X(lo)+'" y1="'+c.Y(m*lo+k)+'" x2="'+c.X(hi)+'" y2="'+c.Y(m*hi+k)+'"/>';
+}
+function vline(c,x,cls){ return '<line class="'+cls+'" x1="'+c.X(x)+'" y1="'+c.Y1+'" x2="'+c.X(x)+'" y2="'+c.Y0+'"/>'; }
+function hline(c,y,cls){ return '<line class="'+cls+'" x1="'+c.X0+'" y1="'+c.Y(y)+'" x2="'+c.X1+'" y2="'+c.Y(y)+'"/>'; }
+function poly(c,pts,cls){ return '<polygon class="'+cls+'" points="'+pts.map(function(p){ return c.X(p[0])+','+c.Y(p[1]); }).join(' ')+'"/>'; }
+function dot(c,x,y,fill,r){ return '<circle cx="'+c.X(x)+'" cy="'+c.Y(y)+'" r="'+(r||5)+'" fill="'+(fill||'var(--eq)')+'"/>'; }
+function ring(c,x,y){ return '<circle cx="'+c.X(x)+'" cy="'+c.Y(y)+'" r="3.5" fill="none" stroke="var(--ink-3)" stroke-width="1.4"/>'; }
+function txt(c,x,y,s,opt){ opt=opt||{}; var bg='';
+  if(opt.bg){ var w=s.replace(/<[^>]+>/g,'').replace(/&[^;]+;/g,'x').length*7+6, ax=c.X(x)+(opt.dx||0), rx=opt.anchor==='end'?ax-w+3:opt.anchor==='middle'?ax-w/2:ax-3; bg='<rect x="'+rx+'" y="'+(c.Y(y)+(opt.dy||0)-11)+'" width="'+w+'" height="14" rx="3" fill="var(--card)"/>'; }
+  return bg+'<text class="'+(opt.cls||'tlab')+'" x="'+(c.X(x)+(opt.dx||0))+'" y="'+(c.Y(y)+(opt.dy||0))+'" text-anchor="'+(opt.anchor||'start')+'"'+(opt.fill?' fill="'+opt.fill+'"':'')+'>'+s+'</text>'; }
+function guide(c,x,y){ return '<line class="guide" x1="'+c.X0+'" y1="'+c.Y(y)+'" x2="'+c.X(x)+'" y2="'+c.Y(y)+'"/><line class="guide" x1="'+c.X(x)+'" y1="'+c.Y(y)+'" x2="'+c.X(x)+'" y2="'+c.Y0+'"/>'; }
+function path(c,pts,cls){ return '<polyline class="'+cls+'" points="'+pts.map(function(p){ return c.X(p[0])+','+c.Y(p[1]); }).join(' ')+'"/>'; }
+function wire(btns, sliders, onBtn, render, freeText){
+  function clear(){ btns.forEach(function(b){ b.classList.remove('on'); }); }
+  btns.forEach(function(b){ b.addEventListener('click', function(){ clear(); b.classList.add('on'); onBtn(b); $('explain').innerHTML=b.dataset.x; render(); }); });
+  sliders.forEach(function(s){ s.addEventListener('input', function(){ clear(); $('explain').innerHTML=freeText; render(); }); });
+  return clear;
+}
+function fmt(n,d){ return n.toLocaleString('en-GB',{minimumFractionDigits:d,maximumFractionDigits:d}); }
+function curve(c,f,a,b,cls,n){ n=n||100; var o=c.o, runs=[], cur=[];
+  for(var i=0;i<=n;i++){ var x=a+(b-a)*i/n, y=f(x);
+    if(isFinite(y)&&y>=o.ymin&&y<=o.ymax){ cur.push([x,y]); } else { if(cur.length>1) runs.push(cur); cur=[]; } }
+  if(cur.length>1) runs.push(cur);
+  return runs.map(function(r){ return path(c,r,cls); }).join(''); }
+function rect(c,x0,x1,y0,y1,cls){ return '<rect class="'+cls+'" x="'+c.X(Math.min(x0,x1))+'" y="'+c.Y(Math.max(y0,y1))+'" width="'+Math.abs(c.X(x1)-c.X(x0))+'" height="'+Math.abs(c.Y(y1)-c.Y(y0))+'" rx="2"/>'; }
+function marks(c,pts,stroke){ return pts.map(function(p){ return '<circle class="mk" cx="'+c.X(p[0])+'" cy="'+c.Y(p[1])+'" r="3.2" stroke="'+stroke+'"/>'; }).join(''); }
+function money(n,cur,d){ return (n<0?'−':'')+(cur||'£')+fmt(Math.abs(n),d===undefined?2:d); }
+function pct(n,d){ return fmt(n,d===undefined?1:d)+'%'; }
+function ticks(max,n){ n=n||6; var raw=max/n, mag=Math.pow(10,Math.floor(Math.log10(raw))), step=[1,2,2.5,5,10].map(function(m){return m*mag;}).filter(function(s){return max/s<=n;})[0]||10*mag; var t=[]; for(var v=0;v<=max+step*0.999;v+=step) t.push(Math.round(v*1e6)/1e6); return t; }
+function kfmt(v){ return Math.abs(v)>=1e6? fmt(v/1e6,v%1e6?1:0)+'m' : Math.abs(v)>=1000? fmt(v/1000,v%1000?1:0)+'k' : fmt(v,0); }
+
+
+var F=200, a=2, b=0.05, k=0.1, mode='pc';
+var ATC=function(q){ return F/q+a+b*q; }, MC=function(q){ return a+2*b*q; };
+var qEff=Math.sqrt(F/b), atcMin=ATC(qEff);
+function solve(){
+  if(mode==='pc'){ var P=+$('pp').value, Q=(P-a)/(2*b); return {Q:Q,P:P}; }
+  var A=+$('aa').value, Q=(A-a)/(2*k+2*b); return {Q:Q,P:A-k*Q,A:A};
+}
+function profitAt(A){ var Q=(A-a)/(2*k+2*b), P=A-k*Q; return (P-ATC(Q))*Q; }
+var Along=(function(){ var lo=4, hi=20; for(var i=0;i<60;i++){ var mid=(lo+hi)/2; if(profitAt(mid)>0) hi=mid; else lo=mid; } return (lo+hi)/2; })();
+var c=chart($('svg'),{xmin:0,xmax:120,ymin:0,ymax:20,xticks:[0,20,40,60,80,100,120],yticks:[0,5,10,15,20],fy:function(v){return '£'+v;},xlab:'Quantity (Q)',ylab:'Costs and revenue (£)'});
+function render(){
+  $('pp').closest('.ctl').hidden=(mode!=='pc'); $('aa').closest('.ctl').hidden=(mode==='pc');
+  $('ppOut').textContent='£'+fmt(+$('pp').value,2); $('aaOut').textContent='intercept £'+fmt(+$('aa').value,1);
+  var s=solve(), Q=s.Q, P=s.P, atc=ATC(Q), pi=(P-atc)*Q, h='';
+  if(Math.abs(pi)>0.5) h+=rect(c,0,Q,atc,P,pi>0?'area-e':'area-d');
+  h+=curve(c,ATC,8,120,'curve-d')+lineY(c,2*b,a,'curve-s');
+  if(mode==='pc'){ h+=hline(c,P,'curve-a')+txt(c,4,P,'P = AR = MR',{dy:-6}); }
+  else { h+=lineY(c,-k,s.A,'curve-a')+lineY(c,-2*k,s.A,'curve-d2'); h+=txt(c,Math.min(118,s.A/k),Math.max(0.5,s.A-k*Math.min(118,s.A/k)),'Demand',{anchor:'end',dy:-6})+txt(c,Math.min(118,s.A/(2*k)),Math.max(0.5,s.A-2*k*Math.min(118,s.A/(2*k))),'MR',{anchor:'end',dy:-6,fill:'var(--demand)'}); }
+  h+=txt(c,118,Math.min(19,MC(118)),'MC',{anchor:'end',dy:-6,fill:'var(--supply)'})+txt(c,118,Math.min(19,ATC(118)),'ATC',{anchor:'end',dy:16,fill:'var(--demand)'});
+  h+=ring(c,qEff,atcMin)+guide(c,Q,P)+'<line class="guide" x1="'+c.X0+'" y1="'+c.Y(atc)+'" x2="'+c.X(Q)+'" y2="'+c.Y(atc)+'"/>';
+  h+=dot(c,Q,P)+dot(c,Q,atc,'var(--demand)',3.5)+dot(c,Q,MC(Q),'var(--supply)',3.5);
+  if(Math.abs(P-atc)<0.3) h+=txt(c,0,P,'P = ATC',{anchor:'end',dx:-8,dy:4,cls:'tnum',bg:true}); else h+=txt(c,0,P,'P',{anchor:'end',dx:-8,dy:4,cls:'tnum',bg:true})+txt(c,0,atc,'ATC',{anchor:'end',dx:-8,dy:4,cls:'tnum',bg:true});
+  h+=txt(c,Q,0,'Q*',{anchor:'middle',dy:18,cls:'tnum',bg:true});
+  if(Math.abs(pi)>5) h+=txt(c,Q/2,(P+atc)/2,pi>0?'profit':'loss',{anchor:'middle',dy:4,cls:'tl'});
+  c.art.innerHTML=h;
+  $('q').textContent=fmt(Q,1); $('qD').textContent=mode==='pc'?'where MC = P':'where MR = MC; efficient scale is '+fmt(qEff,1);
+  $('p').textContent='£'+fmt(P,2); $('pD').textContent=mode==='pc'?'market price, = MC':'read off the demand curve; MC is £'+fmt(MC(Q),2);
+  $('atc').textContent='£'+fmt(atc,2); $('atcD').textContent='minimum ATC is £'+fmt(atcMin,2);
+  var zero=Math.abs(pi)<0.5;
+  $('pi').textContent=zero?'Normal profit only (P = ATC).':(pi>0?'Supernormal profit £'+fmt(pi,0)+' = (£'+fmt(P,2)+' − £'+fmt(atc,2)+') × '+fmt(Q,1):'Loss £'+fmt(-pi,0)+': firms will exit.');
+  $('piD').textContent=mode==='mono'?'kept: barriers block entry':(zero?'long-run equilibrium':(pi>0?'entry will compete this away':'exit will restore normal profit'));
+}
+var btns=[].slice.call(document.querySelectorAll('.scenarios button'));
+var clear=wire(btns,[$('pp'),$('aa')],function(b){ mode=b.dataset.m; if(b.dataset.lr){ if(mode==='pc') $('pp').value=atcMin.toFixed(2); else $('aa').value=Along.toFixed(2); } else { if(mode==='pc') $('pp').value=b.dataset.v; else $('aa').value=b.dataset.v; } },render,'Free exploration: find the price or demand position at which the rectangle just disappears.');
+$('reset').addEventListener('click',function(){ mode='pc'; $('pp').value=12; $('aa').value=16; clear(); $('explain').textContent='Pick a market structure. The slider moves the price (perfect competition) or the demand curve (monopolistic competition and monopoly); the long-run buttons jump to where profit is exactly zero.'; render(); });
+render();
+
+</script>
+</body></html>

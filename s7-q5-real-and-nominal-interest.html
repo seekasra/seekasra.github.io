@@ -1,0 +1,225 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Real and nominal interest rates</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,500;6..72,600&family=Public+Sans:wght@400;500;600&display=swap">
+<style>
+/* Layout: single-column scholarly page — chart as centrepiece, controls beside it, scenarios as a worked-answer rail */
+:root{
+  --paper:#f7f6f1; --card:#ffffff; --ink:#20231f; --ink-2:#5c6157; --ink-3:#8a8f83;
+  --line:#dcdcd2; --line-soft:#e9e8df;
+  --demand:#5b54c7; --demand-soft:#eceafb;
+  --supply:#1d8a66; --supply-soft:#e2f3ec;
+  --eq:#b07c1a; --eq-soft:#f6ecd6;
+  --grid:#e8e7dc;
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
+  --paper:#191b18; --card:#22251f; --ink:#ece9df; --ink-2:#aab0a2; --ink-3:#7d8375;
+  --line:#3a3e35; --line-soft:#2e3129;
+  --demand:#9d97ec; --demand-soft:#312e52;
+  --supply:#4cc39a; --supply-soft:#173b2e;
+  --eq:#dcae4c; --eq-soft:#3d3320;
+  --grid:#2c2f28;
+  color-scheme: dark;
+}}
+:root[data-theme="dark"]{
+  --paper:#191b18; --card:#22251f; --ink:#ece9df; --ink-2:#aab0a2; --ink-3:#7d8375;
+  --line:#3a3e35; --line-soft:#2e3129;
+  --demand:#9d97ec; --demand-soft:#312e52;
+  --supply:#4cc39a; --supply-soft:#173b2e;
+  --eq:#dcae4c; --eq-soft:#3d3320;
+  --grid:#2c2f28;
+  color-scheme: dark;
+}
+*{box-sizing:border-box}
+body{
+  margin:0; background:var(--paper); color:var(--ink);
+  font-family:"Public Sans",system-ui,-apple-system,sans-serif; font-size:15px; line-height:1.55;
+  padding-left:max(16px, env(safe-area-inset-left, 0px));
+  padding-right:max(16px, env(safe-area-inset-right, 0px));
+  padding-block:0 48px;
+}
+.wrap{max-width:960px; margin:0 auto}
+header{padding:36px 0 20px; border-bottom:1px solid var(--line)}
+.kicker{font-size:12px; letter-spacing:0.14em; text-transform:uppercase; color:var(--ink-3); font-weight:600; margin:0 0 8px}
+h1{font-family:"Newsreader",Georgia,serif; font-weight:600; font-size:clamp(28px,5vw,40px); line-height:1.1; margin:0 0 10px; text-wrap:balance}
+.lede{color:var(--ink-2); max-width:62ch; margin:0}
+.lede em{font-style:italic}
+h2{font-family:"Newsreader",Georgia,serif; font-weight:600; font-size:21px; margin:0 0 4px}
+.sub{color:var(--ink-3); font-size:13px; margin:0 0 14px}
+
+.scenarios{display:flex; flex-wrap:wrap; gap:8px; margin:22px 0 6px}
+.scenarios button{
+  font:inherit; font-size:13.5px; font-weight:500; color:var(--ink);
+  background:var(--card); border:1px solid var(--line); border-radius:999px;
+  padding:7px 14px; cursor:pointer;
+}
+.scenarios button:hover{border-color:var(--ink-3)}
+.scenarios button.on{background:var(--eq-soft); border-color:var(--eq); color:var(--ink)}
+.scenarios button:focus-visible, input:focus-visible, .reset:focus-visible{outline:2px solid var(--eq); outline-offset:2px}
+
+.explain{
+  background:var(--card); border:1px solid var(--line); border-left:3px solid var(--eq); border-radius:0 8px 8px 0;
+  padding:12px 16px; margin:12px 0 22px; color:var(--ink-2); font-size:14px; max-width:72ch;
+}
+.explain strong{color:var(--ink)}
+.explain code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:.92em; color:var(--ink)}
+
+.stage{display:grid; grid-template-columns:minmax(0,1.6fr) minmax(240px,1fr); gap:24px; align-items:start}
+@media (max-width:720px){ .stage{grid-template-columns:1fr} }
+
+.chartcard{background:var(--card); border:1px solid var(--line); border-radius:10px; padding:14px 12px 8px; min-width:0}
+svg{display:block; width:100%; height:auto}
+.ax{stroke:var(--ink-2); stroke-width:1.4}
+.gridline{stroke:var(--grid); stroke-width:1}
+.guide{stroke:var(--ink-3); stroke-width:1; stroke-dasharray:3 4}
+.ghost{stroke:var(--ink-3); stroke-width:1.6; stroke-dasharray:6 5; opacity:.55}
+.curve-d{stroke:var(--demand); stroke-width:2.6; fill:none}
+.curve-s{stroke:var(--supply); stroke-width:2.6; fill:none}
+.curve-e{stroke:var(--eq); stroke-width:2.2; fill:none}
+.area-d{fill:var(--demand); opacity:.22}
+.area-s{fill:var(--supply); opacity:.22}
+.area-e{fill:var(--eq); opacity:.3}
+text{font-family:"Public Sans",system-ui,sans-serif}
+.tl{font-size:12px; fill:var(--ink-2)}
+.tlab{font-size:13px; font-weight:600; fill:var(--ink)}
+.tax{font-size:12.5px; fill:var(--ink-2)}
+.tnum{font-size:12px; font-weight:600; fill:var(--ink); font-variant-numeric:tabular-nums}
+.tnum1{font-size:12px; fill:var(--ink-3); font-variant-numeric:tabular-nums}
+
+.panel{display:flex; flex-direction:column; gap:14px; min-width:0}
+.ctl{background:var(--card); border:1px solid var(--line); border-radius:10px; padding:14px 16px}
+.ctl .row{display:flex; justify-content:space-between; align-items:baseline; gap:8px; margin-bottom:6px}
+.ctl label{font-weight:600; font-size:13.5px}
+.ctl label .swatch{display:inline-block; width:9px; height:9px; border-radius:2px; margin-right:7px; vertical-align:1px}
+.ctl output{font-size:12.5px; color:var(--ink-2); font-variant-numeric:tabular-nums}
+input[type=range]{width:100%; accent-color:var(--eq); margin:2px 0 0}
+.ends{display:flex; justify-content:space-between; font-size:11px; color:var(--ink-3); margin-top:2px}
+
+.reset{
+  font:inherit; font-size:13.5px; font-weight:600; color:var(--ink);
+  background:none; border:1px solid var(--line); border-radius:8px; padding:9px 14px; cursor:pointer;
+}
+.reset:hover{border-color:var(--ink-3)}
+
+.results{display:grid; grid-template-columns:repeat(auto-fit,minmax(170px,1fr)); gap:12px; margin:24px 0 8px}
+.stat{background:var(--card); border:1px solid var(--line); border-radius:10px; padding:12px 16px}
+.stat .k{font-size:12px; letter-spacing:0.06em; text-transform:uppercase; color:var(--ink-3); font-weight:600; margin:0 0 4px}
+.stat .v{font-family:"Newsreader",Georgia,serif; font-size:24px; font-weight:600; margin:0; font-variant-numeric:tabular-nums}
+.stat .d{font-size:12.5px; margin:2px 0 0; color:var(--ink-2); font-variant-numeric:tabular-nums}
+.up{color:var(--supply)} .down{color:var(--demand)}
+.stat.verdict .v{font-size:16px; font-family:"Public Sans",system-ui,sans-serif; line-height:1.45; font-weight:600}
+
+.note{
+  border-top:1px solid var(--line); margin-top:26px; padding-top:16px;
+  color:var(--ink-2); font-size:14px; max-width:72ch;
+}
+.note strong{color:var(--ink)}
+@media (prefers-reduced-motion:no-preference){
+  .curve-d,.curve-s,.ghost,.guide,circle{transition:all .18s ease-out}
+}
+
+.tblwrap{overflow-x:auto;margin-top:18px}
+.tbl{width:100%;border-collapse:collapse;font-size:13.5px;font-variant-numeric:tabular-nums;background:var(--card);border:1px solid var(--line)}
+.tbl th,.tbl td{padding:7px 10px;text-align:right;border-bottom:1px solid var(--line-soft);white-space:nowrap}
+.tbl th{font-size:11.5px;letter-spacing:.05em;text-transform:uppercase;color:var(--ink-3);font-weight:600}
+.tbl th:first-child,.tbl td:first-child{text-align:left}
+.tbl tr.hi td{background:var(--eq-soft);font-weight:600}
+.tbl td.neg{color:var(--demand)}
+.game{display:grid;grid-template-columns:auto 1fr 1fr;gap:8px;margin-top:10px}
+.game .hd{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3);font-weight:600;align-self:center;padding:6px;text-align:center}
+.game .hd.rw{text-align:right}
+.game .cell{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 14px;cursor:pointer;font:inherit;text-align:left;color:var(--ink)}
+.game .cell:hover{border-color:var(--ink-3)}
+.game .cell.on{border-color:var(--eq);box-shadow:0 0 0 1px var(--eq);background:var(--eq-soft)}
+.game .cell .p{display:flex;justify-content:space-between;gap:8px;font-size:13.5px;margin:2px 0}
+.game .cell .p span{color:var(--ink-2)}
+.game .cell .p b{font-variant-numeric:tabular-nums}
+.game .cell .p.best b{color:var(--supply)}
+.charts{display:flex;flex-direction:column;gap:14px;min-width:0}
+.curve-a{stroke:var(--ink-2);stroke-width:2.2;fill:none}
+.curve-d2{stroke:var(--demand);stroke-width:2.2;fill:none;stroke-dasharray:6 4}
+.bar-d{fill:var(--demand);opacity:.75}
+.bar-s{fill:var(--supply);opacity:.75}
+.bar-e{fill:var(--eq);opacity:.8}
+.mk{fill:var(--card);stroke-width:2}
+
+</style>
+<div class="wrap">
+<header>
+  <p class="kicker">Finance and the Economy · Seminar 7 · Finance for business</p>
+  <h1>Correcting an interest rate for inflation</h1>
+  <p class="lede">The nominal rate is what the market quotes; the real rate is what the money buys. Subtracting inflation is a quick approximation; dividing (1 + nominal) by (1 + inflation) is exact. Questions 5(c) and 6(b).</p>
+</header>
+<div class="scenarios" role="group" aria-label="Scenarios"><button data-n="26" data-i="5" data-x="<strong>Q5(c) The grain merchant.</strong> 100 kilos borrowed, 120 kilos repaid: the real rate is 20%. With 5% inflation wheat costs £1.05 next year, so 120 kilos cost £126 and the nominal rate is 126/100 − 1 = <strong>26%</strong>. Approximate real rate 26 − 5 = 21%; exact 1.26/1.05 − 1 = <strong>20%</strong>, which recovers the 20% we started with.">Q5(c): 26% nominal, 5% inflation</button><button data-n="5" data-i="6.5" data-x="<strong>Q6(b) George’s deposit.</strong> 5% nominal with 6.5% inflation: exact real rate = 1.05/1.065 − 1 = <strong>−1.4%</strong>. The deposit loses purchasing power, though it still beats cash under the mattress (−6.1%). Borrowers gain when inflation runs above expectations.">Q6(b): 5% nominal, 6.5% inflation</button></div><div class="explain" id="explain" aria-live="polite">Pick a question, or set the nominal rate and inflation. The chart shows the real rate at every inflation rate for your nominal rate, both ways.</div><div class="stage"><div class="chartcard"><svg id="svg" viewBox="0 0 560 430" role="img" aria-label="Real interest rate against inflation"></svg></div><div class="panel"><div class="ctl"><div class="row"><label for="n"><span class="swatch" style="background:var(--eq)"></span>Nominal (money) interest rate (%)</label><output id="nOut"></output></div><input type="range" id="n" min="0" max="30" value="26" step="0.5" aria-label="Nominal (money) interest rate (%)"><div class="ends"><span>0%</span><span>30%</span></div></div><div class="ctl"><div class="row"><label for="i"><span class="swatch" style="background:var(--demand)"></span>Inflation rate (%)</label><output id="iOut"></output></div><input type="range" id="i" min="0" max="15" value="5" step="0.5" aria-label="Inflation rate (%)"><div class="ends"><span>0%</span><span>15%</span></div></div><button class="reset" id="reset">Reset</button></div></div><div class="results"><div class="stat "><p class="k">Approximate real rate</p><p class="v" id="ap"></p><p class="d" id="apD"></p></div><div class="stat "><p class="k">Exact real rate</p><p class="v" id="ex"></p><p class="d" id="exD"></p></div><div class="stat "><p class="k">Difference</p><p class="v" id="gap"></p><p class="d" id="gapD"></p></div><div class="stat verdict"><p class="k">Reading</p><p class="v" id="verdict"></p><p class="d" id="verdictD"></p></div></div><p class="note"><strong>The Fisher relationship.</strong> (1 + real) × (1 + inflation) = 1 + nominal. Lenders add an inflation premium to the real return they require; borrowers repay in money that buys less. The approximation is good when both rates are small, and drifts as they grow.</p>
+</div>
+<script>
+var $=function(id){ return document.getElementById(id); };
+function chart(svg,o){
+  var X0=58,X1=546,Y0=384,Y1=14;
+  function X(x){ return X0+(X1-X0)*(x-o.xmin)/(o.xmax-o.xmin); }
+  function Y(y){ return Y0-(Y0-Y1)*(y-o.ymin)/(o.ymax-o.ymin); }
+  var h='';
+  o.xticks.forEach(function(v){ h+='<line class="gridline" x1="'+X(v)+'" y1="'+Y0+'" x2="'+X(v)+'" y2="'+Y1+'"/><text class="tax" x="'+X(v)+'" y="406" text-anchor="middle">'+(o.fx?o.fx(v):v)+'</text>'; });
+  o.yticks.forEach(function(v){ h+='<line class="gridline" x1="'+X0+'" y1="'+Y(v)+'" x2="'+X1+'" y2="'+Y(v)+'"/>'; if(v!==o.ymax) h+='<text class="tax" x="'+(X0-8)+'" y="'+(Y(v)+4)+'" text-anchor="end">'+(o.fy?o.fy(v):v)+'</text>'; });
+  h+='<line class="ax" x1="58" y1="14" x2="58" y2="384"/><line class="ax" x1="58" y1="384" x2="546" y2="384"/>';
+  h+='<text class="tax" x="14" y="24">'+o.ylab+'</text><text class="tax" x="546" y="424" text-anchor="end">'+o.xlab+'</text>';
+  svg.innerHTML='<g>'+h+'</g><g id="art"></g>';
+  return {X:X,Y:Y,X0:X0,X1:X1,Y0:Y0,Y1:Y1,o:o,art:svg.querySelector('#art')};
+}
+function lineY(c,m,k,cls){
+  var o=c.o, lo=o.xmin, hi=o.xmax;
+  if(m!==0){ var xa=(o.ymin-k)/m, xb=(o.ymax-k)/m; lo=Math.max(lo,Math.min(xa,xb)); hi=Math.min(hi,Math.max(xa,xb)); }
+  if(lo>=hi) return '';
+  return '<line class="'+cls+'" x1="'+c.X(lo)+'" y1="'+c.Y(m*lo+k)+'" x2="'+c.X(hi)+'" y2="'+c.Y(m*hi+k)+'"/>';
+}
+function vline(c,x,cls){ return '<line class="'+cls+'" x1="'+c.X(x)+'" y1="'+c.Y1+'" x2="'+c.X(x)+'" y2="'+c.Y0+'"/>'; }
+function hline(c,y,cls){ return '<line class="'+cls+'" x1="'+c.X0+'" y1="'+c.Y(y)+'" x2="'+c.X1+'" y2="'+c.Y(y)+'"/>'; }
+function poly(c,pts,cls){ return '<polygon class="'+cls+'" points="'+pts.map(function(p){ return c.X(p[0])+','+c.Y(p[1]); }).join(' ')+'"/>'; }
+function dot(c,x,y,fill,r){ return '<circle cx="'+c.X(x)+'" cy="'+c.Y(y)+'" r="'+(r||5)+'" fill="'+(fill||'var(--eq)')+'"/>'; }
+function ring(c,x,y){ return '<circle cx="'+c.X(x)+'" cy="'+c.Y(y)+'" r="3.5" fill="none" stroke="var(--ink-3)" stroke-width="1.4"/>'; }
+function txt(c,x,y,s,opt){ opt=opt||{}; var bg='';
+  if(opt.bg){ var w=s.replace(/<[^>]+>/g,'').replace(/&[^;]+;/g,'x').length*7+6, ax=c.X(x)+(opt.dx||0), rx=opt.anchor==='end'?ax-w+3:opt.anchor==='middle'?ax-w/2:ax-3; bg='<rect x="'+rx+'" y="'+(c.Y(y)+(opt.dy||0)-11)+'" width="'+w+'" height="14" rx="3" fill="var(--card)"/>'; }
+  return bg+'<text class="'+(opt.cls||'tlab')+'" x="'+(c.X(x)+(opt.dx||0))+'" y="'+(c.Y(y)+(opt.dy||0))+'" text-anchor="'+(opt.anchor||'start')+'"'+(opt.fill?' fill="'+opt.fill+'"':'')+'>'+s+'</text>'; }
+function guide(c,x,y){ return '<line class="guide" x1="'+c.X0+'" y1="'+c.Y(y)+'" x2="'+c.X(x)+'" y2="'+c.Y(y)+'"/><line class="guide" x1="'+c.X(x)+'" y1="'+c.Y(y)+'" x2="'+c.X(x)+'" y2="'+c.Y0+'"/>'; }
+function path(c,pts,cls){ return '<polyline class="'+cls+'" points="'+pts.map(function(p){ return c.X(p[0])+','+c.Y(p[1]); }).join(' ')+'"/>'; }
+function wire(btns, sliders, onBtn, render, freeText){
+  function clear(){ btns.forEach(function(b){ b.classList.remove('on'); }); }
+  btns.forEach(function(b){ b.addEventListener('click', function(){ clear(); b.classList.add('on'); onBtn(b); $('explain').innerHTML=b.dataset.x; render(); }); });
+  sliders.forEach(function(s){ s.addEventListener('input', function(){ clear(); $('explain').innerHTML=freeText; render(); }); });
+  return clear;
+}
+function fmt(n,d){ return n.toLocaleString('en-GB',{minimumFractionDigits:d,maximumFractionDigits:d}); }
+function curve(c,f,a,b,cls,n){ n=n||100; var o=c.o, runs=[], cur=[];
+  for(var i=0;i<=n;i++){ var x=a+(b-a)*i/n, y=f(x);
+    if(isFinite(y)&&y>=o.ymin&&y<=o.ymax){ cur.push([x,y]); } else { if(cur.length>1) runs.push(cur); cur=[]; } }
+  if(cur.length>1) runs.push(cur);
+  return runs.map(function(r){ return path(c,r,cls); }).join(''); }
+function rect(c,x0,x1,y0,y1,cls){ return '<rect class="'+cls+'" x="'+c.X(Math.min(x0,x1))+'" y="'+c.Y(Math.max(y0,y1))+'" width="'+Math.abs(c.X(x1)-c.X(x0))+'" height="'+Math.abs(c.Y(y1)-c.Y(y0))+'" rx="2"/>'; }
+function marks(c,pts,stroke){ return pts.map(function(p){ return '<circle class="mk" cx="'+c.X(p[0])+'" cy="'+c.Y(p[1])+'" r="3.2" stroke="'+stroke+'"/>'; }).join(''); }
+function money(n,cur,d){ return (n<0?'−':'')+(cur||'£')+fmt(Math.abs(n),d===undefined?2:d); }
+function pct(n,d){ return fmt(n,d===undefined?1:d)+'%'; }
+function ticks(max,n){ n=n||6; var raw=max/n, mag=Math.pow(10,Math.floor(Math.log10(raw))), step=[1,2,2.5,5,10].map(function(m){return m*mag;}).filter(function(s){return max/s<=n;})[0]||10*mag; var t=[]; for(var v=0;v<=max+step*0.999;v+=step) t.push(Math.round(v*1e6)/1e6); return t; }
+function kfmt(v){ return Math.abs(v)>=1e6? fmt(v/1e6,v%1e6?1:0)+'m' : Math.abs(v)>=1000? fmt(v/1000,v%1000?1:0)+'k' : fmt(v,0); }
+
+
+var c=chart($('svg'),{xmin:0,xmax:15,ymin:-10,ymax:30,xticks:[0,3,6,9,12,15],yticks:[-10,0,10,20,30],fx:function(v){return v+'%';},fy:function(v){return (v<0?'−':'')+Math.abs(v)+'%';},xlab:'Inflation rate',ylab:'Real interest rate'});
+function render(){
+  var N=+$('n').value, I=+$('i').value; $('nOut').textContent=fmt(N,1)+'%'; $('iOut').textContent=fmt(I,1)+'%';
+  var ap=N-I, ex=((1+N/100)/(1+I/100)-1)*100;
+  var h=hline(c,0,'ghost')+lineY(c,-1,N,'curve-d2')+curve(c,function(x){ return ((1+N/100)/(1+x/100)-1)*100; },0,15,'curve-d');
+  h+=txt(c,12.5,Math.max(-9,N-12.5),'approximate',{anchor:'middle',dy:16,cls:'tl',fill:'var(--demand)'})+txt(c,12.5,Math.min(29,((1+N/100)/1.125-1)*100),'exact',{anchor:'middle',dy:-8,cls:'tl',fill:'var(--demand)'});
+  if(ex>=-10&&ex<=30){ h+=guide(c,I,ex)+dot(c,I,ex)+txt(c,I,ex,'exact '+fmt(ex,1)+'%',{dx:10,dy:-8,cls:'tnum'}); }
+  if(ap>=-10&&ap<=30){ h+=ring(c,I,ap); }
+  c.art.innerHTML=h;
+  $('ap').textContent=(ap<0?'−':'')+fmt(Math.abs(ap),1)+'%'; $('apD').textContent=fmt(N,1)+'% − '+fmt(I,1)+'%';
+  $('ex').innerHTML=(ex<0?'<span class="down">−'+fmt(-ex,1)+'%</span>':fmt(ex,1)+'%'); $('exD').textContent=fmt(1+N/100,3)+' ÷ '+fmt(1+I/100,3)+' − 1';
+  $('gap').textContent=fmt(Math.abs(ap-ex),2)+' points'; $('gapD').textContent='the approximation overstates the real rate';
+  $('verdict').textContent=ex<0?'The real return is negative: the money loses purchasing power.':ex===0?'The money just keeps its purchasing power.':'The real return is positive: the money gains purchasing power.'; $('verdictD').textContent='';
+}
+var btns=[].slice.call(document.querySelectorAll('.scenarios button'));
+var clear=wire(btns,[$('n'),$('i')],function(b){ $('n').value=b.dataset.n; $('i').value=b.dataset.i; },render,'Free exploration: the approximation and the exact answer part company as inflation rises.');
+$('reset').addEventListener('click',function(){ $('n').value=26; $('i').value=5; clear(); $('explain').textContent='Pick a question, or set the nominal rate and inflation. The chart shows the real rate at every inflation rate for your nominal rate, both ways.'; render(); });
+render();
+
+</script>
+</body></html>

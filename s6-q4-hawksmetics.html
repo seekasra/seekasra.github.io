@@ -1,0 +1,236 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Hawksmetics: demand, MR and MC</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,500;6..72,600&family=Public+Sans:wght@400;500;600&display=swap">
+<style>
+/* Layout: single-column scholarly page — chart as centrepiece, controls beside it, scenarios as a worked-answer rail */
+:root{
+  --paper:#f7f6f1; --card:#ffffff; --ink:#20231f; --ink-2:#5c6157; --ink-3:#8a8f83;
+  --line:#dcdcd2; --line-soft:#e9e8df;
+  --demand:#5b54c7; --demand-soft:#eceafb;
+  --supply:#1d8a66; --supply-soft:#e2f3ec;
+  --eq:#b07c1a; --eq-soft:#f6ecd6;
+  --grid:#e8e7dc;
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
+  --paper:#191b18; --card:#22251f; --ink:#ece9df; --ink-2:#aab0a2; --ink-3:#7d8375;
+  --line:#3a3e35; --line-soft:#2e3129;
+  --demand:#9d97ec; --demand-soft:#312e52;
+  --supply:#4cc39a; --supply-soft:#173b2e;
+  --eq:#dcae4c; --eq-soft:#3d3320;
+  --grid:#2c2f28;
+  color-scheme: dark;
+}}
+:root[data-theme="dark"]{
+  --paper:#191b18; --card:#22251f; --ink:#ece9df; --ink-2:#aab0a2; --ink-3:#7d8375;
+  --line:#3a3e35; --line-soft:#2e3129;
+  --demand:#9d97ec; --demand-soft:#312e52;
+  --supply:#4cc39a; --supply-soft:#173b2e;
+  --eq:#dcae4c; --eq-soft:#3d3320;
+  --grid:#2c2f28;
+  color-scheme: dark;
+}
+*{box-sizing:border-box}
+body{
+  margin:0; background:var(--paper); color:var(--ink);
+  font-family:"Public Sans",system-ui,-apple-system,sans-serif; font-size:15px; line-height:1.55;
+  padding-left:max(16px, env(safe-area-inset-left, 0px));
+  padding-right:max(16px, env(safe-area-inset-right, 0px));
+  padding-block:0 48px;
+}
+.wrap{max-width:960px; margin:0 auto}
+header{padding:36px 0 20px; border-bottom:1px solid var(--line)}
+.kicker{font-size:12px; letter-spacing:0.14em; text-transform:uppercase; color:var(--ink-3); font-weight:600; margin:0 0 8px}
+h1{font-family:"Newsreader",Georgia,serif; font-weight:600; font-size:clamp(28px,5vw,40px); line-height:1.1; margin:0 0 10px; text-wrap:balance}
+.lede{color:var(--ink-2); max-width:62ch; margin:0}
+.lede em{font-style:italic}
+h2{font-family:"Newsreader",Georgia,serif; font-weight:600; font-size:21px; margin:0 0 4px}
+.sub{color:var(--ink-3); font-size:13px; margin:0 0 14px}
+
+.scenarios{display:flex; flex-wrap:wrap; gap:8px; margin:22px 0 6px}
+.scenarios button{
+  font:inherit; font-size:13.5px; font-weight:500; color:var(--ink);
+  background:var(--card); border:1px solid var(--line); border-radius:999px;
+  padding:7px 14px; cursor:pointer;
+}
+.scenarios button:hover{border-color:var(--ink-3)}
+.scenarios button.on{background:var(--eq-soft); border-color:var(--eq); color:var(--ink)}
+.scenarios button:focus-visible, input:focus-visible, .reset:focus-visible{outline:2px solid var(--eq); outline-offset:2px}
+
+.explain{
+  background:var(--card); border:1px solid var(--line); border-left:3px solid var(--eq); border-radius:0 8px 8px 0;
+  padding:12px 16px; margin:12px 0 22px; color:var(--ink-2); font-size:14px; max-width:72ch;
+}
+.explain strong{color:var(--ink)}
+.explain code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:.92em; color:var(--ink)}
+
+.stage{display:grid; grid-template-columns:minmax(0,1.6fr) minmax(240px,1fr); gap:24px; align-items:start}
+@media (max-width:720px){ .stage{grid-template-columns:1fr} }
+
+.chartcard{background:var(--card); border:1px solid var(--line); border-radius:10px; padding:14px 12px 8px; min-width:0}
+svg{display:block; width:100%; height:auto}
+.ax{stroke:var(--ink-2); stroke-width:1.4}
+.gridline{stroke:var(--grid); stroke-width:1}
+.guide{stroke:var(--ink-3); stroke-width:1; stroke-dasharray:3 4}
+.ghost{stroke:var(--ink-3); stroke-width:1.6; stroke-dasharray:6 5; opacity:.55}
+.curve-d{stroke:var(--demand); stroke-width:2.6; fill:none}
+.curve-s{stroke:var(--supply); stroke-width:2.6; fill:none}
+.curve-e{stroke:var(--eq); stroke-width:2.2; fill:none}
+.area-d{fill:var(--demand); opacity:.22}
+.area-s{fill:var(--supply); opacity:.22}
+.area-e{fill:var(--eq); opacity:.3}
+text{font-family:"Public Sans",system-ui,sans-serif}
+.tl{font-size:12px; fill:var(--ink-2)}
+.tlab{font-size:13px; font-weight:600; fill:var(--ink)}
+.tax{font-size:12.5px; fill:var(--ink-2)}
+.tnum{font-size:12px; font-weight:600; fill:var(--ink); font-variant-numeric:tabular-nums}
+.tnum1{font-size:12px; fill:var(--ink-3); font-variant-numeric:tabular-nums}
+
+.panel{display:flex; flex-direction:column; gap:14px; min-width:0}
+.ctl{background:var(--card); border:1px solid var(--line); border-radius:10px; padding:14px 16px}
+.ctl .row{display:flex; justify-content:space-between; align-items:baseline; gap:8px; margin-bottom:6px}
+.ctl label{font-weight:600; font-size:13.5px}
+.ctl label .swatch{display:inline-block; width:9px; height:9px; border-radius:2px; margin-right:7px; vertical-align:1px}
+.ctl output{font-size:12.5px; color:var(--ink-2); font-variant-numeric:tabular-nums}
+input[type=range]{width:100%; accent-color:var(--eq); margin:2px 0 0}
+.ends{display:flex; justify-content:space-between; font-size:11px; color:var(--ink-3); margin-top:2px}
+
+.reset{
+  font:inherit; font-size:13.5px; font-weight:600; color:var(--ink);
+  background:none; border:1px solid var(--line); border-radius:8px; padding:9px 14px; cursor:pointer;
+}
+.reset:hover{border-color:var(--ink-3)}
+
+.results{display:grid; grid-template-columns:repeat(auto-fit,minmax(170px,1fr)); gap:12px; margin:24px 0 8px}
+.stat{background:var(--card); border:1px solid var(--line); border-radius:10px; padding:12px 16px}
+.stat .k{font-size:12px; letter-spacing:0.06em; text-transform:uppercase; color:var(--ink-3); font-weight:600; margin:0 0 4px}
+.stat .v{font-family:"Newsreader",Georgia,serif; font-size:24px; font-weight:600; margin:0; font-variant-numeric:tabular-nums}
+.stat .d{font-size:12.5px; margin:2px 0 0; color:var(--ink-2); font-variant-numeric:tabular-nums}
+.up{color:var(--supply)} .down{color:var(--demand)}
+.stat.verdict .v{font-size:16px; font-family:"Public Sans",system-ui,sans-serif; line-height:1.45; font-weight:600}
+
+.note{
+  border-top:1px solid var(--line); margin-top:26px; padding-top:16px;
+  color:var(--ink-2); font-size:14px; max-width:72ch;
+}
+.note strong{color:var(--ink)}
+@media (prefers-reduced-motion:no-preference){
+  .curve-d,.curve-s,.ghost,.guide,circle{transition:all .18s ease-out}
+}
+
+.tblwrap{overflow-x:auto;margin-top:18px}
+.tbl{width:100%;border-collapse:collapse;font-size:13.5px;font-variant-numeric:tabular-nums;background:var(--card);border:1px solid var(--line)}
+.tbl th,.tbl td{padding:7px 10px;text-align:right;border-bottom:1px solid var(--line-soft);white-space:nowrap}
+.tbl th{font-size:11.5px;letter-spacing:.05em;text-transform:uppercase;color:var(--ink-3);font-weight:600}
+.tbl th:first-child,.tbl td:first-child{text-align:left}
+.tbl tr.hi td{background:var(--eq-soft);font-weight:600}
+.tbl td.neg{color:var(--demand)}
+.game{display:grid;grid-template-columns:auto 1fr 1fr;gap:8px;margin-top:10px}
+.game .hd{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3);font-weight:600;align-self:center;padding:6px;text-align:center}
+.game .hd.rw{text-align:right}
+.game .cell{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 14px;cursor:pointer;font:inherit;text-align:left;color:var(--ink)}
+.game .cell:hover{border-color:var(--ink-3)}
+.game .cell.on{border-color:var(--eq);box-shadow:0 0 0 1px var(--eq);background:var(--eq-soft)}
+.game .cell .p{display:flex;justify-content:space-between;gap:8px;font-size:13.5px;margin:2px 0}
+.game .cell .p span{color:var(--ink-2)}
+.game .cell .p b{font-variant-numeric:tabular-nums}
+.game .cell .p.best b{color:var(--supply)}
+.charts{display:flex;flex-direction:column;gap:14px;min-width:0}
+.curve-a{stroke:var(--ink-2);stroke-width:2.2;fill:none}
+.curve-d2{stroke:var(--demand);stroke-width:2.2;fill:none;stroke-dasharray:6 4}
+.bar-d{fill:var(--demand);opacity:.75}
+.bar-s{fill:var(--supply);opacity:.75}
+.bar-e{fill:var(--eq);opacity:.8}
+.mk{fill:var(--card);stroke-width:2}
+
+</style>
+<div class="wrap">
+<header>
+  <p class="kicker">Finance and the Economy · Seminar 6 · Pricing decisions and profit maximisation</p>
+  <h1>From market research to the profit-maximising price</h1>
+  <p class="lede">Seven price–quantity observations give a linear demand curve, <em>P = 20 − 0.002Q</em>. Marginal revenue has twice the slope, <em>MR = 20 − 0.004Q</em>. Profit is maximised where MR meets marginal cost. Compare that with the cost-plus price of £14, and see what a rising MC curve does. Question 4 (Hawksmetics).</p>
+</header>
+<div class="scenarios" role="group" aria-label="Scenarios"><button data-mode="cp" data-m="4" data-s="0" data-f="18000" data-x="<strong>(a) Cost-plus pricing.</strong> Fixed cost per unit at 3,000 units = £18,000 ÷ 3,000 = £6; total cost per unit £10; mark-up 40% gives <strong>£14</strong>. Profit = 3,000 × (£14 − £10) = <strong>£12,000</strong>. The demand curve happens to pass through (3,000, £14), so the plan is feasible, but it ignores demand.">(a) Cost-plus: £14 at 3,000</button><button data-mode="mx" data-m="4" data-s="0" data-f="18000" data-x="<strong>(c)–(e) Profit maximisation with constant MC.</strong> TR = 20Q − 0.002Q², so MR = 20 − 0.004Q. Set MR = MC: 20 − 0.004Q = 4 gives <strong>Q = 4,000</strong> and P = 20 − 8 = <strong>£12</strong>. Profit = 48,000 − 16,000 − 18,000 = <strong>£14,000</strong>, more than £12,000 at a lower price, because spreading fixed cost over 4,000 units cuts average cost to £8.50 (a 41.2% mark-up).">(d) Profit max, MC = £4</button><button data-mode="mx" data-m="4" data-s="0.001" data-f="18000" data-x="<strong>(g)–(h) Rising marginal cost, MC = 4 + 0.001Q.</strong> Set 20 − 0.004Q = 4 + 0.001Q, so 0.005Q = 16 and <strong>Q = 3,200</strong>; P = 20 − 6.4 = <strong>£13.60</strong>. A steeper MC curve means less output and a higher price.">(g) Rising MC = 4 + 0.001Q</button></div><div class="explain" id="explain" aria-live="polite">Pick a part of the question, or move the cost sliders. Dots are the market research observations; the solid purple line is the fitted demand curve.</div><div class="stage"><div class="chartcard"><svg id="svg" viewBox="0 0 560 430" role="img" aria-label="Demand, marginal revenue and marginal cost for Freckles"></svg></div><div class="panel"><div class="ctl"><div class="row"><label for="m"><span class="swatch" style="background:var(--supply)"></span>Marginal cost intercept (£)</label><output id="mOut"></output></div><input type="range" id="m" min="1" max="10" value="4" step="0.5" aria-label="Marginal cost intercept (£)"><div class="ends"><span>low</span><span>high</span></div></div><div class="ctl"><div class="row"><label for="s"><span class="swatch" style="background:var(--supply)"></span>MC slope (£ per extra unit)</label><output id="sOut"></output></div><input type="range" id="s" min="0" max="0.002" value="0" step="0.0001" aria-label="MC slope (£ per extra unit)"><div class="ends"><span>constant</span><span>steep</span></div></div><div class="ctl"><div class="row"><label for="f"><span class="swatch" style="background:var(--demand)"></span>Weekly fixed costs (£)</label><output id="fOut"></output></div><input type="range" id="f" min="0" max="40000" value="18000" step="1000" aria-label="Weekly fixed costs (£)"><div class="ends"><span>0</span><span>40k</span></div></div><button class="reset" id="reset">Reset</button></div></div><div class="results"><div class="stat "><p class="k">Fitted demand curve</p><p class="v" id="reg"></p><p class="d" id="regD"></p></div><div class="stat "><p class="k">Output</p><p class="v" id="q"></p><p class="d" id="qD"></p></div><div class="stat "><p class="k">Price</p><p class="v" id="p"></p><p class="d" id="pD"></p></div><div class="stat "><p class="k">Weekly profit</p><p class="v" id="pi"></p><p class="d" id="piD"></p></div></div><p class="note"><strong>The learning point.</strong> Cost-plus pricing cannot see demand. With market research and marginal analysis the firm finds that a lower price sells more, spreads fixed cost thinner and earns more. Excel’s R² of 0.94 says the straight line explains 94% of the variation in price, so the demand estimate is a sound basis for the decision.</p>
+</div>
+<script>
+var $=function(id){ return document.getElementById(id); };
+function chart(svg,o){
+  var X0=58,X1=546,Y0=384,Y1=14;
+  function X(x){ return X0+(X1-X0)*(x-o.xmin)/(o.xmax-o.xmin); }
+  function Y(y){ return Y0-(Y0-Y1)*(y-o.ymin)/(o.ymax-o.ymin); }
+  var h='';
+  o.xticks.forEach(function(v){ h+='<line class="gridline" x1="'+X(v)+'" y1="'+Y0+'" x2="'+X(v)+'" y2="'+Y1+'"/><text class="tax" x="'+X(v)+'" y="406" text-anchor="middle">'+(o.fx?o.fx(v):v)+'</text>'; });
+  o.yticks.forEach(function(v){ h+='<line class="gridline" x1="'+X0+'" y1="'+Y(v)+'" x2="'+X1+'" y2="'+Y(v)+'"/>'; if(v!==o.ymax) h+='<text class="tax" x="'+(X0-8)+'" y="'+(Y(v)+4)+'" text-anchor="end">'+(o.fy?o.fy(v):v)+'</text>'; });
+  h+='<line class="ax" x1="58" y1="14" x2="58" y2="384"/><line class="ax" x1="58" y1="384" x2="546" y2="384"/>';
+  h+='<text class="tax" x="14" y="24">'+o.ylab+'</text><text class="tax" x="546" y="424" text-anchor="end">'+o.xlab+'</text>';
+  svg.innerHTML='<g>'+h+'</g><g id="art"></g>';
+  return {X:X,Y:Y,X0:X0,X1:X1,Y0:Y0,Y1:Y1,o:o,art:svg.querySelector('#art')};
+}
+function lineY(c,m,k,cls){
+  var o=c.o, lo=o.xmin, hi=o.xmax;
+  if(m!==0){ var xa=(o.ymin-k)/m, xb=(o.ymax-k)/m; lo=Math.max(lo,Math.min(xa,xb)); hi=Math.min(hi,Math.max(xa,xb)); }
+  if(lo>=hi) return '';
+  return '<line class="'+cls+'" x1="'+c.X(lo)+'" y1="'+c.Y(m*lo+k)+'" x2="'+c.X(hi)+'" y2="'+c.Y(m*hi+k)+'"/>';
+}
+function vline(c,x,cls){ return '<line class="'+cls+'" x1="'+c.X(x)+'" y1="'+c.Y1+'" x2="'+c.X(x)+'" y2="'+c.Y0+'"/>'; }
+function hline(c,y,cls){ return '<line class="'+cls+'" x1="'+c.X0+'" y1="'+c.Y(y)+'" x2="'+c.X1+'" y2="'+c.Y(y)+'"/>'; }
+function poly(c,pts,cls){ return '<polygon class="'+cls+'" points="'+pts.map(function(p){ return c.X(p[0])+','+c.Y(p[1]); }).join(' ')+'"/>'; }
+function dot(c,x,y,fill,r){ return '<circle cx="'+c.X(x)+'" cy="'+c.Y(y)+'" r="'+(r||5)+'" fill="'+(fill||'var(--eq)')+'"/>'; }
+function ring(c,x,y){ return '<circle cx="'+c.X(x)+'" cy="'+c.Y(y)+'" r="3.5" fill="none" stroke="var(--ink-3)" stroke-width="1.4"/>'; }
+function txt(c,x,y,s,opt){ opt=opt||{}; var bg='';
+  if(opt.bg){ var w=s.replace(/<[^>]+>/g,'').replace(/&[^;]+;/g,'x').length*7+6, ax=c.X(x)+(opt.dx||0), rx=opt.anchor==='end'?ax-w+3:opt.anchor==='middle'?ax-w/2:ax-3; bg='<rect x="'+rx+'" y="'+(c.Y(y)+(opt.dy||0)-11)+'" width="'+w+'" height="14" rx="3" fill="var(--card)"/>'; }
+  return bg+'<text class="'+(opt.cls||'tlab')+'" x="'+(c.X(x)+(opt.dx||0))+'" y="'+(c.Y(y)+(opt.dy||0))+'" text-anchor="'+(opt.anchor||'start')+'"'+(opt.fill?' fill="'+opt.fill+'"':'')+'>'+s+'</text>'; }
+function guide(c,x,y){ return '<line class="guide" x1="'+c.X0+'" y1="'+c.Y(y)+'" x2="'+c.X(x)+'" y2="'+c.Y(y)+'"/><line class="guide" x1="'+c.X(x)+'" y1="'+c.Y(y)+'" x2="'+c.X(x)+'" y2="'+c.Y0+'"/>'; }
+function path(c,pts,cls){ return '<polyline class="'+cls+'" points="'+pts.map(function(p){ return c.X(p[0])+','+c.Y(p[1]); }).join(' ')+'"/>'; }
+function wire(btns, sliders, onBtn, render, freeText){
+  function clear(){ btns.forEach(function(b){ b.classList.remove('on'); }); }
+  btns.forEach(function(b){ b.addEventListener('click', function(){ clear(); b.classList.add('on'); onBtn(b); $('explain').innerHTML=b.dataset.x; render(); }); });
+  sliders.forEach(function(s){ s.addEventListener('input', function(){ clear(); $('explain').innerHTML=freeText; render(); }); });
+  return clear;
+}
+function fmt(n,d){ return n.toLocaleString('en-GB',{minimumFractionDigits:d,maximumFractionDigits:d}); }
+function curve(c,f,a,b,cls,n){ n=n||100; var o=c.o, runs=[], cur=[];
+  for(var i=0;i<=n;i++){ var x=a+(b-a)*i/n, y=f(x);
+    if(isFinite(y)&&y>=o.ymin&&y<=o.ymax){ cur.push([x,y]); } else { if(cur.length>1) runs.push(cur); cur=[]; } }
+  if(cur.length>1) runs.push(cur);
+  return runs.map(function(r){ return path(c,r,cls); }).join(''); }
+function rect(c,x0,x1,y0,y1,cls){ return '<rect class="'+cls+'" x="'+c.X(Math.min(x0,x1))+'" y="'+c.Y(Math.max(y0,y1))+'" width="'+Math.abs(c.X(x1)-c.X(x0))+'" height="'+Math.abs(c.Y(y1)-c.Y(y0))+'" rx="2"/>'; }
+function marks(c,pts,stroke){ return pts.map(function(p){ return '<circle class="mk" cx="'+c.X(p[0])+'" cy="'+c.Y(p[1])+'" r="3.2" stroke="'+stroke+'"/>'; }).join(''); }
+function money(n,cur,d){ return (n<0?'−':'')+(cur||'£')+fmt(Math.abs(n),d===undefined?2:d); }
+function pct(n,d){ return fmt(n,d===undefined?1:d)+'%'; }
+function ticks(max,n){ n=n||6; var raw=max/n, mag=Math.pow(10,Math.floor(Math.log10(raw))), step=[1,2,2.5,5,10].map(function(m){return m*mag;}).filter(function(s){return max/s<=n;})[0]||10*mag; var t=[]; for(var v=0;v<=max+step*0.999;v+=step) t.push(Math.round(v*1e6)/1e6); return t; }
+function kfmt(v){ return Math.abs(v)>=1e6? fmt(v/1e6,v%1e6?1:0)+'m' : Math.abs(v)>=1000? fmt(v/1000,v%1000?1:0)+'k' : fmt(v,0); }
+
+
+var D=[[560,20],[1520,17],[2640,15],[3410,12],[4360,10],[6390,9],[6650,7]], mode='mx';
+var n=D.length, mq=0, mp=0; D.forEach(function(d){ mq+=d[0]/n; mp+=d[1]/n; });
+var sxy=0,sxx=0,sst=0; D.forEach(function(d){ sxy+=(d[0]-mq)*(d[1]-mp); sxx+=(d[0]-mq)*(d[0]-mq); sst+=(d[1]-mp)*(d[1]-mp); });
+var bOLS=sxy/sxx, aOLS=mp-bOLS*mq, sse=0; D.forEach(function(d){ var e=d[1]-(aOLS+bOLS*d[0]); sse+=e*e; }); var r2=1-sse/sst;
+var A=20, B=0.002;
+var c=chart($('svg'),{xmin:0,xmax:8000,ymin:0,ymax:22,xticks:[0,2000,4000,6000,8000],yticks:[0,5,10,15,20,22],fx:kfmt,fy:function(v){return '£'+v;},xlab:'Quantity (boxes per week)',ylab:'Price, MR and MC (£)'});
+function render(){
+  var m0=+$('m').value, s=+$('s').value, F=+$('f').value;
+  $('mOut').textContent='£'+fmt(m0,2); $('sOut').textContent=s===0?'constant MC':'MC = '+fmt(m0,0)+' + '+s+'Q'; $('fOut').textContent='£'+fmt(F,0);
+  var Q, P;
+  if(mode==='cp'){ Q=3000; P=14; } else { Q=(A-m0)/(2*B+s); P=A-B*Q; }
+  var pi=P*Q-m0*Q-s*Q*Q/2-F;
+  var h=lineY(c,-B,A,'curve-d')+lineY(c,-2*B,A,'curve-d2')+lineY(c,s,m0,'curve-s');
+  D.forEach(function(d){ h+=dot(c,d[0],d[1],'var(--demand)',4); });
+  h+=txt(c,7000,A-B*7000,'Demand',{dx:8,dy:-8,fill:'var(--demand)'})+txt(c,Math.min(7900,A/(2*B)),Math.max(0.6,A-2*B*Math.min(7900,A/(2*B))),'MR',{anchor:'end',dy:-6,fill:'var(--demand)'})+txt(c,200,m0+s*200,'MC',{dy:-6,fill:'var(--supply)'});
+  if(mode==='cp'){ h+=guide(c,Q,P)+dot(c,Q,P)+txt(c,Q,P,'cost-plus: 3,000 at £14',{dx:10,dy:-8,cls:'tnum'}); }
+  else { h+=guide(c,Q,P)+'<line class="guide" x1="'+c.X(Q)+'" y1="'+c.Y(P)+'" x2="'+c.X(Q)+'" y2="'+c.Y(m0+s*Q)+'"/>'+dot(c,Q,m0+s*Q,'var(--supply)',4)+dot(c,Q,P)+txt(c,Q,P,'MR = MC at '+fmt(Q,0)+'; price £'+fmt(P,2),{dx:10,dy:-8,cls:'tnum'}); }
+  h+=txt(c,0,P,'£'+fmt(P,2),{anchor:'end',dx:-8,dy:4,cls:'tnum',bg:true})+txt(c,Q,0,fmt(Q,0),{anchor:'middle',dy:18,cls:'tnum',bg:true});
+  c.art.innerHTML=h;
+  $('reg').textContent='P = '+fmt(aOLS,2)+' − '+fmt(-bOLS,5)+'Q'; $('regD').textContent='R² = '+fmt(r2,2)+'; rounded to P = 20 − 0.002Q';
+  $('q').textContent=fmt(Q,0)+' boxes'; $('qD').textContent=mode==='cp'?'planned sales':'where 20 − 0.004Q = '+fmt(m0,0)+(s?' + '+s+'Q':'');
+  $('p').textContent='£'+fmt(P,2); $('pD').textContent=mode==='cp'?'cost £10 × 1.40':'20 − 0.002 × '+fmt(Q,0);
+  $('pi').textContent=(pi<0?'−':'')+'£'+fmt(Math.abs(pi),0); $('piD').textContent='TR '+fmt(P*Q,0)+' − VC '+fmt(m0*Q+s*Q*Q/2,0)+' − FC '+fmt(F,0);
+}
+var btns=[].slice.call(document.querySelectorAll('.scenarios button'));
+var clear=wire(btns,[$('m'),$('s'),$('f')],function(b){ mode=b.dataset.mode; $('m').value=b.dataset.m; $('s').value=b.dataset.s; $('f').value=b.dataset.f; },render,'Free exploration: fixed costs change profit but not the profit-maximising output, because they do not enter MC.');
+[$('m'),$('s'),$('f')].forEach(function(el){ el.addEventListener('input',function(){ mode='mx'; render(); }); });
+$('reset').addEventListener('click',function(){ mode='mx'; $('m').value=4; $('s').value=0; $('f').value=18000; clear(); $('explain').textContent='Pick a part of the question, or move the cost sliders. Dots are the market research observations; the solid purple line is the fitted demand curve.'; render(); });
+render();
+
+</script>
+</body></html>
