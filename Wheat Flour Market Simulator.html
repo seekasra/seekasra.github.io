@@ -1,0 +1,355 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Wheat Flour Market Simulator</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,500;6..72,600&family=Public+Sans:wght@400;500;600&display=swap">
+<style>
+/* Layout: single-column scholarly page — chart as centrepiece, controls beside it, scenarios as a worked-answer rail */
+:root{
+  --paper:#f7f6f1; --card:#ffffff; --ink:#20231f; --ink-2:#5c6157; --ink-3:#8a8f83;
+  --line:#dcdcd2; --line-soft:#e9e8df;
+  --demand:#5b54c7; --demand-soft:#eceafb;
+  --supply:#1d8a66; --supply-soft:#e2f3ec;
+  --eq:#b07c1a; --eq-soft:#f6ecd6;
+  --grid:#e8e7dc;
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
+  --paper:#191b18; --card:#22251f; --ink:#ece9df; --ink-2:#aab0a2; --ink-3:#7d8375;
+  --line:#3a3e35; --line-soft:#2e3129;
+  --demand:#9d97ec; --demand-soft:#312e52;
+  --supply:#4cc39a; --supply-soft:#173b2e;
+  --eq:#dcae4c; --eq-soft:#3d3320;
+  --grid:#2c2f28;
+  color-scheme: dark;
+}}
+:root[data-theme="dark"]{
+  --paper:#191b18; --card:#22251f; --ink:#ece9df; --ink-2:#aab0a2; --ink-3:#7d8375;
+  --line:#3a3e35; --line-soft:#2e3129;
+  --demand:#9d97ec; --demand-soft:#312e52;
+  --supply:#4cc39a; --supply-soft:#173b2e;
+  --eq:#dcae4c; --eq-soft:#3d3320;
+  --grid:#2c2f28;
+  color-scheme: dark;
+}
+*{box-sizing:border-box}
+body{
+  margin:0; background:var(--paper); color:var(--ink);
+  font-family:"Public Sans",system-ui,-apple-system,sans-serif; font-size:15px; line-height:1.55;
+  padding-left:max(16px, env(safe-area-inset-left, 0px));
+  padding-right:max(16px, env(safe-area-inset-right, 0px));
+  padding-block:0 48px;
+}
+.wrap{max-width:960px; margin:0 auto}
+header{padding:36px 0 20px; border-bottom:1px solid var(--line)}
+.kicker{font-size:12px; letter-spacing:0.14em; text-transform:uppercase; color:var(--ink-3); font-weight:600; margin:0 0 8px}
+h1{font-family:"Newsreader",Georgia,serif; font-weight:600; font-size:clamp(28px,5vw,40px); line-height:1.1; margin:0 0 10px; text-wrap:balance}
+.lede{color:var(--ink-2); max-width:62ch; margin:0}
+.lede em{font-style:italic}
+h2{font-family:"Newsreader",Georgia,serif; font-weight:600; font-size:21px; margin:0 0 4px}
+.sub{color:var(--ink-3); font-size:13px; margin:0 0 14px}
+
+.scenarios{display:flex; flex-wrap:wrap; gap:8px; margin:22px 0 6px}
+.scenarios button{
+  font:inherit; font-size:13.5px; font-weight:500; color:var(--ink);
+  background:var(--card); border:1px solid var(--line); border-radius:999px;
+  padding:7px 14px; cursor:pointer;
+}
+.scenarios button:hover{border-color:var(--ink-3)}
+.scenarios button.on{background:var(--eq-soft); border-color:var(--eq); color:var(--ink)}
+.scenarios button:focus-visible, input:focus-visible, .reset:focus-visible{outline:2px solid var(--eq); outline-offset:2px}
+
+.explain{
+  background:var(--card); border:1px solid var(--line); border-left:3px solid var(--eq); border-radius:0 8px 8px 0;
+  padding:12px 16px; margin:12px 0 22px; color:var(--ink-2); font-size:14px; max-width:72ch;
+}
+.explain strong{color:var(--ink)}
+
+.stage{display:grid; grid-template-columns:minmax(0,1.6fr) minmax(240px,1fr); gap:24px; align-items:start}
+@media (max-width:720px){ .stage{grid-template-columns:1fr} }
+
+.chartcard{background:var(--card); border:1px solid var(--line); border-radius:10px; padding:14px 12px 8px; min-width:0}
+svg{display:block; width:100%; height:auto}
+.ax{stroke:var(--ink-2); stroke-width:1.4}
+.gridline{stroke:var(--grid); stroke-width:1}
+.guide{stroke:var(--ink-3); stroke-width:1; stroke-dasharray:3 4}
+.ghost{stroke:var(--ink-3); stroke-width:1.6; stroke-dasharray:6 5; opacity:.55}
+.curve-d{stroke:var(--demand); stroke-width:2.6; fill:none}
+.curve-s{stroke:var(--supply); stroke-width:2.6; fill:none}
+text{font-family:"Public Sans",system-ui,sans-serif}
+.tl{font-size:12px; fill:var(--ink-2)}
+.tlab{font-size:13px; font-weight:600}
+.tax{font-size:12.5px; fill:var(--ink-2)}
+.tnum{font-size:12px; font-weight:600; fill:var(--ink); font-variant-numeric:tabular-nums}
+.tnum1{font-size:12px; fill:var(--ink-3); font-variant-numeric:tabular-nums}
+
+.panel{display:flex; flex-direction:column; gap:14px; min-width:0}
+.ctl{background:var(--card); border:1px solid var(--line); border-radius:10px; padding:14px 16px}
+.ctl .row{display:flex; justify-content:space-between; align-items:baseline; gap:8px; margin-bottom:6px}
+.ctl label{font-weight:600; font-size:13.5px}
+.ctl label .swatch{display:inline-block; width:9px; height:9px; border-radius:2px; margin-right:7px; vertical-align:1px}
+.ctl output{font-size:12.5px; color:var(--ink-2); font-variant-numeric:tabular-nums}
+input[type=range]{width:100%; accent-color:var(--eq); margin:2px 0 0}
+.ends{display:flex; justify-content:space-between; font-size:11px; color:var(--ink-3); margin-top:2px}
+
+details.adv{background:var(--card); border:1px solid var(--line); border-radius:10px; padding:0}
+details.adv summary{cursor:pointer; padding:12px 16px; font-weight:600; font-size:13.5px; color:var(--ink-2); list-style:none}
+details.adv summary::before{content:"▸ "; color:var(--ink-3)}
+details.adv[open] summary::before{content:"▾ "}
+details.adv .inner{padding:0 16px 14px; display:flex; flex-direction:column; gap:14px}
+details.adv p{margin:0; font-size:12.5px; color:var(--ink-3)}
+
+.reset{
+  font:inherit; font-size:13.5px; font-weight:600; color:var(--ink);
+  background:none; border:1px solid var(--line); border-radius:8px; padding:9px 14px; cursor:pointer;
+}
+.reset:hover{border-color:var(--ink-3)}
+
+.results{display:grid; grid-template-columns:repeat(auto-fit,minmax(170px,1fr)); gap:12px; margin:24px 0 8px}
+.stat{background:var(--card); border:1px solid var(--line); border-radius:10px; padding:12px 16px}
+.stat .k{font-size:12px; letter-spacing:0.06em; text-transform:uppercase; color:var(--ink-3); font-weight:600; margin:0 0 4px}
+.stat .v{font-family:"Newsreader",Georgia,serif; font-size:24px; font-weight:600; margin:0; font-variant-numeric:tabular-nums}
+.stat .d{font-size:12.5px; margin:2px 0 0; color:var(--ink-2); font-variant-numeric:tabular-nums}
+.up{color:var(--supply)} .down{color:var(--demand)}
+.stat.verdict .v{font-size:16px; font-family:"Public Sans",system-ui,sans-serif; line-height:1.45; font-weight:600}
+
+.note{
+  border-top:1px solid var(--line); margin-top:26px; padding-top:16px;
+  color:var(--ink-2); font-size:14px; max-width:72ch;
+}
+.note strong{color:var(--ink)}
+@media (prefers-reduced-motion:no-preference){
+  .curve-d,.curve-s,.ghost,.guide,circle{transition:all .18s ease-out}
+}
+</style>
+
+<div class="wrap">
+<header>
+  <p class="kicker">Data for decision making · Microeconomics</p>
+  <h1>The market for wheat flour</h1>
+  <p class="lede">The market starts in equilibrium at price <em>P₁</em> (£5.00/kg) and quantity <em>Q₁</em> (40k tonnes per week). Shift either curve and watch the new equilibrium settle at <em>P₂</em> and <em>Q₂</em>. Question adapted from <em>Economics for Business</em> (Sloman, Garrett, Guest &amp; Jones).</p>
+</header>
+
+<div class="scenarios" role="group" aria-label="Question scenarios">
+  <button data-d="16" data-s="0" data-x="(a) More bread is eaten, so at every price buyers want more flour: <strong>demand shifts right</strong> (D₁ → D₂). Price rises and, moving up along the supply curve, quantity rises too.">(a) People eat more bread</button>
+  <button data-d="0" data-s="16" data-x="(b) Cheaper milling cuts production costs, so at every price millers supply more: <strong>supply shifts right</strong> (S₁ → S₂). Price falls and, moving down along the demand curve, quantity rises.">(b) Cheaper milling invented</button>
+  <button data-d="-16" data-s="0" data-x="(c) Rice and potatoes are now relatively cheaper substitutes, so demand for bread, and hence flour, falls: <strong>demand shifts left</strong> (D₁ → D₂). Price falls and quantity falls with it.">(c) Rice &amp; potatoes get cheaper</button>
+  <button data-d="0" data-s="-16" data-x="(d) Drought cuts the wheat harvest, so at every price less flour can be supplied: <strong>supply shifts left</strong> (S₁ → S₂). Price rises while quantity falls.">(d) Drought hits wheat</button>
+</div>
+<div class="explain" id="explain" aria-live="polite">Pick a scenario above, or move the sliders yourself. Dashed grey lines show the original curves; dotted guides mark both equilibria.</div>
+
+<div class="stage">
+  <div class="chartcard">
+    <svg viewBox="0 0 560 430" role="img" aria-label="Supply and demand diagram for wheat flour. Use the sliders to shift the curves; the equilibrium values are reported below the chart.">
+      <g id="grid"></g>
+      <line class="ax" x1="58" y1="14" x2="58" y2="384"/>
+      <line class="ax" x1="58" y1="384" x2="546" y2="384"/>
+      <text class="tax" x="58" y="406" text-anchor="start">0</text>
+      <text class="tax" x="14" y="24">Price (£/kg)</text>
+      <text class="tax" x="546" y="406" text-anchor="end">Quantity (k tonnes / week)</text>
+
+      <line id="d0" class="ghost" opacity="0"/>
+      <line id="s0" class="ghost" opacity="0"/>
+
+      <line id="gP1" class="guide" opacity="0"/>
+      <line id="gQ1" class="guide" opacity="0"/>
+      <line id="gP" class="guide"/>
+      <line id="gQ" class="guide"/>
+
+      <line id="dL" class="curve-d"/>
+      <line id="sL" class="curve-s"/>
+      <circle id="eq1" r="3.5" fill="none" stroke="var(--ink-3)" stroke-width="1.4" opacity="0"/>
+      <circle id="eq" r="5" fill="var(--eq)"/>
+
+      <text id="dLab" class="tlab" fill="var(--demand)"></text>
+      <text id="sLab" class="tlab" fill="var(--supply)"></text>
+      <text id="pLab" class="tnum" text-anchor="end"></text>
+      <text id="qLab" class="tnum" text-anchor="middle" y="402"></text>
+      <text id="pLab1" class="tnum1" text-anchor="end" opacity="0"></text>
+      <text id="qLab1" class="tnum1" text-anchor="middle" y="402" opacity="0"></text>
+    </svg>
+  </div>
+
+  <div class="panel">
+    <div class="ctl">
+      <div class="row"><label for="dShift"><span class="swatch" style="background:var(--demand)"></span>Demand curve</label><output id="dOut">no shift</output></div>
+      <input type="range" id="dShift" min="-20" max="20" value="0" step="1" aria-label="Shift the demand curve">
+      <div class="ends"><span>← shift left</span><span>shift right →</span></div>
+    </div>
+    <div class="ctl">
+      <div class="row"><label for="sShift"><span class="swatch" style="background:var(--supply)"></span>Supply curve</label><output id="sOut">no shift</output></div>
+      <input type="range" id="sShift" min="-20" max="20" value="0" step="1" aria-label="Shift the supply curve">
+      <div class="ends"><span>← shift left</span><span>shift right →</span></div>
+    </div>
+    <details class="adv">
+      <summary>Elasticity (slope) controls</summary>
+      <div class="inner">
+        <p>Flatter = more price-elastic; steeper = more inelastic. Curves pivot through the original equilibrium, so slopes change how far price and quantity move, not the direction.</p>
+        <div>
+          <div class="row"><label for="dSlope">Demand slope</label><output id="dSlopeOut">1.0</output></div>
+          <input type="range" id="dSlope" min="0.3" max="2.5" value="1" step="0.1" aria-label="Demand curve slope">
+          <div class="ends"><span>elastic (flat)</span><span>inelastic (steep)</span></div>
+        </div>
+        <div>
+          <div class="row"><label for="sSlope">Supply slope</label><output id="sSlopeOut">1.0</output></div>
+          <input type="range" id="sSlope" min="0.3" max="2.5" value="1" step="0.1" aria-label="Supply curve slope">
+          <div class="ends"><span>elastic (flat)</span><span>inelastic (steep)</span></div>
+        </div>
+      </div>
+    </details>
+    <button class="reset" id="reset">Reset to equilibrium</button>
+  </div>
+</div>
+
+<div class="results">
+  <div class="stat">
+    <p class="k">Equilibrium price</p>
+    <p class="v" id="pVal">£5.00</p>
+    <p class="d" id="pDelta">P₁ · per kg</p>
+  </div>
+  <div class="stat">
+    <p class="k">Equilibrium quantity</p>
+    <p class="v" id="qVal">40.0k</p>
+    <p class="d" id="qDelta">Q₁ · tonnes per week</p>
+  </div>
+  <div class="stat verdict">
+    <p class="k">What happened</p>
+    <p class="v" id="verdict">Market at its initial equilibrium.</p>
+  </div>
+</div>
+
+<p class="note" id="rule"><strong>Rule of thumb.</strong> With a downward-sloping demand curve and an upward-sloping supply curve, a shift in <strong>demand</strong> moves price and quantity in the <strong>same</strong> direction, while a shift in <strong>supply</strong> moves them in <strong>opposite</strong> directions. Try shifting both at once: one of the two outcomes becomes ambiguous and depends on which shift is larger.</p>
+</div>
+
+<script>
+(function(){
+  var X0=58, X1=546, Y0=384, Y1=14;
+  var P1=50, Q1=40;
+  function qx(q){ return X0 + (X1-X0)*q/100; }
+  function py(p){ return Y0 - (Y0-Y1)*p/100; }
+
+  var grid=document.getElementById('grid');
+  var gh='';
+  [25,50,75,100].forEach(function(p){
+    gh+='<line class="gridline" x1="'+X0+'" y1="'+py(p)+'" x2="'+X1+'" y2="'+py(p)+'"/>';
+    gh+='<text class="tax" x="'+(X0-8)+'" y="'+(py(p)+4)+'" text-anchor="end">£'+(p/10).toFixed(2)+'</text>';
+  });
+  [25,50,75,100].forEach(function(q){
+    gh+='<line class="gridline" x1="'+qx(q)+'" y1="'+Y0+'" x2="'+qx(q)+'" y2="'+Y1+'"/>';
+    gh+='<text class="tax" x="'+qx(q)+'" y="406" text-anchor="middle">'+q+'</text>';
+  });
+  grid.innerHTML=gh;
+
+  var $=function(id){ return document.getElementById(id); };
+  var dShift=$('dShift'), sShift=$('sShift'), dSlope=$('dSlope'), sSlope=$('sSlope');
+
+  function demandP(q,d,bD){ return P1 - bD*(q - Q1 - d); }
+  function supplyP(q,s,bS){ return P1 + bS*(q - Q1 - s); }
+
+  function setLine(el, m, c){
+    var qA=(100-c)/m, qB=(0-c)/m;
+    var lo=Math.max(0, Math.min(qA,qB)), hi=Math.min(100, Math.max(qA,qB));
+    if(lo>hi){ lo=0; hi=0; }
+    el.setAttribute('x1', qx(lo)); el.setAttribute('y1', py(m*lo+c));
+    el.setAttribute('x2', qx(hi)); el.setAttribute('y2', py(m*hi+c));
+    return {lo:lo, hi:hi, m:m, c:c};
+  }
+
+  function word(v){ return v>0 ? '→ shifted right' : (v<0 ? '← shifted left' : 'no shift'); }
+
+  function render(){
+    var d=+dShift.value, s=+sShift.value, bD=+dSlope.value, bS=+sSlope.value;
+    $('dOut').textContent=word(d);
+    $('sOut').textContent=word(s);
+    $('dSlopeOut').textContent=bD.toFixed(1);
+    $('sSlopeOut').textContent=bS.toFixed(1);
+
+    var Q = Q1 + (bD*d + bS*s)/(bD+bS);
+    var P = P1 - bD*(Q - Q1 - d);
+    var shifted = (d!==0 || s!==0);
+
+    var dSeg=setLine($('dL'), -bD, P1 + bD*(Q1+d));
+    var sSeg=setLine($('sL'),  bS, P1 - bS*(Q1+s));
+    setLine($('d0'), -bD, P1 + bD*Q1);
+    setLine($('s0'),  bS, P1 - bS*Q1);
+    $('d0').setAttribute('opacity', d!==0 ? 1 : 0);
+    $('s0').setAttribute('opacity', s!==0 ? 1 : 0);
+
+    var dl=$('dLab');
+    dl.setAttribute('x', qx(dSeg.hi)+6);
+    dl.setAttribute('y', Math.min(py(dSeg.m*dSeg.hi+dSeg.c)+5, Y0-4));
+    dl.textContent = d!==0 ? 'D₂' : 'D₁';
+    var sl=$('sLab');
+    sl.setAttribute('x', qx(sSeg.hi)+6);
+    sl.setAttribute('y', Math.max(py(sSeg.m*sSeg.hi+sSeg.c)+5, Y1+10));
+    sl.textContent = s!==0 ? 'S₂' : 'S₁';
+
+    var ex=qx(Q), ey=py(P);
+    $('eq').setAttribute('cx',ex); $('eq').setAttribute('cy',ey);
+    $('eq1').setAttribute('cx',qx(Q1)); $('eq1').setAttribute('cy',py(P1));
+    $('eq1').setAttribute('opacity', shifted?1:0);
+
+    function guide(idP,idQ,qv,pv){
+      var g=$(idP); g.setAttribute('x1',X0); g.setAttribute('y1',py(pv)); g.setAttribute('x2',qx(qv)); g.setAttribute('y2',py(pv));
+      g=$(idQ); g.setAttribute('x1',qx(qv)); g.setAttribute('y1',py(pv)); g.setAttribute('x2',qx(qv)); g.setAttribute('y2',Y0);
+    }
+    guide('gP','gQ',Q,P);
+    guide('gP1','gQ1',Q1,P1);
+    $('gP1').setAttribute('opacity', shifted?1:0);
+    $('gQ1').setAttribute('opacity', shifted?1:0);
+
+    $('pLab').setAttribute('x',X0-8); $('pLab').setAttribute('y',ey+4);
+    $('pLab').textContent = shifted ? 'P₂' : 'P₁';
+    $('qLab').setAttribute('x',ex);
+    $('qLab').textContent = shifted ? 'Q₂' : 'Q₁';
+    $('pLab1').setAttribute('x',X0-8); $('pLab1').setAttribute('y',py(P1)+4); $('pLab1').textContent='P₁';
+    $('qLab1').setAttribute('x',qx(Q1)); $('qLab1').textContent='Q₁';
+    $('pLab1').setAttribute('opacity', shifted && Math.abs(ey-py(P1))>=13 ? 1 : 0);
+    $('qLab1').setAttribute('opacity', shifted && Math.abs(ex-qx(Q1))>=20 ? 1 : 0);
+
+    $('pVal').textContent='£'+(P/10).toFixed(2);
+    $('qVal').textContent=Q.toFixed(1)+'k';
+    var dP100=Math.round((P-P1)/P1*1000)/10, dQ100=Math.round((Q-Q1)/Q1*1000)/10;
+    $('pDelta').innerHTML = shifted
+      ? (P>P1 ? '<span class="up">▲ +'+dP100+'%</span> vs P₁' : (P<P1 ? '<span class="down">▼ '+dP100+'%</span> vs P₁' : 'unchanged vs P₁'))
+      : 'P₁ · per kg';
+    $('qDelta').innerHTML = shifted
+      ? (Q>Q1 ? '<span class="up">▲ +'+dQ100+'%</span> vs Q₁' : (Q<Q1 ? '<span class="down">▼ '+dQ100+'%</span> vs Q₁' : 'unchanged vs Q₁'))
+      : 'Q₁ · tonnes per week';
+
+    var vp = P>P1 ? 'Price rises' : (P<P1 ? 'Price falls' : 'Price unchanged');
+    var vq = Q>Q1 ? 'quantity rises' : (Q<Q1 ? 'quantity falls' : 'quantity unchanged');
+    $('verdict').textContent = shifted ? (vp+', '+vq+'.') : 'Market at its initial equilibrium.';
+  }
+
+  var btns=document.querySelectorAll('.scenarios button');
+  function clearActive(){ btns.forEach(function(b){ b.classList.remove('on'); }); }
+
+  btns.forEach(function(b){
+    b.addEventListener('click', function(){
+      dShift.value=b.dataset.d; sShift.value=b.dataset.s;
+      dSlope.value=1; sSlope.value=1;
+      clearActive(); b.classList.add('on');
+      $('explain').innerHTML=b.dataset.x;
+      render();
+    });
+  });
+
+  [dShift,sShift,dSlope,sSlope].forEach(function(inp){
+    inp.addEventListener('input', function(){
+      clearActive();
+      $('explain').innerHTML='Free exploration — compare the solid curves with the dashed originals, and check the new equilibrium against (P₁, Q₁).';
+      render();
+    });
+  });
+
+  $('reset').addEventListener('click', function(){
+    dShift.value=0; sShift.value=0; dSlope.value=1; sSlope.value=1;
+    clearActive();
+    $('explain').textContent='Pick a scenario above, or move the sliders yourself. Dashed grey lines show the original curves; dotted guides mark both equilibria.';
+    render();
+  });
+
+  render();
+})();
+</script>
+
+</body></html>
