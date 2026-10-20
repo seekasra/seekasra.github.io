@@ -1,6 +1,20 @@
-<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
-<title>Take That album: surplus areas</title>
-<meta name="claude:viewport-fit-sides" content="cover">
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Jan and Lou at the petrol station · Dr Kasra Kassai</title>
+<meta name="description" content="Jan asks for 30 litres, Lou asks for €30-worth, and neither looks at the price. Slide the pump price and compare how much each takes and spends: perfectly inelastic against unit elastic demand.">
+<meta name="author" content="Dr Kasra Kassai">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Teaching tools · Dr Kasra Kassai">
+<meta property="og:title" content="Jan and Lou at the petrol station">
+<meta property="og:description" content="Jan asks for 30 litres, Lou asks for €30-worth, and neither looks at the price. Slide the pump price and compare how much each takes and spends: perfectly inelastic against unit elastic demand.">
+<meta property="og:url" content="https://drkassai.com/teaching-tools/finance-and-the-economy/jan-and-lou/">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Jan and Lou at the petrol station">
+<meta name="twitter:description" content="Jan asks for 30 litres, Lou asks for €30-worth, and neither looks at the price. Slide the pump price and compare how much each takes and spends: perfectly inelastic against unit elastic demand.">
+<link rel="canonical" href="https://drkassai.com/teaching-tools/finance-and-the-economy/jan-and-lou/">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,500;6..72,600&family=Public+Sans:wght@400;500;600&display=swap">
 <style>
 /* Layout: single-column scholarly page — chart as centrepiece, controls beside it, scenarios as a worked-answer rail */
@@ -118,33 +132,46 @@ input[type=range]{width:100%; accent-color:var(--eq); margin:2px 0 0}
   .curve-d,.curve-s,.ghost,.guide,circle{transition:all .18s ease-out}
 }
 
+
+/* Site chrome: back link and attribution footer */
+.pagefoot{border-top:1px solid var(--line); margin-top:26px; padding-top:16px; display:flex; flex-direction:column; gap:6px; font-size:13px; color:var(--ink-3)}
+.pagefoot p{margin:0}
+.pagefoot a{color:var(--eq); text-decoration:none; border-bottom:1px solid transparent}
+.pagefoot a:hover{border-bottom-color:var(--eq)}
+.pagefoot a:focus-visible{outline:2px solid var(--eq); outline-offset:2px}
 </style>
+</head>
+<body>
 <div class="wrap">
 <header>
   <p class="kicker">Finance and the Economy · Seminar 3 · Elasticity</p>
-  <h1>Surplus before and after a demand shift</h1>
-  <p class="lede">Demand for <em>Beautiful World</em> shifts from <em>D₁</em> to <em>D₂</em> after the reunion tours. Click each part of the question to shade the area it asks for, then shift demand and steepen supply to see who gains. Question 7, from <em>Introduction to Economics</em> (Osadiya, ch. 9).</p>
+  <h1>Two drivers, two demand curves</h1>
+  <p class="lede">Jan asks for <em>30 litres</em>, Lou asks for <em>€30-worth</em>, and neither looks at the price. Slide the pump price and compare how much each takes and spends. Question 3, from <em>Business Economics</em> (Mankiw, Taylor &amp; Ashwin, ch. 5).</p>
 </header>
 
-<div class="scenarios" role="group" aria-label="Question parts">
-  <button data-a="cs1" data-x="<strong>(a) Original consumer surplus = area xzP₁.</strong> Below D₁, above the original price P₁, out to the original quantity Q₁.">(a) Original consumer surplus</button>
-  <button data-a="ps1" data-x="<strong>(b) Original producer surplus = area wzP₁.</strong> Above the supply curve, below P₁, out to Q₁.">(b) Original producer surplus</button>
-  <button data-a="cs2" data-x="<strong>(c) New consumer surplus = area myP₂.</strong> Below D₂, above the new price P₂, out to Q₂.">(c) New consumer surplus</button>
-  <button data-a="ps2" data-x="<strong>(d) New producer surplus = area wyP₂.</strong> Above supply, below P₂, out to Q₂. A rightward demand shift always raises producer surplus: more is sold at a higher price.">(d) New producer surplus</button>
+<div class="scenarios" role="group" aria-label="Scenarios">
+  <button data-who="jan" data-x="<strong>Jan: a fixed quantity.</strong> She takes 30 litres whatever the price, so her demand curve is vertical. Quantity does not respond to price at all: <strong>PED = 0</strong>, perfectly inelastic. Her spending rises in proportion to price.">Jan: 30 litres</button>
+  <button data-who="lou" data-x="<strong>Lou: a fixed budget.</strong> He spends €30 whatever the price, so quantity = 30 ÷ price. A 10% dearer litre means 10% fewer litres: <strong>PED = 1</strong>, unit elastic. His demand curve is a rectangular hyperbola and his spending never changes.">Lou: €30-worth</button>
+  <button data-who="both" data-x="<strong>Side by side.</strong> At €1.50 both drivers happen to take 20 litres and spend €30, so the curves cross there. Move the price away from €1.50 and watch them separate: Jan&rsquo;s spend changes, Lou&rsquo;s litres change.">Both drivers</button>
 </div>
-<div class="explain" id="explain" aria-live="polite">Click a part of the question to highlight its area. Then move the sliders: the letters follow the curves.</div>
+<div class="explain" id="explain" aria-live="polite">Choose a driver, then move the price. The reference point is €1.50 a litre, where both take 20 litres.</div>
 <div class="stage">
-  <div class="chartcard"><svg id="svg" viewBox="0 0 560 430" role="img" aria-label="Demand shift with surplus areas labelled"></svg></div>
+  <div class="chartcard"><svg id="svg" viewBox="0 0 560 430" role="img" aria-label="Demand curves for Jan and Lou"></svg></div>
   <div class="panel">
-    <div class="ctl"><div class="row"><label for="d"><span class="swatch" style="background:var(--demand)"></span>Demand shift (D₁ → D₂)</label><output id="dOut"></output></div><input type="range" id="d" min="0" max="40" value="20" step="1" aria-label="Demand shift (D₁ → D₂)"><div class="ends"><span>none</span><span>large</span></div></div><div class="ctl"><div class="row"><label for="s"><span class="swatch" style="background:var(--supply)"></span>Supply slope</label><output id="sOut"></output></div><input type="range" id="s" min="0.5" max="3" value="1" step="0.1" aria-label="Supply slope"><div class="ends"><span>elastic (flat)</span><span>inelastic (steep)</span></div></div>
-    <button class="reset" id="reset">Reset</button>
+    <div class="ctl"><div class="row"><label for="p"><span class="swatch" style="background:var(--eq)"></span>Pump price (€ per litre)</label><output id="pOut"></output></div><input type="range" id="p" min="0.5" max="3" value="1.5" step="0.05" aria-label="Pump price (€ per litre)"><div class="ends"><span>cheap</span><span>dear</span></div></div>
+    <button class="reset" id="reset">Reset to €1.50</button>
   </div>
 </div>
 <div class="results">
-  <div class="stat "><p class="k">Consumer surplus</p><p class="v" id="cs"></p><p class="d" id="csD"></p></div><div class="stat "><p class="k">Producer surplus</p><p class="v" id="ps"></p><p class="d" id="psD"></p></div><div class="stat "><p class="k">Equilibrium</p><p class="v" id="eq"></p><p class="d" id="eqD"></p></div>
+  <div class="stat "><p class="k">Jan takes</p><p class="v" id="jq"></p><p class="d" id="jqD"></p></div><div class="stat "><p class="k">Jan spends</p><p class="v" id="js"></p><p class="d" id="jsD"></p></div><div class="stat "><p class="k">Lou takes</p><p class="v" id="lq"></p><p class="d" id="lqD"></p></div><div class="stat "><p class="k">Lou spends</p><p class="v" id="ls"></p><p class="d" id="lsD"></p></div>
 </div>
-<p class="note"><strong>Who gains?</strong> Steepen the supply curve and the same demand shift pushes price up more and quantity up less. Producer surplus climbs steadily; the gain in consumer surplus shrinks towards nothing as supply becomes perfectly inelastic, because buyers then pay more for the same quantity.</p>
+<p class="note"><strong>Check it with the midpoint formula.</strong> Between €1.50 and any other price, Lou&rsquo;s proportionate change in litres is exactly the negative of his proportionate change in price, so the arc elasticity is −1 at every point on his curve. Jan&rsquo;s change in litres is always zero, so hers is 0.</p>
 
+
+<div class="pagefoot">
+  <p><a href="/teaching-tools/finance-and-the-economy/">← Back to module</a></p>
+  <p>Built by Dr Kasra Kassai, LSBU Business School · <a href="https://drkassai.com">drkassai.com</a></p>
+</div>
 </div>
 <script>
 var $=function(id){ return document.getElementById(id); };
@@ -185,39 +212,28 @@ function wire(btns, sliders, onBtn, render, freeText){
 function fmt(n,d){ return n.toLocaleString('en-GB',{minimumFractionDigits:d,maximumFractionDigits:d}); }
 
 
-var area=null;
-var c=chart($('svg'),{xmin:0,xmax:60,ymin:0,ymax:100,xticks:[0,15,30,45,60],yticks:[0,25,50,75,100],fy:function(v){return '£'+v;},xlab:'Quantity of CDs sold (\u2019000 units)',ylab:'Price (£)'});
+var who='both';
+var c=chart($('svg'),{xmin:0,xmax:60,ymin:0,ymax:3,xticks:[0,10,20,30,40,50,60],yticks:[0,0.5,1,1.5,2,2.5,3],fy:function(v){return '€'+fmt(v,2);},xlab:'Litres of petrol',ylab:'Price (€/litre)'});
 function render(){
-  var d=+$('d').value, bS=+$('s').value;
-  $('dOut').textContent=d===0?'no shift':'+'+d; $('sOut').textContent=fmt(bS,1);
-  var P1=40,Q1=30, w=40-30*bS, Q0=30-40/bS;
-  var Q2=30+d/(1+bS), P2=40+bS*d/(1+bS), x=70, m=70+d;
-  function psPoly(Q,P){ return w>=0 ? [[0,w],[0,P],[Q,P]] : [[Q0,0],[0,0],[0,P],[Q,P]]; }
-  function psArea(Q,P){ return w>=0 ? 0.5*Q*(P-w) : 0.5*(Q-Q0)*P; }
-  var polys={cs1:[[[0,P1],[0,x],[Q1,P1]],'area-d'], ps1:[psPoly(Q1,P1),'area-s'], cs2:[[[0,P2],[0,m],[Q2,P2]],'area-d'], ps2:[psPoly(Q2,P2),'area-s']};
-  var h='';
-  if(area) h+=poly(c,polys[area][0],polys[area][1]);
-  h+=lineY(c,bS,w,'curve-s')+lineY(c,-1,x,d>0?'ghost':'curve-d');
-  if(d>0) h+=lineY(c,-1,m,'curve-d');
-  h+=guide(c,Q1,P1); if(d>0) h+=guide(c,Q2,P2);
-  h+=ring(c,Q1,P1); if(d>0) h+=dot(c,Q2,P2);
-  var L=function(q,p,s,o){ o=o||{}; o.cls='tnum'; o.bg=true; return txt(c,q,p,s,o); };
-  h+=L(0,x,'x',{anchor:'end',dx:-8,dy:4})+L(0,P1,'P₁',{anchor:'end',dx:-8,dy:4})+L(Q1,0,'Q₁',{anchor:'middle',dy:18})+L(Q1,P1,'z',{dx:7,dy:-6});
-  if(w>=0) h+=L(0,w,'w',{anchor:'end',dx:-8,dy:4});
-  if(d>0){ h+=L(0,m,'m',{anchor:'end',dx:-8,dy:4})+L(0,P2,'P₂',{anchor:'end',dx:-8,dy:4})+L(Q2,0,'Q₂',{anchor:'middle',dy:18})+L(Q2,P2,'y',{dx:7,dy:-6}); }
-  h+=txt(c,60,Math.min(100,w+60*bS),'S₁',{anchor:'end',dx:-4,dy:-6,fill:'var(--supply)'})+txt(c,Math.min(60,x),Math.max(0,x-60),'D₁',{dx:-20,dy:-6,fill:'var(--demand)'});
-  if(d>0) h+=txt(c,Math.min(60,m),Math.max(0,m-60),'D₂',{dx:-20,dy:-6,fill:'var(--demand)'});
+  var p=+$('p').value; $('pOut').textContent='€'+fmt(p,2)+' per litre';
+  var lq=30/p, h='';
+  var pts=[]; for(var q=0.5;q<=3.0001;q+=0.05){ pts.push([30/q,q]); }
+  if(who!=='lou'){ h+=vline(c,30,'curve-d')+txt(c,30,2.85,'Jan: 30 litres',{dx:8,fill:'var(--demand)'}); }
+  if(who!=='jan'){ h+=path(c,pts,'curve-s')+txt(c,15,2,'Lou: €30 ÷ price',{dx:10,dy:-6,fill:'var(--supply)'}); }
+  h+=hline(c,p,'guide');
+  if(who!=='lou'){ h+=dot(c,30,p,'var(--demand)'); }
+  if(who!=='jan'){ h+=dot(c,lq,p,'var(--supply)'); }
+  h+=ring(c,20,1.5);
   c.art.innerHTML=h;
-  var cs1=0.5*Q1*(x-P1), cs2=0.5*Q2*(m-P2), ps1=psArea(Q1,P1), ps2=psArea(Q2,P2);
-  $('cs').textContent=fmt(cs2,0); $('csD').textContent='was '+fmt(cs1,0)+(d>0?' (xzP₁ → myP₂)':'');
-  $('ps').textContent=fmt(ps2,0); $('psD').textContent='was '+fmt(ps1,0)+(d>0?' (wzP₁ → wyP₂)':'');
-  $('eq').textContent='£'+fmt(P2,1)+' · '+fmt(Q2,1)+'k'; $('eqD').textContent='from £40 · 30k';
+  var dP=(p-1.5)/((p+1.5)/2), dQ=(lq-20)/((lq+20)/2);
+  $('jq').textContent='30 L'; $('jqD').textContent='change vs €1.50: 0% → PED 0';
+  $('js').textContent='€'+fmt(30*p,2); $('jsD').textContent=p===1.5?'at the reference price':(30*p>30?'▲ ':'▼ ')+fmt(Math.abs(30*p-30),2)+' vs €30';
+  $('lq').textContent=fmt(lq,1)+' L'; $('lqD').textContent=p===1.5?'at the reference price':'ΔQ/mid '+fmt(dQ,2)+' ÷ ΔP/mid '+fmt(dP,2)+' = '+fmt(dQ/dP,0);
+  $('ls').textContent='€30.00'; $('lsD').textContent='always: unit elastic demand';
 }
 var btns=[].slice.call(document.querySelectorAll('.scenarios button'));
-var clear=wire(btns,[$('d'),$('s')],function(b){ area=b.dataset.a; },render,'Free exploration: the highlighted area stays selected while you move the curves.');
-document.querySelectorAll('.scenarios button').forEach(function(b){ b.addEventListener('click',function(){ b.classList.add('on'); }); });
-[$('d'),$('s')].forEach(function(s){ s.addEventListener('input',function(){ btns.forEach(function(b){ if(b.dataset.a===area) b.classList.add('on'); }); }); });
-$('reset').addEventListener('click',function(){ $('d').value=20; $('s').value=1; area=null; clear(); $('explain').textContent='Click a part of the question to highlight its area. Then move the sliders: the letters follow the curves.'; render(); });
+var clear=wire(btns,[$('p')],function(b){ who=b.dataset.who; },render,'Free exploration: compare each driver&rsquo;s litres and spend against the €1.50 reference point.');
+$('reset').addEventListener('click',function(){ $('p').value=1.5; who='both'; clear(); $('explain').textContent='Choose a driver, then move the price. The reference point is €1.50 a litre, where both take 20 litres.'; render(); });
 render();
 
 </script>

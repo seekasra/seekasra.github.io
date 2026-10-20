@@ -1,6 +1,20 @@
-<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
-<title>Arc elasticity of demand</title>
-<meta name="claude:viewport-fit-sides" content="cover">
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Consumer surplus and elasticity · Dr Kasra Kassai</title>
+<meta name="description" content="Keep the supply curve fixed and pivot the demand curve through the same equilibrium. Watch the consumer surplus triangle grow as demand becomes less elastic and vanish when demand is perfectly elastic.">
+<meta name="author" content="Dr Kasra Kassai">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Teaching tools · Dr Kasra Kassai">
+<meta property="og:title" content="Consumer surplus and elasticity">
+<meta property="og:description" content="Keep the supply curve fixed and pivot the demand curve through the same equilibrium. Watch the consumer surplus triangle grow as demand becomes less elastic and vanish when demand is perfectly elastic.">
+<meta property="og:url" content="https://drkassai.com/teaching-tools/finance-and-the-economy/consumer-surplus-elasticity/">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Consumer surplus and elasticity">
+<meta name="twitter:description" content="Keep the supply curve fixed and pivot the demand curve through the same equilibrium. Watch the consumer surplus triangle grow as demand becomes less elastic and vanish when demand is perfectly elastic.">
+<link rel="canonical" href="https://drkassai.com/teaching-tools/finance-and-the-economy/consumer-surplus-elasticity/">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,500;6..72,600&family=Public+Sans:wght@400;500;600&display=swap">
 <style>
 /* Layout: single-column scholarly page — chart as centrepiece, controls beside it, scenarios as a worked-answer rail */
@@ -118,32 +132,47 @@ input[type=range]{width:100%; accent-color:var(--eq); margin:2px 0 0}
   .curve-d,.curve-s,.ghost,.guide,circle{transition:all .18s ease-out}
 }
 
+
+/* Site chrome: back link and attribution footer */
+.pagefoot{border-top:1px solid var(--line); margin-top:26px; padding-top:16px; display:flex; flex-direction:column; gap:6px; font-size:13px; color:var(--ink-3)}
+.pagefoot p{margin:0}
+.pagefoot a{color:var(--eq); text-decoration:none; border-bottom:1px solid transparent}
+.pagefoot a:hover{border-bottom-color:var(--eq)}
+.pagefoot a:focus-visible{outline:2px solid var(--eq); outline-offset:2px}
 </style>
+</head>
+<body>
 <div class="wrap">
 <header>
   <p class="kicker">Finance and the Economy · Seminar 3 · Elasticity</p>
-  <h1>Price elasticity of demand between two points</h1>
-  <p class="lede">Price falls from <em>£16</em> to <em>£14</em> and quantity demanded rises from <em>25</em> to <em>35</em>. Move point B and watch the midpoint (arc) formula recompute each proportionate change and the elasticity. Question 1, adapted from <em>Economics for Business</em> (Sloman, Garratt, Guest &amp; Jones).</p>
+  <h1>Why inelastic demand means more consumer surplus</h1>
+  <p class="lede">Keep the supply curve fixed and pivot the demand curve through the same equilibrium. The shaded triangle above the price is consumer surplus: watch it grow as demand becomes less elastic and vanish when demand is perfectly elastic. Question 6, from <em>Introduction to Economics</em> (Osadiya, ch. 9).</p>
 </header>
 
 <div class="scenarios" role="group" aria-label="Scenarios">
-  <button data-p="14" data-q="35" data-x="<strong>Question values.</strong> ΔQ/mid Q = 10/30 = 0.33; ΔP/mid P = −2/15 = −0.13; PED = 0.33 ÷ −0.13 ≈ <strong>−2.5</strong>. Demand is price-elastic over this range: the quantity response is proportionately larger than the price change.">Question values (£16 → £14)</button>
-  <button data-p="14" data-q="27" data-x="<strong>A muted response.</strong> The same price cut now brings only two more units. The proportionate change in quantity is small relative to the proportionate change in price, so |PED| is below 1: inelastic.">Weak response (Q 25 → 27)</button>
-  <button data-p="12" data-q="45" data-x="<strong>A bigger price cut.</strong> Using the midpoint formula keeps the answer the same whether you read the change as a fall or a rise, which is why it is preferred to the simple percentage method.">Deeper cut (£16 → £12)</button>
+  <button data-b="0" data-x="<strong>Perfectly elastic.</strong> Demand is horizontal at the market price: nobody is willing to pay a penny more, so consumer surplus is <strong>zero</strong>. The seller has no room to raise price without losing every customer.">Perfectly elastic</button>
+  <button data-b="0.3" data-x="<strong>Elastic.</strong> A few buyers value the good a little above the price, so the triangle is thin. A price rise would lose most of them, which limits the seller&rsquo;s market power.">Elastic</button>
+  <button data-b="1" data-x="<strong>Unit elastic at equilibrium.</strong> The triangle is now substantial. Buyers near the top of the curve would have paid far more than the market price.">Unit elastic</button>
+  <button data-b="1.4" data-x="<strong>Inelastic.</strong> Consumers are willing to pay much more than they are asked, so surplus is large. This is exactly the situation in which a seller has scope to raise prices and convert that surplus into revenue.">Inelastic</button>
 </div>
-<div class="explain" id="explain" aria-live="polite">Pick a scenario or drag the sliders for point B. Point A stays at £16 and 25 units; the hollow marker is the midpoint used by the formula.</div>
+<div class="explain" id="explain" aria-live="polite">Choose an elasticity or slide the demand slope. The equilibrium point never moves; only the steepness of demand around it changes.</div>
 <div class="stage">
-  <div class="chartcard"><svg id="svg" viewBox="0 0 560 430" role="img" aria-label="Demand curve through points A and B"></svg></div>
+  <div class="chartcard"><svg id="svg" viewBox="0 0 560 430" role="img" aria-label="Supply and demand with consumer surplus shaded"></svg></div>
   <div class="panel">
-    <div class="ctl"><div class="row"><label for="p2"><span class="swatch" style="background:var(--demand)"></span>New price P₂ (£)</label><output id="p2Out"></output></div><input type="range" id="p2" min="6" max="20" value="14" step="0.5" aria-label="New price P₂ (£)"><div class="ends"><span>cheaper</span><span>dearer</span></div></div><div class="ctl"><div class="row"><label for="q2"><span class="swatch" style="background:var(--demand)"></span>New quantity Q₂</label><output id="q2Out"></output></div><input type="range" id="q2" min="5" max="60" value="35" step="1" aria-label="New quantity Q₂"><div class="ends"><span>fewer</span><span>more</span></div></div>
-    <button class="reset" id="reset">Reset to question values</button>
+    <div class="ctl"><div class="row"><label for="b"><span class="swatch" style="background:var(--demand)"></span>Demand slope</label><output id="bOut"></output></div><input type="range" id="b" min="0" max="1.4" value="1" step="0.05" aria-label="Demand slope"><div class="ends"><span>elastic (flat)</span><span>inelastic (steep)</span></div></div>
+    <button class="reset" id="reset">Reset</button>
   </div>
 </div>
 <div class="results">
-  <div class="stat "><p class="k">ΔQ ÷ mid Q</p><p class="v" id="dq"></p><p class="d" id="dqD"></p></div><div class="stat "><p class="k">ΔP ÷ mid P</p><p class="v" id="dp"></p><p class="d" id="dpD"></p></div><div class="stat "><p class="k">Price elasticity</p><p class="v" id="ped"></p><p class="d" id="pedD"></p></div><div class="stat verdict"><p class="k">Reading</p><p class="v" id="verdict"></p><p class="d" id="verdictD"></p></div>
+  <div class="stat "><p class="k">Consumer surplus</p><p class="v" id="cs"></p><p class="d" id="csD"></p></div><div class="stat "><p class="k">PED at equilibrium</p><p class="v" id="ped"></p><p class="d" id="pedD"></p></div><div class="stat "><p class="k">Producer surplus</p><p class="v" id="ps"></p><p class="d" id="psD"></p></div>
 </div>
-<p class="note"><strong>Why the midpoint?</strong> Dividing by the average of the two values rather than the starting value gives the same elasticity whichever direction the price moves, so A→B and B→A agree. The sign is negative because price and quantity move in opposite directions along a demand curve; it is the size, |PED|, that tells you elastic (&gt;1), unit (=1) or inelastic (&lt;1).</p>
+<p class="note"><strong>The business point.</strong> Consumer surplus is the gap between what buyers would pay and what they do pay. The larger that gap, the more a firm can extract through price rises, differential pricing or dynamic pricing. With elastic demand the gap is small and the firm&rsquo;s pricing power is limited.</p>
 
+
+<div class="pagefoot">
+  <p><a href="/teaching-tools/finance-and-the-economy/">← Back to module</a></p>
+  <p>Built by Dr Kasra Kassai, LSBU Business School · <a href="https://drkassai.com">drkassai.com</a></p>
+</div>
 </div>
 <script>
 var $=function(id){ return document.getElementById(id); };
@@ -184,29 +213,28 @@ function wire(btns, sliders, onBtn, render, freeText){
 function fmt(n,d){ return n.toLocaleString('en-GB',{minimumFractionDigits:d,maximumFractionDigits:d}); }
 
 
-var P1=16,Q1=25;
-var c=chart($('svg'),{xmin:0,xmax:60,ymin:0,ymax:20,xticks:[0,10,20,30,40,50,60],yticks:[0,5,10,15,20],fy:function(v){return '£'+v;},xlab:'Quantity demanded',ylab:'Price (£)'});
+var c=chart($('svg'),{xmin:0,xmax:100,ymin:0,ymax:120,xticks:[0,25,50,75,100],yticks:[0,30,60,90,120],xlab:'Quantity',ylab:'Price'});
 function render(){
-  var P2=+$('p2').value, Q2=+$('q2').value;
-  $('p2Out').textContent='£'+fmt(P2,2); $('q2Out').textContent=Q2+' units';
-  var midQ=(Q1+Q2)/2, midP=(P1+P2)/2, dq=(Q2-Q1)/midQ, dp=(P2-P1)/midP, ped=dp===0?NaN:dq/dp;
-  var h='';
-  if(Q2!==Q1){ var m=(P2-P1)/(Q2-Q1), k=P1-m*Q1; h+=lineY(c,m,k,'curve-d'); } else { h+=vline(c,Q1,'curve-d'); }
-  h+=guide(c,Q1,P1)+guide(c,Q2,P2);
-  h+=dot(c,Q1,P1,'var(--demand)')+dot(c,Q2,P2,'var(--eq)')+ring(c,midQ,midP);
-  h+=txt(c,Q1,P1,'A (25, £16)',{dx:9,dy:-8})+txt(c,Q2,P2,'B ('+Q2+', £'+fmt(P2,2)+')',{dx:9,dy:16});
-  h+=txt(c,midQ,midP,'midpoint',{cls:'tnum1',dx:8,dy:4});
+  var b=+$('b').value; $('bOut').textContent=b===0?'flat (perfectly elastic)':fmt(b,2);
+  var P=50,Q=50, choke=P+b*Q, h='';
+  var pts=[[0,P]];
+  if(choke<=120){ pts.push([0,choke]); } else { pts.push([0,120]); pts.push([Q-(120-P)/b,120]); }
+  pts.push([Q,P]);
+  if(b>0) h+=poly(c,pts,'area-d');
+  h+=poly(c,[[0,0],[0,P],[Q,P]],'area-s');
+  h+=lineY(c,1,0,'curve-s')+lineY(c,-b,P+b*Q,'curve-d')+guide(c,Q,P)+dot(c,Q,P);
+  h+=txt(c,100,100,'S',{dx:-14,dy:-6,fill:'var(--supply)'})+txt(c,Math.min(100,b>0?(choke/b):95),b>0?Math.max(0,choke-b*Math.min(100,choke/b)):P,'D',{dx:-14,dy:b>0?-6:-8,fill:'var(--demand)'});
+  h+=txt(c,0,P,'P',{anchor:'end',dx:-8,dy:4,cls:'tnum',bg:true})+txt(c,Q,0,'Q',{anchor:'middle',dy:18,cls:'tnum',bg:true});
+  if(b>0) h+=txt(c,8,P+b*Q*0.35,'consumer surplus',{cls:'tl',fill:'var(--demand)'});
+  h+=txt(c,8,P*0.45,'producer surplus',{cls:'tl',fill:'var(--supply)'});
   c.art.innerHTML=h;
-  $('dq').textContent=fmt(dq,2); $('dqD').textContent='('+Q2+' − 25) ÷ '+fmt(midQ,1);
-  $('dp').textContent=fmt(dp,2); $('dpD').textContent='(£'+fmt(P2,2)+' − £16) ÷ £'+fmt(midP,2);
-  $('ped').textContent=isNaN(ped)?'undefined':fmt(ped,2); $('pedD').textContent=isNaN(ped)?'no price change':fmt(dq,2)+' ÷ '+fmt(dp,2);
-  var a=Math.abs(ped);
-  $('verdict').textContent=isNaN(ped)?'Price did not change.':a>1?'Elastic: |PED| > 1, quantity responds more than proportionately.':a===1?'Unit elastic: |PED| = 1.':'Inelastic: |PED| < 1, quantity responds less than proportionately.';
-  $('verdictD').textContent='';
+  $('cs').textContent=fmt(0.5*Q*(choke-P),0); $('csD').textContent='½ × '+Q+' × '+fmt(choke-P,0);
+  $('ped').textContent=b===0?'∞':fmt(1/b,2); $('pedD').textContent=b===0?'perfectly elastic':b<1?'elastic':b===1?'unit elastic':'inelastic';
+  $('ps').textContent='1,250'; $('psD').textContent='unchanged: supply is fixed';
 }
 var btns=[].slice.call(document.querySelectorAll('.scenarios button'));
-var clear=wire(btns,[$('p2'),$('q2')],function(b){ $('p2').value=b.dataset.p; $('q2').value=b.dataset.q; },render,'Free exploration: read ΔQ ÷ mid Q and ΔP ÷ mid P from the cards, then check the sign and size of the ratio.');
-$('reset').addEventListener('click',function(){ $('p2').value=14; $('q2').value=35; clear(); $('explain').textContent='Pick a scenario or drag the sliders for point B. Point A stays at £16 and 25 units; the hollow marker is the midpoint used by the formula.'; render(); });
+var clear=wire(btns,[$('b')],function(b){ $('b').value=b.dataset.b; },render,'Free exploration: the steeper the demand curve, the taller the triangle above the price.');
+$('reset').addEventListener('click',function(){ $('b').value=1; clear(); $('explain').textContent='Choose an elasticity or slide the demand slope. The equilibrium point never moves; only the steepness of demand around it changes.'; render(); });
 render();
 
 </script>

@@ -2,33 +2,60 @@
 title: "Finance and the Economy: interactive tools"
 date: 2026-10-20
 hideMeta: true
-description: "Interactive supply and demand simulators for the Finance and the Economy module at LSBU Business School: the petrol market, the wheat flour market, and the chocolate bar market."
+description: "Interactive simulators for the Finance and the Economy module at LSBU Business School, covering market forces in Seminar 2 and elasticity and surplus in Seminar 3."
 ---
 
-Three interactive simulators for the microeconomics half of the module. Each one takes a seminar question and makes it adjustable, so you can test a prediction before you read the answer.
+Nine interactive simulators for the microeconomics half of the module. Each one takes a seminar question and makes it adjustable, so you can test a prediction before you read the answer.
 
-## Session 2: supply, demand and equilibrium
+## Seminar 2: Market forces
 
 ### [Petrol market](/teaching-tools/finance-and-the-economy/petrol/) {#petrol}
 
-**Session 2.** Shift supply and demand one at a time or together, then predict which lettered point on the diagram the new equilibrium settles at.
+Shift supply and demand one at a time or together, then predict which lettered point on the diagram the new equilibrium settles at.
 
 ### [Wheat flour market](/teaching-tools/finance-and-the-economy/wheat-flour/) {#wheat-flour}
 
-**Session 2.** Shift either curve and change how elastic it is, then read off the new equilibrium price and quantity against the original.
+Shift either curve and change how elastic it is, then read off the new equilibrium price and quantity against the original.
 
 ### [Chocolate bar market](/teaching-tools/finance-and-the-economy/chocolate-bars/) {#chocolate-bars}
 
-**Session 2.** Solve two linear functions for equilibrium, adjust the intercepts and slopes, and see the shortage or surplus at every price in the schedule.
+Solve two linear functions for equilibrium, adjust the intercepts and slopes, and see the shortage or surplus at every price in the schedule.
+
+## Seminar 3: Elasticity and surplus
+
+### [Arc elasticity of demand](/teaching-tools/finance-and-the-economy/arc-elasticity/) {#arc-elasticity}
+
+**Question 1.** Move point B and watch the midpoint formula recompute each proportionate change and the price elasticity of demand.
+
+### [Jan and Lou at the petrol station](/teaching-tools/finance-and-the-economy/jan-and-lou/) {#jan-and-lou}
+
+**Question 3.** Slide the pump price and compare perfectly inelastic demand, where Jan always takes 30 litres, with unit elastic demand, where Lou always spends the same.
+
+### [Cigarette pricing](/teaching-tools/finance-and-the-economy/cigarette-pricing/) {#cigarette-pricing}
+
+**Questions 4 and 5.** Work out the price rise needed for a target fall in smoking, and see how the answer changes as demand becomes more elastic over time.
+
+### [Consumer surplus and elasticity](/teaching-tools/finance-and-the-economy/consumer-surplus-elasticity/) {#consumer-surplus-elasticity}
+
+**Question 6.** Pivot the demand curve through a fixed equilibrium and watch the surplus triangle grow as demand becomes less elastic.
+
+### [Take That album surplus areas](/teaching-tools/finance-and-the-economy/take-that-surplus/) {#take-that-surplus}
+
+**Question 7.** Shade each area the question asks for, xzP₁, wzP₁, myP₂ and wyP₂, then shift demand and steepen supply to see who gains.
+
+### [Oasis dynamic pricing](/teaching-tools/finance-and-the-economy/oasis-dynamic-pricing/) {#oasis-dynamic-pricing}
+
+**Question 8.** With supply vertical at the arena capacity, compare holding the £148 face value against a £355 dynamic price and see who captures the surplus.
 
 ## Textbook sources
 
 The questions behind these tools are adapted from the module reading:
 
-- Sloman, J., Garratt, D., Guest, J. and Jones, E., *Economics for Business* (petrol market, wheat flour market).
-- Mankiw, N. G., Taylor, M. P. and Ashwin, A., *Business Economics* (chocolate bar market).
+- Sloman, J., Garratt, D., Guest, J. and Jones, E., *Economics for Business* (petrol market, wheat flour market, arc elasticity, cigarette pricing, Oasis dynamic pricing).
+- Mankiw, N. G., Taylor, M. P. and Ashwin, A., *Business Economics* (chocolate bar market, Jan and Lou, cigarette pricing).
+- Osadiya, *Introduction to Economics*, ch. 9 (consumer surplus and elasticity, Take That album surplus areas).
 
-The simulators are my own work. They reinterpret the questions rather than reproduce any text, figures or data from either book.
+The simulators are my own work. They reinterpret the questions rather than reproduce any text, figures or data from these books.
 
 ## Licence
 
