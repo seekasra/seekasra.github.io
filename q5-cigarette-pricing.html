@@ -1,0 +1,211 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Cigarette pricing and elasticity</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,500;6..72,600&family=Public+Sans:wght@400;500;600&display=swap">
+<style>
+/* Layout: single-column scholarly page — chart as centrepiece, controls beside it, scenarios as a worked-answer rail */
+:root{
+  --paper:#f7f6f1; --card:#ffffff; --ink:#20231f; --ink-2:#5c6157; --ink-3:#8a8f83;
+  --line:#dcdcd2; --line-soft:#e9e8df;
+  --demand:#5b54c7; --demand-soft:#eceafb;
+  --supply:#1d8a66; --supply-soft:#e2f3ec;
+  --eq:#b07c1a; --eq-soft:#f6ecd6;
+  --grid:#e8e7dc;
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
+  --paper:#191b18; --card:#22251f; --ink:#ece9df; --ink-2:#aab0a2; --ink-3:#7d8375;
+  --line:#3a3e35; --line-soft:#2e3129;
+  --demand:#9d97ec; --demand-soft:#312e52;
+  --supply:#4cc39a; --supply-soft:#173b2e;
+  --eq:#dcae4c; --eq-soft:#3d3320;
+  --grid:#2c2f28;
+  color-scheme: dark;
+}}
+:root[data-theme="dark"]{
+  --paper:#191b18; --card:#22251f; --ink:#ece9df; --ink-2:#aab0a2; --ink-3:#7d8375;
+  --line:#3a3e35; --line-soft:#2e3129;
+  --demand:#9d97ec; --demand-soft:#312e52;
+  --supply:#4cc39a; --supply-soft:#173b2e;
+  --eq:#dcae4c; --eq-soft:#3d3320;
+  --grid:#2c2f28;
+  color-scheme: dark;
+}
+*{box-sizing:border-box}
+body{
+  margin:0; background:var(--paper); color:var(--ink);
+  font-family:"Public Sans",system-ui,-apple-system,sans-serif; font-size:15px; line-height:1.55;
+  padding-left:max(16px, env(safe-area-inset-left, 0px));
+  padding-right:max(16px, env(safe-area-inset-right, 0px));
+  padding-block:0 48px;
+}
+.wrap{max-width:960px; margin:0 auto}
+header{padding:36px 0 20px; border-bottom:1px solid var(--line)}
+.kicker{font-size:12px; letter-spacing:0.14em; text-transform:uppercase; color:var(--ink-3); font-weight:600; margin:0 0 8px}
+h1{font-family:"Newsreader",Georgia,serif; font-weight:600; font-size:clamp(28px,5vw,40px); line-height:1.1; margin:0 0 10px; text-wrap:balance}
+.lede{color:var(--ink-2); max-width:62ch; margin:0}
+.lede em{font-style:italic}
+h2{font-family:"Newsreader",Georgia,serif; font-weight:600; font-size:21px; margin:0 0 4px}
+.sub{color:var(--ink-3); font-size:13px; margin:0 0 14px}
+
+.scenarios{display:flex; flex-wrap:wrap; gap:8px; margin:22px 0 6px}
+.scenarios button{
+  font:inherit; font-size:13.5px; font-weight:500; color:var(--ink);
+  background:var(--card); border:1px solid var(--line); border-radius:999px;
+  padding:7px 14px; cursor:pointer;
+}
+.scenarios button:hover{border-color:var(--ink-3)}
+.scenarios button.on{background:var(--eq-soft); border-color:var(--eq); color:var(--ink)}
+.scenarios button:focus-visible, input:focus-visible, .reset:focus-visible{outline:2px solid var(--eq); outline-offset:2px}
+
+.explain{
+  background:var(--card); border:1px solid var(--line); border-left:3px solid var(--eq); border-radius:0 8px 8px 0;
+  padding:12px 16px; margin:12px 0 22px; color:var(--ink-2); font-size:14px; max-width:72ch;
+}
+.explain strong{color:var(--ink)}
+.explain code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:.92em; color:var(--ink)}
+
+.stage{display:grid; grid-template-columns:minmax(0,1.6fr) minmax(240px,1fr); gap:24px; align-items:start}
+@media (max-width:720px){ .stage{grid-template-columns:1fr} }
+
+.chartcard{background:var(--card); border:1px solid var(--line); border-radius:10px; padding:14px 12px 8px; min-width:0}
+svg{display:block; width:100%; height:auto}
+.ax{stroke:var(--ink-2); stroke-width:1.4}
+.gridline{stroke:var(--grid); stroke-width:1}
+.guide{stroke:var(--ink-3); stroke-width:1; stroke-dasharray:3 4}
+.ghost{stroke:var(--ink-3); stroke-width:1.6; stroke-dasharray:6 5; opacity:.55}
+.curve-d{stroke:var(--demand); stroke-width:2.6; fill:none}
+.curve-s{stroke:var(--supply); stroke-width:2.6; fill:none}
+.curve-e{stroke:var(--eq); stroke-width:2.2; fill:none}
+.area-d{fill:var(--demand); opacity:.22}
+.area-s{fill:var(--supply); opacity:.22}
+.area-e{fill:var(--eq); opacity:.3}
+text{font-family:"Public Sans",system-ui,sans-serif}
+.tl{font-size:12px; fill:var(--ink-2)}
+.tlab{font-size:13px; font-weight:600; fill:var(--ink)}
+.tax{font-size:12.5px; fill:var(--ink-2)}
+.tnum{font-size:12px; font-weight:600; fill:var(--ink); font-variant-numeric:tabular-nums}
+.tnum1{font-size:12px; fill:var(--ink-3); font-variant-numeric:tabular-nums}
+
+.panel{display:flex; flex-direction:column; gap:14px; min-width:0}
+.ctl{background:var(--card); border:1px solid var(--line); border-radius:10px; padding:14px 16px}
+.ctl .row{display:flex; justify-content:space-between; align-items:baseline; gap:8px; margin-bottom:6px}
+.ctl label{font-weight:600; font-size:13.5px}
+.ctl label .swatch{display:inline-block; width:9px; height:9px; border-radius:2px; margin-right:7px; vertical-align:1px}
+.ctl output{font-size:12.5px; color:var(--ink-2); font-variant-numeric:tabular-nums}
+input[type=range]{width:100%; accent-color:var(--eq); margin:2px 0 0}
+.ends{display:flex; justify-content:space-between; font-size:11px; color:var(--ink-3); margin-top:2px}
+
+.reset{
+  font:inherit; font-size:13.5px; font-weight:600; color:var(--ink);
+  background:none; border:1px solid var(--line); border-radius:8px; padding:9px 14px; cursor:pointer;
+}
+.reset:hover{border-color:var(--ink-3)}
+
+.results{display:grid; grid-template-columns:repeat(auto-fit,minmax(170px,1fr)); gap:12px; margin:24px 0 8px}
+.stat{background:var(--card); border:1px solid var(--line); border-radius:10px; padding:12px 16px}
+.stat .k{font-size:12px; letter-spacing:0.06em; text-transform:uppercase; color:var(--ink-3); font-weight:600; margin:0 0 4px}
+.stat .v{font-family:"Newsreader",Georgia,serif; font-size:24px; font-weight:600; margin:0; font-variant-numeric:tabular-nums}
+.stat .d{font-size:12.5px; margin:2px 0 0; color:var(--ink-2); font-variant-numeric:tabular-nums}
+.up{color:var(--supply)} .down{color:var(--demand)}
+.stat.verdict .v{font-size:16px; font-family:"Public Sans",system-ui,sans-serif; line-height:1.45; font-weight:600}
+
+.note{
+  border-top:1px solid var(--line); margin-top:26px; padding-top:16px;
+  color:var(--ink-2); font-size:14px; max-width:72ch;
+}
+.note strong{color:var(--ink)}
+@media (prefers-reduced-motion:no-preference){
+  .curve-d,.curve-s,.ghost,.guide,circle{transition:all .18s ease-out}
+}
+
+</style>
+<div class="wrap">
+<header>
+  <p class="kicker">Finance and the Economy · Seminar 3 · Elasticity</p>
+  <h1>Using elasticity to set a price</h1>
+  <p class="lede">If PED is known, the price change needed for a target fall in smoking follows from rearranging the formula: <em>% change in price = % change in quantity ÷ PED</em>. Questions 4 and 5, adapted from <em>Economics for Business</em> (Sloman, Garratt, Guest &amp; Jones) and <em>Business Economics</em> (Mankiw, Taylor &amp; Ashwin, ch. 5).</p>
+</header>
+
+<div class="scenarios" role="group" aria-label="Scenarios">
+  <button data-e="0.4" data-t="20" data-p="9" data-x="<strong>Q5(a).</strong> PED is 0.4 and the target is a 20% cut. Required price rise = 0.20 ÷ 0.4 = 0.5, i.e. <strong>50%</strong>. A £9 pack should go to £9 × 1.5 = <strong>£13.50</strong>.">Q5(a): PED 0.4, cut 20%</button>
+  <button data-e="0.6" data-t="6" data-p="9" data-x="<strong>Q4.</strong> The mid-1990s estimate was a 6% fall for every 10% rise. Read the chart the other way round: PED = −0.06 ÷ 0.10 = <strong>−0.6</strong>. Here the target is set to 6% so the required rise shows as 10%.">Q4: 10% rise → 6% fall</button>
+  <button data-e="0.8" data-t="20" data-p="9" data-x="<strong>Q5(b): the long run.</strong> Smoking is addictive, so demand is more elastic five years on than one year on. With the same 20% target a higher PED needs a smaller price rise; equally, the original 50% rise would cut smoking by more than 20% in the long run.">Q5(b): five years on (PED 0.8)</button>
+  <button data-e="1.0" data-t="20" data-p="9" data-x="<strong>Q5(c): teenagers.</strong> Lower incomes and shorter smoking histories make teenagers more price-sensitive. The same policy bites harder on them, which is part of its public-health logic.">Q5(c): teenagers (PED 1.0)</button>
+</div>
+<div class="explain" id="explain" aria-live="polite">Pick a scenario or set PED, the target cut and the current price yourself. Quantity is indexed so that today&rsquo;s consumption = 100.</div>
+<div class="stage">
+  <div class="chartcard"><svg id="svg" viewBox="0 0 560 430" role="img" aria-label="Demand for cigarettes with current and target points"></svg></div>
+  <div class="panel">
+    <div class="ctl"><div class="row"><label for="e"><span class="swatch" style="background:var(--demand)"></span>Price elasticity of demand (|PED|)</label><output id="eOut"></output></div><input type="range" id="e" min="0.1" max="2" value="0.4" step="0.05" aria-label="Price elasticity of demand (|PED|)"><div class="ends"><span>inelastic</span><span>elastic</span></div></div><div class="ctl"><div class="row"><label for="t"><span class="swatch" style="background:var(--eq)"></span>Target cut in smoking (%)</label><output id="tOut"></output></div><input type="range" id="t" min="5" max="60" value="20" step="1" aria-label="Target cut in smoking (%)"><div class="ends"><span>small</span><span>large</span></div></div><div class="ctl"><div class="row"><label for="p0"><span class="swatch" style="background:var(--eq)"></span>Current price per pack (£)</label><output id="p0Out"></output></div><input type="range" id="p0" min="5" max="15" value="9" step="0.5" aria-label="Current price per pack (£)"><div class="ends"><span></span><span></span></div></div>
+    <button class="reset" id="reset">Reset to Q5(a)</button>
+  </div>
+</div>
+<div class="results">
+  <div class="stat "><p class="k">Required price rise</p><p class="v" id="rise"></p><p class="d" id="riseD"></p></div><div class="stat "><p class="k">New price</p><p class="v" id="np"></p><p class="d" id="npD"></p></div><div class="stat "><p class="k">Consumption index</p><p class="v" id="nq"></p><p class="d" id="nqD"></p></div><div class="stat verdict"><p class="k">Reading</p><p class="v" id="verdict"></p><p class="d" id="verdictD"></p></div>
+</div>
+<p class="note"><strong>Caution.</strong> The formula treats PED as constant along the curve, which is a fair approximation for modest changes. For a 50% price rise the true response could differ, and the elasticity itself drifts as price climbs along a straight-line demand curve.</p>
+
+</div>
+<script>
+var $=function(id){ return document.getElementById(id); };
+function chart(svg,o){
+  var X0=58,X1=546,Y0=384,Y1=14;
+  function X(x){ return X0+(X1-X0)*(x-o.xmin)/(o.xmax-o.xmin); }
+  function Y(y){ return Y0-(Y0-Y1)*(y-o.ymin)/(o.ymax-o.ymin); }
+  var h='';
+  o.xticks.forEach(function(v){ h+='<line class="gridline" x1="'+X(v)+'" y1="'+Y0+'" x2="'+X(v)+'" y2="'+Y1+'"/><text class="tax" x="'+X(v)+'" y="406" text-anchor="middle">'+(o.fx?o.fx(v):v)+'</text>'; });
+  o.yticks.forEach(function(v){ h+='<line class="gridline" x1="'+X0+'" y1="'+Y(v)+'" x2="'+X1+'" y2="'+Y(v)+'"/>'; if(v!==o.ymax) h+='<text class="tax" x="'+(X0-8)+'" y="'+(Y(v)+4)+'" text-anchor="end">'+(o.fy?o.fy(v):v)+'</text>'; });
+  h+='<line class="ax" x1="58" y1="14" x2="58" y2="384"/><line class="ax" x1="58" y1="384" x2="546" y2="384"/>';
+  h+='<text class="tax" x="14" y="24">'+o.ylab+'</text><text class="tax" x="546" y="424" text-anchor="end">'+o.xlab+'</text>';
+  svg.innerHTML='<g>'+h+'</g><g id="art"></g>';
+  return {X:X,Y:Y,X0:X0,X1:X1,Y0:Y0,Y1:Y1,o:o,art:svg.querySelector('#art')};
+}
+function lineY(c,m,k,cls){
+  var o=c.o, lo=o.xmin, hi=o.xmax;
+  if(m!==0){ var xa=(o.ymin-k)/m, xb=(o.ymax-k)/m; lo=Math.max(lo,Math.min(xa,xb)); hi=Math.min(hi,Math.max(xa,xb)); }
+  if(lo>=hi) return '';
+  return '<line class="'+cls+'" x1="'+c.X(lo)+'" y1="'+c.Y(m*lo+k)+'" x2="'+c.X(hi)+'" y2="'+c.Y(m*hi+k)+'"/>';
+}
+function vline(c,x,cls){ return '<line class="'+cls+'" x1="'+c.X(x)+'" y1="'+c.Y1+'" x2="'+c.X(x)+'" y2="'+c.Y0+'"/>'; }
+function hline(c,y,cls){ return '<line class="'+cls+'" x1="'+c.X0+'" y1="'+c.Y(y)+'" x2="'+c.X1+'" y2="'+c.Y(y)+'"/>'; }
+function poly(c,pts,cls){ return '<polygon class="'+cls+'" points="'+pts.map(function(p){ return c.X(p[0])+','+c.Y(p[1]); }).join(' ')+'"/>'; }
+function dot(c,x,y,fill,r){ return '<circle cx="'+c.X(x)+'" cy="'+c.Y(y)+'" r="'+(r||5)+'" fill="'+(fill||'var(--eq)')+'"/>'; }
+function ring(c,x,y){ return '<circle cx="'+c.X(x)+'" cy="'+c.Y(y)+'" r="3.5" fill="none" stroke="var(--ink-3)" stroke-width="1.4"/>'; }
+function txt(c,x,y,s,opt){ opt=opt||{}; var bg='';
+  if(opt.bg){ var w=s.replace(/&[^;]+;/g,'x').length*7+6, ax=c.X(x)+(opt.dx||0), rx=opt.anchor==='end'?ax-w+3:opt.anchor==='middle'?ax-w/2:ax-3; bg='<rect x="'+rx+'" y="'+(c.Y(y)+(opt.dy||0)-11)+'" width="'+w+'" height="14" rx="3" fill="var(--card)"/>'; }
+  return bg+'<text class="'+(opt.cls||'tlab')+'" x="'+(c.X(x)+(opt.dx||0))+'" y="'+(c.Y(y)+(opt.dy||0))+'" text-anchor="'+(opt.anchor||'start')+'"'+(opt.fill?' fill="'+opt.fill+'"':'')+'>'+s+'</text>'; }
+function guide(c,x,y){ return '<line class="guide" x1="'+c.X0+'" y1="'+c.Y(y)+'" x2="'+c.X(x)+'" y2="'+c.Y(y)+'"/><line class="guide" x1="'+c.X(x)+'" y1="'+c.Y(y)+'" x2="'+c.X(x)+'" y2="'+c.Y0+'"/>'; }
+function path(c,pts,cls){ return '<polyline class="'+cls+'" points="'+pts.map(function(p){ return c.X(p[0])+','+c.Y(p[1]); }).join(' ')+'"/>'; }
+function wire(btns, sliders, onBtn, render, freeText){
+  function clear(){ btns.forEach(function(b){ b.classList.remove('on'); }); }
+  btns.forEach(function(b){ b.addEventListener('click', function(){ clear(); b.classList.add('on'); onBtn(b); $('explain').innerHTML=b.dataset.x; render(); }); });
+  sliders.forEach(function(s){ s.addEventListener('input', function(){ clear(); $('explain').innerHTML=freeText; render(); }); });
+  return clear;
+}
+function fmt(n,d){ return n.toLocaleString('en-GB',{minimumFractionDigits:d,maximumFractionDigits:d}); }
+
+
+var c=chart($('svg'),{xmin:0,xmax:140,ymin:0,ymax:20,xticks:[0,20,40,60,80,100,120,140],yticks:[0,5,10,15,20],fy:function(v){return '£'+v;},xlab:'Consumption (index, today = 100)',ylab:'Price per pack (£)'});
+function render(){
+  var e=+$('e').value, t=+$('t').value, p0=+$('p0').value;
+  $('eOut').textContent=fmt(e,2); $('tOut').textContent='−'+t+'%'; $('p0Out').textContent='£'+fmt(p0,2);
+  var rise=t/(100*e), p1=p0*(1+rise), q1=100-t;
+  var m=-p0/(100*e), k=p0+p0/e;
+  var h=lineY(c,m,k,'curve-d')+guide(c,100,p0)+guide(c,q1,p1);
+  h+='<line class="curve-e" stroke-dasharray="5 4" x1="'+c.X(100)+'" y1="'+c.Y(p0)+'" x2="'+c.X(q1)+'" y2="'+c.Y(p1)+'"/>';
+  h+=dot(c,100,p0,'var(--demand)')+dot(c,q1,p1,'var(--eq)');
+  h+=txt(c,100,p0,'today: £'+fmt(p0,2),{dx:9,dy:16})+txt(c,q1,p1,'target: £'+fmt(p1,2),{dx:9,dy:-8});
+  c.art.innerHTML=h;
+  $('rise').textContent='+'+fmt(rise*100,1)+'%'; $('riseD').textContent='= '+fmt(t/100,2)+' ÷ '+fmt(e,2);
+  $('np').textContent='£'+fmt(p1,2); $('npD').textContent='£'+fmt(p0,2)+' × '+fmt(1+rise,2);
+  $('nq').textContent=fmt(q1,0); $('nqD').textContent='from 100, a '+t+'% fall';
+  $('verdict').textContent=e<1?'Inelastic demand: the price must rise by more than the fall you want in consumption.':e===1?'Unit elastic: price and quantity change by the same proportion.':'Elastic demand: a smaller price rise delivers the target.';
+  $('verdictD').textContent='';
+}
+var btns=[].slice.call(document.querySelectorAll('.scenarios button'));
+var clear=wire(btns,[$('e'),$('t'),$('p0')],function(b){ $('e').value=b.dataset.e; $('t').value=b.dataset.t; $('p0').value=b.dataset.p; },render,'Free exploration: the required rise is the target cut divided by PED.');
+$('reset').addEventListener('click',function(){ $('e').value=0.4; $('t').value=20; $('p0').value=9; clear(); $('explain').textContent='Pick a scenario or set PED, the target cut and the current price yourself. Quantity is indexed so that today\u2019s consumption = 100.'; render(); });
+render();
+
+</script>
+</body></html>

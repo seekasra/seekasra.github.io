@@ -1,0 +1,218 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Oasis tickets: dynamic pricing</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,500;6..72,600&family=Public+Sans:wght@400;500;600&display=swap">
+<style>
+/* Layout: single-column scholarly page — chart as centrepiece, controls beside it, scenarios as a worked-answer rail */
+:root{
+  --paper:#f7f6f1; --card:#ffffff; --ink:#20231f; --ink-2:#5c6157; --ink-3:#8a8f83;
+  --line:#dcdcd2; --line-soft:#e9e8df;
+  --demand:#5b54c7; --demand-soft:#eceafb;
+  --supply:#1d8a66; --supply-soft:#e2f3ec;
+  --eq:#b07c1a; --eq-soft:#f6ecd6;
+  --grid:#e8e7dc;
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
+  --paper:#191b18; --card:#22251f; --ink:#ece9df; --ink-2:#aab0a2; --ink-3:#7d8375;
+  --line:#3a3e35; --line-soft:#2e3129;
+  --demand:#9d97ec; --demand-soft:#312e52;
+  --supply:#4cc39a; --supply-soft:#173b2e;
+  --eq:#dcae4c; --eq-soft:#3d3320;
+  --grid:#2c2f28;
+  color-scheme: dark;
+}}
+:root[data-theme="dark"]{
+  --paper:#191b18; --card:#22251f; --ink:#ece9df; --ink-2:#aab0a2; --ink-3:#7d8375;
+  --line:#3a3e35; --line-soft:#2e3129;
+  --demand:#9d97ec; --demand-soft:#312e52;
+  --supply:#4cc39a; --supply-soft:#173b2e;
+  --eq:#dcae4c; --eq-soft:#3d3320;
+  --grid:#2c2f28;
+  color-scheme: dark;
+}
+*{box-sizing:border-box}
+body{
+  margin:0; background:var(--paper); color:var(--ink);
+  font-family:"Public Sans",system-ui,-apple-system,sans-serif; font-size:15px; line-height:1.55;
+  padding-left:max(16px, env(safe-area-inset-left, 0px));
+  padding-right:max(16px, env(safe-area-inset-right, 0px));
+  padding-block:0 48px;
+}
+.wrap{max-width:960px; margin:0 auto}
+header{padding:36px 0 20px; border-bottom:1px solid var(--line)}
+.kicker{font-size:12px; letter-spacing:0.14em; text-transform:uppercase; color:var(--ink-3); font-weight:600; margin:0 0 8px}
+h1{font-family:"Newsreader",Georgia,serif; font-weight:600; font-size:clamp(28px,5vw,40px); line-height:1.1; margin:0 0 10px; text-wrap:balance}
+.lede{color:var(--ink-2); max-width:62ch; margin:0}
+.lede em{font-style:italic}
+h2{font-family:"Newsreader",Georgia,serif; font-weight:600; font-size:21px; margin:0 0 4px}
+.sub{color:var(--ink-3); font-size:13px; margin:0 0 14px}
+
+.scenarios{display:flex; flex-wrap:wrap; gap:8px; margin:22px 0 6px}
+.scenarios button{
+  font:inherit; font-size:13.5px; font-weight:500; color:var(--ink);
+  background:var(--card); border:1px solid var(--line); border-radius:999px;
+  padding:7px 14px; cursor:pointer;
+}
+.scenarios button:hover{border-color:var(--ink-3)}
+.scenarios button.on{background:var(--eq-soft); border-color:var(--eq); color:var(--ink)}
+.scenarios button:focus-visible, input:focus-visible, .reset:focus-visible{outline:2px solid var(--eq); outline-offset:2px}
+
+.explain{
+  background:var(--card); border:1px solid var(--line); border-left:3px solid var(--eq); border-radius:0 8px 8px 0;
+  padding:12px 16px; margin:12px 0 22px; color:var(--ink-2); font-size:14px; max-width:72ch;
+}
+.explain strong{color:var(--ink)}
+.explain code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:.92em; color:var(--ink)}
+
+.stage{display:grid; grid-template-columns:minmax(0,1.6fr) minmax(240px,1fr); gap:24px; align-items:start}
+@media (max-width:720px){ .stage{grid-template-columns:1fr} }
+
+.chartcard{background:var(--card); border:1px solid var(--line); border-radius:10px; padding:14px 12px 8px; min-width:0}
+svg{display:block; width:100%; height:auto}
+.ax{stroke:var(--ink-2); stroke-width:1.4}
+.gridline{stroke:var(--grid); stroke-width:1}
+.guide{stroke:var(--ink-3); stroke-width:1; stroke-dasharray:3 4}
+.ghost{stroke:var(--ink-3); stroke-width:1.6; stroke-dasharray:6 5; opacity:.55}
+.curve-d{stroke:var(--demand); stroke-width:2.6; fill:none}
+.curve-s{stroke:var(--supply); stroke-width:2.6; fill:none}
+.curve-e{stroke:var(--eq); stroke-width:2.2; fill:none}
+.area-d{fill:var(--demand); opacity:.22}
+.area-s{fill:var(--supply); opacity:.22}
+.area-e{fill:var(--eq); opacity:.3}
+text{font-family:"Public Sans",system-ui,sans-serif}
+.tl{font-size:12px; fill:var(--ink-2)}
+.tlab{font-size:13px; font-weight:600; fill:var(--ink)}
+.tax{font-size:12.5px; fill:var(--ink-2)}
+.tnum{font-size:12px; font-weight:600; fill:var(--ink); font-variant-numeric:tabular-nums}
+.tnum1{font-size:12px; fill:var(--ink-3); font-variant-numeric:tabular-nums}
+
+.panel{display:flex; flex-direction:column; gap:14px; min-width:0}
+.ctl{background:var(--card); border:1px solid var(--line); border-radius:10px; padding:14px 16px}
+.ctl .row{display:flex; justify-content:space-between; align-items:baseline; gap:8px; margin-bottom:6px}
+.ctl label{font-weight:600; font-size:13.5px}
+.ctl label .swatch{display:inline-block; width:9px; height:9px; border-radius:2px; margin-right:7px; vertical-align:1px}
+.ctl output{font-size:12.5px; color:var(--ink-2); font-variant-numeric:tabular-nums}
+input[type=range]{width:100%; accent-color:var(--eq); margin:2px 0 0}
+.ends{display:flex; justify-content:space-between; font-size:11px; color:var(--ink-3); margin-top:2px}
+
+.reset{
+  font:inherit; font-size:13.5px; font-weight:600; color:var(--ink);
+  background:none; border:1px solid var(--line); border-radius:8px; padding:9px 14px; cursor:pointer;
+}
+.reset:hover{border-color:var(--ink-3)}
+
+.results{display:grid; grid-template-columns:repeat(auto-fit,minmax(170px,1fr)); gap:12px; margin:24px 0 8px}
+.stat{background:var(--card); border:1px solid var(--line); border-radius:10px; padding:12px 16px}
+.stat .k{font-size:12px; letter-spacing:0.06em; text-transform:uppercase; color:var(--ink-3); font-weight:600; margin:0 0 4px}
+.stat .v{font-family:"Newsreader",Georgia,serif; font-size:24px; font-weight:600; margin:0; font-variant-numeric:tabular-nums}
+.stat .d{font-size:12.5px; margin:2px 0 0; color:var(--ink-2); font-variant-numeric:tabular-nums}
+.up{color:var(--supply)} .down{color:var(--demand)}
+.stat.verdict .v{font-size:16px; font-family:"Public Sans",system-ui,sans-serif; line-height:1.45; font-weight:600}
+
+.note{
+  border-top:1px solid var(--line); margin-top:26px; padding-top:16px;
+  color:var(--ink-2); font-size:14px; max-width:72ch;
+}
+.note strong{color:var(--ink)}
+@media (prefers-reduced-motion:no-preference){
+  .curve-d,.curve-s,.ghost,.guide,circle{transition:all .18s ease-out}
+}
+
+</style>
+<div class="wrap">
+<header>
+  <p class="kicker">Finance and the Economy · Seminar 3 · Elasticity</p>
+  <h1>Dynamic pricing with a fixed arena</h1>
+  <p class="lede">Supply is vertical at the arena capacity. When demand surges from <em>D₁</em> to <em>D₂</em>, the promoter can hold the £148 face value or let the price rise. Shift demand and set the price to see who captures the surplus. Question 8, adapted from Sloman, Garratt, Guest &amp; Jones and the 2024 news coverage.</p>
+</header>
+
+<div class="scenarios" role="group" aria-label="Scenarios">
+  <button data-d="0" data-p="148" data-x="<strong>Face value, normal demand.</strong> At £148 the arena just sells out on D₁. Consumer surplus is the triangle <strong>A</strong> under D₁ and above £148.">1 · £148 on D₁</button>
+  <button data-d="207" data-p="148" data-x="<strong>Demand surges, price held.</strong> On D₂, far more fans want tickets at £148 than there are seats. Consumer surplus for those who get in balloons to <strong>A + B</strong>, but the excess demand is what touts resell: a market failure, not the market failing.">2 · Surge, still £148</button>
+  <button data-d="207" data-p="355" data-x="<strong>Dynamic price £355.</strong> The promoter raises price until demand roughly matches capacity. Consumer surplus shrinks to <strong>C</strong>, which is smaller than the original A, and the difference becomes producer surplus. Fans who value the gig most still get in; the queue and the touts largely disappear.">3 · Dynamic price £355</button>
+</div>
+<div class="explain" id="explain" aria-live="polite">Pick a scenario or set the demand shift and ticket price yourself. The shaded area is consumer surplus for the fans who actually get seats.</div>
+<div class="stage">
+  <div class="chartcard"><svg id="svg" viewBox="0 0 560 430" role="img" aria-label="Oasis ticket market with vertical supply"></svg></div>
+  <div class="panel">
+    <div class="ctl"><div class="row"><label for="d"><span class="swatch" style="background:var(--demand)"></span>Demand shift (D₁ → D₂)</label><output id="dOut"></output></div><input type="range" id="d" min="0" max="300" value="207" step="1" aria-label="Demand shift (D₁ → D₂)"><div class="ends"><span>none</span><span>frenzy</span></div></div><div class="ctl"><div class="row"><label for="p"><span class="swatch" style="background:var(--eq)"></span>Ticket price (£)</label><output id="pOut"></output></div><input type="range" id="p" min="50" max="500" value="148" step="1" aria-label="Ticket price (£)"><div class="ends"><span>cheap</span><span>dear</span></div></div>
+    <button class="reset" id="reset">Reset</button>
+  </div>
+</div>
+<div class="results">
+  <div class="stat "><p class="k">Consumer surplus</p><p class="v" id="cs"></p><p class="d" id="csD"></p></div><div class="stat "><p class="k">Excess demand</p><p class="v" id="ex"></p><p class="d" id="exD"></p></div><div class="stat "><p class="k">Promoter revenue</p><p class="v" id="rev"></p><p class="d" id="revD"></p></div><div class="stat verdict"><p class="k">Reading</p><p class="v" id="verdict"></p><p class="d" id="verdictD"></p></div>
+</div>
+<p class="note"><strong>Two readings.</strong> Economists such as Simon French argue prices are signals: a market-clearing price rations seats to those who value them most and removes the gap that touts exploit. Politicians argue that excluding ordinary fans on price alone is unfair, and that the real issue is the resale market. Both agree that pricing £148 with 14 million people chasing 1.5 million tickets created the queue in the first place.</p>
+
+</div>
+<script>
+var $=function(id){ return document.getElementById(id); };
+function chart(svg,o){
+  var X0=58,X1=546,Y0=384,Y1=14;
+  function X(x){ return X0+(X1-X0)*(x-o.xmin)/(o.xmax-o.xmin); }
+  function Y(y){ return Y0-(Y0-Y1)*(y-o.ymin)/(o.ymax-o.ymin); }
+  var h='';
+  o.xticks.forEach(function(v){ h+='<line class="gridline" x1="'+X(v)+'" y1="'+Y0+'" x2="'+X(v)+'" y2="'+Y1+'"/><text class="tax" x="'+X(v)+'" y="406" text-anchor="middle">'+(o.fx?o.fx(v):v)+'</text>'; });
+  o.yticks.forEach(function(v){ h+='<line class="gridline" x1="'+X0+'" y1="'+Y(v)+'" x2="'+X1+'" y2="'+Y(v)+'"/>'; if(v!==o.ymax) h+='<text class="tax" x="'+(X0-8)+'" y="'+(Y(v)+4)+'" text-anchor="end">'+(o.fy?o.fy(v):v)+'</text>'; });
+  h+='<line class="ax" x1="58" y1="14" x2="58" y2="384"/><line class="ax" x1="58" y1="384" x2="546" y2="384"/>';
+  h+='<text class="tax" x="14" y="24">'+o.ylab+'</text><text class="tax" x="546" y="424" text-anchor="end">'+o.xlab+'</text>';
+  svg.innerHTML='<g>'+h+'</g><g id="art"></g>';
+  return {X:X,Y:Y,X0:X0,X1:X1,Y0:Y0,Y1:Y1,o:o,art:svg.querySelector('#art')};
+}
+function lineY(c,m,k,cls){
+  var o=c.o, lo=o.xmin, hi=o.xmax;
+  if(m!==0){ var xa=(o.ymin-k)/m, xb=(o.ymax-k)/m; lo=Math.max(lo,Math.min(xa,xb)); hi=Math.min(hi,Math.max(xa,xb)); }
+  if(lo>=hi) return '';
+  return '<line class="'+cls+'" x1="'+c.X(lo)+'" y1="'+c.Y(m*lo+k)+'" x2="'+c.X(hi)+'" y2="'+c.Y(m*hi+k)+'"/>';
+}
+function vline(c,x,cls){ return '<line class="'+cls+'" x1="'+c.X(x)+'" y1="'+c.Y1+'" x2="'+c.X(x)+'" y2="'+c.Y0+'"/>'; }
+function hline(c,y,cls){ return '<line class="'+cls+'" x1="'+c.X0+'" y1="'+c.Y(y)+'" x2="'+c.X1+'" y2="'+c.Y(y)+'"/>'; }
+function poly(c,pts,cls){ return '<polygon class="'+cls+'" points="'+pts.map(function(p){ return c.X(p[0])+','+c.Y(p[1]); }).join(' ')+'"/>'; }
+function dot(c,x,y,fill,r){ return '<circle cx="'+c.X(x)+'" cy="'+c.Y(y)+'" r="'+(r||5)+'" fill="'+(fill||'var(--eq)')+'"/>'; }
+function ring(c,x,y){ return '<circle cx="'+c.X(x)+'" cy="'+c.Y(y)+'" r="3.5" fill="none" stroke="var(--ink-3)" stroke-width="1.4"/>'; }
+function txt(c,x,y,s,opt){ opt=opt||{}; var bg='';
+  if(opt.bg){ var w=s.replace(/&[^;]+;/g,'x').length*7+6, ax=c.X(x)+(opt.dx||0), rx=opt.anchor==='end'?ax-w+3:opt.anchor==='middle'?ax-w/2:ax-3; bg='<rect x="'+rx+'" y="'+(c.Y(y)+(opt.dy||0)-11)+'" width="'+w+'" height="14" rx="3" fill="var(--card)"/>'; }
+  return bg+'<text class="'+(opt.cls||'tlab')+'" x="'+(c.X(x)+(opt.dx||0))+'" y="'+(c.Y(y)+(opt.dy||0))+'" text-anchor="'+(opt.anchor||'start')+'"'+(opt.fill?' fill="'+opt.fill+'"':'')+'>'+s+'</text>'; }
+function guide(c,x,y){ return '<line class="guide" x1="'+c.X0+'" y1="'+c.Y(y)+'" x2="'+c.X(x)+'" y2="'+c.Y(y)+'"/><line class="guide" x1="'+c.X(x)+'" y1="'+c.Y(y)+'" x2="'+c.X(x)+'" y2="'+c.Y0+'"/>'; }
+function path(c,pts,cls){ return '<polyline class="'+cls+'" points="'+pts.map(function(p){ return c.X(p[0])+','+c.Y(p[1]); }).join(' ')+'"/>'; }
+function wire(btns, sliders, onBtn, render, freeText){
+  function clear(){ btns.forEach(function(b){ b.classList.remove('on'); }); }
+  btns.forEach(function(b){ b.addEventListener('click', function(){ clear(); b.classList.add('on'); onBtn(b); $('explain').innerHTML=b.dataset.x; render(); }); });
+  sliders.forEach(function(s){ s.addEventListener('input', function(){ clear(); $('explain').innerHTML=freeText; render(); }); });
+  return clear;
+}
+function fmt(n,d){ return n.toLocaleString('en-GB',{minimumFractionDigits:d,maximumFractionDigits:d}); }
+
+
+var CAP=90, A1=238;
+var c=chart($('svg'),{xmin:0,xmax:200,ymin:0,ymax:600,xticks:[0,50,100,150,200],yticks:[0,148,355,600],fy:function(v){return '£'+v;},xlab:'Tickets (thousands)',ylab:'Price (£)'});
+function render(){
+  var d=+$('d').value, p=+$('p').value;
+  $('dOut').textContent=d===0?'no shift':'+'+d; $('pOut').textContent='£'+p;
+  var a=A1+d, qd=Math.max(0,a-p), sold=Math.min(qd,CAP), h='';
+  var cs = qd<=CAP ? 0.5*qd*(a-p) : CAP*(a-p)-0.5*CAP*CAP;
+  var pts = qd<=CAP ? [[0,p],[0,Math.min(a,600)],[qd,p]] : [[0,p],[0,Math.min(a,600)],[Math.max(0,a-600),600],[CAP,a-CAP],[CAP,p]];
+  if(qd>0) h+=poly(c,pts,'area-d');
+  h+=vline(c,CAP,'curve-s')+lineY(c,-1,A1,d>0?'ghost':'curve-d');
+  if(d>0) h+=lineY(c,-1,a,'curve-d');
+  h+=hline(c,p,'guide');
+  if(qd>CAP) h+='<line class="curve-e" x1="'+c.X(CAP)+'" y1="'+c.Y(p)+'" x2="'+c.X(Math.min(qd,200))+'" y2="'+c.Y(p)+'"/>';
+  h+=dot(c,sold,p);
+  h+=txt(c,CAP,590,'Supply (capacity)',{dx:8,fill:'var(--supply)'})+txt(c,0,p,'£'+p,{anchor:'end',dx:-8,dy:4,cls:'tnum',bg:true});
+  h+=txt(c,Math.min(200,A1),Math.max(0,A1-200),'D₁',{dx:-22,dy:-6,fill:'var(--demand)'});
+  if(d>0) h+=txt(c,Math.min(200,a),Math.max(0,a-200),'D₂',{dx:-22,dy:-6,fill:'var(--demand)'});
+  if(qd>CAP) h+=txt(c,(CAP+Math.min(qd,200))/2,p,'excess demand',{anchor:'middle',dy:-8,cls:'tl',fill:'var(--eq)'});
+  c.art.innerHTML=h;
+  $('cs').textContent='£'+fmt(cs/1000,2)+'m'; $('csD').textContent='for the '+fmt(sold,0)+'k fans with seats';
+  $('ex').textContent=fmt(Math.max(0,qd-CAP),0)+'k fans'; $('exD').textContent=qd>CAP?'want tickets but cannot get one':'none: the price clears the market';
+  $('rev').textContent='£'+fmt(p*sold/1000,1)+'m'; $('revD').textContent=fmt(sold,0)+'k × £'+p;
+  $('verdict').textContent=qd>CAP+1?'Shortage: tickets are rationed by queue and resold by touts.':qd<CAP-1?'Empty seats: the price is above what the arena can sell.':'Market clears: the price rations the seats.';
+  $('verdictD').textContent='';
+}
+var btns=[].slice.call(document.querySelectorAll('.scenarios button'));
+var clear=wire(btns,[$('d'),$('p')],function(b){ $('d').value=b.dataset.d; $('p').value=b.dataset.p; },render,'Free exploration: try to find the price that just fills the arena on the current demand curve.');
+$('reset').addEventListener('click',function(){ $('d').value=207; $('p').value=148; clear(); $('explain').textContent='Pick a scenario or set the demand shift and ticket price yourself. The shaded area is consumer surplus for the fans who actually get seats.'; render(); });
+render();
+
+</script>
+</body></html>
