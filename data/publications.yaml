@@ -3,16 +3,6 @@
 # layouts/shortcodes/publications.html. Keep entries ordered newest-first;
 # the shortcode groups them under year headings in this order.
 
-- year: 2026
-  title: "From Feed To Behaviour: Investigating Gambling-Related TikTok Content Exposure Among UK Youth"
-  authors: "M. Burghelea, K. Kassai"
-  venue: "Academy of Marketing Conference Proceedings 2026, Academy of Marketing (AM) 2026 Conference, Manchester (Accepted/In press)"
-  links:
-    - name: "LSBU Research Portal"
-      url: "https://researchportal.lsbu.ac.uk/en/publications/from-feed-to-behaviour-investigating-gambling-related-tiktok-cont/"
-    - name: "Google Scholar"
-      url: "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=zABNP3sAAAAJ&citation_for_view=zABNP3sAAAAJ:0EnyYjriUFMC"
-
 - year: 2024
   title: "Federated Learning for Energy Efficiency in 6G"
   authors: "S. Bashir, T. Dagiuklas, K. Kassai, M. Iqbal"

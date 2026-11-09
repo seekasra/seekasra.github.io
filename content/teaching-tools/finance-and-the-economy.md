@@ -2,7 +2,7 @@
 title: "Finance and the Economy: interactive tools"
 date: 2026-10-20
 hideMeta: true
-description: "Interactive simulators for the Finance and the Economy module at LSBU Business School, covering Seminars 2 to 10 from market forces and elasticity through costs, pricing and finance to macroeconomics, policy and global trade."
+description: "Interactive simulators for the Finance and the Economy module at London South Bank University, covering Seminars 2 to 10 from market forces and elasticity through costs, pricing and finance to macroeconomics, policy and global trade."
 ---
 
 Twenty-seven interactive simulators covering Seminars 2 to 10 of the module. Each one takes a seminar question and makes it adjustable, so you can test a prediction before you read the answer.

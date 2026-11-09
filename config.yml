@@ -22,14 +22,11 @@ menu:
         - name: PhD Position
           url: /phd/
           weight: 25
-        - name: Location
-          url: /location/
-          weight: 30
 
 params:
-    description: "Dr Kasra Kassai, Lecturer in Digital Analytics at London South Bank University, researching machine learning, edge computing, and sustainable, energy-efficient computing."
+    description: "Dr Kasra Kassai, Lecturer in Computer Science at London South Bank University, researching machine learning, edge computing, and sustainable, energy-efficient computing."
     # Appended to the homepage <title> only (role + institution for SEO keyword coverage).
-    titleSuffix: "Lecturer in Digital Analytics, LSBU"
+    titleSuffix: "Lecturer in Computer Science, LSBU"
     # Search engine ownership verification — paste the codes from Google Search
     # Console and Bing Webmaster Tools here to emit the verification meta tags.
     googleSiteVerification: ""
@@ -43,7 +40,6 @@ params:
         - carbon-aware computing
         - federated learning
         - 6G
-        - digital analytics
         - London South Bank University
     author: Dr Kasra Kassai
     # Research topics emitted as schema.org Person.knowsAbout (entity signal for
@@ -57,7 +53,6 @@ params:
         - Energy-efficient computing
         - Federated learning
         - 6G networks
-        - Digital analytics
     images: ["picture.jpeg"]
     googleAnalyticsID: "G-FG4G69K8BE"
     DateFormat: "January 2006"
@@ -81,7 +76,7 @@ params:
     profileMode:
           enabled: true
           title: Dr Kasra Kassai
-          subtitle: "I'm a Lecturer in Digital Analytics at London South Bank University, where I deliver teaching and research in the area of machine learning, edge computing, and sustainable computing practices. My work focuses on creating practical solutions for energy-efficient systems and carbon-aware applications. I hold a PhD degree in Computer Science from London South Bank University, BSc (Hons) in Computer Science and an MSc in Software Engineering from City, University of London. My PhD was under supervision of Professor Tasos Dagiuklas, contributing to frameworks for sustainable computing in 6G."
+          subtitle: "I'm a Lecturer in Computer Science in the School of Computer Science at London South Bank University, in a combined teaching and research role spanning machine learning, edge computing and sustainable computing. My work focuses on practical solutions for energy-efficient systems and carbon-aware applications, including carbon-aware orchestration and ML-based energy estimation. Before this I was a Lecturer in Digital Analytics, Course Leader for BSc (Hons) Business Management and co-lead of the Business and Economics Insights research group. My PhD in Computer Science, supervised by Professor Tasos Dagiuklas, contributed to frameworks for sustainable computing in 6G. I also hold a BSc (Hons) in IT Engineering (Computer Science) and an MSc in Software Engineering from City, University of London."
           imageUrl: "picture.jpeg"
           imageTitle: "Dr Kasra Kassai"
           imageWidth: 160

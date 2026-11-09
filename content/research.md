@@ -2,14 +2,14 @@
 title: "Research"
 date: 2026-09-20
 hideMeta: true
-description: "Dr Kasra Kassai's research on sustainable and carbon-aware computing, federated learning, edge–cloud orchestration for 6G, and digital analytics at London South Bank University."
+description: "Dr Kasra Kassai's research on sustainable and carbon-aware computing, federated learning, and edge–cloud orchestration for 6G at London South Bank University."
 ---
 
 ## Overview
 
 I work at the intersection of machine learning and sustainable systems, building practical methods that make computing more energy-efficient and carbon-aware — from the edge to the cloud, and toward 6G networks. My aim is applied, impact-driven research: turning ideas about greener computing into systems that can actually run in production.
 
-My PhD, completed at London South Bank University under the supervision of Professor Tasos Dagiuklas, contributed frameworks for sustainable computing in 6G. That work continues to shape the four themes below.
+My PhD, supervised by Professor Tasos Dagiuklas, contributed frameworks for sustainable computing in 6G. That work continues to shape the three themes below.
 
 ## Research themes
 
@@ -25,13 +25,9 @@ Training models across many devices without centralising data raises hard proble
 
 Getting workloads to the right place at the right time is central to efficient, low-latency systems. Building on my early work on the evolution of orchestration towards 5G, I study intelligent orchestration that combines real-time telemetry, carbon monitoring, and optimisation to place and schedule workloads across the edge–cloud continuum.
 
-### Digital analytics and societal impact
-
-As a Lecturer in Digital Analytics, I also apply data-driven methods to questions of online behaviour and its social consequences — for example, investigating how young people in the UK are exposed to gambling-related content on platforms such as TikTok.
-
 ## Background
 
-I hold a PhD in Computer Science from London South Bank University, a BSc (Hons) in Computer Science, and an MSc in Software Engineering from City, University of London. I have completed the [Advance HE Research Leadership Development Programme](https://credentials.advance-he.ac.uk/2666639b-ffa9-41ca-97e3-d56750468b54).
+I hold a PhD in Computer Science, as well as a BSc (Hons) in IT Engineering (Computer Science) and an MSc in Software Engineering from City, University of London. I have completed the [Advance HE Research Leadership Development Programme](https://credentials.advance-he.ac.uk/2666639b-ffa9-41ca-97e3-d56750468b54).
 
 A full list of my papers is on the [Publications](/publications/) page, with links to Google Scholar, the LSBU Research Portal, and DOIs where available.
 
