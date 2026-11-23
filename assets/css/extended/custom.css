@@ -129,3 +129,8 @@
         box-shadow: 0 0 6px 1px rgba(34, 197, 94, 0.9);
     }
 }
+
+/* Homepage bio: separate the "Previously" and "Education" paragraphs */
+.profile_inner > span > p:nth-of-type(n+3) {
+    margin-top: 0.9em;
+}
