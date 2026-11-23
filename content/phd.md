@@ -2,7 +2,7 @@
 title: "PhD Position"
 date: 2026-06-17
 hideMeta: true
-description: "Funded PhD position with Dr Kasra Kassai in machine learning, edge computing, and sustainable computing at London South Bank University."
+description: "Fee-waiver PhD scholarship with Dr Kasra Kassai in machine learning, edge computing, and sustainable computing at London South Bank University."
 ---
 
 ## Open PhD positions
@@ -23,10 +23,10 @@ Both positions are:
 
 + 🗓️ Start: September 2026
 
-### Position 2 <span class="status status--open"><span class="led"></span>Receiving applications</span>
+### Position 2 <span class="status status--open"><span class="led"></span>Deadline extended</span>
 
 + 🗓️ Start: January 2027
-+ 📅 Application deadline: 2 November 2026
++ 📅 Application deadline: 11 January 2027 (extended)
 
 You're a strong fit if your background is in computer science, AI, data analytics, or cloud infrastructure, and you care about sustainability and translating research into practice.
 

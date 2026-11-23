@@ -6,8 +6,10 @@ Dr Kasra Kassai is a Lecturer in Computer Science at London South Bank Universit
 
 ## Pages
 
+- [Research](https://drkassai.com/research/): Research themes: sustainable and carbon-aware computing, federated and distributed learning, and edge–cloud orchestration for 6G.
 - [Publications](https://drkassai.com/publications/): Peer-reviewed papers and scholarly work on federated learning, edge computing, energy estimation, and orchestration.
-- [PhD Position](https://drkassai.com/phd/): Funded PhD openings on AI-powered, carbon-aware cloud platforms at LSBU.
+- [Teaching tools](https://drkassai.com/teaching-tools/): Interactive teaching tools, including economics and finance simulations for seminars.
+- [PhD Position](https://drkassai.com/phd/): PhD openings with a fee-waiver scholarship (tuition fees covered, no stipend) on AI-powered, carbon-aware cloud platforms at LSBU. Application deadline for the January 2027 start extended to 11 January 2027.
 - [Office Hours](https://drkassai.com/officehours/): Meeting schedule and booking information.
 
 ## Profiles
