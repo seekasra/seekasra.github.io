@@ -483,3 +483,39 @@ button#theme-toggle:hover {
     outline: 2px solid var(--darkcolor);
     outline-offset: 2px;
 }
+
+/* ---------------------------------------------------------------------------
+   Glass cards: publications (and the Teaching Tools module card, which shares
+   the card style) get the same clear glass as the navbar pills, toned down
+   for a large surface.
+   --------------------------------------------------------------------------- */
+:root {
+    --card-glass: linear-gradient(180deg, rgba(255, 255, 255, 0.66) 0%, rgba(255, 255, 255, 0.3) 100%);
+    --card-border: rgba(255, 255, 255, 0.75);
+    --card-shadow: 0 0 0 0.5px rgba(15, 23, 42, 0.09), 0 2px 6px rgba(15, 23, 42, 0.04),
+        0 10px 30px rgba(15, 23, 42, 0.07), inset 0 1px 0 rgba(255, 255, 255, 0.95),
+        inset 0 -1px 0 rgba(15, 23, 42, 0.03);
+}
+
+.dark {
+    --card-glass: linear-gradient(180deg, rgba(255, 255, 255, 0.075) 0%, rgba(255, 255, 255, 0.02) 100%);
+    --card-border: rgba(255, 255, 255, 0.1);
+    --card-shadow: 0 2px 6px rgba(0, 0, 0, 0.2), 0 10px 30px rgba(0, 0, 0, 0.25),
+        inset 0 1px 0 rgba(255, 255, 255, 0.14), inset 0 -1px 0 rgba(0, 0, 0, 0.2);
+}
+
+.post-entry,
+.publication-item {
+    background: var(--card-glass);
+    border: 1px solid var(--card-border);
+    border-radius: 18px;
+    box-shadow: var(--card-shadow);
+    -webkit-backdrop-filter: saturate(170%) blur(18px);
+    backdrop-filter: saturate(170%) blur(18px);
+}
+
+.post-entry:hover,
+.publication-item:hover {
+    border: 1px solid rgba(217, 95, 14, 0.4);
+    box-shadow: var(--card-shadow), 0 14px 36px rgba(217, 95, 14, 0.12);
+}
