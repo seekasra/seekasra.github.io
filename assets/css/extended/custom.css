@@ -415,3 +415,71 @@ button#theme-toggle:focus-visible {
         mask-image: linear-gradient(90deg, #000 85%, transparent);
     }
 }
+
+/* ---------------------------------------------------------------------------
+   Clearer, more transparent glass for the navbar pills and the homepage
+   buttons: see-through tint, frosted blur, bright top edge highlight and a
+   faint lower edge, like iOS glass controls.
+   --------------------------------------------------------------------------- */
+:root {
+    --track-bg: rgba(255, 255, 255, 0.28);
+    --track-border: rgba(15, 23, 42, 0.07);
+    --bubble-bg: linear-gradient(180deg, rgba(255, 255, 255, 0.78) 0%, rgba(255, 255, 255, 0.38) 100%);
+    --bubble-hover: rgba(255, 255, 255, 0.4);
+    --bubble-border: rgba(255, 255, 255, 0.75);
+    --bubble-shadow: 0 0 0 0.5px rgba(15, 23, 42, 0.1), 0 1px 2px rgba(15, 23, 42, 0.06),
+        0 6px 18px rgba(15, 23, 42, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.95),
+        inset 0 -1px 0 rgba(15, 23, 42, 0.04);
+    --glass-blur: saturate(170%) blur(14px);
+}
+
+.dark {
+    --track-bg: rgba(255, 255, 255, 0.035);
+    --track-border: rgba(255, 255, 255, 0.08);
+    --bubble-bg: linear-gradient(180deg, rgba(255, 255, 255, 0.17) 0%, rgba(255, 255, 255, 0.04) 100%);
+    --bubble-hover: rgba(255, 255, 255, 0.06);
+    --bubble-border: rgba(255, 255, 255, 0.14);
+    --bubble-shadow: 0 1px 2px rgba(0, 0, 0, 0.25), 0 6px 18px rgba(0, 0, 0, 0.25),
+        inset 0 1px 0 rgba(255, 255, 255, 0.28), inset 0 -1px 0 rgba(0, 0, 0, 0.2);
+}
+
+#menu,
+button#theme-toggle {
+    -webkit-backdrop-filter: var(--glass-blur);
+    backdrop-filter: var(--glass-blur);
+}
+
+#menu li:has(.active) > a,
+button#theme-toggle:hover {
+    -webkit-backdrop-filter: var(--glass-blur);
+    backdrop-filter: var(--glass-blur);
+}
+
+/* Homepage buttons (under the social icons): the same glass pill */
+.profile .button {
+    padding: 7px 12px;
+    color: var(--primary);
+    background: var(--bubble-bg);
+    border: 1px solid var(--bubble-border);
+    box-shadow: var(--bubble-shadow);
+    -webkit-backdrop-filter: var(--glass-blur);
+    backdrop-filter: var(--glass-blur);
+}
+
+.profile .button:hover {
+    color: #fff;
+    background: linear-gradient(180deg, rgba(232, 118, 40, 0.92) 0%, rgba(217, 95, 14, 0.78) 100%);
+    border-color: rgba(255, 255, 255, 0.35);
+    box-shadow: 0 1px 2px rgba(217, 95, 14, 0.25), 0 8px 22px rgba(217, 95, 14, 0.28),
+        inset 0 1px 0 rgba(255, 255, 255, 0.45), inset 0 -1px 0 rgba(0, 0, 0, 0.12);
+    transform: translateY(-2px);
+}
+
+.profile .button:active {
+    transform: scale(0.97);
+}
+
+.profile .button:focus-visible {
+    outline: 2px solid var(--darkcolor);
+    outline-offset: 2px;
+}
