@@ -282,3 +282,136 @@ body.list {
         transform: none;
     }
 }
+
+/* ---------------------------------------------------------------------------
+   iOS-style navbar: menu as a frosted capsule (segmented control), the current
+   page as a raised glass bubble, and the theme toggle as a round glass button.
+   --------------------------------------------------------------------------- */
+:root {
+    --header-height: 60px;
+    --track-bg: rgba(15, 23, 42, 0.045);
+    --track-border: rgba(15, 23, 42, 0.07);
+    --bubble-bg: linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(255, 255, 255, 0.78));
+    --bubble-hover: rgba(255, 255, 255, 0.55);
+    --bubble-border: rgba(15, 23, 42, 0.06);
+    --bubble-shadow: 0 1px 2px rgba(15, 23, 42, 0.08), 0 4px 14px rgba(15, 23, 42, 0.08),
+        inset 0 1px 0 rgba(255, 255, 255, 1);
+}
+
+.dark {
+    --track-bg: rgba(255, 255, 255, 0.05);
+    --track-border: rgba(255, 255, 255, 0.08);
+    --bubble-bg: linear-gradient(180deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.09));
+    --bubble-hover: rgba(255, 255, 255, 0.07);
+    --bubble-border: rgba(255, 255, 255, 0.12);
+    --bubble-shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 6px 16px rgba(0, 0, 0, 0.28),
+        inset 0 1px 0 rgba(255, 255, 255, 0.22);
+}
+
+#menu {
+    align-self: center;
+    gap: 2px;
+    margin: 8px var(--gap);
+    padding: 4px;
+    line-height: 20px;
+    background: var(--track-bg);
+    border: 1px solid var(--track-border);
+    border-radius: 999px;
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.04);
+    scrollbar-width: none;
+}
+
+#menu::-webkit-scrollbar {
+    display: none;
+}
+
+#menu li + li {
+    margin-inline-start: 0;
+}
+
+#menu a {
+    padding: 7px 14px;
+    border: 1px solid transparent;
+    border-radius: 999px;
+    font-size: 15px;
+    color: var(--secondary);
+    transition: background 0.25s ease, color 0.25s ease, box-shadow 0.25s ease,
+        border-color 0.25s ease, transform 0.15s ease;
+}
+
+#menu a:hover {
+    color: var(--primary);
+    background: var(--bubble-hover);
+}
+
+#menu a:active {
+    transform: scale(0.96);
+}
+
+/* Current page: raised glass bubble instead of an underline */
+#menu .active {
+    box-shadow: none;
+}
+
+#menu li:has(.active) > a {
+    color: var(--primary);
+    font-weight: 500;
+    background: var(--bubble-bg);
+    border-color: var(--bubble-border);
+    box-shadow: var(--bubble-shadow);
+}
+
+/* Theme toggle: round glass button */
+button#theme-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px;
+    height: 34px;
+    margin: auto 10px;
+    color: var(--secondary);
+    background: var(--track-bg);
+    border: 1px solid var(--track-border);
+    border-radius: 50%;
+    transition: background 0.25s ease, color 0.25s ease, transform 0.15s ease;
+}
+
+button#theme-toggle:hover {
+    color: var(--primary);
+    background: var(--bubble-bg);
+    box-shadow: var(--bubble-shadow);
+}
+
+button#theme-toggle:active {
+    transform: scale(0.92);
+}
+
+button#theme-toggle svg {
+    width: 18px;
+    height: 18px;
+}
+
+/* Keyboard focus stays visible on the pills */
+#menu a:focus-visible,
+button#theme-toggle:focus-visible {
+    outline: 2px solid var(--darkcolor);
+    outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    #menu a:active,
+    button#theme-toggle:active {
+        transform: none;
+    }
+}
+
+/* Small screens: keep the capsule inside the viewport; it scrolls within its
+   own border, with a soft fade hinting there is more to the right. */
+@media (max-width: 768px) {
+    #menu {
+        min-width: 0;
+        max-width: calc(100vw - var(--gap) * 2);
+        -webkit-mask-image: linear-gradient(90deg, #000 85%, transparent);
+        mask-image: linear-gradient(90deg, #000 85%, transparent);
+    }
+}
