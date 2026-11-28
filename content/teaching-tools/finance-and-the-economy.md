@@ -7,6 +7,8 @@ description: "Interactive simulators for the Finance and the Economy module at L
 
 Twenty-seven interactive simulators covering Seminars 2 to 10 of the module. Each one takes a seminar question and makes it adjustable, so you can test a prediction before you read the answer.
 
+<!--more-->
+
 ## Seminar 2: Market forces
 
 ### [The petrol market: shifting supply and demand](/teaching-tools/finance-and-the-economy/petrol/) {#petrol}
