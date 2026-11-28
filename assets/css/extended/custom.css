@@ -134,3 +134,17 @@
 .profile_inner > span > p:nth-of-type(n+3) {
     margin-top: 0.9em;
 }
+
+/* Consistent navbar across all main pages.
+   1. The theme gives list-kind pages (home, Teaching Tools) a grey background in
+      light mode, so the grey navbar blends into the page there but shows as a band
+      on Research, Publications, PhD Positions and Office Hours. Use one background.
+   2. Reserve the scrollbar's space so the menu doesn't shift sideways between
+      short pages (no scrollbar) and long pages (scrollbar). */
+.list {
+    background: var(--theme);
+}
+
+html {
+    scrollbar-gutter: stable;
+}
