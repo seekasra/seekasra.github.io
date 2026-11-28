@@ -9,7 +9,9 @@ Twenty-seven interactive simulators covering Seminars 2 to 10 of the module. Eac
 
 <!--more-->
 
-## Seminar 2: Market forces
+<div class="seminar-card">
+
+## <span class="seminar-no">Seminar 2</span> Market forces {#seminar-2}
 
 ### [The petrol market: shifting supply and demand](/teaching-tools/finance-and-the-economy/petrol/) {#petrol}
 
@@ -23,7 +25,11 @@ Shift either curve and change how elastic it is, then read off the new equilibri
 
 Solve two linear functions for equilibrium, adjust the intercepts and slopes, and see the shortage or surplus at every price in the schedule.
 
-## Seminar 3: Elasticity
+</div>
+
+<div class="seminar-card">
+
+## <span class="seminar-no">Seminar 3</span> Elasticity {#seminar-3}
 
 ### [Arc elasticity of demand](/teaching-tools/finance-and-the-economy/arc-elasticity/) {#arc-elasticity}
 
@@ -49,7 +55,11 @@ Solve two linear functions for equilibrium, adjust the intercepts and slopes, an
 
 **Question 8.** With supply vertical at the arena capacity, compare holding the £148 face value against a £355 dynamic price and see who captures the surplus.
 
-## Seminar 4: Cost-volume-profit analysis
+</div>
+
+<div class="seminar-card">
+
+## <span class="seminar-no">Seminar 4</span> Cost-volume-profit analysis {#seminar-4}
 
 ### [Lia's Coffee Bar: cost curves](/teaching-tools/finance-and-the-economy/cost-curves/) {#cost-curves}
 
@@ -63,7 +73,11 @@ Solve two linear functions for equilibrium, adjust the intercepts and slopes, an
 
 **Questions 3 and 4.** Move the selling price, the costs and the sales commission, and watch the breakeven point, the margin of safety and operating income change.
 
-## Seminar 5: Market structures
+</div>
+
+<div class="seminar-card">
+
+## <span class="seminar-no">Seminar 5</span> Market structures {#seminar-5}
 
 ### [Profit, entry and long-run equilibrium](/teaching-tools/finance-and-the-economy/market-structures/) {#market-structures}
 
@@ -73,7 +87,11 @@ Solve two linear functions for equilibrium, adjust the intercepts and slopes, an
 
 **Question 6.** Set each airline’s fare, see whether either would want to switch, and find the Nash equilibrium.
 
-## Seminar 6: Pricing decisions and profit maximisation
+</div>
+
+<div class="seminar-card">
+
+## <span class="seminar-no">Seminar 6</span> Pricing decisions and profit maximisation {#seminar-6}
 
 ### [Mark-up versus margin](/teaching-tools/finance-and-the-economy/markup-and-margin/) {#markup-and-margin}
 
@@ -83,7 +101,11 @@ Solve two linear functions for equilibrium, adjust the intercepts and slopes, an
 
 **Question 4.** Fit a demand curve to seven observations, find where marginal revenue meets marginal cost, and compare that with the cost-plus price of £14.
 
-## Seminar 7: Finance for business
+</div>
+
+<div class="seminar-card">
+
+## <span class="seminar-no">Seminar 7</span> Finance for business {#seminar-7}
 
 ### [NPV and IRR of an investment](/teaching-tools/finance-and-the-economy/npv-and-irr/) {#npv-and-irr}
 
@@ -97,7 +119,11 @@ Solve two linear functions for equilibrium, adjust the intercepts and slopes, an
 
 **Questions 5 and 6.** Compare the quick approximation, subtracting inflation, with the exact calculation, dividing (1 + nominal) by (1 + inflation).
 
-## Seminar 8: Macroeconomic factors
+</div>
+
+<div class="seminar-card">
+
+## <span class="seminar-no">Seminar 8</span> Macroeconomic factors {#seminar-8}
 
 ### [The market for loanable funds](/teaching-tools/finance-and-the-economy/loanable-funds/) {#loanable-funds}
 
@@ -111,7 +137,11 @@ Solve two linear functions for equilibrium, adjust the intercepts and slopes, an
 
 **Questions 4 and 5.** Shift aggregate demand along SRAS to B, then let wages and input prices adjust until output returns to its natural level at C.
 
-## Seminar 9: Government economic policy
+</div>
+
+<div class="seminar-card">
+
+## <span class="seminar-no">Seminar 9</span> Government economic policy {#seminar-9}
 
 ### [The multiplier effect](/teaching-tools/finance-and-the-economy/multiplier/) {#multiplier}
 
@@ -125,7 +155,11 @@ Solve two linear functions for equilibrium, adjust the intercepts and slopes, an
 
 **Questions 5 and 6.** Shift the vertical money supply with open-market purchases or reserve requirements, shift money demand with liquidity preference, and watch the rate balance the two.
 
-## Seminar 10: Global business and economics
+</div>
+
+<div class="seminar-card">
+
+## <span class="seminar-no">Seminar 10</span> Global business and economics {#seminar-10}
 
 ### [Jon and Marie: comparative advantage](/teaching-tools/finance-and-the-economy/comparative-advantage/) {#comparative-advantage}
 
@@ -134,6 +168,8 @@ Solve two linear functions for equilibrium, adjust the intercepts and slopes, an
 ### [Exchange rates: importers and exporters](/teaching-tools/finance-and-the-economy/exchange-rate/) {#exchange-rate}
 
 **Questions 4 to 6.** Move the sterling to euro rate and see who gains, as a stronger pound makes imports cheaper and exports dearer.
+
+</div>
 
 ## Textbook sources
 
