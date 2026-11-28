@@ -23,3 +23,9 @@ By default meetings are virtual on MS Teams. I am also available for face-to-fac
 + Presentation slides or a paper draft are perfectly fine.
 + If you do not have those, please send a one-page description of the research.
 + Please send me the material by 8 pm on the evening prior to our meeting.
+
+---
+
+## Latest on X
+
+<a class="twitter-timeline" data-tweet-limit="3" data-dnt="true" data-theme="dark" href="https://x.com/kasrakassai">Posts by @kasrakassai</a> <script async src="https://platform.x.com/widgets.js" charset="utf-8"></script>

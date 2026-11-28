@@ -16,7 +16,7 @@
 - year: 2024
   title: "Architectural Blueprint for Heterogeneity-Resilient Federated Learning"
   authors: "S. Bashir, T. Dagiuklas, K. Kassai, M. Iqbal"
-  venue: "IET 6G and Future Networks Conference (IET 6G 2024), pp. 62-68"
+  venue: "IET 6G and Future Networks Conference (IET 6G 2024), pp. 62–68"
   links:
     - name: "LSBU Research Portal"
       url: "https://researchportal.lsbu.ac.uk/en/publications/architectural-blueprint-for-heterogeneity-resilient-federated-lea-3"
@@ -26,7 +26,8 @@
 - year: 2024
   title: "GreenBytes: Intelligent Energy Estimation for Edge-Cloud"
   authors: "K. Kassai, T. Dagiuklas, S. Bashir, M. Iqbal"
-  venue: "IET 6G and Future Networks Conference (IET 6G 2024), pp. 57-61"
+  venue: "IET 6G and Future Networks Conference (IET 6G 2024), pp. 57–61"
+  doi: "10.1049/icp.2024.2237"
   links:
     - name: "LSBU Research Portal"
       url: "https://researchportal.lsbu.ac.uk/en/publications/greenbytes-intelligent-energy-estimation-for-edge-cloud-intellige"
@@ -56,7 +57,7 @@
 - year: 2019
   title: "Evolution of Orchestration towards 5G"
   authors: "K. Kassai, S. Ghosh, A. Dagiuklas"
-  venue: "Journal of Communication 14(12), pp. 1134-1140"
+  venue: "Journal of Communications 14(12), pp. 1134–1140"
   doi: "10.12720/jcm.14.12.1134-1140"
   links:
     - name: "Google Scholar"

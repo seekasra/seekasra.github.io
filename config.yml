@@ -13,10 +13,10 @@ menu:
         - name: Publications
           url: /publications/
           weight: 15
-        - name: Teaching tools
+        - name: Teaching Tools
           url: /teaching-tools/
           weight: 18
-        - name: PhD Position
+        - name: PhD Positions
           url: /phd/
           weight: 20
         - name: Office Hours
@@ -83,7 +83,7 @@ params:
 
             **Previously:** Lecturer in Digital Analytics, Course Leader for BSc (Hons) Business Management, and co-lead of the Business and Economics Insights research group.
 
-            **Education:** PhD in Computer Science (supervised by Professor Tasos Dagiuklas), contributing frameworks for sustainable computing in 6G · BSc (Hons) IT Engineering (Computer Science) and MSc Software Engineering, City, University of London.
+            **Education:** PhD in Computer Science, School of Computer Science, College of Engineering and Environment, London South Bank University (supervised by Professor Tasos Dagiuklas), contributing frameworks for sustainable computing in 6G · BSc (Hons) IT Engineering (Computer Science) and MSc Software Engineering, City, University of London.
           imageUrl: "picture.jpeg"
           imageTitle: "Dr Kasra Kassai"
           imageWidth: 160
@@ -93,7 +93,7 @@ params:
               url: "https://credentials.advance-he.ac.uk/2666639b-ffa9-41ca-97e3-d56750468b54"
               image: "/advance-he-research-leadership-badge.png"
           buttons:
-            - name: PhD positions
+            - name: PhD Positions
               url: /phd/
             - name: Publications
               url: /publications/
@@ -118,7 +118,7 @@ params:
         # Personal academic site: identify the home entity as a Person, not an Organization.
         publisherType: Person
         # Curated canonical identity profiles for JSON-LD sameAs.
-        # Excludes non-profile socialIcons (Location, Office Hours, Email, Bookings).
+        # Mirrors socialIcons minus Email (a mailto: link is not an identity profile).
         sameAs:
             - https://scholar.google.com/citations?user=zABNP3sAAAAJ&hl=en
             - https://orcid.org/0000-0003-2869-9469

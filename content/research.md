@@ -9,7 +9,7 @@ description: "Dr Kasra Kassai's research on sustainable and carbon-aware computi
 
 I work at the intersection of machine learning and sustainable systems, building practical methods that make computing more energy-efficient and carbon-aware — from the edge to the cloud, and toward 6G networks. My aim is applied, impact-driven research: turning ideas about greener computing into systems that can actually run in production.
 
-My PhD, supervised by Professor Tasos Dagiuklas, contributed frameworks for sustainable computing in 6G. That work continues to shape the three themes below.
+My PhD, completed at the School of Computer Science, College of Engineering and Environment, London South Bank University, and supervised by Professor Tasos Dagiuklas, contributed frameworks for sustainable computing in 6G. That work continues to shape the three themes below.
 
 ## Research themes
 
@@ -27,7 +27,7 @@ Getting workloads to the right place at the right time is central to efficient, 
 
 ## Background
 
-I hold a PhD in Computer Science, as well as a BSc (Hons) in IT Engineering (Computer Science) and an MSc in Software Engineering from City, University of London. I have completed the [Advance HE Research Leadership Development Programme](https://credentials.advance-he.ac.uk/2666639b-ffa9-41ca-97e3-d56750468b54).
+I hold a PhD in Computer Science from London South Bank University, as well as a BSc (Hons) in IT Engineering (Computer Science) and an MSc in Software Engineering from City, University of London. I have completed the [Advance HE Research Leadership Development Programme](https://credentials.advance-he.ac.uk/2666639b-ffa9-41ca-97e3-d56750468b54).
 
 A full list of my papers is on the [Publications](/publications/) page, with links to Google Scholar, the LSBU Research Portal, and DOIs where available.
 

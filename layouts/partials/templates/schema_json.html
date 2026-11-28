@@ -17,10 +17,18 @@
       "name": "London South Bank University",
       "url": "https://www.lsbu.ac.uk/"
     },
-    "alumniOf": {
-      "@type": "CollegeOrUniversity",
-      "name": "London South Bank University"
-    },
+    "alumniOf": [
+      {
+        "@type": "CollegeOrUniversity",
+        "name": "London South Bank University",
+        "url": "https://www.lsbu.ac.uk/"
+      },
+      {
+        "@type": "CollegeOrUniversity",
+        "name": "City, University of London",
+        "url": "https://www.city.ac.uk/"
+      }
+    ],
     {{- with site.Params.knowsAbout }}
     "knowsAbout": [
       {{ range $i, $e := . }}{{ if $i }}, {{ end }}{{ $e }}{{ end }}

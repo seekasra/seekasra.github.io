@@ -9,11 +9,11 @@ Twenty-seven interactive simulators covering Seminars 2 to 10 of the module. Eac
 
 ## Seminar 2: Market forces
 
-### [Petrol market](/teaching-tools/finance-and-the-economy/petrol/) {#petrol}
+### [The petrol market: shifting supply and demand](/teaching-tools/finance-and-the-economy/petrol/) {#petrol}
 
 Shift supply and demand one at a time or together, then predict which lettered point on the diagram the new equilibrium settles at.
 
-### [Wheat flour market](/teaching-tools/finance-and-the-economy/wheat-flour/) {#wheat-flour}
+### [The market for wheat flour](/teaching-tools/finance-and-the-economy/wheat-flour/) {#wheat-flour}
 
 Shift either curve and change how elastic it is, then read off the new equilibrium price and quantity against the original.
 
@@ -21,7 +21,7 @@ Shift either curve and change how elastic it is, then read off the new equilibri
 
 Solve two linear functions for equilibrium, adjust the intercepts and slopes, and see the shortage or surplus at every price in the schedule.
 
-## Seminar 3: Elasticity and surplus
+## Seminar 3: Elasticity
 
 ### [Arc elasticity of demand](/teaching-tools/finance-and-the-economy/arc-elasticity/) {#arc-elasticity}
 
@@ -31,7 +31,7 @@ Solve two linear functions for equilibrium, adjust the intercepts and slopes, an
 
 **Question 3.** Slide the pump price and compare perfectly inelastic demand, where Jan always takes 30 litres, with unit elastic demand, where Lou always spends the same.
 
-### [Cigarette pricing](/teaching-tools/finance-and-the-economy/cigarette-pricing/) {#cigarette-pricing}
+### [Cigarette pricing and elasticity](/teaching-tools/finance-and-the-economy/cigarette-pricing/) {#cigarette-pricing}
 
 **Questions 4 and 5.** Work out the price rise needed for a target fall in smoking, and see how the answer changes as demand becomes more elastic over time.
 
@@ -39,11 +39,11 @@ Solve two linear functions for equilibrium, adjust the intercepts and slopes, an
 
 **Question 6.** Pivot the demand curve through a fixed equilibrium and watch the surplus triangle grow as demand becomes less elastic.
 
-### [Take That album surplus areas](/teaching-tools/finance-and-the-economy/take-that-surplus/) {#take-that-surplus}
+### [Take That album: surplus areas](/teaching-tools/finance-and-the-economy/take-that-surplus/) {#take-that-surplus}
 
 **Question 7.** Shade each area the question asks for, xzP₁, wzP₁, myP₂ and wyP₂, then shift demand and steepen supply to see who gains.
 
-### [Oasis dynamic pricing](/teaching-tools/finance-and-the-economy/oasis-dynamic-pricing/) {#oasis-dynamic-pricing}
+### [Oasis tickets: dynamic pricing](/teaching-tools/finance-and-the-economy/oasis-dynamic-pricing/) {#oasis-dynamic-pricing}
 
 **Question 8.** With supply vertical at the arena capacity, compare holding the £148 face value against a £355 dynamic price and see who captures the surplus.
 
@@ -71,7 +71,7 @@ Solve two linear functions for equilibrium, adjust the intercepts and slopes, an
 
 **Question 6.** Set each airline’s fare, see whether either would want to switch, and find the Nash equilibrium.
 
-## Seminar 6: Pricing decisions
+## Seminar 6: Pricing decisions and profit maximisation
 
 ### [Mark-up versus margin](/teaching-tools/finance-and-the-economy/markup-and-margin/) {#markup-and-margin}
 
@@ -147,4 +147,4 @@ Each tool names the question, and where relevant the chapter, it is based on in 
 
 These tools are released under [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International](https://creativecommons.org/licenses/by-nc-sa/4.0/) (CC BY-NC-SA 4.0). You are welcome to use and adapt them for your own teaching, with attribution, provided you do not use them commercially and you share any adaptation under the same licence.
 
-Suggested citation: Kassai, K. (2026). *Teaching tools: interactive simulators for economics and analytics.* https://drkassai.com/teaching-tools/
+Suggested citation: Kassai, K. (2026). *Teaching Tools: Interactive Simulators for Economics and Analytics.* https://drkassai.com/teaching-tools/

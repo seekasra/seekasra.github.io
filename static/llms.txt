@@ -2,15 +2,15 @@
 
 > Lecturer in Computer Science at London South Bank University (LSBU), researching machine learning, edge computing, and sustainable, energy-efficient computing.
 
-Dr Kasra Kassai is a Lecturer in Computer Science at London South Bank University (LSBU). He holds a PhD in Computer Science (supervised by Professor Tasos Dagiuklas), as well as a BSc (Hons) in IT Engineering (Computer Science) and an MSc in Software Engineering from City, University of London. His research focuses on carbon-aware computing, federated learning, edge and cloud orchestration, and energy-efficient systems for 6G — building practical solutions that align computing workloads with sustainability goals.
+Dr Kasra Kassai is a Lecturer in Computer Science at London South Bank University (LSBU). He holds a PhD in Computer Science from the School of Computer Science, College of Engineering and Environment, London South Bank University (supervised by Professor Tasos Dagiuklas), as well as a BSc (Hons) in IT Engineering (Computer Science) and an MSc in Software Engineering from City, University of London. His research focuses on carbon-aware computing, federated learning, edge and cloud orchestration, and energy-efficient systems for 6G — building practical solutions that align computing workloads with sustainability goals.
 
 ## Pages
 
 - [Research](https://drkassai.com/research/): Research themes: sustainable and carbon-aware computing, federated and distributed learning, and edge–cloud orchestration for 6G.
 - [Publications](https://drkassai.com/publications/): Peer-reviewed papers and scholarly work on federated learning, edge computing, energy estimation, and orchestration.
-- [Teaching tools](https://drkassai.com/teaching-tools/): Interactive teaching tools, including economics and finance simulations for seminars.
-- [PhD Position](https://drkassai.com/phd/): PhD openings with a fee-waiver scholarship (tuition fees covered, no stipend) on AI-powered, carbon-aware cloud platforms at LSBU. Application deadline for the January 2027 start extended to 11 January 2027.
-- [Office Hours](https://drkassai.com/officehours/): Meeting schedule and booking information.
+- [Teaching Tools](https://drkassai.com/teaching-tools/): Interactive economics and finance simulators for seminars, built while Lecturer in Digital Analytics at LSBU.
+- [PhD Positions](https://drkassai.com/phd/): PhD openings with a fee-waiver scholarship (tuition fees covered, no stipend) on AI-powered, carbon-aware cloud platforms at LSBU. Application deadline for the early February 2027 start extended to 11 January 2027.
+- [Office Hours](https://drkassai.com/officehours/): Meeting schedule, booking information and latest posts on X.
 
 ## Profiles
 
@@ -19,3 +19,4 @@ Dr Kasra Kassai is a Lecturer in Computer Science at London South Bank Universit
 - [LSBU Research Portal](https://researchportal.lsbu.ac.uk/en/persons/kasra-kassai)
 - [LinkedIn](https://www.linkedin.com/in/kasrakassai)
 - [GitHub](https://github.com/seekasra)
+- [X](https://x.com/kasrakassai)

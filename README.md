@@ -1,7 +1,6 @@
 
-[![License](https://img.shields.io/github/license/seekasra/seekasra.github.io?style=flat-square&color=blue)](https://github.com/seekasra/seekasra.github.io/blob/master/LICENSE)
+[![License](https://img.shields.io/github/license/seekasra/seekasra.github.io?style=flat-square&color=blue)](https://github.com/seekasra/seekasra.github.io/blob/main/LICENSE.md)
 [![Stability](https://img.shields.io/badge/stability-experimental-orange?style=flat-square)](https://github.com/seekasra/seekasra.github.io)
-[![Release](https://img.shields.io/github/v/release/seekasra/seekasra.github.io?style=flat-square&logo=github)](https://github.com/seekasra/seekasra.github.io/releases)
 [![Last commit](https://img.shields.io/github/last-commit/seekasra/seekasra.github.io?style=flat-square)](https://github.com/seekasra/seekasra.github.io/commits)
 [![Stars](https://img.shields.io/github/stars/seekasra/seekasra.github.io?style=flat-square&logo=github)](https://github.com/seekasra/seekasra.github.io/stargazers)
 [![Forks](https://img.shields.io/github/forks/seekasra/seekasra.github.io?style=flat-square&logo=github)](https://github.com/seekasra/seekasra.github.io/network/members)
@@ -15,4 +14,4 @@
 
 
 
-webpage hosted on GitHub
+Source for [drkassai.com](https://drkassai.com/), built with Hugo and hosted on GitHub Pages.
